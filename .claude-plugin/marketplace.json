@@ -1,0 +1,22 @@
+{
+    "name": "creative-writing-skills",
+    "owner": {
+      "name": "Jimmy Yao",
+      "email": "dev.jimm.py@gmail.com"
+    },
+    "metadata": {
+      "description": "Creative writing skills for Claude",
+      "version": "0.0.1"
+    },
+    "plugins": [
+      {
+        "name": "creative-writing-assistant",
+        "description": "A set of skills for a comprehensive creative writing assistant. This skill is designed to help you write creative content for your projects.",
+        "source": "./",
+        "strict": false,
+        "skills": [
+          "./creative-writing-skills/creative-writing-assistant"
+        ]
+      }
+    ]
+  }
