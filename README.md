@@ -38,20 +38,20 @@ Once you've installed the skills (see installation sections below for Claude.ai 
 
 1. **Download skills from releases:**
    - Go to the [Releases page](https://github.com/haowjy/creative-writing-skills/releases)
-   - Download the skill ZIP files you want to use:
-     - `cw-router.zip`
-     - `cw-prose-writing.zip`
-     - `cw-story-critique.zip`
-     - `cw-style-skill-creator.zip`
-     - `cw-brainstorm-capture.zip`
-     - `cw-official-wiki.zip`
+   - Download the `.skill` files you want to use:
+     - `cw-router.skill`
+     - `cw-prose-writing.skill`
+     - `cw-story-critique.skill`
+     - `cw-style-skill-creator.skill`
+     - `cw-brainstorm-capture.skill`
+     - `cw-official-wiki.skill`
 
 2. **Upload to Claude.ai:**
    - Go to [Claude.ai](https://claude.ai)
    - Click your profile icon → **Settings**
    - Navigate to **Capabilities** → **Skills**
    - Click **"Upload skill"**
-   - Upload each ZIP file (you can drag and drop or click to browse)
+   - Upload each `.skill` file (you can drag and drop or click to browse)
 
 **Tips:**
 - Upload only the skills you plan to use
