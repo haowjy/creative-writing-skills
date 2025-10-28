@@ -6,16 +6,21 @@
     },
     "metadata": {
       "description": "Creative writing skills for Claude",
-      "version": "0.0.1"
+      "version": "0.0.2"
     },
     "plugins": [
       {
-        "name": "creative-writing-assistant",
-        "description": "A set of skills for a comprehensive creative writing assistant. This skill is designed to help you write creative content for your projects.",
+        "name": "creative-writing-skills",
+        "description": "A set of composable skills for a creative writing project.",
         "source": "./",
         "strict": false,
         "skills": [
-          "./creative-writing-skills/creative-writing-assistant"
+          "./creative-writing-skills/cw-router",
+          "./creative-writing-skills/cw-prose-writing",
+          "./creative-writing-skills/cw-story-critique",
+          "./creative-writing-skills/cw-style-skill-creator",
+          "./creative-writing-skills/cw-brainstorm-capture",
+          "./creative-writing-skills/cw-official-wiki"
         ]
       }
     ]
