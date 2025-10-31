@@ -5,7 +5,7 @@ This reference helps capture chapter beat and scene exploration. User guides str
 ## What Gets Captured
 
 **Beats user mentions:**
-- Record those beats [user]
+- Record those beats
 - Keep minimal - just the beat itself
 - Don't elaborate on how it plays out
 
@@ -20,7 +20,7 @@ This reference helps capture chapter beat and scene exploration. User guides str
 - "Slow build" preserved as-is
 
 **Opening/ending ideas:**
-- All options coexist [TBD]
+- All options coexist
 - User might not decide yet
 - Multiple possibilities are fine
 
@@ -40,24 +40,24 @@ Capture whatever level of detail they're exploring.
 These are examples of what users might discuss, not a template:
 
 **Goal-oriented:**
-- "Chapter needs to accomplish X and Y" → capture X and Y [user]
-- "Has to set up Z" → note setup need [user]
+- "Chapter needs to accomplish X and Y" → capture X and Y
+- "Has to set up Z" → note setup need
 
 **Opening uncertainty:**
-- "Maybe open with scene A, or scene B?" → both noted [TBD]
-- "Not sure how to start" → note uncertainty [TBD]
+- "Maybe open with scene A, or scene B?" → both noted as options
+- "Not sure how to start" → note uncertainty
 
 **Ending thoughts:**
 - "Ends with cliffhanger somehow" → vague = keep vague
-- "Resolves the argument" → capture resolution [user]
+- "Resolves the argument" → capture resolution
 
 **Beat structure:**
-- "Three beats: setup, confrontation, twist" → capture those [user]
-- "Just two scenes" → note structure [user]
+- "Three beats: setup, confrontation, twist" → capture those
+- "Just two scenes" → note structure
 
 **Pacing notes:**
-- "Should be quick" → capture pacing thought [user]
-- "Linger on the emotion" → note emphasis [user]
+- "Should be quick" → capture pacing thought
+- "Linger on the emotion" → note emphasis
 
 ## Using Web Search
 
@@ -67,13 +67,14 @@ Search when helpful for:
 - Scene writing techniques being explored
 - Narrative structures being considered
 
-Tag results: [researched] or [reference: source]
+Note source when including researched info (e.g., "(from [source])" or "researched:")
 
 ## Still Brainstorming
 
 This is exploration, not finalization:
-- Source tag everything: [user] vs [AI suggestions]
-- Multiple chapter structures coexist [TBD]
+- Untagged = user said it
+- Use `<AI>...</AI>` for AI suggestions
+- Multiple chapter structures coexist as options
 - "Might" stays might, "probably" stays probably
 - Skeletal is good - preserves creative freedom
 
@@ -87,16 +88,13 @@ This is exploration, not finalization:
 # Chapter 5 Planning
 
 Purpose:
-- Protagonist confronts guilt about the accident [user]
+- Protagonist confronts guilt about the accident
 
-Opening options [TBD]:
-- Protagonist alone, then mentor finds them [user]
-- Open directly with confrontation [user]
+Opening options:
+- Protagonist alone, then mentor finds them
+- Open directly with confrontation
 
-[AI suggestions to consider]:
-- Alone scene could show internal struggle before external conversation
-- Direct opening could increase tension immediately
-[User hasn't decided]
+<AI>Alone scene could show internal struggle before external conversation. Direct opening could increase tension immediately.</AI>
 ```
 
 ### ❌ Bad Capture:
@@ -136,9 +134,9 @@ User: "I don't know how this chapter should go yet"
 ```markdown
 # Chapter 6 Planning
 
-[TBD]: Structure and beats not decided yet
-- Needs to show relationship strain [user]
-- Somewhere between chapters 5 and 7 [user]
+Structure and beats: not decided yet
+- Needs to show relationship strain
+- Somewhere between chapters 5 and 7
 ```
 
 ❌ Bad:

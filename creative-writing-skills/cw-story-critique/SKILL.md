@@ -75,4 +75,4 @@ Search when you'd benefit from:
 
 ## Skills are Composable
 
-Feel free to combine with other skills when helpful - e.g., using cw-official-wiki to check canon accuracy during critique.
+Feel free to combine with other skills when helpful - e.g., using cw-official-docs to check canon accuracy during critique.

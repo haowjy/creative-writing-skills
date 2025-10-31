@@ -43,8 +43,8 @@ Once you've installed the skills (see installation sections below for Claude.ai 
      - `cw-prose-writing.skill`
      - `cw-story-critique.skill`
      - `cw-style-skill-creator.skill`
-     - `cw-brainstorm-capture.skill`
-     - `cw-official-wiki.skill`
+     - `cw-brainstorming.skill`
+     - `cw-official-docs.skill`
 
 2. **Upload to Claude.ai:**
    - Go to [Claude.ai](https://claude.ai)
@@ -55,7 +55,7 @@ Once you've installed the skills (see installation sections below for Claude.ai 
 
 **Tips:**
 - Upload only the skills you plan to use
-- Start with cw-router, cw-prose-writing, and cw-brainstorm-capture for a core set
+- Start with cw-router, cw-prose-writing, and cw-brainstorming for a core set
 - You can add more skills later as needed
 
 ### Usage
@@ -63,7 +63,7 @@ Once you've installed the skills (see installation sections below for Claude.ai 
 After uploading skills, simply mention them in your conversations or let Claude automatically use them when appropriate.
 
 **Basic usage examples:**
-- "Use cw-brainstorm-capture to help me explore ideas for my antagonist"
+- "Use cw-brainstorming to help me explore ideas for my antagonist"
 - "Use cw-prose-writing to write this scene in my style"
 - "Use cw-story-critique to analyze this chapter"
 
@@ -81,10 +81,10 @@ For the best experience, create a dedicated Project for your writing:
      This is a creative writing project. You have access to the following skills:
      - cw-router: Guide me to the right skill
      - cw-prose-writing: Write prose in my style
-     - cw-brainstorm-capture: Capture brainstorming notes
+     - cw-brainstorming: Capture brainstorming notes
      - cw-story-critique: Provide writing feedback
      - cw-style-skill-creator: Create style guides
-     - cw-official-wiki: Create story documentation
+     - cw-official-docs: Create story documentation
 
      Use these skills as appropriate for creative writing tasks.
      ```
@@ -258,13 +258,13 @@ For best results, create a dedicated directory for your writing project:
 1. **Brainstorm your story:**
    ```
    "Help me brainstorm a magic system for my fantasy world"
-   (Uses cw-brainstorm-capture)
+   (Uses cw-brainstorming)
    ```
 
 2. **Document finalized ideas:**
    ```
-   "Create a wiki page for my magic system"
-   (Uses cw-official-wiki)
+   "Create a documentation page for my magic system"
+   (Uses cw-official-docs)
    ```
 
 3. **Analyze your writing style:**

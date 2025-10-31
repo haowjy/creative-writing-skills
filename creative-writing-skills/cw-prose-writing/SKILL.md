@@ -121,4 +121,4 @@ Markdown artifact with proper formatting
 
 ## Skills are Composable
 
-Feel free to combine with other skills - e.g., using cw-official-wiki to check character details while writing.
+Feel free to combine with other skills - e.g., using cw-official-docs to check character details while writing.

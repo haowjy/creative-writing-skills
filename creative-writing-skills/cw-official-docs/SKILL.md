@@ -1,9 +1,9 @@
 ---
-name: cw-official-wiki
-description: Creative writing skill for creating canonical reference documentation for fictional worlds, characters, and story events. Use when creating or updating official wiki pages, character profiles, location documentation, or lore pages. Creates polished, sourced, encyclopedic reference material.
+name: cw-official-docs
+description: Creative writing skill for creating canonical reference documentation for fictional worlds, characters, and story events. Use when creating or updating official documentation pages, character profiles, location documentation, or lore pages. Creates polished, sourced, encyclopedic reference material.
 ---
 
-# Official Wiki Documentation
+# Official Documentation
 
 Create canonical, sourced reference pages for your story's characters, locations, events, and lore.
 
@@ -13,11 +13,11 @@ Build authoritative documentation that serves as "single source of truth" for yo
 
 **Can be created before or during writing** for worldbuilding, lore, and reference material that won't all appear in the story itself.
 
-## Wiki vs Brainstorm Notes
+## Documentation vs Brainstorm Notes
 
-**The key distinction:** Wiki = you've decided and it's polished enough to show someone. Brainstorm = you're still figuring it out.
+**The key distinction:** Documentation = you've decided and it's polished enough to show someone. Brainstorm = you're still figuring it out.
 
-| Wiki | Brainstorm |
+| Documentation | Brainstorm |
 |------|------------|
 | Single version | Multiple options coexist |
 | Polished | Skeletal |
@@ -50,7 +50,7 @@ Write like a reference work:
 
 ## Flexible Structure
 
-**Wiki pages aren't templates to fill in** - structure should fit the content.
+**Documentation pages aren't templates to fill in** - structure should fit the content.
 
 Some character pages need detailed backstory, others don't. Some locations are just "a tavern in the capital" - that's one paragraph, not 12 sections. Some magic systems need elaborate rules, others are intentionally mysterious.
 
@@ -58,7 +58,7 @@ Some character pages need detailed backstory, others don't. Some locations are j
 
 See references/page-patterns.md for common patterns and examples - not mandatory structures.
 
-## Creating Wiki Pages
+## Creating Documentation Pages
 
 1. **Decide what needs documenting** - Character? Location? System? Event?
 2. **Choose relevant structure** - See references/page-patterns.md for common patterns
@@ -73,16 +73,16 @@ Structure adapts to content - not every page needs every section.
 Search when helpful for:
 - Verifying real-world facts your story references
 - Research for worldbuilding elements
-- Finding similar fictional wikis for inspiration
+- Finding similar fictional documentation/wikis for inspiration
 - Checking naming conventions or terminology
 
 ## Timing
 
-**You can write wiki pages BEFORE writing story chapters** - just ensure content is finalized and presentation-ready, not exploratory.
+**You can write documentation pages BEFORE writing story chapters** - just ensure content is finalized and presentation-ready, not exploratory.
 
-**For worldbuilding/lore:** Finalize concept → Create wiki page → Use while writing
+**For worldbuilding/lore:** Finalize concept → Create documentation page → Use while writing
 
-**For story events:** Write chapters → Document what happened → Create wiki page
+**For story events:** Write chapters → Document what happened → Create documentation page
 
 ## Teaching Example: Simple vs Complex
 
@@ -140,12 +140,12 @@ Acts as information source for the protagonist. Provides critical intelligence a
 
 ## Skills are Composable
 
-Feel free to combine with other skills when helpful (e.g., using cw-brainstorm-capture while exploring worldbuilding before finalizing into wiki pages).
+Feel free to combine with other skills when helpful (e.g., using cw-brainstorming while exploring worldbuilding before finalizing into documentation pages).
 
 ## File Placement (Claude Code)
 
-1. Check project documentation for wiki organization
-2. Common locations: `wiki/`, `docs/reference/`, `reference/`
+1. Check project documentation for organization
+2. Common locations: `docs/`, `wiki/`, `docs/reference/`, `reference/`
 3. Match existing naming conventions
 4. Ask if unclear
 

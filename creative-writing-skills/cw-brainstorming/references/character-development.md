@@ -11,27 +11,27 @@ User is:
 - Considering backstory possibilities
 - Testing character concepts
 
-This is exploratory - multiple options coexist, backstory often [TBD], arcs might change.
+This is exploratory - multiple options coexist, backstory often undecided, arcs might change.
 
 ## Minimal Capture for Characters
 
 **Motivation:**
-- "Motivated by X" → record X [user]
+- "Motivated by X" → record X
 - Don't elaborate on psychological mechanisms
 - Keep at the level of depth user explored
 
 **Backstory:**
-- "Maybe Y happened in their past" → noted as possibility [TBD]
+- "Maybe Y happened in their past" → noted as possibility
 - User often doesn't decide backstory details yet
 - Multiple backstory versions can coexist
 
 **Character arc:**
-- "Arc might go from A to B" → record both endpoints [user]
-- Transformation moments if mentioned [user]
+- "Arc might go from A to B" → record both endpoints
+- Transformation moments if mentioned
 - Don't fill in the arc beats user didn't mention
 
 **Relationships:**
-- "X and Y have tension" → note dynamic [user]
+- "X and Y have tension" → note dynamic
 - Don't invent specific incidents causing tension
 - Preserve vague if user left it vague
 
@@ -53,31 +53,31 @@ Capture their exploration, not your analysis.
 ### Character Arc
 
 User considering:
-- Change arc or flat arc? [often TBD]
-- Starting point → ending point [if user specifies]
-- Key transformation moments [if mentioned]
-- Or no arc yet - just exploring character [TBD]
+- Change arc or flat arc? (often undecided)
+- Starting point → ending point (if user specifies)
+- Key transformation moments (if mentioned)
+- Or no arc yet - just exploring character
 
 Multiple arc options can coexist.
 
 ### Relationships
 
 User exploring:
-- How do X and Y interact? [user describes]
-- Relationship progression? [if user plans it]
-- Conflicts? [user mentions]
-- Resolutions? [often TBD]
+- How do X and Y interact?
+- Relationship progression? (if user plans it)
+- Conflicts? (user mentions)
+- Resolutions? (often undecided)
 
 Don't invent relationship history.
 
 ### Backstory
 
 User brainstorming:
-- Formative events [user suggests possibilities]
-- What's revealed when [usually TBD]
-- What stays hidden [often undecided]
+- Formative events (user suggests possibilities)
+- What's revealed when (usually undecided)
+- What stays hidden (often undecided)
 
-Most backstory stays [TBD] in brainstorming.
+Most backstory stays undecided in brainstorming.
 
 ### Voice and Personality
 
@@ -97,7 +97,7 @@ Search when helpful for:
 - Similar characters in other works for reference
 - Real-world professions/roles character has
 
-Tag results: [researched: source]
+Note source when including researched info
 
 ## Teaching Example 1: Motivation
 
@@ -108,14 +108,15 @@ Tag results: [researched: source]
 ```markdown
 # Alex - Motivation Notes
 
-- Guilt from the incident [user]
-- Feels responsible for what happened [user]
-- Drives them to be more careful [user]
-- Makes them question their capability [user]
+- Guilt from the incident
+- Feels responsible for what happened
+- Drives them to be more careful
+- Makes them question their capability
 
-[TBD]: Does this resolve or persist throughout story?
-[TBD]: How does this affect their relationships?
-[TBD]: What was the incident specifically?
+Open questions:
+- Does this resolve or persist throughout story?
+- How does this affect their relationships?
+- What was the incident specifically?
 ```
 
 ### ❌ Bad Capture:
@@ -151,16 +152,17 @@ Tag results: [researched: source]
 # Maya - Arc Notes
 
 Starting point:
-- Ruthless and pragmatic [user]
-- Ends justify the means [user]
+- Ruthless and pragmatic
+- Ends justify the means
 
 Ending point:
-- Learns people matter more than mission [user]
+- Learns people matter more than mission
 
-[TBD]: How she gets from start to end
-[TBD]: Key transformation moments
-[TBD]: What triggers the change
-[TBD]: Does she fully change or partially?
+Open questions:
+- How she gets from start to end?
+- Key transformation moments?
+- What triggers the change?
+- Does she fully change or partially?
 ```
 
 ### ❌ Bad Capture:
@@ -205,14 +207,15 @@ Maya becomes leader who values every team member. Ruthlessness tempered by compa
 # Jordan & Sam - Relationship Notes
 
 Dynamic:
-- Competitive friendship [user]
-- Push each other [user]
-- Underlying tension [user]
-- Jordan feels inferior [user]
+- Competitive friendship
+- Push each other
+- Underlying tension
+- Jordan feels inferior
 
-[TBD]: How does this tension play out?
-[TBD]: Does it resolve or escalate?
-[TBD]: Why does Jordan feel inferior specifically?
+Open questions:
+- How does this tension play out?
+- Does it resolve or escalate?
+- Why does Jordan feel inferior specifically?
 ```
 
 ### ❌ Bad Capture:
@@ -254,13 +257,13 @@ User: "Not sure about this character yet. Just trying to figure out who they are
 ```markdown
 # Character Notes - [Name]
 
-[User exploring, nothing concrete yet]
+User exploring, nothing concrete yet
 
-Questions user is considering:
+Questions being considered:
 - [What user asked themselves]
 - [Thoughts they shared]
 
-[TBD]: Most character details undecided
+Most character details undecided
 ```
 
 ❌ Bad:
@@ -270,16 +273,16 @@ Don't fill uncertainty with invention unless asked.
 
 ## Multiple Backstory Versions
 
-User might explore several backstory options. All coexist [TBD] until user chooses:
+User might explore several backstory options. All coexist until user chooses:
 
 ```markdown
 # Character Backstory Options
 
-Option A: Military background [user exploring]
-Option B: Criminal past [user considering]  
-Option C: Academic researcher [user suggested]
+Option A: Military background (exploring)
+Option B: Criminal past (considering)
+Option C: Academic researcher (suggested)
 
-[User hasn't decided which, or might combine elements]
+Not decided yet - might combine elements
 ```
 
 ## Voice and Personality
@@ -290,12 +293,13 @@ User: "They're sarcastic and use humor to deflect. Uncomfortable with sincerity.
 ```markdown
 # Character Voice
 
-- Sarcastic [user]
-- Uses humor to deflect [user]
-- Uncomfortable with sincerity [user]
+- Sarcastic
+- Uses humor to deflect
+- Uncomfortable with sincerity
 
-[TBD]: Specific speech patterns
-[TBD]: How this manifests in different situations
+Open questions:
+- Specific speech patterns?
+- How this manifests in different situations?
 ```
 
 ❌ Bad:

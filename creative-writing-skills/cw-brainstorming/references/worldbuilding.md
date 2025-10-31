@@ -1,12 +1,12 @@
 # Worldbuilding - Brainstorming Reference
 
-This reference helps capture exploration of fictional world elements: magic systems, cultures, history, geography. This is brainstorming - if ready to finalize/document, use cw-official-wiki instead.
+This reference helps capture exploration of fictional world elements: magic systems, cultures, history, geography. This is brainstorming - if ready to finalize/document, use cw-official-docs instead.
 
 ## Brainstorm vs Document
 
 **Still brainstorming (this skill):**
 - Exploring possibilities
-- Multiple options coexist [TBD]
+- Multiple options coexist
 - User is figuring it out
 - Skeletal, exploratory notes
 
@@ -14,9 +14,9 @@ This reference helps capture exploration of fictional world elements: magic syst
 - User has decided
 - Single canonical version
 - Polished, reader-ready
-- No [TBD] markers
+- Nothing left undecided
 
-Can mention: "Ready to document this? We could create a wiki page"
+Can mention: "Ready to document this? We could create a documentation page"
 
 ## What Worldbuilding Brainstorming Looks Like
 
@@ -26,7 +26,7 @@ User is:
 - Thinking through geography
 - Building history/lore
 - Testing ideas, seeing what fits
-- Multiple versions might exist [TBD]
+- Multiple versions might exist
 
 ## Capture the Exploration
 
@@ -40,7 +40,7 @@ User is:
 - User says "magic has a cost" → don't invent what the cost is
 - User mentions "three kingdoms" → don't name them or detail their cultures
 - User describes "harsh northern territory" → don't elaborate on flora/fauna
-- Multiple versions of lore can coexist [TBD]
+- Multiple versions of lore can coexist
 
 ## Using Web Search (Explicitly Encouraged)
 
@@ -57,9 +57,7 @@ Search when it would help exploration:
 - Genre conventions for worldbuilding
 - Similar fictional worlds for reference
 
-**Tag search results:**
-- [researched: source] for facts
-- [reference: source] for inspiration
+Note source when including researched info or references.
 
 Web search is a tool for exploration - use it freely.
 
@@ -91,7 +89,7 @@ Random ideas about:
 - Magic costs life force
 - Three competing factions
 - Ancient war 500 years ago
-[User exploring without structure yet]
+User exploring without structure yet
 ```
 
 **Question-driven:**
@@ -99,7 +97,7 @@ Random ideas about:
 How does teleportation work?
 Why do elves live longer?
 What caused the cataclysm?
-[User asking questions, not answering yet]
+User asking questions, not answering yet
 ```
 
 All are valid. Capture however it flows.
@@ -109,41 +107,41 @@ All are valid. Capture however it flows.
 ### Magic/Tech Systems
 
 User exploring:
-- How it works [user states mechanism]
-- Limitations [user mentions constraints]
-- Costs/consequences [user discusses tradeoffs]
-- Who can use it [user specifies access]
+- How it works
+- Limitations
+- Costs/consequences
+- Who can use it
 
 Don't elaborate on rules they mentioned. Keep skeletal.
 
 ### Cultures and Societies
 
 User thinking through:
-- Social structures [user describes hierarchy]
-- Cultural practices [user mentions customs]
-- Values/beliefs [user explores philosophy]
-- Conflicts [user notes tensions]
+- Social structures
+- Cultural practices
+- Values/beliefs
+- Conflicts
 
 Don't invent cultural details. Capture what's stated.
 
 ### Geography and Locations
 
 User figuring out:
-- World layout [user describes arrangement]
-- Important places [user mentions locations]
-- Travel logistics [user considers distances]
-- Environmental features [user notes climate, terrain]
+- World layout
+- Important places
+- Travel logistics
+- Environmental features
 
 Keep as vague as user left it. Don't fill in the map.
 
 ### History and Lore
 
 User building:
-- World events timeline [user establishes chronology]
-- Legends and myths [user creates stories]
-- How past affects present [user connects history to story]
+- World events timeline
+- Legends and myths
+- How past affects present
 
-Multiple versions of history can coexist [TBD] until user decides.
+Multiple versions of history can coexist until user decides.
 
 ## Teaching Example 1: Magic System
 
@@ -154,19 +152,17 @@ Multiple versions of history can coexist [TBD] until user decides.
 ```markdown
 # Danger Rating Ideas
 
-- Tier 1 to Tier 5 system [user]
-- Tier 1 = safe for civilians [user]
-- Tier 5 = requires experienced specialists [user]
-- Deadly level [user]
+- Tier 1 to Tier 5 system
+- Tier 1 = safe for civilians
+- Tier 5 = requires experienced specialists
+- Deadly level
 
-[TBD]: Exact criteria for each tier
-[TBD]: Who assigns ratings?
-[TBD]: Middle tiers (2, 3, 4) - what qualifies?
+Open questions:
+- Exact criteria for each tier?
+- Who assigns ratings?
+- Middle tiers (2, 3, 4) - what qualifies?
 
-[AI suggestions to consider]:
-- Could tier be based on: threat level, required skills, or legal restrictions?
-- Assignment could be: government agency, independent organization, or guild?
-[User hasn't decided]
+<AI>Could tier be based on: threat level, required skills, or legal restrictions? Assignment could be: government agency, independent organization, or guild?</AI>
 ```
 
 ### ❌ Bad Capture:
@@ -199,14 +195,15 @@ Enforcement: Regional Safety Commission issues monthly assessments. Violations c
 ```markdown
 # Northern Clans Notes
 
-- More isolated than other regions [user]
-- Traditional culture [user]
-- Respect strength [user]
-- Warrior code exists [user, specifics TBD]
+- More isolated than other regions
+- Traditional culture
+- Respect strength
+- Warrior code exists (specifics not decided)
 
-[TBD]: Details of warrior code
-[TBD]: How isolated (trade? communication?)
-[TBD]: What "traditional" means specifically
+Open questions:
+- Details of warrior code?
+- How isolated (trade? communication?)?
+- What "traditional" means specifically?
 ```
 
 ### ❌ Bad Capture:
@@ -243,26 +240,27 @@ Coming of Age: At 16, warriors-in-training face "The Proving" - a three-day solo
 "I want a magic system based on thermodynamics - energy can't be created or destroyed, just transformed."
 
 ### Good Process:
-1. Note the concept [user]
-2. Search "thermodynamics first law energy conservation" [researched]
+1. Note the concept
+2. Search "thermodynamics first law energy conservation"
 3. Capture relevant facts from search
-4. User applies to magic system → record their applications [user]
+4. User applies to magic system → record their applications
 5. Don't invent magic rules beyond what user states
 
 ```markdown
 # Magic System - Thermodynamics Basis
 
-Core concept: Energy conservation [user]
-- Can't create or destroy energy [user]
-- Only transform it [user]
+Core concept: Energy conservation
+- Can't create or destroy energy
+- Only transform it
 
-[Researched: physics]:
+Researched (physics):
 - First law of thermodynamics: energy conserved in closed system
 - Energy conversion always has inefficiency (heat loss)
 
-[TBD]: How does this apply to spellcasting?
-[TBD]: What counts as "energy" in this system?
-[TBD]: How does user want to handle inefficiency?
+Open questions:
+- How does this apply to spellcasting?
+- What counts as "energy" in this system?
+- How to handle inefficiency?
 ```
 
 ## When to Transition to Wiki
@@ -270,7 +268,7 @@ Core concept: Energy conservation [user]
 User: "Okay, I think I've figured out the magic system. It works like [detailed explanation], and I'm set on these rules."
 
 ✅ Good response:
-"Sounds like you've finalized this! Want me to create a wiki page documenting the magic system? That would be the official reference instead of exploratory notes."
+"Sounds like you've finalized this! Want me to create a documentation page for the magic system? That would be the official reference instead of exploratory notes."
 
 Then use cw-official-wiki to create canonical documentation.
 

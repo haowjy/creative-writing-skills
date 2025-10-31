@@ -17,7 +17,7 @@ Keep skeletal unless user fills detail.
 **When you spot conflicts:**
 - Identify the contradiction clearly
 - Show both versions
-- Mark as [contradiction: version A vs version B]
+- Label as contradiction with both versions
 - Don't auto-resolve → user decides
 - Both versions stay until user chooses
 
@@ -28,9 +28,9 @@ Keep skeletal unless user fills detail.
 ### Event Chronology
 
 User establishing:
-- What happened when [user states timing]
-- Order of events [user specifies sequence]
-- Time gaps between events [if mentioned]
+- What happened when
+- Order of events
+- Time gaps between events (if mentioned)
 
 Record what user establishes about timing.
 
@@ -69,18 +69,18 @@ These are examples, not mandates. User's timeline might be:
 **Chronological list:**
 ```markdown
 Timeline:
-- Day 1: Event A [user]
-- Day 3: Event B [user]
-- Week later: Event C [user]
-[TBD]: Events between B and C
+- Day 1: Event A
+- Day 3: Event B
+- Week later: Event C
+Events between B and C: not decided yet
 ```
 
 **Knowledge tracking:**
 ```markdown
 Who knows about X:
-- Chapter 3: Character A learns [user]
-- Chapter 7: Character B learns [user]
-- Chapter 10: Character C still doesn't know [user]
+- Chapter 3: Character A learns
+- Chapter 7: Character B learns
+- Chapter 10: Character C still doesn't know
 ```
 
 **Parallel storylines:**
@@ -94,9 +94,9 @@ Day 2: B happens | Day 2: Y happens
 **Question format:**
 ```markdown
 Timeline questions:
-- How long between events A and B? [TBD]
-- Does C happen before or after D? [TBD]
-- How old is character at this point? [TBD]
+- How long between events A and B?
+- Does C happen before or after D?
+- How old is character at this point?
 ```
 
 All are valid. Structure to fit what user is tracking.
@@ -108,7 +108,7 @@ Search when helpful for:
 - Historical periods for period pieces
 - Travel times for realistic distances
 
-Tag results: [researched: source]
+Note source when including researched info
 
 ## Teaching Example 1: Contradiction Identified
 
@@ -119,7 +119,7 @@ Tag results: [researched: source]
 ```markdown
 # Timeline/Geography Contradiction
 
-[Contradiction identified]:
+Contradiction identified:
 
 **Version A (Chapter 2 - written):**
 - Protagonist goes Home → Rivertown → Capital
@@ -133,15 +133,12 @@ Tag results: [researched: source]
 - If Capital is north of Home, why go south to Rivertown first?
 - Doesn't make sense geographically
 
-[TBD]: User needs to decide:
+Options to resolve:
 - Fix chapter 2 (go directly north to Capital)
 - Or change geography (Rivertown is actually northwest)
 - Or change where B joins (meets in Rivertown instead)
 
-[AI suggestions if helpful]:
-- Could they have reason to detour through Rivertown?
-- Could B join at different location?
-[User hasn't decided]
+<AI>Could they have reason to detour through Rivertown? Or could B join at different location?</AI>
 ```
 
 ### ❌ Bad Capture:
@@ -173,15 +170,15 @@ Rivertown repositioned northwest of Home, making the detour logical for supply g
 Who knows what when:
 
 **Chapter 1:**
-- Jordan knows the truth [user]
+- Jordan knows the truth
 
 **Chapter 3:**
-- Maya discovers the truth [user]
+- Maya discovers the truth
 
 **Chapter 8:**
-- Sam finds out [user]
+- Sam finds out
 
-Implications [TBD]:
+Implications to explore:
 - Jordan knew while Maya didn't (chapters 1-3)
 - Did Jordan keep it secret from Maya?
 - Why didn't Jordan tell Sam?
@@ -225,16 +222,16 @@ Team must work through betrayal and secrecy. Trust slowly rebuilds through share
 ```markdown
 # Timeline - Arc 1 to Arc 2 Gap
 
-Duration between arcs [TBD]:
-- Weeks? [user considering]
-- Months? [user considering]
+Duration between arcs:
+- Weeks? (considering)
+- Months? (considering)
 
 Depends on:
-- How much character development needed [TBD]
-- Whether seasons change [TBD]
-- Training time required [TBD]
+- How much character development needed?
+- Whether seasons change?
+- Training time required?
 
-[User hasn't decided]
+Not decided yet
 ```
 
 ### ❌ Bad Capture:
@@ -261,21 +258,21 @@ This timeframe balances realism with narrative pace.
 
 ## Multiple Timeline Versions
 
-User might explore different chronologies. All coexist [TBD]:
+User might explore different chronologies. All coexist until decided:
 
 ```markdown
 # Possible Timelines
 
 **Version A: Compressed (2 weeks)**
-[User exploring fast-paced version]
+Exploring fast-paced version
 
 **Version B: Extended (3 months)**
-[User considering slower development]
+Considering slower development
 
 **Version C: Variable (flashback structure)**
-[User testing non-linear approach]
+Testing non-linear approach
 
-[User hasn't decided which feels right]
+Not decided which feels right yet
 ```
 
 ## Event Causality
@@ -285,11 +282,12 @@ User might think through cause-and-effect:
 ```markdown
 # Event Chain
 
-Event A → Causes Event B [user]
-Event B → Leads to Event C [user]
+Event A → Causes Event B
+Event B → Leads to Event C
 
-[TBD]: Does D happen before or after C?
-[TBD]: Is E caused by B or C?
+Open questions:
+- Does D happen before or after C?
+- Is E caused by B or C?
 ```
 
 Keep as certain or uncertain as user made it.
@@ -305,11 +303,12 @@ User: "Actually, I think Event X should happen earlier. Before Event Y, not afte
 **Previous order:**
 Y → X
 
-**New order [user]:**
+**New order:**
 X → Y
 
-[TBD]: Does this affect any other events?
-[TBD]: Need to revise what's been written?
+Questions:
+- Does this affect any other events?
+- Need to revise what's been written?
 ```
 
 Note the change, don't auto-adjust everything else.
@@ -329,10 +328,9 @@ User figuring out when storylines connect:
 - Day 1: Event X
 - Day 3: Event Y
 
-**Convergence point [TBD]:**
-- When do these merge?
-- Day 5? Day 10? Later?
-[User hasn't decided]
+**Convergence point:**
+When do these merge? Day 5? Day 10? Later?
+Not decided yet
 ```
 
 ## Notice Beyond the List

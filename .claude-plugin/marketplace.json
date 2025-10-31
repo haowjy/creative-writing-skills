@@ -6,7 +6,7 @@
     },
     "metadata": {
       "description": "Creative writing skills for Claude",
-      "version": "0.0.2"
+      "version": "0.0.3"
     },
     "plugins": [
       {
@@ -19,7 +19,7 @@
           "./creative-writing-skills/cw-prose-writing",
           "./creative-writing-skills/cw-story-critique",
           "./creative-writing-skills/cw-style-skill-creator",
-          "./creative-writing-skills/cw-brainstorm-capture",
+          "./creative-writing-skills/cw-brainstorming",
           "./creative-writing-skills/cw-official-wiki"
         ]
       }

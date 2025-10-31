@@ -9,7 +9,7 @@ Quick guide to choosing the right skill for your task.
 
 ## The Skills
 
-### cw-brainstorm-capture
+### cw-brainstorming
 **Use for:** Exploring ideas, figuring things out, thinking through options
 
 **Creates:** Skeletal working notes with [TBD] markers and source tags
@@ -25,10 +25,10 @@ Quick guide to choosing the right skill for your task.
 
 ---
 
-### cw-official-wiki
+### cw-official-docs
 **Use for:** Documenting finalized decisions, creating canonical reference
 
-**Creates:** Polished, reader-ready wiki pages with citations
+**Creates:** Polished, reader-ready documentation pages with citations
 
 **Handles:**
 - Character profiles
@@ -77,17 +77,17 @@ Quick guide to choosing the right skill for your task.
 
 ---
 
-## Key Distinction: Brainstorm vs Wiki
+## Key Distinction: Brainstorm vs Documentation
 
 This is the most common confusion:
 
-**Still figuring it out?** → **cw-brainstorm-capture**
+**Still figuring it out?** → **cw-brainstorming**
 - "Maybe X, or Y, or Z?"
 - [TBD] markers everywhere
 - Multiple versions coexist
 - Skeletal notes
 
-**You've decided and it's ready to show someone?** → **cw-official-wiki**  
+**You've decided and it's ready to show someone?** → **cw-official-docs**
 - Single authoritative version
 - Polished and reader-ready
 - No [TBD] markers
@@ -98,13 +98,13 @@ This is the most common confusion:
 ## Common Scenarios
 
 ### "I'm exploring worldbuilding ideas for my magic system"
-→ **cw-brainstorm-capture** (exploring, not finalized yet)
+→ **cw-brainstorming** (exploring, not finalized yet)
 
 ### "I've finalized my magic system and want to document it"
-→ **cw-official-wiki** (decided and ready to document)
+→ **cw-official-docs** (decided and ready to document)
 
 ### "I'm thinking through how this chapter should flow"
-→ **cw-brainstorm-capture** (planning/exploring)
+→ **cw-brainstorming** (planning/exploring)
 
 ### "I need to write this chapter"
 → **cw-prose-writing** (actually writing)
@@ -113,16 +113,16 @@ This is the most common confusion:
 → **cw-story-critique** (getting feedback)
 
 ### "I need a character profile for my protagonist"
-→ **cw-official-wiki** if finalized, **cw-brainstorm-capture** if still exploring
+→ **cw-official-docs** if finalized, **cw-brainstorming** if still exploring
 
 ### "I'm figuring out character motivations and relationships"
-→ **cw-brainstorm-capture** (exploring)
+→ **cw-brainstorming** (exploring)
 
 ### "I want to document this character's canon profile"
-→ **cw-official-wiki** (documenting finalized)
+→ **cw-official-docs** (documenting finalized)
 
 ### "Help me work out the timeline of events"
-→ **cw-brainstorm-capture** (working through chronology)
+→ **cw-brainstorming** (working through chronology)
 
 ### "I want Claude to write in my specific style"
 → **cw-style-skill-creator** first (create style skill), then **cw-prose-writing**
@@ -141,8 +141,8 @@ Do you want feedback on something written?
   └─ No ↓
 
 Are you figuring things out or have you decided?
-  └─ Figuring out → cw-brainstorm-capture
-  └─ Decided → cw-official-wiki
+  └─ Figuring out → cw-brainstorming
+  └─ Decided → cw-official-docs
 
 Need a custom writing style?
   └─ Yes → cw-style-skill-creator
@@ -154,10 +154,10 @@ Need a custom writing style?
 
 You can use multiple skills in combination:
 
-- **Brainstorm** → finalize → **Wiki** (explore then document)
+- **Brainstorm** → finalize → **Docs** (explore then document)
 - **Brainstorm** → **Prose** (plan then write)
 - **Prose** → **Critique** (write then get feedback)
-- **Brainstorm** + **Wiki** (check existing wiki while brainstorming)
+- **Brainstorm** + **Docs** (check existing docs while brainstorming)
 - **Critique** + **Brainstorm** (get feedback and brainstorm fixes)
 
 Skills are composable - use whatever combination helps.
@@ -168,9 +168,9 @@ Skills are composable - use whatever combination helps.
 
 **Default rules:**
 
-1. **Exploring/uncertain?** → brainstorm-capture
-2. **Finalized/polished?** → official-wiki  
+1. **Exploring/uncertain?** → brainstorming
+2. **Finalized/polished?** → official-docs
 3. **Need feedback?** → story-critique
 4. **Actually writing?** → prose-writing
 
-When in doubt, start with brainstorm-capture. You can always move to wiki later when things are decided.
+When in doubt, start with brainstorming. You can always move to docs later when things are decided.
