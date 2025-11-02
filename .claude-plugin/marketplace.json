@@ -5,8 +5,8 @@
       "email": "dev.jimm.py@gmail.com"
     },
     "metadata": {
-      "description": "Creative writing skills for Claude",
-      "version": "0.0.3"
+      "description": "Creative writing skills for Claude with custom slash commands",
+      "version": "0.0.4"
     },
     "plugins": [
       {

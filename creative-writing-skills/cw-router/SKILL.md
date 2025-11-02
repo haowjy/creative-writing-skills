@@ -26,18 +26,18 @@ Quick guide to choosing the right skill for your task.
 ---
 
 ### cw-official-docs
-**Use for:** Documenting finalized decisions, creating canonical reference
+**Use for:** Documenting finalized decisions, creating canonical reference (wiki pages)
 
-**Creates:** Polished, reader-ready documentation pages with citations
+**Creates:** Polished, reader-ready wiki/documentation pages with citations
 
 **Handles:**
 - Character profiles
-- Location documentation  
+- Location documentation
 - Lore/system pages
 - Event documentation
 - Any finalized worldbuilding
 
-**Key trait:** Single version, no [TBD], encyclopedic tone
+**Key trait:** Single version, no [TBD], encyclopedic/wiki tone
 
 ---
 
@@ -114,6 +114,9 @@ This is the most common confusion:
 
 ### "I need a character profile for my protagonist"
 → **cw-official-docs** if finalized, **cw-brainstorming** if still exploring
+
+### "I need a wiki page for my protagonist"
+→ **cw-official-docs** (creating wiki/documentation)
 
 ### "I'm figuring out character motivations and relationships"
 → **cw-brainstorming** (exploring)

@@ -213,12 +213,22 @@ You should see `creative-writing-skills` listed with all six skills.
 
 Once installed, simply ask Claude for help with creative writing tasks. The router skill will help guide you to the right tool, or Claude will automatically select the appropriate skill based on your request.
 
-**Examples:**
+**Natural language examples:**
 - "Help me brainstorm ideas for my magic system"
 - "Write the next scene where my protagonist confronts the antagonist"
 - "Create a character profile for my protagonist"
 - "Analyze the pacing of this chapter and give me feedback"
 - "Create a style guide based on my existing chapters"
+
+**Slash commands (explicit mode switching):**
+
+This plugin includes custom slash commands for explicit skill invocation:
+- `/bs` - Brainstorm and explore story ideas
+- `/write [style]` - Enter prose writing mode (optionally specify a style)
+- `/wiki` - Create canonical wiki/documentation pages
+- `/critique` - Get feedback on your writing
+
+These commands are included in the plugin and work automatically after installation.
 
 ### Setting Up a Writing Project
 

@@ -1,15 +1,15 @@
 ---
 name: cw-official-docs
-description: Creative writing skill for creating canonical reference documentation for fictional worlds, characters, and story events. Use when creating or updating official documentation pages, character profiles, location documentation, or lore pages. Creates polished, sourced, encyclopedic reference material.
+description: Creative writing skill for creating canonical reference documentation (wikis) for fictional worlds, characters, and story events. Use when creating or updating wiki pages, official documentation, character profiles, location documentation, or lore pages. Creates polished, sourced, encyclopedic reference material.
 ---
 
 # Official Documentation
 
-Create canonical, sourced reference pages for your story's characters, locations, events, and lore.
+Create canonical, sourced wiki pages for your story's characters, locations, events, and lore.
 
 ## Purpose
 
-Build authoritative documentation that serves as "single source of truth" for your fictional world. These are polished, cited, encyclopedic reference pages suitable for readers - NOT working notes or brainstorming.
+Build authoritative documentation (wiki-style pages) that serves as "single source of truth" for your fictional world. These are polished, cited, encyclopedic reference pages suitable for readers - NOT working notes or brainstorming.
 
 **Can be created before or during writing** for worldbuilding, lore, and reference material that won't all appear in the story itself.
 
