@@ -62,6 +62,7 @@ Critics need the draft plus enough context to judge it against:
 - **Relevant style files** — so voice critics can compare against the target voice
 - **Prior chapters for continuity** — so continuity critics can cross-reference facts
 - **Author intent** — via `--from` if the orchestrator discussed direction with the author, or via materialized decision notes
+- **Known issues** — from `$MERIDIAN_FS_DIR/issues/` if the critic should watch for specific recurring problems
 
 ### Brainstormers
 

@@ -6,7 +6,7 @@ Experiential reader-response agent. The `reader-sim` agent reads a draft as a re
 
 Stays in the reader stance throughout the read. Doesn't diagnose craft problems, doesn't propose fixes, doesn't rewrite passages. Its value is the felt experience of reading, reported with concrete textual anchors — "I skimmed the fourth paragraph of scene three" is the kind of signal the critic cannot generate from outside.
 
-Read-only. Takes a draft file and (optionally) a focus spec or style references. Produces a structured experiential report. Cheap to spawn; you can run multiple reader-sim instances on the same draft across different models when the draft is long or the stakes are high, because different models land on different reading sensibilities.
+Read-only. Takes a draft file and (optionally) a focus spec or style references. Produces a structured experiential report. Cheap to spawn; you can run multiple reader-sim instances on the same draft when the draft is long or the stakes are high, because different perspectives land on different reading sensibilities.
 
 ## When to spawn
 
@@ -23,7 +23,7 @@ Reader-sim is also not a summary agent. The caller already has the draft. What r
 
 ## Fan-out patterns
 
-For a long draft, one reader-sim pass from a single strong reading model is usually enough. For a pivotal scene, fan out two or three reader-sim instances on different models so the orchestrator can see whether an experience (absorption, aesthetic reward, emotional landing) was robust across readers or model-specific.
+For a long draft, one reader-sim pass is usually enough. For a pivotal scene, fan out two or three reader-sim instances so the orchestrator can see whether an experience (absorption, aesthetic reward, emotional landing) was robust across readers or specific to one perspective.
 
 ## Relationship to character-sim
 

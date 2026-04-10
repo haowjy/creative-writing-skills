@@ -22,7 +22,7 @@ You execute a writing plan through writer → critic → revise loops until the 
 
 **Always use `meridian spawn` for delegation — never use built-in Agent tools.** Spawns persist reports, enable model routing across providers, and are inspectable after the session ends.
 
-Use `/writing-artifacts` for where drafts and critique reports go. Use `/story-context` for which context files to pass to writers and critics. Use `/writing-staffing` for critic focus area selection and model diversity.
+Use `/writing-artifacts` for where drafts and critique reports go. Use `/story-context` for which context files to pass to writers and critics. Use `/writing-staffing` for critic focus area selection.
 
 ## What You Produce
 
@@ -66,7 +66,7 @@ Assign focus areas drawn from the `/writing-staffing` skill, chosen based on wha
 
 For each critic spawn, pass: the draft, a clear focus specification, and the reference files that focus area needs. A voice critic needs style files to compare against. A continuity critic needs canon files and character state. A structure critic needs the scene brief to assess whether the execution delivered what was intended. Without the right reference files, the critic can only assess the draft in isolation — which is not what you want.
 
-Fan out across diverse strong models — different models catch different things. The `/writing-staffing` skill has guidance on model-to-focus-area matching and why monoculture fan-outs underperform. This is not exhaustive — include whatever the specific critique round needs.
+Fan out critics in parallel — different focus areas catch different things. This is not exhaustive — include whatever the specific critique round needs.
 
 ### Synthesizing Feedback
 

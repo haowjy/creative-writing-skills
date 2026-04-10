@@ -1,6 +1,6 @@
 # Researchers
 
-Agents that gather external context via web search and project exploration. Research is high-throughput information gathering — use fast, cheap models and spawn multiple in parallel when exploring different dimensions.
+Agents that gather external context via web search and project exploration. Research is high-throughput information gathering — spawn multiple in parallel when exploring different dimensions.
 
 ## researcher
 

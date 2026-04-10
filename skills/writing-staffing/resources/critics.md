@@ -1,6 +1,6 @@
 # Critics
 
-Critics catch what revision can't — voice drift, structural issues, continuity holes. The value of multiple critics comes from different focus areas and different models, not redundant reads of the same concern.
+Critics catch what revision can't — voice drift, structural issues, continuity holes. The value of multiple critics comes from different focus areas, not redundant reads of the same concern.
 
 ## critic
 
@@ -22,31 +22,21 @@ Adversarial draft review with a specified focus area. Give each critic a differe
 
 The content tells you what perspectives matter. A battle scene needs structure (pacing) and continuity (established abilities) more than prose polish. A quiet character scene needs character (motivation) and voice (dialogue quality) more than structure. A chapter that spans multiple locations needs continuity above all.
 
-For standard chapters, three critics with different focus areas provides good coverage. For pivotal scenes, expand to four or five and consider duplicating the most critical focus area across models.
+For standard chapters, three critics with different focus areas provides good coverage. For pivotal scenes, expand to four or five and consider duplicating the most critical focus area.
 
-### Model Diversity in Fan-Out
+### Fan-Out for Coverage
 
 The multi-agent role decomposition pattern this skill advocates is empirically supported. HoLLMwood (2024, Findings of EMNLP, https://aclanthology.org/2024.findings-emnlp.474/) found that splitting creative writing across distinct writer/editor/actor roles produced measurable improvements in coherence, relevance, interestingness, and overall quality over strong single-agent baselines. The critic fan-out pattern this skill advocates is the critique half of that empirically-supported architecture. If you're reading this and wondering whether the fan-out overhead is worth it, that's the evidence: the overhead pays for itself in finding quality.
 
-The critic agent's default model (`sonnet`) is correct for the single-critic case, but a fan-out of three sonnet critics catches fewer issues than a fan-out of three critics across different model families. Models share blind spots within a family — a phrasing tic that one sonnet instance misses, another sonnet instance also misses. Cross-family fan-out breaks that overlap.
+When fanning out, use the best available model and vary focus areas across critics so the panel covers different dimensions:
 
-When fanning out, vary `-m` across critics so the panel mixes families:
-
-```bash
-meridian spawn -a critic -m sonnet -p "Focus: structure" -f $DRAFT
-meridian spawn -a critic -m gpt -p "Focus: continuity" -f $DRAFT $CANON
-meridian spawn -a critic -m opus -p "Focus: voice" -f $DRAFT $VOICE_STYLE
+```
+meridian spawn -a critic -p "Focus: structure" -f $DRAFT
+meridian spawn -a critic -p "Focus: continuity" -f $DRAFT $CANON
+meridian spawn -a critic -p "Focus: voice" -f $DRAFT $VOICE_STYLE
 ```
 
-Rough heuristic for which family to put on which focus:
-
-- **opus on voice and prose** — these are the focus areas where prose taste pays off most. If you're going to spend opus tokens anywhere in the panel, this is where.
-- **gpt on continuity and structure** — gpt-5.4 is strong at systematic gap-finding and exhaustive cross-referencing, which is exactly what continuity and structural pacing checks need.
-- **sonnet on character** — character critique is judgment about motivation and emotional coherence, which sonnet handles well at lower cost than opus.
-
-These are starting points, not rules. The point is that the panel should not be monoculture — at least two families represented in any fan-out of three or more.
-
-For pivotal scenes where a focus area really matters, duplicate that focus across two different families rather than across two of the same family. Two sonnet voice critics catch less than one sonnet + one opus voice critic.
+For pivotal scenes where a focus area really matters, duplicate that focus across two different agent spawns rather than relying on a single pass.
 
 ## continuity-checker
 

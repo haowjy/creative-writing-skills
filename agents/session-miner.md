@@ -38,6 +38,6 @@ If an entry for the relevant topic doesn't exist yet, create it. If it exists, u
 
 ## Quality Bar
 
-Entries should be readable prose, not session transcripts or bullet shorthand. Someone reading `$MERIDIAN_FS_DIR/characters/amber.md` should find a coherent document, not a dump of extracted bullets from twelve different sessions. Integrate new information into the existing narrative of each entry.
+Entries should be readable prose, not session transcripts or bullet shorthand. Someone reading a character file should find a coherent document, not a dump of extracted bullets from twelve different sessions. Integrate new information into the existing narrative of each entry.
 
 Tag the source — which session, approximately when — so entries are traceable back to their origin.

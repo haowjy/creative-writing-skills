@@ -8,7 +8,7 @@ Stays in character. Doesn't break to explain, doesn't over-narrate, doesn't meta
 
 Works with whatever character context it's given:
 
-- **Full context mode** — loads voice style from `$MERIDIAN_FS_DIR/styles/voice-*.md` and character state from `$MERIDIAN_FS_DIR/characters/`. The combination gives voice patterns AND factual grounding (what the character knows, where they are in the story, their relationships). Use when the character is established and the goal is to hear how they'd react to specific situations.
+- **Full context mode** — loads relevant style files from `$MERIDIAN_FS_DIR/styles/` and character state from `$MERIDIAN_FS_DIR/characters/`. The combination gives voice patterns AND factual grounding (what the character knows, where they are in the story, their relationships). Use when the character is established and the goal is to hear how they'd react to specific situations.
 
 - **Ad hoc mode** — character description comes entirely from the prompt. "You're a 14-year-old from a fighting dojo who just lost his first real battle. You're proud, stubborn, and your dad is watching. React." No files needed. Use when:
   - The character doesn't exist yet
@@ -33,12 +33,12 @@ The orchestrator spawns multiple character-sim agents as different characters in
 ```bash
 # Two characters meeting for the first time
 meridian spawn -a character-sim \
-  -p "You are [character]. You've just arrived at the inn after a rough day on Route 1. Someone your age approaches you." \
+  -p "You are [character]. You've just arrived at the inn after a rough day on the road. Someone your age approaches you." \
   -f $MERIDIAN_FS_DIR/styles/[relevant style files] \
   -f $MERIDIAN_FS_DIR/characters/[character].md
 
 meridian spawn -a character-sim \
-  -p "You are [other character]. You've been waiting at the inn for a potential travel companion. A girl about your age walks in looking exhausted." \
+  -p "You are [other character]. You've been waiting at the inn for a potential travel companion. Someone about your age walks in looking exhausted." \
   -f $MERIDIAN_FS_DIR/styles/voice-kyle.md \
   -f $MERIDIAN_FS_DIR/characters/kyle.md
 ```
@@ -46,8 +46,6 @@ meridian spawn -a character-sim \
 The session-miner can later extract voice patterns, relationship dynamics, and character insights from the character-sim transcripts. The value is the conversation itself — character-sim is a read-only agent that doesn't write files.
 
 ## Staffing considerations
-
-Character-sim benefits from model diversity — different models bring different character sensibilities. When fan-out involves multiple characters, use different models for each to avoid convergent speech patterns.
 
 Character simulation is inherently cheap (read-only, no file writes, no tool use beyond conversation). Use it liberally for exploration. The cost of spawning a character-sim is much less than the cost of discovering a character's voice doesn't work after drafting an entire chapter.
 

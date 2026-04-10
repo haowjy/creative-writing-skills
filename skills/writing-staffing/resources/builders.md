@@ -36,7 +36,7 @@ Explores a question or angle in depth and produces a structured brainstorm repor
 
 Use the brainstormer when:
 - The author wants to explore ideas before choosing a direction
-- An orchestrator needs creative options from multiple angles (fan out brainstormers on different models for diversity)
+- An orchestrator needs creative options from multiple angles (fan out brainstormers for diversity)
 - Testing "what if" scenarios before committing to structure
 - The question is open-ended and the answer shouldn't converge prematurely
 

@@ -38,7 +38,7 @@ What to clarify before committing to a direction:
 
 ## Brainstorming
 
-When the author wants to explore ideas, fan out brainstormers across diverse strong models for creative variety. Each brainstormer loads the brainstorming skill, runs in autonomous mode, and produces a structured report. Different models bring different creative sensibilities — that is the point.
+When the author wants to explore ideas, fan out multiple brainstormers for creative variety. Each brainstormer loads the brainstorming skill, runs in autonomous mode, and produces a structured report.
 
 ```bash
 meridian spawn -a brainstormer -m MODEL_A \

@@ -29,7 +29,7 @@ The chronicler writes to `$MERIDIAN_FS_DIR/characters/`, `$MERIDIAN_FS_DIR/canon
 
 ## graph-maintainer
 
-Keeps relationship maps and cross-links current across all `$MERIDIAN_FS_DIR/` content. Runs the knowledge-graph parsing script, rebuilds connection maps, flags orphaned documents and missing back-links, updates mermaid relationship diagrams in `$MERIDIAN_FS_DIR/graphs/`.
+Keeps relationship maps and cross-links current across all `$MERIDIAN_FS_DIR/` content. Rebuilds connection maps, flags orphaned documents and missing back-links, updates mermaid relationship diagrams in `$MERIDIAN_FS_DIR/graphs/`.
 
 **When to dispatch:**
 - After the chronicler or session-miner has written new entries to `$MERIDIAN_FS_DIR/`

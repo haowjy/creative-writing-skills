@@ -13,21 +13,18 @@ The agent-maintained knowledge layer. Both humans and agents read it. Quality ba
 
 ```
 $MERIDIAN_FS_DIR/
-├── styles/              # voice, scene-type, tone guides (style-creator output)
-│   ├── voice-*.md       #   character voices / POV styles
-│   ├── scene-*.md       #   scene-type techniques (battle, discovery, etc.)
-│   ├── tone-*.md        #   tonal registers (grief, humor, tension)
-│   └── formatting.md    #   mechanical conventions (em dashes, ellipsis, etc.)
+├── styles/              # style reference files (style-creator output)
 ├── characters/          # character state + decision annotations
 ├── world/               # locations, lore, systems, factions
 ├── timeline/            # chronology, event ordering
 ├── canon/               # established facts from written chapters
+├── issues/              # tracked writing problems (tics, inconsistencies, structural concerns)
 └── graphs/              # relationship maps, knowledge graph output
 ```
 
 ### What Goes Where
 
-**`styles/`** — How to write, not what to write. Voice files capture a character's speech patterns, narration style, and tonal range. Scene-type files capture technique for specific scene categories. Tone files capture emotional registers. The style-creator produces these from sample chapters or author requirements; the writer loads them when drafting.
+**`styles/`** — How to write, not what to write. Style files capture the patterns a writer needs to match the project's voice. The style-creator determines how to organize these based on analysis of the source text — the structure follows what the prose actually does rather than a predetermined taxonomy. Each file is self-describing so an orchestrator can read it and know when to load it. See the style-creator agent for the analytical approach.
 
 **`characters/`** — Current character state: where they are in the story, what they know, their emotional trajectory, key relationships. Updated by the chronicler after chapters are written. Includes decision annotations — "character is 8 at story start [decided in session X, alternatives considered: 6, 10, rejected because...]".
 
@@ -36,6 +33,8 @@ $MERIDIAN_FS_DIR/
 **`timeline/`** — Event chronology. When things happened, in what order, with citations back to chapters. The continuity-checker's primary reference.
 
 **`canon/`** — Facts established by written chapters. Not a copy of the chapter — a synthesis of what the chapter established as true. "Chapter 4 established that the protagonist can sense a new ability" with a citation.
+
+**`issues/`** — Writing problems worth tracking across revision cycles. Mechanical tics, scene-type inconsistencies, structural concerns, patterns that need the author's attention. Critics, the style-creator, and the continuity-checker all contribute here. See the `writing-issues` skill for conventions.
 
 **`graphs/`** — Mermaid relationship diagrams, knowledge graph output, connection maps. The graph-maintainer keeps these current.
 
@@ -55,11 +54,11 @@ $MERIDIAN_WORK_DIR/
 
 **`outline/`** — Scene briefs, beat breakdowns, chapter structure. The outliner writes here; the writer reads from here.
 
-**`drafts/`** — Draft iterations. Each revision gets a new version (`route1-v1.md`, `route1-v2.md`). The draft-orchestrator tracks which version is current.
+**`drafts/`** — Draft iterations. Each revision gets a new version. The draft-orchestrator tracks which version is current.
 
-**`critique-reports/`** — Individual critic reports and orchestrator synthesis. Named by round and focus (`round1-structure.md`, `round1-synthesis.md`). The draft-orchestrator writes the synthesis; the writer reads it for revision.
+**`critique-reports/`** — Individual critic reports and orchestrator synthesis. The draft-orchestrator writes the synthesis; the writer reads it for revision.
 
-**`brainstorm/`** — Brainstorm outputs from fan-out sessions. Named by angle or model (`meeting-combat.md`, `meeting-comedy.md`). The story-orchestrator synthesizes these before presenting options to the author.
+**`brainstorm/`** — Brainstorm outputs from fan-out sessions. The story-orchestrator synthesizes these before presenting options to the author.
 
 ## Who Writes What
 
@@ -70,6 +69,7 @@ $MERIDIAN_WORK_DIR/
 | `$MERIDIAN_FS_DIR/world/` | chronicler, session-miner | writer, researcher, wiki-editor |
 | `$MERIDIAN_FS_DIR/timeline/` | chronicler | continuity-checker, outliner |
 | `$MERIDIAN_FS_DIR/canon/` | chronicler | critic, continuity-checker, writer |
+| `$MERIDIAN_FS_DIR/issues/` | critic, style-creator, continuity-checker | critic, draft-orchestrator, story-orchestrator |
 | `$MERIDIAN_FS_DIR/graphs/` | graph-maintainer | explorer, wiki-editor, orchestrators |
 | `$MERIDIAN_WORK_DIR/outline/` | outliner | writer, draft-orchestrator |
 | `$MERIDIAN_WORK_DIR/drafts/` | writer | critic, draft-orchestrator |
@@ -84,6 +84,7 @@ When a work item completes, the orchestrator promotes durable knowledge from `$M
 - New character state from a drafted chapter → `$MERIDIAN_FS_DIR/characters/`
 - New canon facts → `$MERIDIAN_FS_DIR/canon/`
 - Timeline updates → `$MERIDIAN_FS_DIR/timeline/`
+- Writing issues discovered during critique → `$MERIDIAN_FS_DIR/issues/`
 
 The knowledge-orchestrator handles promotion by dispatching chronicler, session-miner, and graph-maintainer. Don't promote raw brainstorm captures or draft iterations — those stay archived in the work item. Promote the *knowledge* extracted from them.
 
