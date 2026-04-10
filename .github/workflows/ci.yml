@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install meridian
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/haowjy/meridian-channel/main/install.sh | bash
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Validate package structure
+        run: meridian mars check
+
+      - name: Verify mars.lock is fresh
+        run: |
+          meridian mars sync
+          if ! git diff --quiet mars.lock; then
+            echo "::error::mars.lock is out of date. Run 'meridian mars sync' and commit the result."
+            git diff mars.lock
+            exit 1
+          fi
+
+      - name: Validate YAML frontmatter
+        run: |
+          error=0
+          for f in agents/*.md skills/*/SKILL.md cw/skills/*/SKILL.md cw/cw-router/SKILL.md; do
+            if [ -f "$f" ]; then
+              if ! head -1 "$f" | grep -q '^---'; then
+                echo "::error file=$f::Missing YAML frontmatter"
+                error=1
+              fi
+            fi
+          done
+          exit $error
+
+      - name: Build Claude.ai skill packages
+        run: python3 scripts/create_skill_zips.py

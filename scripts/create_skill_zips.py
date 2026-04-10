@@ -1,19 +1,68 @@
 #!/usr/bin/env python3
 """
-Create individual ZIP files for each skill in the creative-writing-skills directory.
-These ZIPs are ready for users to upload to Claude.ai Skills.
+Create `.skill` ZIP files for Claude.ai uploads.
+
+Sources:
+- `cw/skills/*`
+- `cw/cw-router`
+
+Each archive is rooted at the skill directory name and contains:
+- `SKILL.md`
+- `resources/` (if present)
 """
 
-import os
-import zipfile
 import shutil
+import zipfile
 from pathlib import Path
 
 
-def should_exclude(file_path: str) -> bool:
-    """Check if a file should be excluded from the ZIP."""
-    exclude_patterns = ['.DS_Store', '__pycache__', '.pyc', '.git']
-    return any(pattern in file_path for pattern in exclude_patterns)
+EXCLUDED_PARTS = {".DS_Store", "__pycache__", ".git"}
+EXCLUDED_SUFFIXES = {".pyc"}
+
+
+def should_exclude(path: Path) -> bool:
+    """Check if a path should be excluded from an archive."""
+    if any(part in EXCLUDED_PARTS for part in path.parts):
+        return True
+    if path.name in EXCLUDED_PARTS:
+        return True
+    if path.suffix in EXCLUDED_SUFFIXES:
+        return True
+    return False
+
+
+def find_skill_dirs(repo_root: Path) -> list[Path]:
+    """Find skills under `cw/skills/*` plus `cw/cw-router`."""
+    skills_root = repo_root / "cw" / "skills"
+    router_dir = repo_root / "cw" / "cw-router"
+
+    skill_dirs = []
+    if skills_root.exists():
+        skill_dirs.extend(sorted(d for d in skills_root.iterdir() if d.is_dir()))
+    if router_dir.is_dir():
+        skill_dirs.append(router_dir)
+
+    return skill_dirs
+
+
+def iter_skill_files(skill_dir: Path) -> list[Path]:
+    """Return files to include for one skill (SKILL.md + resources)."""
+    files: list[Path] = []
+    skill_md = skill_dir / "SKILL.md"
+    if not skill_md.is_file():
+        raise FileNotFoundError(f"Missing SKILL.md in {skill_dir}")
+    files.append(skill_md)
+
+    resources_dir = skill_dir / "resources"
+    if resources_dir.is_dir():
+        for file_path in sorted(resources_dir.rglob("*")):
+            if not file_path.is_file():
+                continue
+            if should_exclude(file_path.relative_to(skill_dir)):
+                continue
+            files.append(file_path)
+
+    return files
 
 
 def create_skill_zip(skill_dir: Path, output_dir: Path) -> None:
@@ -23,54 +72,35 @@ def create_skill_zip(skill_dir: Path, output_dir: Path) -> None:
 
     print(f"Creating {skill_name}.skill...")
 
-    with zipfile.ZipFile(zip_path, 'w', zipfile.ZIP_DEFLATED) as zipf:
-        # Walk through the skill directory
-        for root, dirs, files in os.walk(skill_dir):
-            # Filter out excluded directories
-            dirs[:] = [d for d in dirs if not should_exclude(d)]
+    files = iter_skill_files(skill_dir)
 
-            for file in files:
-                if should_exclude(file):
-                    continue
-
-                file_path = Path(root) / file
-                # Create archive name relative to skill directory
-                arcname = skill_name / file_path.relative_to(skill_dir)
-                zipf.write(file_path, arcname)
+    with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zipf:
+        for file_path in files:
+            arcname = Path(skill_name) / file_path.relative_to(skill_dir)
+            zipf.write(file_path, str(arcname))
 
     print(f"  ✓ Created {zip_path.name} ({zip_path.stat().st_size // 1024} KB)")
 
 
-def main():
+def main() -> int:
     """Main function to create all skill ZIPs."""
-    # Get repository root directory
     script_dir = Path(__file__).parent
     repo_root = script_dir.parent
-    skills_dir = repo_root / "creative-writing-skills"
     output_dir = repo_root / "zips"
 
-    # Verify skills directory exists
-    if not skills_dir.exists():
-        print(f"Error: Skills directory not found at {skills_dir}")
-        return
-
-    # Clean and recreate output directory
     if output_dir.exists():
         print(f"Cleaning existing zips directory...")
         shutil.rmtree(output_dir)
-    output_dir.mkdir()
+    output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"\nCreating skill ZIPs in {output_dir}\n")
 
-    # Find all skill directories (starting with 'cw-')
-    skill_dirs = sorted([d for d in skills_dir.iterdir()
-                        if d.is_dir() and d.name.startswith('cw-')])
+    skill_dirs = find_skill_dirs(repo_root)
 
     if not skill_dirs:
-        print(f"Error: No skill directories found in {skills_dir}")
-        return
+        print("Error: No skill directories found under cw/skills or cw/cw-router")
+        return 1
 
-    # Create ZIP for each skill
     for skill_dir in skill_dirs:
         create_skill_zip(skill_dir, output_dir)
 
@@ -78,7 +108,8 @@ def main():
     print(f"\nSkill files:")
     for skill_file in sorted(output_dir.glob("*.skill")):
         print(f"  - {skill_file.name}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

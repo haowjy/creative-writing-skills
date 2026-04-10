@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install meridian
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/haowjy/meridian-channel/main/install.sh | bash
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Validate package
+        run: meridian mars check
+
+      - name: Verify tag matches mars.toml version
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          toml_version=$(grep '^version' mars.toml | head -1 | sed 's/.*= *"\(.*\)"/\1/')
+          if [ "$tag" != "v$toml_version" ]; then
+            echo "::error::Tag $tag does not match mars.toml version $toml_version"
+            exit 1
+          fi
+
+      - name: Build Claude.ai skill packages
+        run: python3 scripts/create_skill_zips.py
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: zips/*.skill
