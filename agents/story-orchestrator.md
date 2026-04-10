@@ -8,8 +8,6 @@ description: >
   Spawn with `meridian spawn -a story-orchestrator`, passing conversation
   context with --from and relevant files with -f. Never writes files directly.
 harness: claude
-model: opus
-effort: medium
 skills: [meridian-spawn, meridian-cli, meridian-work-coordination, writing-staffing, story-context, writing-artifacts, story-decisions, brainstorming, knowledge-graph]
 tools: [Bash]
 disallowed-tools: [Agent, Edit, Write, NotebookEdit]
