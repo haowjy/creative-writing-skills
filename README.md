@@ -1,6 +1,8 @@
 # Creative Writing Skills
 
-A comprehensive creative writing assistant for Claude Code and Claude.ai. This plugin provides six specialized skills to help you write prose in your personal style, capture brainstorming notes, create story documentation, analyze your writing, and more.
+A comprehensive creative writing assistant for Claude Code and Claude.ai. This plugin provides 17 specialized agents and 12 composable skills for prose writing, brainstorming, critique, story architecture, knowledge management, and more.
+
+> **Now also available as a [Meridian](https://github.com/haowjy/meridian-channel) package** — a more powerful multi-agent version with autonomous draft/critique loops, model routing across providers, and persistent project knowledge. See [For Meridian Users](#for-meridian-users) below.
 
 ## What This Plugin Does
 
@@ -14,16 +16,64 @@ This plugin is a comprehensive creative writing assistant that helps you through
 - **Get feedback and critique** - Receive constructive analysis of pacing, character consistency, dialogue quality, and prose
 - **Build comprehensive story documentation** - Create character profiles, location wikis, lore pages, and reference materials for your fictional world
 - **Maintain consistency across your project** - Automatically reference your established characters, settings, and story rules
+- **Run multi-agent draft/critique loops** - Orchestrate writers, critics, and reader simulations in parallel for faster, higher-quality iteration
+- **Manage project knowledge** - Maintain a knowledge graph, continuity checks, and canonical wiki across your project
 
 ### How to Use (After Installation)
 
-Once you've installed the skills (see installation sections below for Claude.ai or Claude Code), mention **"creative writing"** in your requests, and the appropriate skills should activate based on your needs. If it doesn't work, you can try to mention **"cw-router"** directly, and if that doesn't work, make sure to mention to **"use a skill"**.
+**Claude Code users:** The `story-orchestrator` agent is your primary entry point. It coordinates brainstorming, drafting, critique, and knowledge maintenance across all the specialized agents. Just describe what you want to do.
+
+**Claude.ai web UI users:** Use the `cw-router` skill to guide you to the right skill for your task. Mention **"creative writing"** or **"cw-router"** in your requests.
 
 **Examples:**
 - "Help me brainstorm ideas for my magic system" (creative writing)
 - "Write the next scene where my protagonist discovers the truth" (use a skill)
-- "Create a style guide based on these three chapters" (cw-router)
 - "Critique this chapter for pacing and character consistency" (creative writing)
+
+---
+
+## Agents (17)
+
+Agents are spawned for independent work. The orchestrators coordinate multi-agent workflows.
+
+| Agent | Role |
+|---|---|
+| **story-orchestrator** | Primary entry point — coordinates all creative writing workflows |
+| **draft-orchestrator** | Runs the draft/critique loop with writers, critics, reader-sims |
+| **knowledge-orchestrator** | Coordinates wiki updates, graph maintenance, continuity checks |
+| **writer** | Writes prose in the project's established style |
+| **critic** | Structured critique across four reader reward channels |
+| **reader-sim** | Simulates a reader's experience, reports per-channel engagement |
+| **character-sim** | Simulates character behavior for dialogue testing and scene exploration |
+| **brainstormer** | Wide-open option generation on a scoped question |
+| **outliner** | Structural decomposition into beat sheets and arc maps |
+| **explorer** | Fast project exploration — finds files, searches content |
+| **researcher** | Web research for worldbuilding and fact-checking |
+| **continuity-checker** | Checks drafts against established canon |
+| **wiki-editor** | Creates and maintains wiki documentation |
+| **graph-maintainer** | Updates the project knowledge graph |
+| **chronicler** | Records session decisions into persistent notes |
+| **session-miner** | Mines past session transcripts for unreported decisions |
+| **style-creator** | Analyzes existing prose to create style guides |
+
+## Skills (12)
+
+Skills are composable knowledge modules loaded into agent context.
+
+| Skill | Purpose |
+|---|---|
+| **brainstorming** | Exploratory idea generation with [TBD] markers |
+| **prose-writing** | Voice matching, scene construction, prose craft |
+| **prose-critique** | Multi-dimensional feedback (character, voice, structure, prose, continuity) |
+| **prose-analysis** | Quantitative prose pattern analysis |
+| **wiki-docs** | Encyclopedic documentation with citations |
+| **story-architecture** | Arc shape, tension curves, structural analysis |
+| **story-context** | Loading relevant story context before tasks |
+| **story-decisions** | Decision logging and retrieval |
+| **knowledge-graph** | Project knowledge graph maintenance |
+| **writing-principles** | Four reward channels, AI failure modes, craft tradition |
+| **writing-artifacts** | Artifact types and file conventions |
+| **writing-staffing** | Agent roster and coordination patterns |
 
 ---
 
@@ -40,11 +90,10 @@ Once you've installed the skills (see installation sections below for Claude.ai 
    - Go to the [Releases page](https://github.com/haowjy/creative-writing-skills/releases)
    - Download the `.skill` files you want to use:
      - `cw-router.skill`
-     - `cw-prose-writing.skill`
-     - `cw-story-critique.skill`
-     - `cw-style-skill-creator.skill`
-     - `cw-brainstorming.skill`
-     - `cw-official-docs.skill`
+     - `prose-writing.skill`
+     - `prose-critique.skill`
+     - `brainstorming.skill`
+     - `wiki-docs.skill`
 
 2. **Upload to Claude.ai:**
    - Go to [Claude.ai](https://claude.ai)
@@ -55,7 +104,7 @@ Once you've installed the skills (see installation sections below for Claude.ai 
 
 **Tips:**
 - Upload only the skills you plan to use
-- Start with cw-router, cw-prose-writing, and cw-brainstorming for a core set
+- Start with cw-router, prose-writing, and brainstorming for a core set
 - You can add more skills later as needed
 
 ### Usage
@@ -63,9 +112,9 @@ Once you've installed the skills (see installation sections below for Claude.ai 
 After uploading skills, simply mention them in your conversations or let Claude automatically use them when appropriate.
 
 **Basic usage examples:**
-- "Use cw-brainstorming to help me explore ideas for my antagonist"
-- "Use cw-prose-writing to write this scene in my style"
-- "Use cw-story-critique to analyze this chapter"
+- "Use brainstorming to help me explore ideas for my antagonist"
+- "Use prose-writing to write this scene in my style"
+- "Use prose-critique to analyze this chapter"
 
 ### Setting Up a Writing Project (Recommended)
 
@@ -80,11 +129,10 @@ For the best experience, create a dedicated Project for your writing:
      ```
      This is a creative writing project. You have access to the following skills:
      - cw-router: Guide me to the right skill
-     - cw-prose-writing: Write prose in my style
-     - cw-brainstorming: Capture brainstorming notes
-     - cw-story-critique: Provide writing feedback
-     - cw-style-skill-creator: Create style guides
-     - cw-official-docs: Create story documentation
+     - prose-writing: Write prose in my style
+     - brainstorming: Capture brainstorming notes
+     - prose-critique: Provide writing feedback
+     - wiki-docs: Create story documentation
 
      Use these skills as appropriate for creative writing tasks.
      ```
@@ -190,7 +238,7 @@ Follow the quickstart guide at [Claude Code Quickstart](https://docs.claude.com/
    claude plugin
    ```
 
-You should see `creative-writing-skills` listed with all six skills.
+You should see `creative-writing-skills` listed with all skills and agents.
 
 #### Option 2: Install from Local Path
 
@@ -211,7 +259,7 @@ You should see `creative-writing-skills` listed with all six skills.
 
 ### Usage
 
-Once installed, simply ask Claude for help with creative writing tasks. The router skill will help guide you to the right tool, or Claude will automatically select the appropriate skill based on your request.
+Once installed, the `story-orchestrator` agent is your primary entry point. It coordinates brainstorming, drafting, critique, and knowledge maintenance across all specialized agents. Simply describe what you want to do and the orchestrator handles the rest.
 
 **Natural language examples:**
 - "Help me brainstorm ideas for my magic system"
@@ -268,31 +316,31 @@ For best results, create a dedicated directory for your writing project:
 1. **Brainstorm your story:**
    ```
    "Help me brainstorm a magic system for my fantasy world"
-   (Uses cw-brainstorming)
+   (Uses brainstorming)
    ```
 
 2. **Document finalized ideas:**
    ```
    "Create a documentation page for my magic system"
-   (Uses cw-official-docs)
+   (Uses wiki-docs)
    ```
 
 3. **Analyze your writing style:**
    ```
    "Analyze these three chapters and create a style guide"
-   (Uses cw-style-skill-creator)
+   (Spawns style-creator agent)
    ```
 
 4. **Write new content:**
    ```
    "Write the opening scene of chapter 5"
-   (Uses cw-prose-writing with your style guide)
+   (Uses prose-writing with your style guide)
    ```
 
 5. **Get feedback:**
    ```
    "Critique this chapter for pacing and character consistency"
-   (Uses cw-story-critique)
+   (Uses prose-critique)
    ```
 
 ---

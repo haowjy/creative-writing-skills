@@ -1,0 +1,300 @@
+version = 1
+
+[dependencies._self]
+path = "."
+
+[dependencies.anthropic-skills]
+url = "https://github.com/anthropics/skills"
+commit = "12ab35c2eb5668c95810e6a6066f40f4218adc39"
+
+[dependencies.meridian-base]
+url = "https://github.com/haowjy/meridian-base"
+version = "v0.0.12"
+commit = "2112a5c9fb7b450ef1b5a3346d2397c3053ea0ae"
+
+[dependencies.meridian-dev-workflow]
+url = "https://github.com/haowjy/meridian-dev-workflow"
+version = "v0.0.8"
+commit = "647ebc5407bd899b32397dab85333fb29b9efdea"
+
+[items."agents/brainstormer.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:0d0f915b41088ad5742c80ac61613e2cf470ef523c5a2820ebfd75fa235f5870"
+installed_checksum = "sha256:0d0f915b41088ad5742c80ac61613e2cf470ef523c5a2820ebfd75fa235f5870"
+dest_path = "agents/brainstormer.md"
+
+[items."agents/character-sim.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:2b8cdf3d5482f8db80999b9b02f7e53f78adb614654871bbeb6433b049b038aa"
+installed_checksum = "sha256:2b8cdf3d5482f8db80999b9b02f7e53f78adb614654871bbeb6433b049b038aa"
+dest_path = "agents/character-sim.md"
+
+[items."agents/chronicler.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:f91357ac09a9b589d9c0f82926329b151ab1dec0181d2a86617c8936012af3c1"
+installed_checksum = "sha256:f91357ac09a9b589d9c0f82926329b151ab1dec0181d2a86617c8936012af3c1"
+dest_path = "agents/chronicler.md"
+
+[items."agents/continuity-checker.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:f00ce3bdb03de25149c6a5d42abba810a0e018d7b31dc7ac5138d61b07241b9b"
+installed_checksum = "sha256:f00ce3bdb03de25149c6a5d42abba810a0e018d7b31dc7ac5138d61b07241b9b"
+dest_path = "agents/continuity-checker.md"
+
+[items."agents/critic.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:3eb7aa42813563b3f218ea7b5957f735642dd731a0d1b3bc827b3f6449904766"
+installed_checksum = "sha256:3eb7aa42813563b3f218ea7b5957f735642dd731a0d1b3bc827b3f6449904766"
+dest_path = "agents/critic.md"
+
+[items."agents/draft-orchestrator.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:790149d9824cd1ebc6d6ba7f82e4b14635eb87ebb196c96fc8d9527d3478499e"
+installed_checksum = "sha256:790149d9824cd1ebc6d6ba7f82e4b14635eb87ebb196c96fc8d9527d3478499e"
+dest_path = "agents/draft-orchestrator.md"
+
+[items."agents/explorer.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:c8e0240d004cbe7360e3852f339429a36dce31f08263f1df2a51fd16c5aaeb0b"
+installed_checksum = "sha256:c8e0240d004cbe7360e3852f339429a36dce31f08263f1df2a51fd16c5aaeb0b"
+dest_path = "agents/explorer.md"
+
+[items."agents/graph-maintainer.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:8bc377169e71624c61542578ab927f28f796b2327f9fe8c25e44c2ae8ef8e210"
+installed_checksum = "sha256:8bc377169e71624c61542578ab927f28f796b2327f9fe8c25e44c2ae8ef8e210"
+dest_path = "agents/graph-maintainer.md"
+
+[items."agents/knowledge-orchestrator.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:6ed7b967d809bc207244b82fdc434dcbf2487caf902dacec72009bf03027b491"
+installed_checksum = "sha256:6ed7b967d809bc207244b82fdc434dcbf2487caf902dacec72009bf03027b491"
+dest_path = "agents/knowledge-orchestrator.md"
+
+[items."agents/meridian-default-orchestrator.md"]
+source = "meridian-base"
+kind = "agent"
+version = "v0.0.12"
+source_checksum = "sha256:50d05d905ee275b9ae196cd60480b35e540dcb76cc775a38ad3299a191364dd6"
+installed_checksum = "sha256:50d05d905ee275b9ae196cd60480b35e540dcb76cc775a38ad3299a191364dd6"
+dest_path = "agents/meridian-default-orchestrator.md"
+
+[items."agents/meridian-subagent.md"]
+source = "meridian-base"
+kind = "agent"
+version = "v0.0.12"
+source_checksum = "sha256:ac081428ccb528455714122ca0d7ea0a433da2540c746e8da7cb88a0d547ea63"
+installed_checksum = "sha256:ac081428ccb528455714122ca0d7ea0a433da2540c746e8da7cb88a0d547ea63"
+dest_path = "agents/meridian-subagent.md"
+
+[items."agents/outliner.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:084aaf03a53a6d100e967ef5b7f300808973dfe3034918885db4d53303d74f67"
+installed_checksum = "sha256:084aaf03a53a6d100e967ef5b7f300808973dfe3034918885db4d53303d74f67"
+dest_path = "agents/outliner.md"
+
+[items."agents/reader-sim.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:a9f2ef28442176253f87fbb9d632cde5bca48fadd8b0ecc313f5b198fe450896"
+installed_checksum = "sha256:a9f2ef28442176253f87fbb9d632cde5bca48fadd8b0ecc313f5b198fe450896"
+dest_path = "agents/reader-sim.md"
+
+[items."agents/researcher.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:1945bed15719be0885b3375bfa2e8e9f9131adfe92235a2251feb3e714788352"
+installed_checksum = "sha256:1945bed15719be0885b3375bfa2e8e9f9131adfe92235a2251feb3e714788352"
+dest_path = "agents/researcher.md"
+
+[items."agents/session-miner.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:e998b0be1312dd19a29c20e405a1f44cf7318413922536b49453a784b1b2c6a1"
+installed_checksum = "sha256:e998b0be1312dd19a29c20e405a1f44cf7318413922536b49453a784b1b2c6a1"
+dest_path = "agents/session-miner.md"
+
+[items."agents/story-orchestrator.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:2f259c8027cbbc173b0fc464ee22bf970bc18e3876eeca168f5f36d695e38f25"
+installed_checksum = "sha256:2f259c8027cbbc173b0fc464ee22bf970bc18e3876eeca168f5f36d695e38f25"
+dest_path = "agents/story-orchestrator.md"
+
+[items."agents/style-creator.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:5dc182ba2a8878a239415d10b7f85f25f5f24030f21d254685cabf28abf3ef1e"
+installed_checksum = "sha256:5dc182ba2a8878a239415d10b7f85f25f5f24030f21d254685cabf28abf3ef1e"
+dest_path = "agents/style-creator.md"
+
+[items."agents/wiki-editor.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:6b0dc5975b48efa9b6465f84cad935aa97e1084017d5604b41f868da1c1a8733"
+installed_checksum = "sha256:6b0dc5975b48efa9b6465f84cad935aa97e1084017d5604b41f868da1c1a8733"
+dest_path = "agents/wiki-editor.md"
+
+[items."agents/writer.md"]
+source = "_self"
+kind = "agent"
+source_checksum = "sha256:a66a599cc80f3aeb9bf4927c49da80dfc476f953df4889fead4b915141f9f906"
+installed_checksum = "sha256:a66a599cc80f3aeb9bf4927c49da80dfc476f953df4889fead4b915141f9f906"
+dest_path = "agents/writer.md"
+
+[items."skills/agent-creator"]
+source = "meridian-base"
+kind = "skill"
+version = "v0.0.12"
+source_checksum = "sha256:51a74dabf3c7c0b7cbced2d3608247147d15c9bf478a3ecd0e334b6908e0ebbd"
+installed_checksum = "sha256:51a74dabf3c7c0b7cbced2d3608247147d15c9bf478a3ecd0e334b6908e0ebbd"
+dest_path = "skills/agent-creator"
+
+[items."skills/brainstorming"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:f49f3005e7f28a54bf65b467a14cdfbb6a7e5eb1ee2b9327b330ba87be011b78"
+installed_checksum = "sha256:f49f3005e7f28a54bf65b467a14cdfbb6a7e5eb1ee2b9327b330ba87be011b78"
+dest_path = "skills/brainstorming"
+
+[items."skills/frontend-design"]
+source = "anthropic-skills"
+kind = "skill"
+source_checksum = "sha256:3dc9d9c837c7f390c1bf8b13e4667cf167340067bfbaf6d734d644eb08c640a1"
+installed_checksum = "sha256:3dc9d9c837c7f390c1bf8b13e4667cf167340067bfbaf6d734d644eb08c640a1"
+dest_path = "skills/frontend-design"
+
+[items."skills/knowledge-graph"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:48ed31171be9ffa027f8f5d018495e311eebc30a636e7f961c122267f642197e"
+installed_checksum = "sha256:48ed31171be9ffa027f8f5d018495e311eebc30a636e7f961c122267f642197e"
+dest_path = "skills/knowledge-graph"
+
+[items."skills/meridian-cli"]
+source = "meridian-base"
+kind = "skill"
+version = "v0.0.12"
+source_checksum = "sha256:559fe20f7d784d41e19968f3758d10bda0f9df8b852ad61f358a09ed1d75c345"
+installed_checksum = "sha256:559fe20f7d784d41e19968f3758d10bda0f9df8b852ad61f358a09ed1d75c345"
+dest_path = "skills/meridian-cli"
+
+[items."skills/meridian-privilege-escalation"]
+source = "meridian-base"
+kind = "skill"
+version = "v0.0.12"
+source_checksum = "sha256:e0341d4ed3657d4a4c6a0a96f804376e6f960e3f7f2fd9b91ac8d672ea4e2938"
+installed_checksum = "sha256:e0341d4ed3657d4a4c6a0a96f804376e6f960e3f7f2fd9b91ac8d672ea4e2938"
+dest_path = "skills/meridian-privilege-escalation"
+
+[items."skills/meridian-spawn"]
+source = "meridian-base"
+kind = "skill"
+version = "v0.0.12"
+source_checksum = "sha256:88bd69f9c3d0dddf6e2fa0cacd1ab095b186c245757df12d69fb39b9f58dac91"
+installed_checksum = "sha256:88bd69f9c3d0dddf6e2fa0cacd1ab095b186c245757df12d69fb39b9f58dac91"
+dest_path = "skills/meridian-spawn"
+
+[items."skills/meridian-work-coordination"]
+source = "meridian-base"
+kind = "skill"
+version = "v0.0.12"
+source_checksum = "sha256:8fa41ae4296621e85a279379951a65333786773721faa3ff2db23faa322cc0cc"
+installed_checksum = "sha256:8fa41ae4296621e85a279379951a65333786773721faa3ff2db23faa322cc0cc"
+dest_path = "skills/meridian-work-coordination"
+
+[items."skills/mermaid"]
+source = "meridian-dev-workflow"
+kind = "skill"
+version = "v0.0.8"
+source_checksum = "sha256:3685943c9f0f99a50b8cb9af402de98ea3948d013231b1841d9a48e7eb313b02"
+installed_checksum = "sha256:3685943c9f0f99a50b8cb9af402de98ea3948d013231b1841d9a48e7eb313b02"
+dest_path = "skills/mermaid"
+
+[items."skills/prose-analysis"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:c5f993b65d10de6b92ca3dd382425c1a8de26a721ff1e2f07c5ed85df979eadf"
+installed_checksum = "sha256:c5f993b65d10de6b92ca3dd382425c1a8de26a721ff1e2f07c5ed85df979eadf"
+dest_path = "skills/prose-analysis"
+
+[items."skills/prose-critique"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:5fd223b63196464029c366cd82fa5460c3181c93812dd29168cdb1f5f19f7ef7"
+installed_checksum = "sha256:5fd223b63196464029c366cd82fa5460c3181c93812dd29168cdb1f5f19f7ef7"
+dest_path = "skills/prose-critique"
+
+[items."skills/prose-writing"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:51e28402e79f1c770e1144eca1691235099971cb088d00f83ce6afdae360fa88"
+installed_checksum = "sha256:51e28402e79f1c770e1144eca1691235099971cb088d00f83ce6afdae360fa88"
+dest_path = "skills/prose-writing"
+
+[items."skills/skill-creator"]
+source = "meridian-base"
+kind = "skill"
+version = "v0.0.12"
+source_checksum = "sha256:b87c7c496653be9b5e338b28842187ec60489619e58914476cbd7c5ebd94e7e3"
+installed_checksum = "sha256:b87c7c496653be9b5e338b28842187ec60489619e58914476cbd7c5ebd94e7e3"
+dest_path = "skills/skill-creator"
+
+[items."skills/story-architecture"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:e97b54908f70198a84ec12beeed5ac60324c90a87ca04a997e23f7cff31b6b11"
+installed_checksum = "sha256:e97b54908f70198a84ec12beeed5ac60324c90a87ca04a997e23f7cff31b6b11"
+dest_path = "skills/story-architecture"
+
+[items."skills/story-context"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:9a1eeb6619edf9c0e15172c241e65d836136232e7684e2d1b900166d6340b998"
+installed_checksum = "sha256:9a1eeb6619edf9c0e15172c241e65d836136232e7684e2d1b900166d6340b998"
+dest_path = "skills/story-context"
+
+[items."skills/story-decisions"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:fc44cead69076b63a83e7d9f74701749d873efb47380e0b3e0ff94b2d3d108b8"
+installed_checksum = "sha256:fc44cead69076b63a83e7d9f74701749d873efb47380e0b3e0ff94b2d3d108b8"
+dest_path = "skills/story-decisions"
+
+[items."skills/wiki-docs"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:503751e8d541e6cb18c64a2f6c731bd23c942238b5fb493308fd6aa6bbeef9c1"
+installed_checksum = "sha256:503751e8d541e6cb18c64a2f6c731bd23c942238b5fb493308fd6aa6bbeef9c1"
+dest_path = "skills/wiki-docs"
+
+[items."skills/writing-artifacts"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:1e1f8994ffc25963b07f25f88ea4674ab53a6ba168002859c80732856bddecaf"
+installed_checksum = "sha256:1e1f8994ffc25963b07f25f88ea4674ab53a6ba168002859c80732856bddecaf"
+dest_path = "skills/writing-artifacts"
+
+[items."skills/writing-principles"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:41b2f59b71e62bce1ea43cfc5498616f0e29d938ea8e47640acc3442f0afe8bd"
+installed_checksum = "sha256:41b2f59b71e62bce1ea43cfc5498616f0e29d938ea8e47640acc3442f0afe8bd"
+dest_path = "skills/writing-principles"
+
+[items."skills/writing-staffing"]
+source = "_self"
+kind = "skill"
+source_checksum = "sha256:82fa24b119823b9c8c1046317f6e375eb9a88e17141335fc3232860aad353b4d"
+installed_checksum = "sha256:82fa24b119823b9c8c1046317f6e375eb9a88e17141335fc3232860aad353b4d"
+dest_path = "skills/writing-staffing"
