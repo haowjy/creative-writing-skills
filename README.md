@@ -1,6 +1,8 @@
 # Creative Writing Skills
 
-Composable agents and skills for creative writing with Claude Code. Also available as Claude.ai skill uploads.
+A multi-agent creative writing assistant for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Provides 17 specialized agents and 12 composable skills for prose writing, brainstorming, critique, story architecture, knowledge management, and style analysis. Also available as standalone Claude.ai skill uploads.
+
+The `story-orchestrator` agent is the main entry point — it understands your intent, fans out brainstormers and researchers to explore options, kicks off draft/critique loops when you're ready to write, and coordinates knowledge maintenance so your wiki, decision logs, and continuity stay current as your story evolves.
 
 ## What's Included
 
@@ -8,7 +10,7 @@ Composable agents and skills for creative writing with Claude Code. Also availab
 
 | Agent | Role |
 |---|---|
-| **story-orchestrator** | Primary entry point - coordinates all creative writing workflows |
+| **story-orchestrator** | Primary entry point — coordinates all creative writing workflows |
 | **draft-orchestrator** | Runs the draft/critique loop with writers, critics, reader-sims |
 | **knowledge-orchestrator** | Coordinates wiki updates, graph maintenance, continuity checks |
 | **writer** | Writes prose in the project's established style |
@@ -17,7 +19,7 @@ Composable agents and skills for creative writing with Claude Code. Also availab
 | **character-sim** | Simulates character behavior for dialogue testing and scene exploration |
 | **brainstormer** | Wide-open option generation on a scoped question |
 | **outliner** | Structural decomposition into beat sheets and arc maps |
-| **explorer** | Fast project exploration - finds files, searches content |
+| **explorer** | Fast project exploration — finds files, searches content |
 | **researcher** | Web research for worldbuilding and fact-checking |
 | **continuity-checker** | Checks drafts against established canon |
 | **wiki-editor** | Creates and maintains wiki documentation |
@@ -45,36 +47,39 @@ Composable agents and skills for creative writing with Claude Code. Also availab
 
 ## Installation
 
-Claude Code setup/prerequisites are documented in the official [Claude Code docs](https://docs.claude.com/en/docs/claude-code/quickstart).
-
 ### Mars (recommended)
 
+[Mars](https://github.com/haowjy/meridian-channel) is a package manager for Claude Code agents and skills.
+
 ```bash
-mars add haowjy/creative-writing-skills
-mars sync
+meridian mars add haowjy/creative-writing-skills
+meridian mars sync
 ```
 
-`mars.toml` in this repo currently declares version `0.0.5`.
+If you have the standalone `mars` CLI installed, `mars add` / `mars sync` also works.
 
-### Claude Code plugin (legacy alternative)
+### Claude Code plugin (legacy)
 
 ```bash
 claude plugin marketplace add haowjy/creative-writing-skills
 claude plugin install creative-writing-skills@creative-writing-skills
-claude plugin
 ```
 
 ### Claude.ai
 
-1. Download `.skill` files from [GitHub Releases](https://github.com/haowjy/creative-writing-skills/releases).
-2. In Claude.ai, go to `Settings > Capabilities > Skills`.
-3. Upload the skills you want to use (start with `cw-router.skill`, `prose-writing.skill`, and `prose-critique.skill`).
+Download `.skill` files from [GitHub Releases](https://github.com/haowjy/creative-writing-skills/releases) and upload them in Claude.ai under **Settings > Capabilities > Skills**.
+
+Recommended starting set: `cw-router.skill`, `prose-writing.skill`, `brainstorming.skill`, `prose-critique.skill`.
+
+For Claude.ai, use `cw-router` to route to the right skill for your task. The full agent system is Claude Code only.
 
 ## Usage
 
-Use `story-orchestrator` as the default entry point in Claude Code. It routes work to specialized agents and skills.
+Use `story-orchestrator` as the default entry point. It coordinates brainstorming, drafting, critique, and knowledge maintenance across all the specialized agents.
 
-### Slash Commands
+### Slash Commands (Claude Code)
+
+These slash commands are provided via `.claude/commands/` and work in Claude Code only.
 
 | Command | What it does |
 |---|---|
@@ -83,33 +88,34 @@ Use `story-orchestrator` as the default entry point in Claude Code. It routes wo
 | `/wiki` | Create canonical wiki/documentation pages |
 | `/critique` | Critique prose with structured feedback |
 
-### Example prompts
+### Examples
 
-- "Help me outline a 12-chapter arc for this premise."
-- "Write the next scene in my existing style guide."
-- "Critique this chapter for pacing and continuity."
-- "Create a canon wiki page for the magic system."
-
-For Claude.ai, use `cw-router` to route to the right skill when needed.
+- "Help me brainstorm ideas for my magic system"
+- "Write the next scene where my protagonist discovers the truth"
+- "Critique this chapter for pacing and character consistency"
+- "Create a wiki page for this location"
+- "Analyze my writing style and create a style guide from these chapters"
 
 ## Project Setup
 
-A simple project layout for long-form writing:
+A recommended layout for a Mars-based writing project:
 
 ```text
 my-story/
+├── mars.toml              # Package config + dependencies
 ├── .claude/
-│   └── CLAUDE.md
-├── drafts/
-├── wiki/
+│   └── CLAUDE.md          # Project instructions
+├── .agents/               # Managed by mars sync (agents + skills)
+├── story/                 # Chapters, drafts
+├── wiki/                  # Character profiles, lore, locations
 ├── style/
-│   └── style-guide.md
-└── notes/
+│   └── style-guide.md     # Your writing style reference
+└── notes/                 # Planning, brainstorms, decision logs
 ```
 
-Recommended flow:
-1. Start with brainstorming and architecture.
-2. Capture decisions and canon pages as soon as they stabilize.
+Typical flow:
+1. Brainstorm and explore options with `story-orchestrator`.
+2. Capture decisions and canon pages as they stabilize.
 3. Draft with style context, then run critique and continuity checks.
 4. Keep wiki and decision logs in sync with each accepted change.
 
@@ -121,18 +127,27 @@ Recommended flow:
 python3 scripts/create_skill_zips.py
 ```
 
-Artifacts are written to `zips/*.skill`.
+Outputs to `zips/*.skill`.
 
-### Validate package wiring
+### Validate package
 
 ```bash
 meridian mars check
 ```
 
+### Release
+
+```bash
+./scripts/release.sh              # patch bump, commit, tag
+./scripts/release.sh minor        # minor bump
+./scripts/release.sh major        # major bump
+./scripts/release.sh --push       # patch bump + push (triggers CI release)
+```
+
 ### CI/CD
 
-- Pull requests run `mars check` and frontmatter validation.
-- Tag pushes create GitHub releases, including generated `.skill` artifacts.
+- Push / PR to `main`: runs `mars check`, frontmatter validation, lock freshness check, zip build.
+- Tag push (`v*`): validates, then creates a GitHub Release with `.skill` artifacts.
 
 ## License
 
