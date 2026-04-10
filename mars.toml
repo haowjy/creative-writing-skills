@@ -1,6 +1,6 @@
 [package]
 name = "creative-writing-skills"
-version = "0.0.6"
+version = "0.0.7"
 
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
@@ -8,3 +8,6 @@ url = "https://github.com/haowjy/meridian-base"
 [dependencies.meridian-dev-workflow]
 url = "https://github.com/haowjy/meridian-dev-workflow"
 skills = ["mermaid"]
+
+[settings]
+models_cache_ttl_hours = 24
