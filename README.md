@@ -1,12 +1,147 @@
 # Creative Writing Skills
 
-A multi-agent creative writing assistant for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Provides 17 specialized agents and 12 composable skills for prose writing, brainstorming, critique, story architecture, knowledge management, and style analysis. Also available as standalone Claude.ai skill uploads.
+[![CI](https://github.com/haowjy/creative-writing-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/haowjy/creative-writing-skills/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
-The `story-orchestrator` agent is the main entry point — it understands your intent, fans out brainstormers and researchers to explore options, kicks off draft/critique loops when you're ready to write, and coordinates knowledge maintenance so your wiki, decision logs, and continuity stay current as your story evolves.
+Write novels, short stories, and serial fiction with AI that maintains your voice, tracks your continuity, and gets better the more you use it. This package gives [Claude Code](https://docs.anthropic.com/en/docs/claude-code) a full creative writing workflow — from first brainstorm to polished draft — through 17 specialized agents and 12 composable skills.
 
-## What's Included
+**What you get:**
+- **Brainstorm without committing** — explore plot options, character arcs, and world mechanics with multiple AI perspectives before deciding anything
+- **Write in your voice** — create a style guide from your existing prose, then draft new scenes that match it
+- **Catch your own mistakes** — automated continuity checks, structured critique, and simulated reader reactions
+- **Keep everything in sync** — wiki pages, decision logs, and knowledge graphs update as your story evolves
 
-### Agents (17)
+## Quick Start
+
+```bash
+# Install
+meridian mars add haowjy/creative-writing-skills
+meridian mars sync
+
+# Start writing
+claude
+> "Help me brainstorm a magic system for my fantasy world"
+```
+
+The `story-orchestrator` agent handles routing — just describe what you want to do.
+
+## How It Works
+
+```mermaid
+flowchart TB
+    You([You]) --> SO[story-orchestrator]
+
+    SO --> Explore
+    SO --> Write
+    SO --> Maintain
+
+    subgraph Explore ["Explore & Plan"]
+        direction LR
+        B[brainstormer] ~~~ R[researcher]
+        R ~~~ O[outliner]
+    end
+
+    subgraph Write ["Draft & Revise"]
+        direction TB
+        DO[draft-orchestrator]
+        DO --> W[writer]
+        W --> C[critic]
+        C --> RS[reader-sim]
+        RS -->|revision notes| DO
+    end
+
+    subgraph Maintain ["Knowledge & Continuity"]
+        direction LR
+        KO[knowledge-orchestrator]
+        KO --> WE[wiki-editor]
+        KO --> CC[continuity-checker]
+        KO --> GM[graph-maintainer]
+    end
+
+    Write -->|decisions & facts| Maintain
+    Explore -->|direction confirmed| Write
+    Maintain -.->|context for next session| Explore
+```
+
+**Explore:** Fan out brainstormers across diverse models for creative breadth. Researchers pull real-world references. Outliners shape structure.
+
+**Draft & Revise:** The draft-orchestrator runs autonomous write/critique loops — writer produces prose, critics evaluate across multiple dimensions, reader-sims report their experience, and the cycle repeats until converged.
+
+**Knowledge & Continuity:** Every accepted change triggers knowledge maintenance — wiki updates, continuity checks, and graph rebuilds so the next session starts with accurate context.
+
+## Compatibility
+
+| Feature | Mars (Claude Code) | Plugin (Claude Code) | Claude.ai |
+|---|:---:|:---:|:---:|
+| All 17 agents | Yes | Yes | No |
+| All 12 skills | Yes | Yes | Yes (upload `.skill` files) |
+| Slash commands | Yes | Yes | No |
+| Multi-agent orchestration | Yes | Yes | No |
+| Auto-updates via `mars sync` | Yes | No | No |
+| Dependency management | Yes | No | No |
+
+## Installation
+
+### Mars (recommended)
+
+[Mars](https://github.com/haowjy/meridian-channel) is a package manager for Claude Code agents and skills.
+
+```bash
+meridian mars add haowjy/creative-writing-skills
+meridian mars sync
+```
+
+If you have the standalone `mars` CLI, `mars add` / `mars sync` also works.
+
+### Claude Code plugin (legacy)
+
+```bash
+claude plugin marketplace add haowjy/creative-writing-skills
+claude plugin install creative-writing-skills@creative-writing-skills
+```
+
+### Claude.ai
+
+Download `.skill` files from [GitHub Releases](https://github.com/haowjy/creative-writing-skills/releases) and upload in **Settings > Capabilities > Skills**.
+
+Start with: `cw-router.skill`, `prose-writing.skill`, `brainstorming.skill`, `prose-critique.skill`. Use `cw-router` to navigate between skills. The full agent system is Claude Code only.
+
+## Agents
+
+```mermaid
+graph LR
+    subgraph Orchestrators
+        SO[story-orchestrator]
+        DO[draft-orchestrator]
+        KO[knowledge-orchestrator]
+    end
+
+    subgraph Creators
+        W[writer]
+        B[brainstormer]
+        O[outliner]
+        CS[character-sim]
+        SC[style-creator]
+    end
+
+    subgraph Reviewers
+        CR[critic]
+        RS[reader-sim]
+        CC[continuity-checker]
+    end
+
+    subgraph Knowledge
+        WE[wiki-editor]
+        GM[graph-maintainer]
+        CH[chronicler]
+        SM[session-miner]
+    end
+
+    subgraph Utility
+        EX[explorer]
+        RE[researcher]
+    end
+```
 
 | Agent | Role |
 |---|---|
@@ -28,7 +163,7 @@ The `story-orchestrator` agent is the main entry point — it understands your i
 | **session-miner** | Mines past session transcripts for unreported decisions |
 | **style-creator** | Analyzes existing prose to create style guides |
 
-### Skills (12)
+## Skills
 
 | Skill | Purpose |
 |---|---|
@@ -45,41 +180,9 @@ The `story-orchestrator` agent is the main entry point — it understands your i
 | **writing-artifacts** | Artifact types and file conventions |
 | **writing-staffing** | Agent roster and coordination patterns |
 
-## Installation
-
-### Mars (recommended)
-
-[Mars](https://github.com/haowjy/meridian-channel) is a package manager for Claude Code agents and skills.
-
-```bash
-meridian mars add haowjy/creative-writing-skills
-meridian mars sync
-```
-
-If you have the standalone `mars` CLI installed, `mars add` / `mars sync` also works.
-
-### Claude Code plugin (legacy)
-
-```bash
-claude plugin marketplace add haowjy/creative-writing-skills
-claude plugin install creative-writing-skills@creative-writing-skills
-```
-
-### Claude.ai
-
-Download `.skill` files from [GitHub Releases](https://github.com/haowjy/creative-writing-skills/releases) and upload them in Claude.ai under **Settings > Capabilities > Skills**.
-
-Recommended starting set: `cw-router.skill`, `prose-writing.skill`, `brainstorming.skill`, `prose-critique.skill`.
-
-For Claude.ai, use `cw-router` to route to the right skill for your task. The full agent system is Claude Code only.
-
 ## Usage
 
-Use `story-orchestrator` as the default entry point. It coordinates brainstorming, drafting, critique, and knowledge maintenance across all the specialized agents.
-
 ### Slash Commands (Claude Code)
-
-These slash commands are provided via `.claude/commands/` and work in Claude Code only.
 
 | Command | What it does |
 |---|---|
@@ -90,44 +193,45 @@ These slash commands are provided via `.claude/commands/` and work in Claude Cod
 
 ### Examples
 
-- "Help me brainstorm ideas for my magic system"
-- "Write the next scene where my protagonist discovers the truth"
-- "Critique this chapter for pacing and character consistency"
-- "Create a wiki page for this location"
-- "Analyze my writing style and create a style guide from these chapters"
+```
+"Help me brainstorm ideas for my magic system"
+"Write the next scene where my protagonist discovers the truth"
+"Critique this chapter for pacing and character consistency"
+"Create a wiki page for this location"
+"Analyze my writing style and create a style guide from these chapters"
+```
 
 ## Project Setup
 
-A recommended layout for a Mars-based writing project:
-
 ```text
 my-story/
-├── mars.toml              # Package config + dependencies
+├── mars.toml              # Dependencies
 ├── .claude/
 │   └── CLAUDE.md          # Project instructions
-├── .agents/               # Managed by mars sync (agents + skills)
-├── story/                 # Chapters, drafts
+├── .agents/               # Managed by mars sync
+├── story/                 # Chapters and drafts
 ├── wiki/                  # Character profiles, lore, locations
 ├── style/
-│   └── style-guide.md     # Your writing style reference
+│   └── style-guide.md     # Your voice reference
 └── notes/                 # Planning, brainstorms, decision logs
 ```
 
-Typical flow:
-1. Brainstorm and explore options with `story-orchestrator`.
-2. Capture decisions and canon pages as they stabilize.
-3. Draft with style context, then run critique and continuity checks.
-4. Keep wiki and decision logs in sync with each accepted change.
+```mermaid
+flowchart LR
+    A[Brainstorm & explore] --> B[Capture decisions & canon]
+    B --> C[Draft with style context]
+    C --> D[Critique & continuity check]
+    D --> E[Update wiki & logs]
+    E -.->|next chapter| A
+```
 
 ## Development
 
 ### Build Claude.ai skill zips
 
 ```bash
-python3 scripts/create_skill_zips.py
+python3 scripts/create_skill_zips.py   # outputs to zips/*.skill
 ```
-
-Outputs to `zips/*.skill`.
 
 ### Validate package
 
@@ -141,13 +245,13 @@ meridian mars check
 ./scripts/release.sh              # patch bump, commit, tag
 ./scripts/release.sh minor        # minor bump
 ./scripts/release.sh major        # major bump
-./scripts/release.sh --push       # patch bump + push (triggers CI release)
+./scripts/release.sh --push       # patch + push (triggers CI release)
 ```
 
 ### CI/CD
 
-- Push / PR to `main`: runs `mars check`, frontmatter validation, lock freshness check, zip build.
-- Tag push (`v*`): validates, then creates a GitHub Release with `.skill` artifacts.
+- **Push / PR to `main`:** `mars check`, frontmatter validation, lock freshness, zip build.
+- **Tag push (`v*`):** validates, builds `.skill` zips, creates GitHub Release with artifacts.
 
 ## License
 
