@@ -36,9 +36,19 @@ A character with multiple genuinely distinct modes might need multiple files. A 
 
 Style files that capture how the author actually writes, not how writing should theoretically work. Generic craft advice produces generic prose. Style files grounded in the author's actual patterns produce prose that sounds like the project.
 
-Every observation needs concrete examples with citations. "The author uses short fragments for impact" is too vague for a writer agent to act on. "The author drops to 3-5 word fragments at emotional peaks — 'Not like this. Not again.' (Ch. 3) — then expands back to full sentences as the moment passes" gives the writer a replicable pattern.
-
 Each file should be self-describing — an orchestrator reading it should understand what it covers and when to load it without needing external documentation.
+
+### Structure: principles first, not catalogs
+
+A style file teaches a voice, not catalogs every instance of it. The structure for each pattern:
+
+- **Principle** — state the core insight in a few sentences. What's the pattern? Why does it work?
+- **Representative examples** — one or two examples with chapter citations that show the principle in action. Pick the best ones, not all of them.
+- **Chapter pointers** — reference where the writer can see more of the pattern in context, so they can read the source text themselves.
+
+A writer who internalizes the principle will produce natural variation. A writer following a checklist of exhaustive examples produces something mechanical. The goal: a writer reads the file, understands the voice, and writes without keeping the file open as a reference.
+
+What to avoid: exhaustive audience-by-audience breakdowns, quantitative stats from analysis (those are research data, not writing guidance), complete lists of technique variants numbered 1-7, anything that reads like a catalog rather than a guide.
 
 ## What to Look For
 
@@ -72,4 +82,7 @@ Load the `writing-issues` skill for how to log issues properly.
 
 ## Quality Bar
 
-The test for a good style file: could a writer agent, reading only this file and a scene brief, produce prose that the author recognizes as their voice? If the patterns are too abstract or the examples too few, the answer is no.
+Two tests:
+
+1. **Voice test** — could a writer agent, reading only this file and a scene brief, produce prose that the author recognizes as their voice? If the patterns are too abstract or the examples too few, the answer is no.
+2. **Brevity test** — could a writer internalize this file in one read? If the file is so long that a writer needs to keep it open as reference while drafting, it's over-prescribed. Aim for a file a writer reads once and absorbs, not a manual they consult.
