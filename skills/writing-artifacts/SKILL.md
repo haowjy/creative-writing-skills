@@ -29,13 +29,13 @@ $MERIDIAN_FS_DIR/
 
 **`styles/`** — How to write, not what to write. Voice files capture a character's speech patterns, narration style, and tonal range. Scene-type files capture technique for specific scene categories. Tone files capture emotional registers. The style-creator produces these from sample chapters or author requirements; the writer loads them when drafting.
 
-**`characters/`** — Current character state: where they are in the story, what they know, their emotional trajectory, key relationships. Updated by the chronicler after chapters are written. Includes decision annotations — "Amber is 8 at story start [decided in session X, alternatives considered: 6, 10, rejected because...]".
+**`characters/`** — Current character state: where they are in the story, what they know, their emotional trajectory, key relationships. Updated by the chronicler after chapters are written. Includes decision annotations — "character is 8 at story start [decided in session X, alternatives considered: 6, 10, rejected because...]".
 
 **`world/`** — Locations, systems, lore, factions — anything about the world that multiple chapters reference. The chronicler and session-miner both contribute here.
 
 **`timeline/`** — Event chronology. When things happened, in what order, with citations back to chapters. The continuity-checker's primary reference.
 
-**`canon/`** — Facts established by written chapters. Not a copy of the chapter — a synthesis of what the chapter established as true. "Chapter 4 established that Amber can sense ghost-type energy" with a citation.
+**`canon/`** — Facts established by written chapters. Not a copy of the chapter — a synthesis of what the chapter established as true. "Chapter 4 established that the protagonist can sense a new ability" with a citation.
 
 **`graphs/`** — Mermaid relationship diagrams, knowledge graph output, connection maps. The graph-maintainer keeps these current.
 

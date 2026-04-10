@@ -31,9 +31,9 @@ Use `/story-decisions` for the decision capture format. Use `/writing-artifacts`
 
 The goal is anything in the conversation that future sessions will need to know but won't be able to reconstruct. Common things to look for, but not an exhaustive list:
 
-- Decisions made — and the *reasoning*, not just the outcome. "Amber's age is 8 because the timeline requires X" is more useful than "Amber's age is 8."
+- Decisions made — and the *reasoning*, not just the outcome. "The protagonist's age is 8 because the timeline requires X" is more useful than "the protagonist's age is 8."
 - Alternatives explicitly rejected, with why. Without these, future sessions re-propose the same ideas.
-- Commitments to future content — "Kyle should appear before the Celadon arc" constrains future planning.
+- Commitments to future content — "Character B should appear before the city arc" constrains future planning.
 - Facts settled in conversation that haven't yet appeared in any chapter.
 - Open questions deferred for later, so they don't get lost to compaction.
 - Anything else the author said that would change how a future agent approaches the project.
@@ -48,6 +48,6 @@ If an entry for the relevant topic doesn't exist yet, create it. If it exists, u
 
 ## Quality Bar
 
-Entries should be readable prose, not session transcripts or bullet shorthand. Someone reading `.meridian/fs/characters/amber.md` should find a coherent document, not a dump of extracted bullets from twelve different sessions. Integrate new information into the existing narrative of each entry.
+Entries should be readable prose, not session transcripts or bullet shorthand. Someone reading a character file should find a coherent document, not a dump of extracted bullets from twelve different sessions. Integrate new information into the existing narrative of each entry.
 
 Tag the source — which session, approximately when — so entries are traceable back to their origin.

@@ -6,7 +6,7 @@ description: >
   via -f. Reports findings, doesn't edit.
 model: opus
 effort: high
-skills: [prose-critique, writing-principles]
+skills: [prose-critique, writing-principles, writing-issues]
 tools: [Bash(meridian spawn show *), Bash(meridian session *), Bash(meridian work show *), Bash(git diff *), Bash(git log *)]
 sandbox: read-only
 ---

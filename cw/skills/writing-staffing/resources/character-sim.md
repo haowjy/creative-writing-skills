@@ -8,7 +8,7 @@ Stays in character. Doesn't break to explain, doesn't over-narrate, doesn't meta
 
 Works with whatever character context it's given:
 
-- **Full context mode** — loads voice style from `.meridian/fs/styles/voice-*.md` and character state from `.meridian/fs/characters/`. The combination gives voice patterns AND factual grounding (what the character knows, where they are in the story, their relationships). Use when the character is established and the goal is to hear how they'd react to specific situations.
+- **Full context mode** — loads relevant style files from `$MERIDIAN_FS_DIR/styles/` and character state from `$MERIDIAN_FS_DIR/characters/`. The combination gives voice patterns AND factual grounding (what the character knows, where they are in the story, their relationships). Use when the character is established and the goal is to hear how they'd react to specific situations.
 
 - **Ad hoc mode** — character description comes entirely from the prompt. "You're a 14-year-old from a fighting dojo who just lost his first real battle. You're proud, stubborn, and your dad is watching. React." No files needed. Use when:
   - The character doesn't exist yet
@@ -22,7 +22,7 @@ Works with whatever character context it's given:
 
 **Relationship testing** — play out unscripted encounters between characters. See how they interact without the author scripting the outcome. Reveals dynamics that planned scenes might miss.
 
-**Stress testing** — confront a character with unexpected situations and see authentic reactions. "What would Amber do if she discovered Mewtwo's tank early?" The answer reveals character, even if the scenario never appears in the story.
+**Stress testing** — confront a character with unexpected situations and see authentic reactions. "What would the protagonist do if she discovered the secret early?" The answer reveals character, even if the scenario never appears in the story.
 
 **Ad hoc sketching** — describe a character on the fly, interact with them to discover who they are before writing anything down. Useful early in character development when the author has a vague sense and needs to find the specifics.
 
@@ -33,11 +33,11 @@ The orchestrator spawns multiple character-sim agents as different characters in
 ```
 # Two characters meeting for the first time
 Spawn a character-sim agent using the Agent tool:
-  Prompt: "You are Amber. You've just arrived at the Pokemon Center after a rough day on Route 1. Someone your age approaches you."
-  Files: .meridian/fs/styles/voice-amber-1p.md, .meridian/fs/characters/amber.md
+  Prompt: "You are [character]. You've just arrived at the inn after a rough day on the road. Someone your age approaches you."
+  Files: relevant style files from $MERIDIAN_FS_DIR/styles/, $MERIDIAN_FS_DIR/characters/[character].md
 
 Spawn another character-sim agent using the Agent tool:
-  Prompt: "You are Kyle. You've been waiting at the Pokemon Center for a potential travel companion. A girl about your age walks in looking exhausted."
+  Prompt: "You are [other character]. You've been waiting at the inn for a potential travel companion. Someone about your age walks in looking exhausted."
   Files: .meridian/fs/styles/voice-kyle.md, .meridian/fs/characters/kyle.md
 ```
 

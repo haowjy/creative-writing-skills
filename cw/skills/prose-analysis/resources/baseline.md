@@ -37,4 +37,4 @@ The baseline captures mechanical patterns, not quality. A draft that matches eve
 
 When new chapters are published and approved, add them to the baseline. The baseline should represent the project as it currently stands, not a frozen snapshot from chapter 1. Author voice evolves — the baseline should track that evolution.
 
-If the project has distinct voices (different POV characters, different narrative modes), maintain separate baselines per voice/mode. Comparing a third-person Fuji chapter against first-person Amber chapters will produce misleading deviations.
+If the project has distinct voices (different POV characters, different narrative modes), maintain separate baselines per voice/mode. Comparing a third-person chapter against first-person chapters will produce misleading deviations.

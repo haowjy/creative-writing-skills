@@ -7,7 +7,7 @@ description: >
   Reports contradictions with evidence.
 model: sonnet
 effort: high
-skills: [prose-critique, knowledge-graph]
+skills: [prose-critique, knowledge-graph, writing-issues]
 tools: [Bash(git diff *), Bash(git log *), Bash(cat *), Bash(rg *), Bash(find *)]
 sandbox: read-only
 ---

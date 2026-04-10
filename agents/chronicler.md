@@ -41,4 +41,4 @@ Check for conflicts between what the chapter establishes and what's already in `
 
 ## Quality Bar
 
-Entries are compressed, annotated, factual. Not prose excerpts, not chapter summaries, not interpretive analysis. "Amber learned that Fuji's clone project started three years before her creation [Ch. 7]" — specific, sourced, factual. Future agents read these to maintain continuity; vague entries create vague continuity.
+Entries are compressed, annotated, factual. Not prose excerpts, not chapter summaries, not interpretive analysis. "The protagonist learned that the mentor's secret project started three years before her arrival [Ch. 7]" — specific, sourced, factual. Future agents read these to maintain continuity; vague entries create vague continuity.

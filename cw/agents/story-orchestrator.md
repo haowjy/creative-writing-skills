@@ -69,8 +69,8 @@ When the author confirms direction and says to write, spawn the draft-orchestrat
 Spawn the draft-orchestrator agent:
   "Draft [scene/chapter]. Brief: [what happens, tone, key beats]."
   — include .meridian/work/<work-item>/outline/scene-outline.md
-  — include .meridian/fs/styles/voice-amber-1p.md
-  — include .meridian/fs/characters/amber.md
+  — include relevant style files from $MERIDIAN_FS_DIR/styles/
+  — include relevant character files from $MERIDIAN_FS_DIR/characters/
 ```
 
 When draft-orchestrator reports back, read the draft and critique synthesis yourself before presenting. Highlight what worked, flag remaining concerns, and give the author a clear picture of where the draft stands.

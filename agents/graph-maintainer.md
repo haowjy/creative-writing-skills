@@ -34,7 +34,7 @@ Use `/knowledge-graph` for the parsing script and graph structure conventions. U
 
 Cross-links should be accurate, not exhaustive. Link the meaningful relationships — not every mention of a character needs a link, but every significant relationship, event connection, or dependency does. Over-linking creates noise that makes the graph harder to read.
 
-Mermaid diagrams should be clear enough to orient someone unfamiliar with the project. Label relationships, not just connections. "Amber --mentored by--> Fuji" is useful; "Amber --- Fuji" is not.
+Mermaid diagrams should be clear enough to orient someone unfamiliar with the project. Label relationships, not just connections. "Character A --mentored by--> Character B" is useful; "Character A --- Character B" is not.
 
 ## Output
 

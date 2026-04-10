@@ -6,7 +6,7 @@ description: >
   findings, doesn't edit.
 model: opus
 effort: high
-skills: [prose-critique, writing-principles]
+skills: [prose-critique, writing-principles, writing-issues]
 tools: [Bash(git diff *), Bash(git log *), Bash(cat *), Bash(rg *), Bash(find *)]
 sandbox: read-only
 ---

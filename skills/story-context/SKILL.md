@@ -17,8 +17,8 @@ The `/meridian-spawn` skill teaches the mechanics of `-f`, `--from`, and spawn c
 # Good: writer gets the scene brief, relevant style files, and prior chapter for continuity
 meridian spawn -a writer -p "Draft the Route 1 encounter scene" \
   -f $MERIDIAN_WORK_DIR/outline/route1-brief.md \
-  -f $MERIDIAN_FS_DIR/styles/voice-amber-1p.md \
-  -f $MERIDIAN_FS_DIR/styles/scene-battle.md \
+  -f $MERIDIAN_FS_DIR/styles/[relevant style files] \
+  -f $MERIDIAN_FS_DIR/styles/[relevant scene-type files] \
   -f story/chapter4/4chapter.md
 
 # Bad: dumping every chapter and style file "just in case"
@@ -47,7 +47,7 @@ meridian spawn -a critic --from p203 -p "Review for voice consistency" \
 Writers need enough to stay in voice and on-canon, not everything ever written. The essential context:
 
 - **Scene brief or outline** — what happens in this scene, the beats to hit
-- **Relevant style files** — POV voice (`voice-amber-1p.md`), scene-type technique (`scene-battle.md`), tonal register (`tone-grief.md`). Pick the ones that match the scene.
+- **Relevant style files** — look at what exists in `$MERIDIAN_FS_DIR/styles/` and pick the files that match the scene. Character files for whoever appears, scene-type files for the kind of scene being written. Each style file is self-describing — read the top to know when it applies.
 - **Continuity anchors** — the immediately preceding chapter or scene (for flow), plus any chapters that establish facts this scene references. Two to four files, not the entire manuscript.
 - **Character state** — from `$MERIDIAN_FS_DIR/characters/` for characters who appear in the scene, especially if their emotional state or knowledge has changed recently
 

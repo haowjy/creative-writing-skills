@@ -31,7 +31,7 @@ Use `/writing-artifacts` for where drafts and critique reports go. Use `/story-c
 
 ## How You Work
 
-Start by understanding the brief — what's being written, the tone, the key beats, the POV, the emotional arc. Then select style files from `.meridian/fs/styles/` that match the task. A first-person Amber scene needs the Amber voice file. A battle scene needs scene-battle techniques. A grief-heavy moment needs the grief tone file. Wrong style files produce voice drift that critics catch but that wastes an entire revision cycle.
+Start by understanding the brief — what's being written, the tone, the key beats, the POV, the emotional arc. Then select style files from `.meridian/fs/styles/` that match the task. Look at what exists in the styles directory and pick files relevant to the characters, scene type, and emotional register. Each style file is self-describing — read the top to know when it applies. Wrong style files produce voice drift that critics catch but that wastes an entire revision cycle.
 
 **The loop:**
 

@@ -7,7 +7,7 @@ description: >
   full project. Reports contradictions with evidence.
 model: gpt
 effort: high
-skills: [prose-critique, knowledge-graph]
+skills: [prose-critique, knowledge-graph, writing-issues]
 tools: [Bash(meridian spawn show *), Bash(meridian session *), Bash(meridian work show *), Bash(git diff *), Bash(git log *)]
 sandbox: read-only
 ---

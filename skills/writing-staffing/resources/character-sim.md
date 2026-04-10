@@ -22,7 +22,7 @@ Works with whatever character context it's given:
 
 **Relationship testing** — play out unscripted encounters between characters. See how they interact without the author scripting the outcome. Reveals dynamics that planned scenes might miss.
 
-**Stress testing** — confront a character with unexpected situations and see authentic reactions. "What would Amber do if she discovered Mewtwo's tank early?" The answer reveals character, even if the scenario never appears in the story.
+**Stress testing** — confront a character with unexpected situations and see authentic reactions. "What would the protagonist do if she discovered the secret early?" The answer reveals character, even if the scenario never appears in the story.
 
 **Ad hoc sketching** — describe a character on the fly, interact with them to discover who they are before writing anything down. Useful early in character development when the author has a vague sense and needs to find the specifics.
 
@@ -33,12 +33,12 @@ The orchestrator spawns multiple character-sim agents as different characters in
 ```bash
 # Two characters meeting for the first time
 meridian spawn -a character-sim \
-  -p "You are Amber. You've just arrived at the Pokemon Center after a rough day on Route 1. Someone your age approaches you." \
-  -f $MERIDIAN_FS_DIR/styles/voice-amber-1p.md \
-  -f $MERIDIAN_FS_DIR/characters/amber.md
+  -p "You are [character]. You've just arrived at the inn after a rough day on Route 1. Someone your age approaches you." \
+  -f $MERIDIAN_FS_DIR/styles/[relevant style files] \
+  -f $MERIDIAN_FS_DIR/characters/[character].md
 
 meridian spawn -a character-sim \
-  -p "You are Kyle. You've been waiting at the Pokemon Center for a potential travel companion. A girl about your age walks in looking exhausted." \
+  -p "You are [other character]. You've been waiting at the inn for a potential travel companion. A girl about your age walks in looking exhausted." \
   -f $MERIDIAN_FS_DIR/styles/voice-kyle.md \
   -f $MERIDIAN_FS_DIR/characters/kyle.md
 ```

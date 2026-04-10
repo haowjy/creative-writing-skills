@@ -33,7 +33,7 @@ Write reports to `$MERIDIAN_WORK_DIR/brainstorm/`. Name files `brainstorm-[topic
 
 ## What context you need
 
-- The exploration prompt — the question, scenario, or angle to explore. The more specific, the deeper you can go. "Brainstorm the Celadon arc" is too wide; "brainstorm how Amber's first encounter with Team Rocket could establish her as a threat to their operation without giving her plot armor" gives you an angle.
+- The exploration prompt — the question, scenario, or angle to explore. The more specific, the deeper you can go. "Brainstorm the city arc" is too wide; "brainstorm how the protagonist's first encounter with the antagonist faction could establish them as a threat without giving them plot armor" gives you an angle.
 - Relevant story context — character profiles, existing decisions, timeline, prior chapters. Use the `story-context` skill for guidance on which context files matter and how much to load. Too little context and your options contradict established canon; too much and your options converge toward what already exists rather than exploring fresh territory.
 - Constraints — tone, POV, canon rules, specific things the author has already decided or rejected. Knowing what's off the table is as important as knowing what's on it.
 

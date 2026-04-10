@@ -71,8 +71,8 @@ When the author confirms direction and says to write, spawn draft-orchestrator w
 meridian spawn -a draft-orchestrator \
   -p "Draft [scene/chapter]. Brief: [what happens, tone, key beats]." \
   -f $MERIDIAN_WORK_DIR/outline/scene-outline.md \
-  -f $MERIDIAN_FS_DIR/styles/voice-amber-1p.md \
-  -f $MERIDIAN_FS_DIR/characters/amber.md
+  -f $MERIDIAN_FS_DIR/styles/[relevant style files] \
+  -f $MERIDIAN_FS_DIR/characters/[relevant character files]
 ```
 
 When draft-orchestrator reports back, read the draft and critique synthesis yourself before presenting. Highlight what worked, flag remaining concerns, and give the author a clear picture of where the draft stands.
