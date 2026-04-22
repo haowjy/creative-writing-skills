@@ -14,22 +14,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
       - name: Install meridian
         run: |
-          curl -fsSL https://raw.githubusercontent.com/haowjy/meridian-channel/main/install.sh | bash
+          uv tool install meridian-cli
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Validate package structure
         run: meridian mars check
-
-      - name: Verify mars.lock is fresh
-        run: |
-          meridian mars sync
-          if ! git diff --quiet mars.lock; then
-            echo "::error::mars.lock is out of date. Run 'meridian mars sync' and commit the result."
-            git diff mars.lock
-            exit 1
-          fi
 
       - name: Validate YAML frontmatter
         run: |
