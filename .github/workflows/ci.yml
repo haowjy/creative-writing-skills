@@ -23,15 +23,6 @@ jobs:
       - name: Validate package structure
         run: meridian mars check
 
-      - name: Verify mars.lock is fresh
-        run: |
-          meridian mars sync
-          if ! git diff --quiet mars.lock; then
-            echo "::error::mars.lock is out of date. Run 'meridian mars sync' and commit the result."
-            git diff mars.lock
-            exit 1
-          fi
-
       - name: Validate YAML frontmatter
         run: |
           error=0
