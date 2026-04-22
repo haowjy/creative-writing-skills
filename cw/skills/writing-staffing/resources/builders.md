@@ -8,17 +8,17 @@ Drafts prose from scene briefs and style files. One writer per scene or chapter 
 
 The writer's output is a draft, not final text. It goes through critique and revision before the orchestrator presents it. Pass the writer:
 - A scene brief or outline (what happens)
-- Relevant style files from `.meridian/fs/styles/` (how it should sound)
+- Relevant style files (how it should sound)
 - Continuity anchors (what came before)
 - Character state files for characters in the scene
 
 The writer operates in two modes:
-- **Autonomous** — receives a brief, produces a draft in `.meridian/work/<work-item>/drafts/`. This is the mode used in draft/critique loops.
+- **Autonomous** — receives a brief, produces a draft in the drafts directory. This is the mode used in draft/critique loops.
 - **Interactive** — back-and-forth with the author in conversation. Used when the author wants to co-write or iterate on specific passages.
 
 ## outliner
 
-Structures story at the arc, chapter, and beat level. Produces outlines in `.meridian/work/<work-item>/outline/` and mermaid diagrams for arc structure, timeline visualization, and character relationship maps.
+Structures story at the arc, chapter, and beat level. Produces outlines and mermaid diagrams for arc structure, timeline visualization, and character relationship maps.
 
 Use the outliner when:
 - Starting a new arc and need to map the chapter structure
@@ -32,7 +32,7 @@ The outliner does not brainstorm. For wide-open exploration and option generatio
 
 ## brainstormer
 
-Explores a question or angle in depth and produces a structured brainstorm report in `.meridian/work/<work-item>/brainstorm/`. Tags speculative content with `<AI>`, preserves vagueness, presents options and tradeoffs rather than committing to a direction.
+Explores a question or angle in depth and produces a structured brainstorm report in the brainstorm directory. Tags speculative content with `<AI>`, preserves vagueness, presents options and tradeoffs rather than committing to a direction.
 
 Use the brainstormer when:
 - The author wants to explore ideas before choosing a direction
@@ -44,7 +44,7 @@ Brainstormer and outliner are complementary — brainstorm first to explore the 
 
 ## style-creator
 
-Creates style reference files from sample chapters, author requirements, or existing style files that need revision. Produces standalone files in `.meridian/fs/styles/` — voice guides, scene technique guides, tonal register guides, and formatting conventions.
+Creates style reference files from sample chapters, author requirements, or existing style files that need revision. Produces standalone style files — voice guides, scene technique guides, tonal register guides, and formatting conventions.
 
 Use the style-creator when:
 - The project needs voice files for a new POV character
@@ -56,7 +56,7 @@ The style-creator does not evaluate prose against styles. That's the critic with
 
 ## wiki-editor
 
-Creates and updates polished, reader-facing reference pages in the project's wiki directory. The wiki-editor is the one agent that writes to the author's space — every other agent writes to `.meridian/fs/` or `.meridian/work/<work-item>/`.
+Creates and updates polished, reader-facing reference pages in the project's wiki directory. The wiki-editor is the one agent that writes to the author's space — every other agent writes to the knowledge base or work directory.
 
 Maintains link discipline: every entity mention linked on first appearance, relationship diagrams embedded via mermaid, citations back to specific chapters.
 

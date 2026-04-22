@@ -114,4 +114,4 @@ The success check: the author says "yes, that's what I said" — not "I never sa
 
 ## File Placement
 
-Brainstorm captures go to `.meridian/work/<work-item>/brainstorm/`. Name files `brainstorm-[topic].md`. Durable decisions extracted later go to `.meridian/fs/`.
+Brainstorm captures go to the brainstorm directory. Name files `brainstorm-[topic].md`. Durable decisions extracted later go to the knowledge base.

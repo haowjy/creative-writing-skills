@@ -12,7 +12,7 @@ These patterns have been identified in peer-reviewed studies with measurable eff
 AI text tends to reuse a narrower working vocabulary than human text of comparable length and genre. Measurable via MATTR (Moving Average Type-Token Ratio) or similar windowed metrics. Raw TTR is unreliable at varying text lengths.
 
 ### Fewer personal pronouns
-AI-generated fiction uses fewer first-person and second-person pronouns relative to total word count. The prose reads as more "reported" than "experienced." Check the pronoun distribution output from `analyze.sh` — if a first-person chapter has unusually low I/me/my counts, investigate.
+AI-generated fiction uses fewer first-person and second-person pronouns relative to total word count. The prose reads as more "reported" than "experienced." Check the pronoun distribution output from `analyze.py` — if a first-person chapter has unusually low I/me/my counts, investigate.
 
 ### More positive-emotion language
 AI text skews toward positive sentiment, even in scenes that should be neutral or negative. This manifests as:
@@ -43,7 +43,7 @@ Grammatically polished, rhythmically smooth, but lacking the irregularity that g
 Scenes follow a predictable emotional trajectory: setup → complication → moment of doubt → resolution with growth. Real scenes often end unresolved, escalate without payoff, or achieve resolution in unexpected dimensions.
 
 ### Repetitive emotional choreography
-Characters perform the same physical expressions of emotion: breath catching, jaw clenching, stomach dropping, heart hammering. The same metaphor clusters appear across different emotional contexts. Check `analyze.sh` repetition output — if the same physical action words cluster across paragraphs, investigate.
+Characters perform the same physical expressions of emotion: breath catching, jaw clenching, stomach dropping, heart hammering. The same metaphor clusters appear across different emotional contexts. Check `analyze.py` repetition output — if the same physical action words cluster across paragraphs, investigate.
 
 ### Tidy-summary endings
 Scenes and chapters end with a paragraph that summarizes the emotional meaning of what just happened. "As I watched the sunset, I realized that..." or "For the first time, I understood that..." Real prose more often ends on action, image, or dialogue — letting the reader draw the conclusion.

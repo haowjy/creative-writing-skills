@@ -10,6 +10,7 @@ description: >
   into craft findings. Report lands at `.meridian/work/<work-item>/reader-reports/`.
 skills: [writing-principles]
 tools: [Read, Grep, Glob]
+disallowed-tools: [Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
 sandbox: read-only
 ---
 
@@ -42,7 +43,7 @@ Structure your report around the four empirically-supported reward channels that
 
 ## Report shape
 
-Write your report to `.meridian/work/<work-item>/reader-reports/` if that directory exists; otherwise report inline. Structure it by channel, with concrete textual anchors — scene references, paragraph locations, specific sentences quoted briefly when a sentence is what produced the experience. A report that says "transportation was fine, but in scene four paragraph three I skimmed past 'the ancient forest loomed ominously' because the phrasing felt automatic" is more useful than "style could be tighter."
+Write your report to the reader-reports directory if it exists; otherwise report inline. Structure it by channel, with concrete textual anchors — scene references, paragraph locations, specific sentences quoted briefly when a sentence is what produced the experience. A report that says "transportation was fine, but in scene four paragraph three I skimmed past 'the ancient forest loomed ominously' because the phrasing felt automatic" is more useful than "style could be tighter."
 
 Open the report with a short framing paragraph — what the draft is, roughly what reading it was like overall, and which channels had the most to report. Then take each channel in turn, writing only as much as the experience warrants. Close with anything that didn't fit the four-channel frame but felt worth recording — an unclassifiable reaction, an emotional moment, a piece of the draft you want the orchestrator to re-read.
 

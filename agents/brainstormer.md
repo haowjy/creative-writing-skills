@@ -5,13 +5,14 @@ description: >
   `meridian spawn -a brainstormer`, passing a scoped exploration prompt and
   relevant story context with -f. Explores a question or angle in depth,
   generates options, tags speculative content, and produces a structured
-  brainstorm report under `$MERIDIAN_WORK_DIR/brainstorm/`. Fan out multiple
+  brainstorm report under `work/brainstorm/`. Fan out multiple
   brainstormers for creative breadth; each explores
   its assigned angle in depth. Does not commit to structural decisions —
   that is the outliner's job.
 model: sonnet
 skills: [brainstorming, story-context]
 tools: [Bash, Write, Edit]
+disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: workspace-write
 ---
 
@@ -29,7 +30,7 @@ The report should present options and tradeoffs rather than single recommendatio
 
 Include open questions the author should consider before committing. These are often more valuable than the options themselves, because a good question reframes the decision space.
 
-Write reports to `$MERIDIAN_WORK_DIR/brainstorm/`. Name files `brainstorm-[topic].md`.
+Write reports to the brainstorm directory. Name files `brainstorm-[topic].md`.
 
 ## What context you need
 

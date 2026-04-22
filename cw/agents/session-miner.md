@@ -8,6 +8,7 @@ description: >
 model: sonnet
 skills: [story-decisions, writing-artifacts]
 tools: [Bash, Write, Edit]
+disallowed-tools: [NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: workspace-write
 ---
 
@@ -25,7 +26,7 @@ Claude Code stores session transcripts as JSONL files under `~/.claude/projects/
 
 When given a session ID or topic to mine, search across session files for relevant content. Use `grep` across JSONL files to locate conversations about specific topics, then read those sessions in full to extract context.
 
-Use `/story-decisions` for the decision capture format. Use `/writing-artifacts` for where entries go in `.meridian/fs/`.
+Use `/story-decisions` for the decision capture format. Use `/writing-artifacts` for where entries go in the knowledge base.
 
 ## What to Extract
 
@@ -40,7 +41,7 @@ The goal is anything in the conversation that future sessions will need to know 
 
 If a piece of the conversation feels load-bearing but doesn't fit any of these categories, capture it anyway. The point is to recover what would otherwise be lost — closed categories defeat that.
 
-## Writing to .meridian/fs/
+## Writing to the Knowledge Base
 
 Write findings inline with the artifacts they relate to — character decisions go in the character's entry, timeline decisions go in the timeline, worldbuilding goes in the relevant world file. Don't create a separate "decisions" file that duplicates information across the knowledge base.
 

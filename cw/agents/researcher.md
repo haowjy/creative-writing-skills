@@ -8,6 +8,7 @@ model: sonnet
 effort: medium
 skills: []
 tools: [Bash, WebSearch, WebFetch]
+disallowed-tools: [Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
 sandbox: read-only
 ---
 

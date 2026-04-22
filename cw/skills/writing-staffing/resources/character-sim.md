@@ -8,7 +8,7 @@ Stays in character. Doesn't break to explain, doesn't over-narrate, doesn't meta
 
 Works with whatever character context it's given:
 
-- **Full context mode** — loads relevant style files from `$MERIDIAN_FS_DIR/styles/` and character state from `$MERIDIAN_FS_DIR/characters/`. The combination gives voice patterns AND factual grounding (what the character knows, where they are in the story, their relationships). Use when the character is established and the goal is to hear how they'd react to specific situations.
+- **Full context mode** — loads relevant style files and character state files. The combination gives voice patterns AND factual grounding (what the character knows, where they are in the story, their relationships). Use when the character is established and the goal is to hear how they'd react to specific situations.
 
 - **Ad hoc mode** — character description comes entirely from the prompt. "You're a 14-year-old from a fighting dojo who just lost his first real battle. You're proud, stubborn, and your dad is watching. React." No files needed. Use when:
   - The character doesn't exist yet
@@ -34,7 +34,7 @@ The orchestrator spawns multiple character-sim agents as different characters in
 # Two characters meeting for the first time
 Spawn a character-sim agent using the Agent tool:
   Prompt: "You are [character]. You've just arrived at the inn after a rough day on the road. Someone your age approaches you."
-  Files: relevant style files from $MERIDIAN_FS_DIR/styles/, $MERIDIAN_FS_DIR/characters/[character].md
+  Files: relevant style files from kb/styles/, kb/characters/[character].md
 
 Spawn another character-sim agent using the Agent tool:
   Prompt: "You are [other character]. You've been waiting at the inn for a potential travel companion. Someone about your age walks in looking exhausted."

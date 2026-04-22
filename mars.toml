@@ -3,11 +3,66 @@ name = "creative-writing-skills"
 version = "0.0.8"
 
 [dependencies.meridian-base]
-url = "https://github.com/haowjy/meridian-base"
+url = "https://github.com/meridian-flow/meridian-base"
 
-[dependencies.meridian-dev-workflow]
-url = "https://github.com/haowjy/meridian-dev-workflow"
-skills = ["mermaid"]
+[local-dependencies.meridian-prompter]
+url = "https://github.com/meridian-flow/meridian-prompter"
 
 [settings]
+targets = [
+    ".agents",
+    ".claude",
+]
 models_cache_ttl_hours = 24
+
+[models.opus]
+harness = "claude"
+description = "Craft-sensitive. Best for prose writing, style creation, critique, and orchestration where voice quality matters."
+provider = "anthropic"
+match = ["*opus*"]
+exclude = ["*:*"]
+
+[models.sonnet]
+harness = "claude"
+description = "Mid-tier. Good for brainstorming, outlining, knowledge orchestration, and wiki editing."
+provider = "anthropic"
+match = ["*sonnet*"]
+exclude = ["*:*"]
+
+[models.haiku]
+harness = "claude"
+provider = "anthropic"
+match = ["*haiku*"]
+exclude = ["*:*"]
+
+[models.mini]
+harness = "codex"
+description = "Fast and cheap. Good for bulk extraction — chronicler, session-miner, graph-maintainer, explorer."
+provider = "openai"
+match = ["gpt-*-mini"]
+exclude = ["*-nano"]
+
+[models.codex]
+harness = "codex"
+description = "Fast backend implementer. Token-efficient, faithful to instructions."
+provider = "openai"
+match = ["gpt-*-codex"]
+exclude = [
+    "*-mini",
+    "*-spark",
+    "*-max",
+]
+
+[models.gpt]
+harness = "codex"
+description = "Strongest generalist. Best for deep reasoning — continuity checking, research, review."
+provider = "openai"
+match = ["gpt-5*"]
+exclude = [
+    "*codex*",
+    "*-pro",
+    "*-mini",
+    "*-nano",
+    "*-chat",
+    "*-turbo",
+]

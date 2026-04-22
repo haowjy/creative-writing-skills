@@ -1,18 +1,20 @@
 ---
 name: writing-artifacts
-description: Shared artifact convention between orchestrators — what goes where in `$MERIDIAN_FS_DIR/` and `$MERIDIAN_WORK_DIR/`, how artifacts flow between phases, and what each directory means. Use whenever work artifacts, style files, knowledge entries, drafts, or critique reports are being created, referenced, or discussed.
+description: Shared artifact convention between orchestrators — what goes where in the kb and work directories, how artifacts flow between phases, and what each directory means. Use whenever work artifacts, style files, knowledge entries, drafts, or critique reports are being created, referenced, or discussed.
 ---
 
 # Writing Artifacts
 
-Artifacts live in two places: durable project knowledge in `$MERIDIAN_FS_DIR/` and temporary work scratch in `$MERIDIAN_WORK_DIR/`. This convention defines what each directory means, who writes it, and how artifacts flow between orchestrators. Every orchestrator shares this understanding — it's how story direction survives the handoff from brainstorming to drafting to revision.
+Artifacts live in two places: durable project knowledge in the **kb** and temporary work scratch in the **work directory**. See `/meridian-work-coordination` for path resolution and work lifecycle.
 
-## `$MERIDIAN_FS_DIR/` — Durable Project Knowledge
+This convention defines what each directory means, who writes it, and how artifacts flow between orchestrators. Every orchestrator shares this understanding — it's how story direction survives the handoff from brainstorming to drafting to revision.
+
+## kb — Durable Project Knowledge
 
 The agent-maintained knowledge layer. Both humans and agents read it. Quality bar: readable prose with clear structure, not agent shorthand. Decisions baked inline with reasoning — a character entry includes *why* that age was chosen, a timeline entry includes *why* events are ordered that way.
 
 ```
-$MERIDIAN_FS_DIR/
+kb/
 ├── styles/              # style reference files (style-creator output)
 ├── characters/          # character state + decision annotations
 ├── world/               # locations, lore, systems, factions
@@ -38,12 +40,12 @@ $MERIDIAN_FS_DIR/
 
 **`graphs/`** — Mermaid relationship diagrams, knowledge graph output, connection maps. The graph-maintainer keeps these current.
 
-## `$MERIDIAN_WORK_DIR/` — Work Scratch
+## work — Work Scratch
 
-Temporary, scoped to the current work item. Archived when work completes. Durable knowledge gets promoted to `$MERIDIAN_FS_DIR/` before closing out.
+Temporary, scoped to the current work item. Archived when work completes. Durable knowledge gets promoted to the kb before closing out.
 
 ```
-$MERIDIAN_WORK_DIR/
+work/
 ├── outline/             # current outline being worked
 ├── drafts/              # draft iterations (v1, v2, etc.)
 ├── critique-reports/    # critic output for each round
@@ -64,33 +66,33 @@ $MERIDIAN_WORK_DIR/
 
 | Artifact | Written by | Read by |
 |---|---|---|
-| `$MERIDIAN_FS_DIR/styles/` | style-creator | writer, critic (voice focus) |
-| `$MERIDIAN_FS_DIR/characters/` | chronicler, session-miner | writer, critic, continuity-checker |
-| `$MERIDIAN_FS_DIR/world/` | chronicler, session-miner | writer, researcher, wiki-editor |
-| `$MERIDIAN_FS_DIR/timeline/` | chronicler | continuity-checker, outliner |
-| `$MERIDIAN_FS_DIR/canon/` | chronicler | critic, continuity-checker, writer |
-| `$MERIDIAN_FS_DIR/issues/` | critic, style-creator, continuity-checker | critic, draft-orchestrator, story-orchestrator |
-| `$MERIDIAN_FS_DIR/graphs/` | graph-maintainer | explorer, wiki-editor, orchestrators |
-| `$MERIDIAN_WORK_DIR/outline/` | outliner | writer, draft-orchestrator |
-| `$MERIDIAN_WORK_DIR/drafts/` | writer | critic, draft-orchestrator |
-| `$MERIDIAN_WORK_DIR/critique-reports/` | critic, draft-orchestrator | writer, story-orchestrator |
-| `$MERIDIAN_WORK_DIR/brainstorm/` | brainstormer | story-orchestrator |
+| `kb/styles/` | style-creator | writer, critic (voice focus) |
+| `kb/characters/` | chronicler, session-miner | writer, critic, continuity-checker |
+| `kb/world/` | chronicler, session-miner | writer, researcher, wiki-editor |
+| `kb/timeline/` | chronicler | continuity-checker, outliner |
+| `kb/canon/` | chronicler | critic, continuity-checker, writer |
+| `kb/issues/` | critic, style-creator, continuity-checker | critic, draft-orchestrator, story-orchestrator |
+| `kb/graphs/` | graph-maintainer | explorer, wiki-editor, orchestrators |
+| `work/outline/` | outliner | writer, draft-orchestrator |
+| `work/drafts/` | writer | critic, draft-orchestrator |
+| `work/critique-reports/` | critic, draft-orchestrator | writer, story-orchestrator |
+| `work/brainstorm/` | brainstormer | story-orchestrator |
 
 ## Promotion
 
-When a work item completes, the orchestrator promotes durable knowledge from `$MERIDIAN_WORK_DIR/` to `$MERIDIAN_FS_DIR/`:
+When a work item completes, the orchestrator promotes durable knowledge from the work directory to the kb:
 
-- Story decisions discovered during brainstorming → baked inline into relevant `$MERIDIAN_FS_DIR/` entries
-- New character state from a drafted chapter → `$MERIDIAN_FS_DIR/characters/`
-- New canon facts → `$MERIDIAN_FS_DIR/canon/`
-- Timeline updates → `$MERIDIAN_FS_DIR/timeline/`
-- Writing issues discovered during critique → `$MERIDIAN_FS_DIR/issues/`
+- Story decisions discovered during brainstorming → baked inline into relevant kb entries
+- New character state from a drafted chapter → `kb/characters/`
+- New canon facts → `kb/canon/`
+- Timeline updates → `kb/timeline/`
+- Writing issues discovered during critique → `kb/issues/`
 
 The knowledge-orchestrator handles promotion by dispatching chronicler, session-miner, and graph-maintainer. Don't promote raw brainstorm captures or draft iterations — those stay archived in the work item. Promote the *knowledge* extracted from them.
 
 ## Author's Space vs Agent Space
 
-Agents maintain `$MERIDIAN_FS_DIR/`. The author maintains `story/`, `wiki/`, and `future/`. The wiki-editor is the one agent that writes to the author's space (`wiki/`), producing polished, reader-facing reference pages. All other agent output goes to `$MERIDIAN_FS_DIR/` or `$MERIDIAN_WORK_DIR/`.
+Agents maintain the kb. The author maintains `story/`, `wiki/`, and `future/`. The wiki-editor is the one agent that writes to the author's space (`wiki/`), producing polished, reader-facing reference pages. All other agent output goes to the kb or work directory.
 
 Agents don't reorganize the author's manuscript structure or planning files. They read from the author's space and write to their own.
 

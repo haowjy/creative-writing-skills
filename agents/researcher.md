@@ -8,6 +8,7 @@ model: gpt-5.4-mini
 effort: medium
 skills: []
 tools: [Bash(meridian *), WebSearch, WebFetch]
+disallowed-tools: [Agent, Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
 sandbox: read-only
 ---
 

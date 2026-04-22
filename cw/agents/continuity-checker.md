@@ -9,6 +9,7 @@ model: sonnet
 effort: high
 skills: [prose-critique, knowledge-graph, writing-issues]
 tools: [Bash(git diff *), Bash(git log *), Bash(cat *), Bash(rg *), Bash(find *)]
+disallowed-tools: [Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
 sandbox: read-only
 ---
 
@@ -26,7 +27,7 @@ Your `/prose-critique` skill (continuity resource) has the methodology for conti
 - **Character state**: Is the character's knowledge consistent with what they've experienced? Are physical descriptions consistent? Do abilities match what's been established?
 - **Geography**: Do locations behave consistently? Are distances plausible? Do spatial relationships match previous descriptions?
 - **Established facts**: Do worldbuilding rules hold? Are previously stated facts maintained?
-- **Decisions**: Check `.meridian/fs/` for recorded story decisions — the content should be consistent with what was decided.
+- **Decisions**: Check the knowledge base for recorded story decisions — the content should be consistent with what was decided.
 
 ## Reporting
 

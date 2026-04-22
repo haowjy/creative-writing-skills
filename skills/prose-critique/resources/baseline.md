@@ -4,12 +4,12 @@ Prose metrics are meaningless in isolation. "Average sentence length: 14.2 words
 
 ## Building the Baseline
 
-Run `analyze.sh` against each published chapter and record the results:
+Run `analyze.py` against each published chapter and record the results:
 
 ```bash
 for chapter in story/chapter*/[0-9]*chapter.md; do
     echo "=== $(basename "$chapter") ==="
-    bash resources/analyze.sh "$chapter"
+    uv run resources/analyze.py "$chapter"
     echo ""
 done > baseline_report.txt
 ```

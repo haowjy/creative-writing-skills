@@ -5,7 +5,7 @@ description: Prose drafting technique for narrative fiction. Use when writing ne
 
 # Prose Writing
 
-Draft narrative fiction that serves the story's needs. This skill covers craft technique — the how of prose. Project-specific voice, character speech patterns, and formatting conventions come from style files (in `.meridian/fs/styles/` or passed via prompt). Read those before writing.
+Draft narrative fiction that serves the story's needs. This skill covers craft technique — the how of prose. Project-specific voice, character speech patterns, and formatting conventions come from style files. Read those before writing.
 
 ## Two Modes
 

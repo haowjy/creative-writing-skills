@@ -64,6 +64,10 @@ Quick guide to choosing the right skill or agent for your task.
 **Use for:** Understanding which agent handles what, and when to fan out across multiple agents
 **Key trait:** Agent roster and coordination patterns
 
+### python-tool-runner
+**Use for:** Running bundled Python helper scripts
+**Key trait:** Prefers `uv run`, checks for `uv`, confirms before installation
+
 ---
 
 ## Agents (spawned for independent work)

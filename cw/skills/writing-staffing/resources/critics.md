@@ -40,7 +40,7 @@ For pivotal scenes where a focus area really matters, duplicate that focus acros
 
 ## continuity-checker
 
-Cross-references content for contradictions across the full project. Unlike the critic's continuity focus (which compares one draft against provided context), the continuity-checker navigates the project's knowledge graph and `.meridian/fs/` to find what *should* be cross-referenced. Read-only.
+Cross-references content for contradictions across the full project. Unlike the critic's continuity focus (which compares one draft against provided context), the continuity-checker navigates the project's knowledge graph and knowledge base to find what *should* be cross-referenced. Read-only.
 
 Use the continuity-checker when:
 - A chapter references events, locations, or character state from significantly earlier in the story

@@ -114,4 +114,4 @@ The success check: the author says "yes, that's what I said" — not "I never sa
 
 ## File Placement
 
-Brainstorm captures go to `$MERIDIAN_WORK_DIR/brainstorm/`. Name files `brainstorm-[topic].md`. Durable decisions extracted later by session-miner go to `$MERIDIAN_FS_DIR/`.
+Brainstorm captures go to the brainstorm directory. Name files `brainstorm-[topic].md`. Durable decisions extracted later by session-miner go to the kb.

@@ -9,6 +9,7 @@ description: >
 model: sonnet
 skills: [story-architecture, mermaid]
 tools: [Bash, Write, Edit]
+disallowed-tools: [NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: workspace-write
 ---
 
@@ -33,7 +34,7 @@ Use `/story-architecture` for methodology on arc structure, pacing, and beat fra
 
 ## Output
 
-Write outlines to `.meridian/work/<work-item>/outline/`. Include mermaid diagrams inline where they clarify structure — arc flow, timeline, character relationship maps.
+Write outlines to the outline directory. Include mermaid diagrams inline where they clarify structure — arc flow, timeline, character relationship maps.
 
 ## What you do not do
 

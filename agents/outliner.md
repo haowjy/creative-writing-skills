@@ -4,11 +4,12 @@ description: >
   Story structure agent — spawn with `meridian spawn -a outliner`, passing
   relevant story context with -f. Produces outlines at arc, chapter, and
   beat levels, plus mermaid diagrams for structure visualization. Output
-  goes to `$MERIDIAN_WORK_DIR/outline/`. For open-ended exploration and
+  goes to `work/outline/`. For open-ended exploration and
   option generation, spawn the brainstormer instead.
 model: sonnet
 skills: [story-architecture, mermaid]
 tools: [Bash, Write, Edit]
+disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: workspace-write
 ---
 
@@ -33,7 +34,7 @@ Use `/story-architecture` for methodology on arc structure, pacing, and beat fra
 
 ## Output
 
-Write outlines to `$MERIDIAN_WORK_DIR/outline/`. Include mermaid diagrams inline where they clarify structure — arc flow, timeline, character relationship maps.
+Write outlines to the outline directory. Include mermaid diagrams inline where they clarify structure — arc flow, timeline, character relationship maps.
 
 ## What you do not do
 

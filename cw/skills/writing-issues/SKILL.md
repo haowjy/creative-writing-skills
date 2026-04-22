@@ -25,7 +25,7 @@ Don't log every critique finding as an issue. A scene that runs long is a critiq
 
 ## Where Issues Live
 
-`$MERIDIAN_FS_DIR/issues/` — one file per issue. Issues persist across work items because they're project-level concerns, not scoped to a single draft or revision cycle.
+The issues directory holds one file per issue. Issues persist across work items because they're project-level concerns, not scoped to a single draft or revision cycle.
 
 ## What to Include
 
@@ -38,13 +38,13 @@ Each issue file should contain enough for someone encountering it later to under
 
 ## Checking for Duplicates
 
-Before creating a new issue, check what already exists in `$MERIDIAN_FS_DIR/issues/`. The same problem discovered independently by different agents (a critic and a style-creator, say) should be one issue with combined evidence, not two separate files saying the same thing.
+Before creating a new issue, check what already exists in the issues directory. The same problem discovered independently by different agents (a critic and a style-creator, say) should be one issue with combined evidence, not two separate files saying the same thing.
 
 If an existing issue covers the same ground, update it with new evidence rather than creating a duplicate.
 
 ## Referencing Issues
 
-When a critique report or style analysis identifies something that's already a tracked issue, reference it rather than re-describing it: "this is another instance of the emotional inconsistency issue (see `$MERIDIAN_FS_DIR/issues/emotional-inconsistency.md`)." This connects individual findings to the larger pattern.
+When a critique report or style analysis identifies something that's already a tracked issue, reference it rather than re-describing it: "this is another instance of the emotional inconsistency issue." This connects individual findings to the larger pattern.
 
 ## Closing Issues
 

@@ -3,7 +3,7 @@
 [![CI](https://github.com/haowjy/creative-writing-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/haowjy/creative-writing-skills/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
-Write novels, short stories, and serial fiction with AI that maintains your voice, tracks your continuity, and gets better the more you use it. This package gives [Claude Code](https://docs.anthropic.com/en/docs/claude-code) a full creative writing workflow — from first brainstorm to polished draft — through 17 specialized agents and 12 composable skills.
+Write novels, short stories, and serial fiction with AI that maintains your voice, tracks your continuity, and gets better the more you use it. This package gives [Claude Code](https://docs.anthropic.com/en/docs/claude-code) a full creative writing workflow — from first brainstorm to polished draft — through 17 specialized agents and 13 composable writing skills.
 
 **What you get:**
 - **Brainstorm without committing** — explore plot options, character arcs, and world mechanics with multiple AI perspectives before deciding anything
@@ -74,7 +74,7 @@ flowchart TB
 | Feature | Mars (Claude Code) | Plugin (Claude Code) | Claude.ai |
 |---|:---:|:---:|:---:|
 | All 17 agents | Yes | Yes | No |
-| All 12 skills | Yes | Yes | Yes (upload `.skill` files) |
+| All 13 skills | Yes | Yes | Yes (upload `.skill` files) |
 | Slash commands | Yes | Yes | No |
 | Multi-agent orchestration | Yes | Yes | No |
 | Auto-updates via `mars sync` | Yes | No | No |
@@ -176,6 +176,7 @@ graph LR
 | **story-context** | Loading relevant story context before tasks |
 | **story-decisions** | Decision logging and retrieval |
 | **knowledge-graph** | Project knowledge graph maintenance |
+| **python-tool-runner** | Running bundled Python helper scripts with `uv run` |
 | **writing-principles** | Four reward channels, AI failure modes, craft tradition |
 | **writing-artifacts** | Artifact types and file conventions |
 | **writing-staffing** | Agent roster and coordination patterns |

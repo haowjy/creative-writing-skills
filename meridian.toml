@@ -1,0 +1,53 @@
+# Meridian configuration.
+# All values shown are built-in defaults. Uncomment to override.
+# Environment variables (MERIDIAN_*) take precedence over file values.
+
+# -- Execution defaults -----------------------------------------------------
+[defaults]
+# Maximum agent nesting depth (int).
+# max_depth = 3
+# Retry attempts per failed spawn (int).
+# max_retries = 3
+# Delay multiplier between retries in seconds (float).
+# retry_backoff_seconds = 0.25
+# Default model for spawns when --model and profile model are both unset
+# (str model id).
+# model = ""
+# Default harness for spawns when higher-precedence values and profile harness are unset.
+# harness = "codex"
+
+# -- Timeout behavior -------------------------------------------------------
+[timeouts]
+# Grace period before force-killing processes (float minutes).
+# kill_grace_minutes = 0.03333333333333333
+# Max minutes to wait for guardrail checks (float minutes).
+# guardrail_minutes = 0.5
+# Max minutes to wait on run completion operations (float minutes).
+# wait_minutes = 30.0
+
+# -- Harness default models ------------------------------------------------
+[harness]
+# Default model for Claude harness (str model id).
+# claude = ""  # empty = harness picks its own default model
+# Default model for Codex harness (str model id).
+# codex = ""  # empty = harness picks its own default model
+# Default model for OpenCode harness (str model id).
+# opencode = ""  # empty = harness picks its own default model
+
+# -- Primary agent defaults -------------------------------------------------
+[primary]
+# Context compaction threshold for the primary agent (int 1-100).
+# autocompact_pct = 65
+# Model override for the primary agent (str model id; unset = use defaults.model).
+# model = ""
+# Harness override for the primary agent (str; unset = use defaults.harness).
+# harness = ""
+# Agent profile name for the primary session (str; unset = no profile).
+agent = "prompter-orchestrator"
+
+# -- Output streaming -------------------------------------------------------
+[output]
+# Event categories shown while streaming output (array[str]).
+# show = ["lifecycle", "sub-run", "error", "system"]
+# Output verbosity preset (str; valid: quiet, normal, verbose, debug).
+# verbosity = "normal"  # example override; default is unset

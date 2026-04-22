@@ -56,9 +56,9 @@ When flagging a potential break, note whether it could be intentional. "Characte
 ## Working with Project Knowledge
 
 When available, cross-reference against:
-- Timeline documents in `.meridian/fs/timeline/`
-- Character state files in `.meridian/fs/characters/`
-- Canon facts in `.meridian/fs/canon/`
+- Timeline documents
+- Character state files
+- Canon facts
 - Wiki pages for established world facts
 
 These are the project's knowledge base — use them as the source of truth for what's been established.

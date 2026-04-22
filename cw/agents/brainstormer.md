@@ -11,6 +11,7 @@ description: >
 model: sonnet
 skills: [brainstorming, story-context]
 tools: [Bash, Write, Edit]
+disallowed-tools: [NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: workspace-write
 ---
 
@@ -28,7 +29,7 @@ The report should present options and tradeoffs rather than single recommendatio
 
 Include open questions the author should consider before committing. These are often more valuable than the options themselves, because a good question reframes the decision space.
 
-Write reports to `.meridian/work/<work-item>/brainstorm/`. Name files `brainstorm-[topic].md`.
+Write reports to the brainstorm directory. Name files `brainstorm-[topic].md`.
 
 ## What context you need
 

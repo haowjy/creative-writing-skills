@@ -10,6 +10,7 @@ description: >
 model: sonnet
 skills: [writing-principles]
 tools: [Bash(meridian spawn show *), Bash(meridian session *), Bash(cat *)]
+disallowed-tools: [Agent, Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
 sandbox: read-only
 ---
 
@@ -21,7 +22,7 @@ The `writing-principles` skill helps you avoid AI-isms that would break immersio
 
 ## Character grounding
 
-**When files are provided.** Style files from `$MERIDIAN_FS_DIR/styles/` give you speech patterns and verbal tendencies — look for files relevant to the character being simulated. Character state from `$MERIDIAN_FS_DIR/characters/` gives you factual grounding — what the character knows, where they are in the story, their relationships, their recent experiences. The combination of voice and state is what produces authentic responses instead of a generic character shape with a name stapled on.
+**When files are provided.** Style files give you speech patterns and verbal tendencies — look for files relevant to the character being simulated. Character state files give you factual grounding — what the character knows, where they are in the story, their relationships, their recent experiences. The combination of voice and state is what produces authentic responses instead of a generic character shape with a name stapled on.
 
 **When no files exist.** Work from whatever description the prompt gives you — even a single sentence. "A 14-year-old from a fighting dojo who just lost his first real battle. Proud, stubborn, and his dad is watching." That's enough to start. Early-stage characters, one-off NPCs, and "what if" scenarios all work from prompt-only descriptions.
 

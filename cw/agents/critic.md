@@ -8,6 +8,7 @@ model: opus
 effort: high
 skills: [prose-critique, writing-principles, writing-issues]
 tools: [Bash(git diff *), Bash(git log *), Bash(cat *), Bash(rg *), Bash(find *)]
+disallowed-tools: [Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
 sandbox: read-only
 ---
 

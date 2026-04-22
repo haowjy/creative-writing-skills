@@ -9,7 +9,7 @@ Parse markdown files to build a map of how a project's documents connect. Useful
 
 ## What It Parses
 
-The bundled `resources/graph.sh` script extracts relationships from these patterns:
+The bundled `resources/graph.py` script extracts relationships from these patterns:
 
 - **Markdown links** — `[text](path)` explicit references between documents
 - **Wikilinks** — `[[entity-name]]` shorthand references common in knowledge bases
@@ -28,17 +28,19 @@ The bundled `resources/graph.sh` script extracts relationships from these patter
 
 ## Running the Script
 
+Run:
+
 ```bash
-bash resources/graph.sh [root_directory]
+uv run resources/graph.py [root_directory]
 ```
 
-If no directory is specified, it searches from the current working directory. The script uses only standard unix tools (grep, awk, sed, find, sort) — no Python or other runtime dependencies.
+If no directory is specified, it searches from the current working directory. The script uses only the Python standard library, so `uv run` works without a project environment or third-party packages.
 
 The output is plain text, structured with clear section headers. Pipe it, redirect it to a file, or read it directly.
 
 ## When to Read the Script Source
 
-Read `resources/graph.sh` if you need to understand exactly what patterns it matches, extend it for a project with custom link conventions, or debug unexpected output. For normal use, just run it and read the report.
+Read `resources/graph.py` if you need to understand exactly what patterns it matches, extend it for a project with custom link conventions, or debug unexpected output. For normal use, just run it and read the report.
 
 ## Interpreting Results
 

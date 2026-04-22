@@ -21,9 +21,9 @@ Every decision entry answers three questions: **what** was decided, **why** it w
 
 ## Where Decisions Live — Inline, Not Separate
 
-Decisions are written inline with the artifacts they relate to in `.meridian/fs/`. Not in a separate decisions file. Not in a master log.
+Decisions are written inline with the artifacts they relate to in the knowledge base. Not in a separate decisions file. Not in a master log.
 
-A character age decision lives in the relevant character file in `$MERIDIAN_FS_DIR/characters/`, annotated where the age is stated. A timeline ordering decision lives in `.meridian/fs/timeline/`, annotated at the event sequence. A world mechanics decision lives in `.meridian/fs/world/`, annotated at the relevant system description.
+A character age decision lives in the relevant character file, annotated where the age is stated. A timeline ordering decision lives in the timeline, annotated at the event sequence. A world mechanics decision lives in the relevant world entry, annotated at the relevant system description.
 
 This keeps decisions co-located with the facts they govern. When the writer loads a character file, they see not just the current state but *why* it's that way. When the continuity-checker flags a timeline issue, the reasoning for the ordering is right there.
 
@@ -58,7 +58,7 @@ Skip decisions that follow directly from established canon or project convention
 
 The story-orchestrator and knowledge-orchestrator record decisions in real time as brainstorming narrows options and direction crystallizes. This is the high-quality path — decisions captured in the moment retain their full context.
 
-After a brainstorm session where options were explored and the author chose a direction: immediately dispatch the session-miner to extract decisions and write them inline to `.meridian/fs/`. Don't wait — the session context is richest right after the conversation.
+After a brainstorm session where options were explored and the author chose a direction: immediately dispatch the session-miner to extract decisions and write them inline to the knowledge base. Don't wait — the session context is richest right after the conversation.
 
 ### Retroactive — Mine Past Sessions
 
@@ -69,4 +69,4 @@ Use retroactive mining when:
 - Starting work on a new arc and needing to gather all prior decisions that constrain it
 - Onboarding to a project with existing history but no decision annotations
 
-The session-miner reads transcripts and writes decision annotations inline to the relevant `.meridian/fs/` entries, tagged with the source session for traceability.
+The session-miner reads transcripts and writes decision annotations inline to the relevant knowledge base entries, tagged with the source session for traceability.

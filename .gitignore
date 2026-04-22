@@ -2,6 +2,10 @@
 /zips/
 /test/
 /.mars/
-/.agents/
 /.meridian/
 .claude/settings.local.json
+
+/.agents/agents/
+/.agents/skills/
+/.claude/agents/
+/.claude/skills/

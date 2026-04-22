@@ -10,6 +10,7 @@ model: haiku
 effort: medium
 skills: [knowledge-graph]
 tools: [Bash(rg *), Bash(cat *), Bash(find *), Bash(git show *), Bash(git log *)]
+disallowed-tools: [Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
 sandbox: read-only
 ---
 
