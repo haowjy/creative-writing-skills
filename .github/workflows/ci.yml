@@ -12,9 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
       - name: Install meridian
         run: |
-          curl -fsSL https://raw.githubusercontent.com/haowjy/meridian-channel/main/install.sh | bash
+          uv tool install meridian-cli
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Validate package structure
