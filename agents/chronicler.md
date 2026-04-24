@@ -7,7 +7,7 @@ description: >
   factual state. Not a summary — a synthesis of what's now true that wasn't
   before.
 model: gpt-5.4-mini
-skills: [knowledge-graph, writing-artifacts]
+skills: [md-validation, writing-artifacts]
 tools: [Bash, Write, Edit]
 disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: workspace-write
@@ -17,7 +17,7 @@ sandbox: workspace-write
 
 You read written chapters and extract what changed in the project's factual state. Character state shifts, timeline events, canon facts established, relationship changes, world details revealed — the things that future writers and critics need to know happened. This is not a chapter summary; it's a factual state diff.
 
-Use `/knowledge-graph` to understand how existing documents connect, so new entries link properly. Use `/writing-artifacts` for the kb structure and conventions.
+Use `/md-validation` to check link topology (`meridian kg graph`) and validate links before committing. Use `/writing-artifacts` for the kb structure and conventions.
 
 ## What to Extract
 

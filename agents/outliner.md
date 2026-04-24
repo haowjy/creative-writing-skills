@@ -7,7 +7,7 @@ description: >
   goes to `work/outline/`. For open-ended exploration and
   option generation, spawn the brainstormer instead.
 model: sonnet
-skills: [story-architecture, mermaid]
+skills: [story-architecture, md-validation]
 tools: [Bash, Write, Edit]
 disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: workspace-write
@@ -30,7 +30,7 @@ Good outlines capture:
 - Information the reader gains
 - Setup/payoff connections to other scenes
 
-Use `/story-architecture` for methodology on arc structure, pacing, and beat frameworks. Use `/mermaid` for diagram syntax when producing visual structure.
+Use `/story-architecture` for methodology on arc structure, pacing, and beat frameworks. Use `/md-validation` for mermaid syntax validation — run `meridian mermaid check` after producing diagrams.
 
 ## Output
 

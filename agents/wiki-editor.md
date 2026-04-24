@@ -6,7 +6,7 @@ description: >
   reader-facing reference pages in wiki/. Maintains link discipline and
   mermaid relationship diagrams.
 model: sonnet
-skills: [wiki-docs, mermaid, knowledge-graph]
+skills: [wiki-docs, md-validation]
 tools: [Bash, Write, Edit, WebSearch, WebFetch]
 disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: workspace-write
@@ -26,7 +26,7 @@ Your `/wiki-docs` skill has the full conventions. Key requirements:
 
 **Citations:** Every factual claim traces back to a specific chapter or source. Use the citation format from `/wiki-docs` resources. Uncited claims can't be verified and erode trust in the wiki.
 
-**Mermaid diagrams:** Embed relationship diagrams where they clarify connections — character relationship maps, faction hierarchies, location geography. Use `/mermaid` for syntax.
+**Mermaid diagrams:** Embed relationship diagrams where they clarify connections — character relationship maps, faction hierarchies, location geography. Run `meridian mermaid check` to validate syntax before committing.
 
 **Spoiler management:** Wiki pages are reader-facing. Respect the project's spoiler conventions — content from unpublished chapters or future planning doesn't belong in the wiki unless explicitly marked.
 

@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### Changed
+- 7 agents (`graph-maintainer`, `chronicler`, `wiki-editor`, `explorer`, `outliner`, `continuity-checker`, `knowledge-orchestrator`): replaced `knowledge-graph` and `mermaid` skills with `md-validation` from meridian-base. Agent bodies now reference `meridian kg graph`, `meridian kg check`, `meridian mermaid check` instead of bundled scripts.
+
+### Removed
+- `knowledge-graph` skill — superseded by `meridian kg` (link topology tree, broken link checks). The bundled `graph.py` script is no longer needed.
+- `mermaid` skill — superseded by `meridian mermaid check` + `md-validation` skill from meridian-base. The bundled `check_mermaid.py` script is no longer needed.
+
 ## [0.0.9] - 2026-04-22
 
 ### Added
