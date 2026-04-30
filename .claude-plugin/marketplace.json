@@ -11,50 +11,48 @@
     "plugins": [
       {
         "name": "creative-writing-skills",
-        "description": "A set of composable agents and skills for creative writing projects. The story-orchestrator agent is the primary entry point — it coordinates brainstorming, drafting, critique, and knowledge maintenance across all specialized agents.",
+        "description": "A set of composable agents and skills for creative writing projects. The story-orchestrator agent is the primary entry point. It coordinates brainstorming, drafting, critique, and knowledge maintenance across all specialized agents.",
         "source": "./",
         "strict": false,
         "agents": [
-          "./creative-writing-skills/agents/brainstormer",
-          "./creative-writing-skills/agents/character-sim",
-          "./creative-writing-skills/agents/chronicler",
-          "./creative-writing-skills/agents/continuity-checker",
-          "./creative-writing-skills/agents/critic",
-          "./creative-writing-skills/agents/draft-orchestrator",
-          "./creative-writing-skills/agents/explorer",
-          "./creative-writing-skills/agents/graph-maintainer",
-          "./creative-writing-skills/agents/knowledge-orchestrator",
-          "./creative-writing-skills/agents/outliner",
-          "./creative-writing-skills/agents/reader-sim",
-          "./creative-writing-skills/agents/researcher",
-          "./creative-writing-skills/agents/session-miner",
-          "./creative-writing-skills/agents/story-orchestrator",
-          "./creative-writing-skills/agents/style-creator",
-          "./creative-writing-skills/agents/wiki-editor",
-          "./creative-writing-skills/agents/writer"
+          "./agents/brainstormer.md",
+          "./agents/character-sim.md",
+          "./agents/chronicler.md",
+          "./agents/continuity-checker.md",
+          "./agents/critic.md",
+          "./agents/draft-orchestrator.md",
+          "./agents/explorer.md",
+          "./agents/graph-maintainer.md",
+          "./agents/knowledge-orchestrator.md",
+          "./agents/outliner.md",
+          "./agents/reader-sim.md",
+          "./agents/researcher.md",
+          "./agents/session-miner.md",
+          "./agents/story-orchestrator.md",
+          "./agents/style-creator.md",
+          "./agents/wiki-editor.md",
+          "./agents/writer.md"
         ],
         "skills": [
-          "./creative-writing-skills/skills/brainstorming",
-          "./creative-writing-skills/skills/knowledge-graph",
-          "./creative-writing-skills/skills/prose-analysis",
-          "./creative-writing-skills/skills/prose-critique",
-          "./creative-writing-skills/skills/prose-writing",
-          "./creative-writing-skills/skills/story-architecture",
-          "./creative-writing-skills/skills/story-context",
-          "./creative-writing-skills/skills/story-decisions",
-          "./creative-writing-skills/skills/wiki-docs",
-          "./creative-writing-skills/skills/writing-artifacts",
-          "./creative-writing-skills/skills/writing-principles",
-          "./creative-writing-skills/skills/writing-staffing"
+          "./skills/brainstorming",
+          "./skills/prose-critique",
+          "./skills/prose-writing",
+          "./skills/story-architecture",
+          "./skills/story-context",
+          "./skills/story-decisions",
+          "./skills/wiki-docs",
+          "./skills/writing-artifacts",
+          "./skills/writing-principles",
+          "./skills/writing-staffing"
         ]
       },
       {
         "name": "creative-writing-router",
-        "description": "Natural-language skill router for Claude.ai web UI users who cannot install agents. Not needed for Claude Code users — use the story-orchestrator agent instead.",
+        "description": "Natural-language skill router for Claude.ai web UI users who cannot install agents. Not needed for Claude Code users. Use the story-orchestrator agent instead.",
         "source": "./",
         "strict": false,
         "skills": [
-          "./creative-writing-skills/cw-router"
+          "./cw/cw-router"
         ]
       }
     ]
