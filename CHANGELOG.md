@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.0.15] - 2026-05-01
+
 ### Changed
 - 3 orchestrators (`story-orchestrator`, `draft-orchestrator`, `knowledge-orchestrator`): scoped Bash tool allowlists to `meridian spawn/work/context/session` + read commands. Unrestricted `Bash` on coordinator-altitude agents created escape hatches that undermined the delegation model.
 - `explorer`, `continuity-checker`: added `Bash(meridian kg *)` to tool allowlists — bodies referenced `meridian kg graph` but scoped tools didn't permit it.
