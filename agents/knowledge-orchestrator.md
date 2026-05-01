@@ -8,7 +8,7 @@ description: >
   chronicler, and graph-maintainer as needed. Reports what was updated.
 model: sonnet
 effort: medium
-skills: [orchestrate, meridian-spawn, meridian-cli, meridian-work-coordination, writing-staffing, story-context, writing-artifacts, story-decisions, md-validation]
+skills: [orchestrate, meridian-spawn, meridian-work-coordination, writing-staffing, story-context, writing-artifacts, story-decisions, md-validation]
 tools: [Bash, Bash(meridian spawn *)]
 disallowed-tools: [Agent, Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: danger-full-access

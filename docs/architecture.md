@@ -40,7 +40,7 @@ graph TD
 
 ## Skill Dependencies
 
-Which agents load which skills. Meridian infrastructure skills (meridian-spawn, meridian-cli, meridian-work-coordination) omitted — all three orchestrators load all three.
+Which agents load which skills. Meridian infrastructure skills (meridian-spawn, meridian-work-coordination) omitted — all three orchestrators load both.
 
 ```mermaid
 graph LR
@@ -297,7 +297,6 @@ graph TD
 | writing-principles | 5 | Reader psychology + AI failure modes — all prose-touching agents |
 | story-context | 5 | Context scoping — orchestrators + writer + brainstormer |
 | story-decisions | 4 | Decision capture — orchestrators + session-miner |
-| meridian-cli | 4 | CLI mechanics — orchestrators + explorer + session-miner |
 | orchestrate | 3 | Coordination model — delegation, convergence, synthesis — orchestrators only |
 | meridian-spawn | 3 | Spawn mechanics — orchestrators only |
 | meridian-work-coordination | 3 | Work lifecycle — orchestrators only |

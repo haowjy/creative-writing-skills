@@ -8,7 +8,7 @@ description: >
   Spawn with `meridian spawn -a story-orchestrator`, passing conversation
   context with --from and relevant files with -f. Never writes files directly.
 harness: claude
-skills: [orchestrate, meridian-spawn, meridian-cli, meridian-work-coordination, writing-staffing, story-context, writing-artifacts, story-decisions]
+skills: [orchestrate, meridian-spawn, meridian-work-coordination, writing-staffing, story-context, writing-artifacts, story-decisions]
 tools: [Bash, Bash(meridian spawn *)]
 disallowed-tools: [Agent, Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: danger-full-access

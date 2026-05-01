@@ -8,6 +8,7 @@
 ### Removed
 - `knowledge-graph` skill — superseded by `meridian kg` (link topology tree, broken link checks). The bundled `graph.py` script is no longer needed.
 - `mermaid` skill — superseded by `meridian mermaid check` + `md-validation` skill from meridian-base. The bundled `check_mermaid.py` script is no longer needed.
+- `meridian-cli` from all agent skill lists (skill deleted from meridian-base). Body references in `explorer` and `session-miner` updated to use `meridian session` CLI commands directly.
 
 ## [0.0.9] - 2026-04-22
 
