@@ -36,7 +36,7 @@ kb/
 
 **`canon/`** — Facts established by written chapters. Not a copy of the chapter — a synthesis of what the chapter established as true. "Chapter 4 established that the protagonist can sense a new ability" with a citation.
 
-**`issues/`** — Writing problems worth tracking across revision cycles. Mechanical tics, scene-type inconsistencies, structural concerns, patterns that need the author's attention. Critics, the style-creator, and the continuity-checker all contribute here. See the `writing-issues` skill for conventions.
+**`issues/`** — Writing problems worth tracking across revision cycles. Mechanical tics, scene-type inconsistencies, structural concerns, patterns that need the author's attention. Critics and the continuity-checker report issue-worthy findings in their spawn output; the style-creator writes issue files directly. The draft-orchestrator or knowledge-orchestrator promotes critic/continuity-checker findings to tracked issue files during synthesis. See the `writing-issues` skill for conventions.
 
 **`graphs/`** — Mermaid relationship diagrams, knowledge graph output, connection maps. The graph-maintainer keeps these current.
 
@@ -71,11 +71,11 @@ work/
 | `kb/world/` | chronicler, session-miner | writer, researcher, wiki-editor |
 | `kb/timeline/` | chronicler | continuity-checker, outliner |
 | `kb/canon/` | chronicler | critic, continuity-checker, writer |
-| `kb/issues/` | critic, style-creator, continuity-checker | critic, draft-orchestrator, story-orchestrator |
+| `kb/issues/` | style-creator, draft-orchestrator (promoted from critic/continuity-checker findings) | critic, draft-orchestrator, story-orchestrator |
 | `kb/graphs/` | graph-maintainer | explorer, wiki-editor, orchestrators |
 | `work/outline/` | outliner | writer, draft-orchestrator |
 | `work/drafts/` | writer | critic, draft-orchestrator |
-| `work/critique-reports/` | critic, draft-orchestrator | writer, story-orchestrator |
+| `work/critique-reports/` | draft-orchestrator (synthesis from critic spawn output) | writer, story-orchestrator |
 | `work/brainstorm/` | brainstormer | story-orchestrator |
 
 ## Promotion

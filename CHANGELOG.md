@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### Changed
+- 3 orchestrators (`story-orchestrator`, `draft-orchestrator`, `knowledge-orchestrator`): scoped Bash tool allowlists to `meridian spawn/work/context/session` + read commands. Unrestricted `Bash` on coordinator-altitude agents created escape hatches that undermined the delegation model.
+- `explorer`, `continuity-checker`: added `Bash(meridian kg *)` to tool allowlists — bodies referenced `meridian kg graph` but scoped tools didn't permit it.
+- `draft-orchestrator`: added explicit `reader-sim` dispatch (post-convergence experiential pass) and `continuity-checker` dispatch (deep cross-project checks). Previously only documented in README/architecture but not operationalized in the orchestrator prompt.
+- `draft-orchestrator`: now promotes recurring critic findings to `kb/issues/` — critics are read-only and report as spawn output.
+- `reader-sim`: removed file-writing instructions (agent is read-only, reports as spawn output). Trimmed four-channel restatement to reference loaded `writing-principles` skill.
+- `writing-artifacts`: fixed ownership table — critics report findings as spawn output, `draft-orchestrator` promotes to `kb/issues/`. `work/critique-reports/` written by draft-orchestrator synthesis, not critics directly.
+- `docs/architecture.md`: replaced stale `knowledge-graph`/`mermaid` with `md-validation` in skill dependency diagram. Fixed `character-sim` model (sonnet, not unset). Updated artifact flow for read-only critics. Updated skill reuse summary.
+- `README.md`: fixed skill count (12, not 13), updated skill table (removed deleted `prose-analysis`/`knowledge-graph`/`python-tool-runner`, added `writing-issues`/`orchestrate`), fixed project layout to match `writing-artifacts` conventions, updated draft loop diagram for reader-sim as post-convergence pass.
+
 ## [0.0.14] - 2026-05-01
 
 ### Changed

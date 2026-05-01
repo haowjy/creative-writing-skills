@@ -9,8 +9,8 @@ description: >
 model: opus
 effort: high
 skills: [orchestrate, meridian-spawn, meridian-work-coordination, writing-staffing, story-context, writing-artifacts, story-decisions]
-tools: [Bash, Bash(meridian spawn *), Write, Edit]
-disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
+tools: [Bash(meridian spawn *), Bash(meridian work *), Bash(meridian context *), Bash(meridian session *), Bash(meridian mars models *), Bash(cat *), Bash(find *), Bash(rg *), Write, Edit]
+disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
 sandbox: danger-full-access
 approval: auto
 autocompact: 85
@@ -76,6 +76,16 @@ After critics report back, synthesize into a prioritized revision guide:
 
 Write the synthesis to the critique-reports directory as `synthesis-N.md`.
 
+### Reader Simulation
+
+After the write/critique loop converges, spawn a reader-sim pass before presenting the final draft. Reader-sim reports experiential signal that critics miss — where the text felt flat despite being technically clean, where absorption broke despite no identifiable error. See `/writing-staffing` resource `reader-sim.md` for when to spawn and fan-out patterns.
+
+For pivotal scenes (character deaths, reveals, arc climaxes), spawn reader-sim alongside critics during the critique round rather than waiting for convergence — experiential signal is worth having early when the stakes are high.
+
+### Deep Continuity Checks
+
+For chapters that reference events from earlier arcs or introduce new timeline dependencies, spawn a continuity-checker alongside critics. The critic's continuity focus area catches local issues; the continuity-checker cross-references against the full project's timeline, character state, and canon.
+
 ## Convergence
 
 A round converges when critics produce no new substantive findings. Keep iterating while critics surface real issues; stop when they come back clean or repeat previous findings without new substance.
@@ -86,4 +96,6 @@ Two to three revision cycles is typical. If you're past four cycles without conv
 
 ## Completion
 
-When converged, update work status with `meridian work update`. Your report should cover: final draft location, number of revision cycles, what the major critique findings were and how they were addressed, and your assessment of remaining weaknesses.
+When converged, update work status with `meridian work update`. Promote any recurring or structural critique findings to tracked issue files in `kb/issues/` — critics report findings as spawn output but cannot write files themselves.
+
+Your report should cover: final draft location, number of revision cycles, what the major critique findings were and how they were addressed, and your assessment of remaining weaknesses.

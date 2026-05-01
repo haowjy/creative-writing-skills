@@ -3,7 +3,7 @@
 [![CI](https://github.com/haowjy/creative-writing-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/haowjy/creative-writing-skills/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
-Write novels, short stories, and serial fiction with AI that maintains your voice, tracks your continuity, and gets better the more you use it. This package gives [Claude Code](https://docs.anthropic.com/en/docs/claude-code) a full creative writing workflow — from first brainstorm to polished draft — through 17 specialized agents and 13 composable writing skills.
+Write novels, short stories, and serial fiction with AI that maintains your voice, tracks your continuity, and gets better the more you use it. This package gives [Claude Code](https://docs.anthropic.com/en/docs/claude-code) a full creative writing workflow — from first brainstorm to polished draft — through 17 specialized agents and 12 composable writing skills.
 
 **What you get:**
 - **Brainstorm without committing** — explore plot options, character arcs, and world mechanics with multiple AI perspectives before deciding anything
@@ -46,8 +46,8 @@ flowchart TB
         DO[draft-orchestrator]
         DO --> W[writer]
         W --> C[critic]
-        C --> RS[reader-sim]
-        RS -->|revision notes| DO
+        C -->|revision notes| DO
+        DO -.->|post-convergence| RS[reader-sim]
     end
 
     subgraph Maintain ["Knowledge & Continuity"]
@@ -74,7 +74,7 @@ flowchart TB
 | Feature | Mars (Claude Code) | Plugin (Claude Code) | Claude.ai |
 |---|:---:|:---:|:---:|
 | All 17 agents | Yes | Yes | No |
-| All 13 skills | Yes | Yes | Yes (upload `.skill` files) |
+| All 12 skills | Yes | Yes | Yes (upload `.skill` files) |
 | Slash commands | Yes | Yes | No |
 | Multi-agent orchestration | Yes | Yes | No |
 | Auto-updates via `mars sync` | Yes | No | No |
@@ -167,19 +167,18 @@ graph LR
 
 | Skill | Purpose |
 |---|---|
-| **brainstorming** | Exploratory idea generation with [TBD] markers |
+| **brainstorming** | Exploratory idea generation with source tagging |
 | **prose-writing** | Voice matching, scene construction, prose craft |
 | **prose-critique** | Multi-dimensional feedback (character, voice, structure, prose, continuity) |
-| **prose-analysis** | Quantitative prose pattern analysis |
 | **wiki-docs** | Encyclopedic documentation with citations |
 | **story-architecture** | Arc shape, tension curves, structural analysis |
 | **story-context** | Loading relevant story context before tasks |
 | **story-decisions** | Decision logging and retrieval |
-| **knowledge-graph** | Project knowledge graph maintenance |
-| **python-tool-runner** | Running bundled Python helper scripts with `uv run` |
 | **writing-principles** | Four reward channels, AI failure modes, craft tradition |
 | **writing-artifacts** | Artifact types and file conventions |
+| **writing-issues** | Issue tracking across revision cycles |
 | **writing-staffing** | Agent roster and coordination patterns |
+| **orchestrate** | Shared coordination model for orchestrators |
 
 ## Usage
 
@@ -210,11 +209,16 @@ my-story/
 ├── .claude/
 │   └── CLAUDE.md          # Project instructions
 ├── .agents/               # Managed by mars sync
-├── story/                 # Chapters and drafts
-├── wiki/                  # Character profiles, lore, locations
-├── style/
-│   └── style-guide.md     # Your voice reference
-└── notes/                 # Planning, brainstorms, decision logs
+├── story/                 # Chapters and manuscript
+├── wiki/                  # Reader-facing reference pages
+└── kb/                    # Agent-maintained knowledge base
+    ├── styles/            # Voice reference files
+    ├── characters/        # Character state + decisions
+    ├── world/             # Locations, lore, systems
+    ├── timeline/          # Chronology
+    ├── canon/             # Established facts
+    ├── issues/            # Tracked writing problems
+    └── graphs/            # Relationship maps
 ```
 
 ```mermaid

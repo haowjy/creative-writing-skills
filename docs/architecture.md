@@ -40,7 +40,7 @@ graph TD
 
 ## Skill Dependencies
 
-Which agents load which skills. Meridian infrastructure skills (meridian-spawn, meridian-work-coordination) omitted — all three orchestrators load both.
+Which agents load which skills. Meridian infrastructure skills (meridian-spawn, meridian-work-coordination) omitted — all three orchestrators load both. `md-validation` is from meridian-base (provides `meridian kg` and `meridian mermaid` CLI commands).
 
 ```mermaid
 graph LR
@@ -75,13 +75,12 @@ graph LR
     subgraph "Shared Skills"
         OR[orchestrate]
         WA[writing-artifacts]
-        KG[knowledge-graph]
+        MV[md-validation]
         WP[writing-principles]
         SCtx[story-context]
         SD[story-decisions]
         WS[writing-staffing]
         WI[writing-issues]
-        MM[mermaid]
         PC[prose-critique]
     end
 
@@ -105,13 +104,14 @@ graph LR
     GM --> WA
     SM --> WA
 
-    %% knowledge-graph — 6 agents
-    KO --> KG
-    CH --> KG
-    CC --> KG
-    EX --> KG
-    GM --> KG
-    WE --> KG
+    %% md-validation — 7 agents (from meridian-base)
+    KO --> MV
+    CH --> MV
+    CC --> MV
+    EX --> MV
+    GM --> MV
+    OL --> MV
+    WE --> MV
 
     %% writing-principles — 5 agents
     WR --> WP
@@ -143,11 +143,6 @@ graph LR
     CC --> WI
     SC --> WI
 
-    %% mermaid — 3 agents
-    OL --> MM
-    GM --> MM
-    WE --> MM
-
     %% prose-critique — 2 agents
     CR --> PC
     CC --> PC
@@ -169,7 +164,7 @@ graph LR
     class BS,OL,WR,SC,WE,CS creative
     class CR,CC,RS review
     class SM,CH,GM,EX knowledge
-    class OR,WA,KG,WP,SCtx,SD,WS,WI,MM,PC sharedSkill
+    class OR,WA,MV,WP,SCtx,SD,WS,WI,PC sharedSkill
     class BRS,SA,WD,PW soloSkill
 ```
 
@@ -191,6 +186,7 @@ graph LR
         OL[outliner]
         WE[wiki-editor]
         KO[knowledge-orchestrator]
+        CS[character-sim]
     end
 
     subgraph "gpt-5.4-mini — high-throughput"
@@ -205,10 +201,9 @@ graph LR
         CC[continuity-checker]
     end
 
-    subgraph "unset — needs model"
+    subgraph "unset — caller provides"
         SO[story-orchestrator]
         RS[reader-sim]
-        CS[character-sim]
     end
 
     classDef opus fill:#4a6fa5,color:#fff
@@ -218,10 +213,10 @@ graph LR
     classDef unset fill:#999,color:#fff
 
     class CR,WR,SC,DO opus
-    class BS,OL,WE,KO sonnet
+    class BS,OL,WE,KO,CS sonnet
     class CH,EX,GM,RE,SM mini
     class CC gpt
-    class SO,RS,CS unset
+    class SO,RS unset
 ```
 
 ## Artifact Flow
@@ -258,8 +253,9 @@ graph TD
     WD -->|read by| RS[reader-sim]
     WD -->|read by| CC[continuity-checker]
 
-    CR -->|writes| WC
-    CC -->|writes| WC
+    CR[critic] -->|spawn output| DO
+    CC[continuity-checker] -->|spawn output| DO
+    DO -->|synthesizes| WC
     WC -->|read by| WR
 
     SC[style-creator] -->|writes| KS
@@ -273,9 +269,8 @@ graph TD
     SM[session-miner] -->|writes| KC
     SM -->|writes| KW
 
-    CR -->|writes| KI
     SC -->|writes| KI
-    CC -->|writes| KI
+    DO -->|promotes| KI
 
     GM[graph-maintainer] -->|writes| KG
 
@@ -292,8 +287,8 @@ graph TD
 
 | Skill | Consumers | Notes |
 |---|---|---|
+| md-validation | 7 | Link topology and mermaid validation (from meridian-base) — knowledge workers + reviewers + outliner + wiki-editor |
 | writing-artifacts | 6 | Shared artifact contract — all orchestrators + knowledge workers |
-| knowledge-graph | 6 | Document navigation — knowledge workers + wiki-editor |
 | writing-principles | 5 | Reader psychology + AI failure modes — all prose-touching agents |
 | story-context | 5 | Context scoping — orchestrators + writer + brainstormer |
 | story-decisions | 4 | Decision capture — orchestrators + session-miner |
@@ -302,7 +297,6 @@ graph TD
 | meridian-work-coordination | 3 | Work lifecycle — orchestrators only |
 | writing-staffing | 3 | Team composition — orchestrators only |
 | writing-issues | 3 | Issue tracking — critics + style-creator |
-| mermaid | 3 | Diagram syntax — diagram-producing agents |
 | prose-critique | 2 | Critique methodology — critic + continuity-checker |
 | brainstorming | 1 | Capture conventions — brainstormer only |
 | story-architecture | 1 | Structure methodology — outliner only |

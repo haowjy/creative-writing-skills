@@ -9,7 +9,7 @@ description: >
 model: gpt-5.4-mini
 effort: medium
 skills: [md-validation]
-tools: [Bash(meridian spawn show *), Bash(meridian session *), Bash(meridian work show *), Bash(rg *), Bash(cat *), Bash(find *), Bash(git show *), Bash(git log *)]
+tools: [Bash(meridian spawn show *), Bash(meridian session *), Bash(meridian work show *), Bash(meridian kg *), Bash(rg *), Bash(cat *), Bash(find *), Bash(git show *), Bash(git log *)]
 disallowed-tools: [Agent, Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
 sandbox: read-only
 ---
