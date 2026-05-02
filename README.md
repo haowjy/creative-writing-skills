@@ -25,6 +25,34 @@ claude
 
 The `story-orchestrator` agent handles routing — just describe what you want to do.
 
+## Codex Usage
+
+This fork also includes Codex-compatible skill adapters under `skills/`.
+Install the desired skill directories into `~/.codex/skills/`, then restart
+Codex.
+
+The Claude Code agents are adapted as Codex role skills:
+
+| Claude agent | Codex skill |
+|---|---|
+| `story-orchestrator` | `cw-agent-story-orchestrator` |
+| `writer` | `cw-agent-writer` |
+| `critic` | `cw-agent-critic` |
+| `reader-sim` | `cw-agent-reader-sim` |
+| `wiki-editor` | `cw-agent-wiki-editor` |
+
+The Claude Code slash commands are adapted as Codex command-entry skills:
+
+| Claude command | Codex skill |
+|---|---|
+| `/bs` | `cw-command-bs` |
+| `/write [style]` | `cw-command-write` |
+| `/wiki` | `cw-command-wiki` |
+| `/critique` | `cw-command-critique` |
+
+These adapters do not recreate Claude/Mars multi-agent runtime behavior. They
+make the same roles and command workflows available as Codex skills.
+
 ## How It Works
 
 ```mermaid
