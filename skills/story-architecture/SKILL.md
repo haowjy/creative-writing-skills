@@ -1,11 +1,12 @@
 ---
 name: story-architecture
-description: Arc structure, narrative design, and pacing at multiple scales — saga, arc, chapter, scene. Use when structuring story at any level, planning arcs, designing chapter outlines, or evaluating whether narrative structure serves the story's goals. Not prescriptive about methodology.
+description: Arc structure, narrative design, and pacing at multiple scales — saga, arc, chapter, scene. Use when structuring story at any level, planning arcs, designing chapter outlines, or evaluating whether narrative structure serves the story's goals.
+invocation: explicit
 ---
 
 # Story Architecture
 
-Structure story at multiple levels so that each scene, chapter, and arc serves the larger narrative. This skill covers structural thinking — how parts relate to wholes, how pacing works across scales, how setup creates payoff. It's not prescriptive about methodology (three-act, hero's journey, kishotenketsu, etc.) because structure should serve the story, not the other way around.
+Structure story at multiple levels so that each scene, chapter, and arc serves the larger narrative. This skill covers structural thinking — how parts relate to wholes, how pacing works across scales, how setup creates payoff. The patterns here apply across methodologies (three-act, hero's journey, kishotenketsu, etc.) — adapt them to what the story needs.
 
 ## Structural Levels
 

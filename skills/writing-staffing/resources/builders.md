@@ -26,7 +26,7 @@ Use the outliner when:
 - Visualizing timeline or relationship complexity
 - The author has direction but needs it structured into a writable plan
 
-The outliner's output feeds the writer — a good outline is the single highest-leverage input for draft quality. Don't skip outlining to save time; the writer without an outline makes structural choices that the critic will flag and the revision will have to redo.
+The outliner's output feeds the writer — a good outline is the single biggest input to draft quality. Skip outlining and the writer makes structural choices that the critic will flag and the revision will have to redo.
 
 The outliner does not brainstorm. For wide-open exploration and option generation before a direction is chosen, spawn the brainstormer instead. Outlining starts after the author has committed to a direction; brainstorming is how they get there.
 
@@ -54,16 +54,6 @@ Use the style-creator when:
 
 The style-creator does not evaluate prose against styles. That's the critic with a voice focus — checking whether a draft maintains voice consistency, detecting drift, flagging register breaks. The style-creator's output is the reference material the critic's voice focus checks against.
 
-## wiki-editor
+## Wiki and Reference Pages
 
-Creates and updates polished, reader-facing reference pages in the project's wiki directory. The wiki-editor is the one agent that writes to the author's space — every other agent writes to the knowledge base or work directory.
-
-Maintains link discipline: every entity mention linked on first appearance, relationship diagrams embedded via mermaid, citations back to specific chapters.
-
-Use the wiki-editor when:
-- A new character, location, or concept has been introduced in a drafted chapter
-- Existing wiki pages need updating after story events change the status quo
-- The author requests reader-facing documentation of world elements
-- Relationship maps need visual representation
-
-The wiki-editor has web access (WebSearch, WebFetch) for verifying real-world references that wiki pages may cite.
+For polished, reader-facing wiki pages, use the base @kb-writer. It writes to the author's wiki space with link discipline and citations back to chapters. For structural kb health (broken links, orphaned pages, relationship diagrams), use the base @kb-maintainer.

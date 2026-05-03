@@ -1,11 +1,12 @@
 ---
 name: prose-critique
 description: Adversarial reading methodology for narrative fiction — find what doesn't work, not confirm what does. Focus-area driven with dedicated resources per area. Use when reviewing drafts, evaluating prose quality, or assessing changes at any stage.
+invocation: explicit
 ---
 
 # Prose Critique
 
-Find what doesn't work. The writer already believes their draft works — your value comes from challenging that assumption. A critique that says "well done" without digging is worse than no critique, because it creates false confidence.
+Find what doesn't work. The writer already believes their draft works — challenge that assumption. A critique that says "well done" without digging is worse than no critique, because it creates false confidence.
 
 ## Your Focus
 
@@ -29,7 +30,7 @@ Good findings share these qualities:
 
 **Reasoned.** Explain why it matters, not just that it exists. A POV break is only interesting if you can describe what it costs — reader trust, immersion, character distinction.
 
-**Actionable.** The writer should know what to do after reading your finding. If the fix isn't clear, say what investigation or decision is needed.
+**Directable.** The writer should know what to do after reading your finding. If the fix isn't clear, say what investigation or decision is needed.
 
 **Non-obvious.** Spell-check already caught the typos. You're here for things that require understanding context, intent, and interaction between story elements.
 
@@ -44,7 +45,7 @@ Good findings share these qualities:
 
 Make it obvious which findings are serious and which are minor. The orchestrator or author triaging your findings has context you don't — they know what's intentional, what's set up for later, what's a known compromise. Give them a clear signal about severity.
 
-Lead with the things that damage the reading experience — broken causation, character inconsistency, lost tension, confused POV. Let the smaller observations follow. When in doubt, err toward calling it out — severity can always be downgraded.
+Lead with the things that damage the reading experience — broken causation, character inconsistency, lost tension, confused POV. Let the smaller observations follow. Only flag issues you can tie to a concrete reader cost.
 
 ## The Adversarial Mindset
 

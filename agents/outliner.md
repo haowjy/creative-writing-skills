@@ -1,13 +1,22 @@
 ---
 name: outliner
 description: >
-  Story structure agent — spawn with `meridian spawn -a outliner`, passing
+  Structural outliner — spawn with `meridian spawn -a outliner` when a
+  direction has been chosen and needs sequencing into beats. Passing
   relevant story context with -f. Produces outlines at arc, chapter, and
   beat levels, plus mermaid diagrams for structure visualization. Output
-  goes to `work/outline/`. For open-ended exploration and
-  option generation, spawn the brainstormer instead.
+  goes to the work directory.
 model: sonnet
-skills: [story-architecture, md-validation]
+model-policies:
+  - match:
+      alias: gpt55
+    override:
+      effort: low
+fanout:
+  - alias: opus
+  - alias: gpt55
+  - alias: gpt
+skills: [story-architecture, writing-artifacts, md-validation]
 tools: [Bash, Write, Edit]
 disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
 sandbox: workspace-write
@@ -36,6 +45,3 @@ Use `/story-architecture` for methodology on arc structure, pacing, and beat fra
 
 Write outlines to the outline directory. Include mermaid diagrams inline where they clarify structure — arc flow, timeline, character relationship maps.
 
-## What you do not do
-
-You do not brainstorm. If the task is wide-open exploration — generating options, exploring alternative angles, producing material the author might accept or reject — that is the brainstormer's job. Outlining starts after a direction has been chosen; it commits to sequence and structure. The brainstormer goes wide; you go deep into structure around a chosen direction.

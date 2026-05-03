@@ -1,42 +1,23 @@
 ---
 name: brainstorming
-description: Story brainstorming capture — minimal notes that preserve creative freedom. Use when exploring narrative ideas, discussing characters, planning chapters, or thinking through story possibilities. Supports interactive conversation and autonomous report mode for fan-out exploration.
+description: Story brainstorming capture — minimal notes that preserve creative freedom. Use when exploring narrative ideas, discussing characters, planning chapters, or thinking through story possibilities.
+invocation: explicit
 ---
 
 # Brainstorming Capture
 
 Capture story brainstorming as minimal working notes that preserve creative freedom. The core principle: record what was stated, mark what was suggested, and don't fill gaps the author left open.
 
-## Two Modes
+## Report Structure
 
-### Interactive
+When producing a standalone brainstorm document, tag all generated content
+as `<AI>` since none came from the author:
 
-Back-and-forth with the author. Capture their ideas as they develop, offer possibilities when helpful, and ask questions that push exploration forward. The conversation is the value — notes are the artifact.
-
-After capturing, engage:
-- Ask clarifying questions about vague ideas
-- Offer 2-3 directions when the author seems stuck
-- Point out implications and connections to existing story threads
-- Help develop ideas without taking them over
-
-### Autonomous
-
-You receive a scoped prompt (a question, a scenario, an angle to explore) and produce a structured brainstorm report. This mode exists for the fan-out pattern — multiple brainstormers exploring the same question from different angles, with an orchestrator synthesizing the results.
-
-In autonomous mode:
-- Explore the prompt thoroughly from your assigned angle
-- Produce a structured report with clear sections
-- Tag all content as `<AI>` since none of it came from the author
-- Present options and tradeoffs rather than single recommendations
-- Include open questions the author should consider
-- Keep the report scannable — the orchestrator needs to synthesize across multiple reports
-
-Report structure (adapt to content):
 ```markdown
 # [Topic] — [Angle]
 
 ## Approach
-What direction you explored and why.
+<AI>What direction you explored and why.</AI>
 
 ## Ideas
 <AI>Concrete possibilities, organized logically.</AI>
@@ -48,7 +29,7 @@ What direction you explored and why.
 <AI>How this connects to existing story threads.</AI>
 
 ## Open Questions
-Questions the author should consider before committing.
+<AI>Questions the author should consider before committing.</AI>
 ```
 
 ## Source Tagging
@@ -67,7 +48,7 @@ Three tags for special context:
 
 Record what the author stated. Don't elaborate, don't fill gaps, don't invent details they didn't mention.
 
-**The problem is mixing, not suggesting.** AI suggestions are valuable — just wrap them in `<AI>` tags and keep them brief.
+AI suggestions are valuable — wrap them in `<AI>` tags and keep them brief.
 
 - "Character A competes with B" → capture as stated. Optionally: `<AI>Tournament? Political? Trial?</AI>`
 - "Maybe creates tension" → record as uncertain. Don't resolve the maybe.
@@ -101,17 +82,12 @@ All brainstorming types share the core principles above. See resources for speci
 
 Read the relevant resource when the brainstorming focuses on that area.
 
-## When You're Over-Elaborating
+## Calibration
 
-Stop if you're writing:
-- Numbered scene lists the author didn't describe
-- Detailed backstories from a single trait mention
-- Specific dialogue no one asked for
-- Multiple paragraphs per bullet point
-- Examples the author didn't give
-
-The success check: the author says "yes, that's what I said" — not "I never said all that."
+The success check: the author says "yes, that's what I said." Capture stated
+facts, preserve uncertainty, add brief tagged options when useful, keep notes
+minimal.
 
 ## File Placement
 
-Brainstorm captures go to the brainstorm directory. Name files `brainstorm-[topic].md`. Durable decisions extracted later by session-miner go to the kb.
+See the `writing-artifacts` skill for directory conventions and naming. Durable decisions get promoted to the kb decisions layer after the brainstorm completes.

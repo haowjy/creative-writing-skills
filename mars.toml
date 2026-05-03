@@ -4,6 +4,7 @@ version = "0.0.15"
 
 [dependencies.meridian-base]
 url = "https://github.com/meridian-flow/meridian-base"
+version = "v0.2.1"
 
 [local-dependencies.meridian-prompter]
 url = "https://github.com/meridian-flow/meridian-prompter"
@@ -17,45 +18,40 @@ models_cache_ttl_hours = 24
 
 [models.opus]
 harness = "claude"
-description = "Craft-sensitive. Best for prose writing, style creation, critique, and orchestration where voice quality matters."
+description = "Opus 4.6 — best Claude for creative work. Strong voice fidelity, nuance, instruction reading between the lines."
+default_effort = "high"
+model = "claude-opus-4-6"
 provider = "anthropic"
 match = ["*opus*"]
-exclude = ["*:*"]
+exclude = ["*:*", "*4-7*", "*4.7*"]
+
+[models.opus47]
+harness = "claude"
+description = "Opus 4.7 — literal instruction-following, best agentic. Untested for creative writing; may flatten voice and nuance."
+default_effort = "high"
+model = "claude-opus-4-7"
+provider = "anthropic"
 
 [models.sonnet]
 harness = "claude"
-description = "Mid-tier. Good for brainstorming, outlining, knowledge orchestration, and wiki editing."
+description = "Balanced Claude. Good for brainstorming, outlining, revision, knowledge orchestration."
+default_effort = "high"
 provider = "anthropic"
 match = ["*sonnet*"]
 exclude = ["*:*"]
 
-[models.haiku]
-harness = "claude"
-provider = "anthropic"
-match = ["*haiku*"]
-exclude = ["*:*"]
-
-[models.mini]
+[models.gpt55]
 harness = "codex"
-description = "Fast and cheap. Good for bulk extraction — chronicler, session-miner, graph-maintainer, explorer."
+description = "GPT-5.5 — strong style mimicry, tight plots, token-efficient. Default prose favors clarity over voice — needs style files for voice fidelity."
+default_effort = "low"
+model = "gpt-5.5"
 provider = "openai"
-match = ["gpt-*-mini"]
-exclude = ["*-nano"]
-
-[models.codex]
-harness = "codex"
-description = "Fast backend implementer. Token-efficient, faithful to instructions."
-provider = "openai"
-match = ["gpt-*-codex"]
-exclude = [
-    "*-mini",
-    "*-spark",
-    "*-max",
-]
 
 [models.gpt]
 harness = "codex"
-description = "Strongest generalist. Best for deep reasoning — continuity checking, research, review."
+description = "GPT-5.4 — strongest OpenAI generalist. Deep reasoning, continuity checking, review."
+default_effort = "high"
+model = "gpt-5.4"
 provider = "openai"
 match = ["gpt-5*"]
 exclude = [
@@ -65,4 +61,24 @@ exclude = [
     "*-nano",
     "*-chat",
     "*-turbo",
+]
+
+[models.gptmini]
+harness = "codex"
+description = "Fast and cheap OpenAI. Bulk extraction — chronicler, explorer."
+default_effort = "low"
+provider = "openai"
+match = ["gpt-5*-mini"]
+exclude = ["*-nano"]
+
+[models.codex]
+harness = "codex"
+description = "Codex — token-efficient, faithful to instructions."
+default_effort = "high"
+provider = "openai"
+match = ["gpt-*-codex"]
+exclude = [
+    "*-mini",
+    "*-spark",
+    "*-max",
 ]

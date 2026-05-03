@@ -1,6 +1,7 @@
 ---
 name: story-context
 description: Context scoping for writing agent spawns — use when deciding what context a spawned agent should receive, whether ephemeral story decisions should be materialized before handoff, and how much to pass. Poor context handoffs cause writers to invent contradictions and critics to miss relevant history.
+invocation: implicit
 ---
 
 # Story Context
@@ -11,37 +12,23 @@ The `/meridian-spawn` skill teaches the mechanics of `-f`, `--from`, and spawn c
 
 ## Choose the Right Mechanism
 
-**`-f` — concrete artifacts.** Use when the context already exists as files: chapters, outlines, wiki pages, style files, character state files. The agent reads exactly what you point it at. This is the default choice because files are stable, inspectable, and survive compaction.
+Three options, each for a different situation. `/meridian-spawn` has the
+command syntax; this section covers when to use which.
 
-```bash
-KB=$(meridian context kb)
-WORK=$(meridian context work)
+**Files (`-f`)** — when context already exists as files: chapters, outlines,
+wiki pages, style files, character state. Default choice because files are
+stable, inspectable, and survive compaction. Scope tightly — pass the files
+that matter, not everything.
 
-# Good: writer gets the scene brief, relevant style files, and prior chapter for continuity
-meridian spawn -a writer -p "Draft the Route 1 encounter scene" \
-  -f $WORK/outline/route1-brief.md \
-  -f $KB/styles/[relevant style files] \
-  -f $KB/styles/[relevant scene-type files] \
-  -f story/chapter4/4chapter.md
+**Session history (`--from`)** — when the agent needs decisions, reasoning, or
+brainstorm context that hasn't been written down yet. Session history captures
+the *why* behind choices — why the author picked this angle, what they rejected.
 
-# Bad: dumping every chapter and style file "just in case"
-meridian spawn -a writer -p "Draft the Route 1 encounter" \
-  -f story/**/*.md -f $KB/styles/*.md
-```
-
-**`--from` — conversation history.** Use when the agent needs to understand decisions, reasoning, or brainstorm context that hasn't been written down yet. Session history captures the *why* behind choices — why the author picked this meeting angle, what tone they want, what they explicitly rejected.
-
-```bash
-# Good: critic needs to understand the author's intent for this scene
-meridian spawn -a critic --from p203 -p "Review for voice consistency" \
-  -f $WORK/drafts/route1-v1.md
-
-# Bad: passing --from when the direction is already captured in an outline
-```
-
-**Materialize first — when context is too important to be ephemeral.** If critical story decisions only live in conversation, write them to the kb or work directory *before* spawning. Story direction decisions are especially important to materialize — if the author chose "comedic misunderstanding" over "shared threat" for a meeting scene, that reasoning needs to survive compaction. The writer who drafts the scene weeks later needs to know not just what was chosen, but what was rejected.
-
-**Rule of thumb**: if a writer could accidentally contradict this context, materialize it. If it's supplementary background that enriches but isn't load-bearing, `--from` is fine.
+**Materialize first** — when context is too important to be ephemeral. If
+critical story decisions only live in conversation, write them to the kb or
+work directory *before* spawning. If a writer could accidentally contradict
+this context, materialize it. If it's supplementary background, `--from` is
+fine.
 
 ## What Each Agent Needs
 
@@ -77,25 +64,17 @@ Brainstormers need constraints, not answers:
 
 Don't pass too much — brainstormers that receive the full project history tend to produce conservative ideas that fit neatly into existing patterns instead of exploring fresh territory.
 
-### Knowledge Maintenance Agents
+### Knowledge Maintenance
 
-- **Session-miner**: `--from` pointing at the conversation to mine, plus kb paths for where to write findings
 - **Chronicler**: the chapter(s) to extract facts from via `-f`, plus existing canon files and timeline entries for deduplication
-- **Graph-maintainer**: the kb directory structure — it needs to see everything to rebuild connections
+- **Base @kb-maintainer**: the kb directory structure — it needs to see everything to rebuild connections
+- **Base @kb-writer**: `--from` pointing at the conversation to mine, plus kb paths for where to write findings
 
 ## Cross-Phase Context
 
-Use `--from <prior-spawn-id>` to carry forward what a previous phase learned. The revision writer benefits from seeing what the first-draft writer discovered — where the outline was ambiguous, what choices were made to fill gaps. The critic benefits from seeing prior critique rounds — what was already flagged and addressed.
+Carry forward what a previous phase learned using `--from <prior-spawn-id>`.
+The revision writer benefits from seeing what the first-draft writer
+discovered. The critic benefits from seeing prior critique rounds.
 
-Combine mechanisms when phases produce artifacts: pass the prior spawn's report via `--from` for reasoning context, and the files it created via `-f` for concrete outputs.
-
-```bash
-WORK=$(meridian context work)
-
-# Revision writer gets the critique synthesis AND the original draft
-meridian spawn -a writer \
-  --from p301 \
-  -f $WORK/drafts/route1-v1.md \
-  -f $WORK/critique-reports/round1-synthesis.md \
-  -p "Revise the Route 1 scene, addressing the pacing and voice findings"
-```
+Combine mechanisms when phases produce artifacts: `--from` for reasoning
+context, `-f` for the files the prior phase created.

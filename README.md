@@ -23,17 +23,17 @@ claude
 > "Help me brainstorm a magic system for my fantasy world"
 ```
 
-The `story-orchestrator` agent handles routing — just describe what you want to do.
+The `muse` agent handles routing — just describe what you want to do.
 
 ## How It Works
 
 ```mermaid
 flowchart TB
-    You([You]) --> SO[story-orchestrator]
+    You([You]) --> M[muse]
 
-    SO --> Explore
-    SO --> Write
-    SO --> Maintain
+    M --> Explore
+    M --> Write
+    M --> Maintain
 
     subgraph Explore ["Explore & Plan"]
         direction LR
@@ -43,19 +43,19 @@ flowchart TB
 
     subgraph Write ["Draft & Revise"]
         direction TB
-        DO[draft-orchestrator]
-        DO --> W[writer]
+        F[forge]
+        F --> W[writer]
         W --> C[critic]
-        C -->|revision notes| DO
-        DO -.->|post-convergence| RS[reader-sim]
+        C -->|revision notes| F
+        F -.->|post-convergence| RS[reader-sim]
     end
 
     subgraph Maintain ["Knowledge & Continuity"]
         direction LR
-        KO[knowledge-orchestrator]
-        KO --> WE[wiki-editor]
-        KO --> CC[continuity-checker]
-        KO --> GM[graph-maintainer]
+        LK[lore-keeper]
+        LK --> WE[wiki-editor]
+        LK --> CC[continuity-checker]
+        LK --> GM[graph-maintainer]
     end
 
     Write -->|decisions & facts| Maintain
@@ -65,9 +65,9 @@ flowchart TB
 
 **Explore:** Fan out brainstormers across diverse models for creative breadth. Researchers pull real-world references. Outliners shape structure.
 
-**Draft & Revise:** The draft-orchestrator runs autonomous write/critique loops — writer produces prose, critics evaluate across multiple dimensions, reader-sims report their experience, and the cycle repeats until converged.
+**Draft & Revise:** The forge runs autonomous write/critique loops — writer produces prose, critics evaluate across multiple dimensions, reader-sims report their experience, and the cycle repeats until converged.
 
-**Knowledge & Continuity:** Every accepted change triggers knowledge maintenance — wiki updates, continuity checks, and graph rebuilds so the next session starts with accurate context.
+**Knowledge & Continuity:** Every accepted change triggers the lore-keeper — wiki updates, continuity checks, and graph rebuilds so the next session starts with accurate context.
 
 ## Compatibility
 
@@ -111,9 +111,9 @@ Start with: `cw-router.skill`, `prose-writing.skill`, `brainstorming.skill`, `pr
 ```mermaid
 graph LR
     subgraph Orchestrators
-        SO[story-orchestrator]
-        DO[draft-orchestrator]
-        KO[knowledge-orchestrator]
+        M[muse]
+        F[forge]
+        LK[lore-keeper]
     end
 
     subgraph Creators
@@ -145,9 +145,9 @@ graph LR
 
 | Agent | Role |
 |---|---|
-| **story-orchestrator** | Primary entry point — coordinates all creative writing workflows |
-| **draft-orchestrator** | Runs the draft/critique loop with writers, critics, reader-sims |
-| **knowledge-orchestrator** | Coordinates wiki updates, graph maintenance, continuity checks |
+| **muse** | Author's creative partner — gathers intent, coordinates exploration and drafting |
+| **forge** | Runs the draft/critique loop with writers, critics, reader-sims |
+| **lore-keeper** | Coordinates wiki updates, graph maintenance, continuity checks |
 | **writer** | Writes prose in the project's established style |
 | **critic** | Structured critique across four reader reward channels |
 | **reader-sim** | Simulates a reader's experience, reports per-channel engagement |

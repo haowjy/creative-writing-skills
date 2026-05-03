@@ -2,6 +2,52 @@
 
 ## [Unreleased]
 
+### Added
+- `bard` agent — production drafting lead (ghost writer). Mode-switches through agents for write/critique/revise loops. Manages parallel drafts and competing takes for pivotal passages.
+- `revision-writer` agent — surgical revision from critique findings. Preserves voice while fixing specific issues.
+- `bridge-writer` agent — connective prose: transitions, time compression, bridging passages between pivotal scenes.
+- `muse` agent — author-facing orchestrator. Intent capture, creative synthesis, routing. Replaces `story-orchestrator`.
+- `lore-keeper` agent — kb maintenance orchestrator. Dispatches chronicler, kb-maintainer, kb-writer. Replaces `knowledge-orchestrator`.
+- `scene-construction` skill — beat-level craft: scene entry, dialogue, pacing, transitions. Separated from prose-writing.
+- `style-analysis` skill — methodology for analyzing prose and producing style reference files. Extracted from style-creator agent body.
+- `bootstrap/project-setup` — guided creation of project `AGENTS.md`. Asks about the project, suggests kb structure, collects writing samples for style analysis.
+- `model-policies` and `fanout` on all agents — per-model effort tuning and multi-provider support. Every agent works for OpenAI-only and Claude-only users.
+- `gpt55` and `opus47` model aliases in mars.toml.
+
+### Changed
+- Agent design overhaul: agents carry stance, skills carry methodology. Removed procedural methodology from agent bodies, added skill callouts instead.
+- Positive framing throughout — replaced "what not to do" sections with "what to do." Kept negative framing only for bright-line prohibitions.
+- Removed role identity ("You are a...") from all agents per PRISM research.
+- `writer`: rewritten as generative prose stance. Description routes to @revision-writer and @bridge-writer for other writing modes.
+- `style-creator`: methodology extracted to `style-analysis` skill, agent body reduced to stance (~20 lines).
+- `critic`: default model opus → sonnet (cost-efficient for 3-5 critic fan-outs). Opus available via fanout for final-pass.
+- `reader-sim`: rewritten. Added reader questions. Set model to opus.
+- `brainstormer`: removed interactive mode reference, cleaned agent workflow leakage.
+- `chronicler`: added `kb-conventions` skill, rewritten opener.
+- `character-sim`: fixed handoff (chronicler → lore-keeper), added `story-context` skill.
+- `continuity-checker`: fixed overclaimed "full project" coverage → "provided canon."
+- `outliner`: removed contrast framing and "what you do not do" section.
+- `prose-writing` skill: rewritten around immersion patterns — psychic distance, free indirect discourse, sentence rhythm. Scene-level content moved to `scene-construction`.
+- `writing-principles` skill: replaced "How to Write" craft checklist with routing to prose-writing and scene-construction.
+- `writing-artifacts` skill: stripped to essentials — work layout + pointers to kb-conventions and AGENTS.md. KB structure deferred to bootstrap. Bare `kb/` and `work/` shorthand replaced with env vars.
+- `writing-staffing` skill: decoupled from named agent roster. Body teaches principles, resources hold agent catalogs.
+- `brainstorming` skill: fixed provenance (all report sections tagged `<AI>`), removed agent workflow leakage, file placement defers to writing-artifacts.
+- `prose-critique` skill: "err toward calling it out" → "only flag issues you can tie to a concrete reader cost."
+- `story-architecture` skill: dropped "not prescriptive" disclaimer — owns its opinions.
+- `story-context` skill: stripped spawn command examples, kept judgment guidance.
+- All skills: migrated to canonical `invocation: explicit` (from legacy `disable-model-invocation`/`allow_implicit_invocation`). Three safety-net skills set to `invocation: implicit`: writing-principles, story-context, writing-artifacts.
+- All agents: removed hardcoded `kb/` and `work/` paths from descriptions and bodies.
+- `mars.toml`: pinned `opus` to 4.6 (4.7 literal instruction-following hurts creative work). Renamed `mini` → `gptmini`. Added `default_effort` to all aliases. Removed `haiku` (prefer gptmini for cost).
+- Bumped `meridian-base` dependency to `v0.2.1`.
+
+### Removed
+- `draft-orchestrator` — replaced by `bard`.
+- `story-orchestrator` — replaced by `muse`.
+- `knowledge-orchestrator` — replaced by `lore-keeper`.
+- `explorer`, `researcher`, `session-miner`, `wiki-editor`, `graph-maintainer` — consolidated into base package agents.
+- `orchestrate` skill — coordination methodology moved to agent bodies and writing-staffing.
+- `story-decisions` skill — decisions handled by `decision-log` from meridian-base.
+
 ## [0.0.15] - 2026-05-01
 
 ### Changed

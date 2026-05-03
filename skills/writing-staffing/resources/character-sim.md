@@ -43,7 +43,7 @@ meridian spawn -a character-sim \
   -f kb/characters/kyle.md
 ```
 
-The session-miner can later extract voice patterns, relationship dynamics, and character insights from the character-sim transcripts. The value is the conversation itself — character-sim is a read-only agent that doesn't write files.
+The chronicler or base @session-explorer can later extract voice patterns, relationship dynamics, and character insights from the character-sim transcripts. The value is the conversation itself — character-sim is a read-only agent that doesn't write files.
 
 ## Staffing considerations
 

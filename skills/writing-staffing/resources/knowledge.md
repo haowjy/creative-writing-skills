@@ -2,39 +2,27 @@
 
 Agents that keep the kb current — extracting decisions, synthesizing facts, and maintaining connections. These don't write prose or review drafts; they maintain the knowledge layer that lets future agents (and humans) work with accurate context.
 
-## session-miner
-
-Extracts decisions, facts, and commitments from conversations and brainstorm sessions. Mines past sessions via `meridian session` for story direction choices, character decisions, rejected alternatives, worldbuilding commitments, and open questions.
-
-Writes findings inline to the kb with decision annotations (see the story-decisions skill for annotation format). The session-miner's value is recovering reasoning that would otherwise be lost to compaction.
-
-**When to dispatch:**
-- After brainstorm sessions where options were explored and direction was chosen
-- After interactive writing sessions where the author made story decisions in conversation
-- After critique synthesis where the orchestrator overrode or accepted reviewer findings
-- Retroactively, when a writer or critic encounters a fact with no recorded reasoning
-
-**Timing matters.** Dispatch the session-miner promptly after the triggering event — the session context is richest immediately after, before compaction thins it out.
-
 ## chronicler
 
 Extracts story facts from written chapters — character state, timeline events, canon facts, relationship changes. Reads the manuscript and produces compressed, annotated entries in the kb. Not a copy of the chapter — a synthesis of what changed in the project's factual state.
 
+Also handles mining past sessions for decisions and commitments when dispatched with session references (via `meridian session`). This consolidates knowledge write-back into one agent rather than splitting session-extraction from chapter-extraction.
+
 **When to dispatch:**
 - After a chapter draft is finalized (post-critique, post-revision)
 - After significant revisions to existing chapters that change established facts
+- After brainstorm sessions where options were explored and direction was chosen
+- After interactive writing sessions where the author made story decisions in conversation
 - When starting work on a new arc and needing to baseline the current state
 
-The chronicler writes character files, canon files, timeline entries, and world entries. It reads existing entries to avoid duplication and updates rather than appends when facts change.
+The chronicler writes character files, canon files, timeline entries, world entries, and decision records. It reads existing entries to avoid duplication and updates rather than appends when facts change.
 
-## graph-maintainer
+## Base Agents for Knowledge Work
 
-Keeps relationship maps and cross-links current across all knowledge base content. Rebuilds connection maps, flags orphaned documents and missing back-links, updates mermaid relationship diagrams.
+For graph maintenance, link topology checks, and structural kb health, use the base @kb-maintainer. For session transcript mining (read-only exploration before the chronicler writes), use the base @session-explorer. For wiki/reference page writing, use the base @kb-writer.
 
-**When to dispatch:**
-- After the chronicler or session-miner has written new entries to the kb
-- After wiki-editor updates that introduce new entities or relationships
-- Periodically as a health check when the kb has grown significantly
-- When an orchestrator notices cross-reference failures or stale links
+The base agents handle the generic mechanics; the chronicler handles CW-specific knowledge extraction that requires understanding story structure, character state, and narrative canon.
 
-The graph-maintainer is the last agent in the knowledge update chain — it depends on the chronicler and session-miner having finished their work. Fan out chronicler and session-miner in parallel, then run graph-maintainer after both complete.
+### Dispatch Order
+
+Fan out the chronicler and base @session-explorer in parallel after the triggering event (chapter finalized, brainstorm concluded). Run base @kb-maintainer after both complete — it depends on the chronicler having finished writing entries.

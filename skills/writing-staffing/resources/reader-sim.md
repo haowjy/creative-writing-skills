@@ -23,7 +23,7 @@ Reader-sim is also not a summary agent. The caller already has the draft. What r
 
 ## Fan-out patterns
 
-For a long draft, one reader-sim pass is usually enough. For a pivotal scene, fan out two or three reader-sim instances so the orchestrator can see whether an experience (absorption, aesthetic reward, emotional landing) was robust across readers or specific to one perspective.
+For a long draft, one reader-sim pass is usually enough. For a pivotal scene, fan out two or three reader-sim instances so the orchestrator can see whether an experience (absorption, aesthetic reward, emotional landing) held across readers or was specific to one perspective.
 
 ## Relationship to character-sim
 

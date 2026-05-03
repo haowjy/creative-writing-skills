@@ -1,6 +1,7 @@
 ---
 name: wiki-docs
 description: Encyclopedic reference documentation for fictional worlds — wiki pages, character profiles, lore entries. Use when creating or updating reader-facing reference pages. Covers link discipline, citation conventions, and mermaid relationship diagrams. Distinct from the knowledge base, which is author/agent-facing knowledge.
+invocation: explicit
 ---
 
 # Wiki Documentation
@@ -11,7 +12,7 @@ Create canonical, reader-facing reference pages for your story's characters, loc
 
 **`wiki/` (or project equivalent)** — Reader-facing. Polished, encyclopedic tone, spoiler-managed, link-disciplined. What this skill produces.
 
-**Knowledge base** — Author/agent-facing. Annotated with decision reasoning, source tags, open questions, and implementation notes. Maintained by knowledge maintenance agents (session-miner, chronicler, graph-maintainer). Not this skill's territory.
+**Knowledge base** — Author/agent-facing. Source tags, open questions, and implementation notes. Decisions live in the decisions layer (see `decision-log` from meridian-base). Maintained by the chronicler and base knowledge agents. Not this skill's territory.
 
 The distinction matters because reader-facing docs and author-facing docs serve different purposes. A wiki page about a character presents their canonical state. The character entry in the knowledge base includes why certain choices were made, what alternatives were considered, and what's planned but unrevealed.
 
