@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-05-03
+
 ### Changed
 - Skill schema: migrated from `invocation: explicit/implicit` to `model-invocable: false` / removed. Some skills previously marked explicit are now model-discoverable. `invocation: implicit` skills had field removed (both booleans default true).
 - Bumped meridian-base to v0.2.4.
