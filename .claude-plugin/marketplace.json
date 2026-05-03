@@ -30,6 +30,7 @@
         ],
         "skills": [
           "./cw/skills/brainstorming",
+          "./cw/skills/kb-management",
           "./cw/skills/project-setup",
           "./cw/skills/prose-critique",
           "./cw/skills/prose-writing",

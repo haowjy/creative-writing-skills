@@ -1,18 +1,18 @@
 ---
-description: Get constructive feedback and analysis on your writing
+description: Get adversarial critique and feedback on your writing
 ---
 
-Use the cw-story-critique skill to analyze story content and provide feedback.
+Use the prose-critique skill to analyze story content and provide feedback.
 
 Before critiquing:
-1. Ask about target audience and goals
-2. Ask what kind of feedback they're looking for
-3. Ask about draft stage (early vs late)
+1. Ask what kind of feedback they're looking for (structure, character, voice, prose, continuity)
+2. Ask about draft stage (early, mid, late) to calibrate severity
 
-Provide balanced feedback calibrated to context:
-- Adapt structure to what this story needs (don't force rigid templates)
-- Consider plot, character, pacing, dialogue, prose quality, genre fit
-- Trust your analysis - mention what matters even if not in templates
-- Use web search for genre conventions or craft advice when helpful
+Critique calibrated to stage:
+- Early draft: focus on structural and character issues, not line-level prose
+- Mid-stage: voice, pacing, connections
+- Late draft: prose quality, rhythm, polish
+
+Only flag issues you can tie to a concrete reader cost. Classify by severity (critical, significant, minor).
 
 $ARGUMENTS

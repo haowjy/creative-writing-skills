@@ -18,25 +18,26 @@ These custom slash commands provide explicit mode switching for the creative wri
 
 **Usage:**
 ```
-/write                          (uses project style guides if found)
+/write                          (uses project style files if found)
 /write action-heavy             (writes in action-heavy style)
 /write literary                 (writes in literary style)
 /write the next scene where...  (context for what to write)
 ```
 
-If a style name is provided and no matching style guide exists, Claude will use general conventions for that style.
+If a style name is provided and no matching style file exists in `kb/styles/`, Claude will use general conventions for that style.
 
-### Documentation/Wiki
-- **`/wiki`** - Create canonical documentation pages
+### Knowledge Base
+- **`/kb`** - Create or update kb reference pages
 
 **Usage:**
 ```
-/wiki Create a character profile for my protagonist
-/wiki Document the magic system
+/kb Create a character profile for my protagonist
+/kb Update the magic system page with the new constraints
+/kb Document the timeline for act 2
 ```
 
 ### Critique
-- **`/critique`** - Get feedback on your writing
+- **`/critique`** - Get adversarial feedback on your writing
 
 **Usage:**
 ```
@@ -44,19 +45,11 @@ If a style name is provided and no matching style guide exists, Claude will use 
 /critique Analyze the pacing in chapter 3
 ```
 
-### Creating Style Guides
-
-To create style guides, use natural language within `/write` mode or just ask directly:
-- "Analyze my writing style and create a style guide"
-- "Create a dialogue style guide from these chapters"
-
-The `/write` command will direct you to the style-skill-creator skill when needed.
-
 ## Why Use Slash Commands?
 
 1. **Explicit invocation** - Clear signal about which skill you want
-2. **Context shifting** - The command completely shifts Claude's focus to the skill
-3. **Shorter syntax** - Easier than "use the cw-brainstorming skill"
+2. **Context shifting** - The command shifts Claude's focus to the skill
+3. **Shorter syntax** - Easier than "use the prose-critique skill"
 4. **Arguments** - Pass additional context directly
 
 ## Natural Language Still Works
@@ -64,6 +57,6 @@ The `/write` command will direct you to the style-skill-creator skill when neede
 You can still use natural language to invoke skills:
 - "Help me brainstorm ideas for my antagonist"
 - "Write this scene in my style"
-- "Create a wiki page for this location"
+- "Critique the pacing in chapter 3"
 
 The slash commands just provide an explicit alternative when you want guaranteed skill activation.

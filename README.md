@@ -11,6 +11,14 @@ Write novels, short stories, and serial fiction with AI that maintains your voic
 - **Catch your own mistakes** — structured critique, continuity checks, and simulated reader reactions
 - **Keep everything in sync** — knowledge base updates as your story evolves
 
+## Quick Start
+
+```bash
+meridian mars add haowjy/creative-writing-skills
+meridian mars sync
+meridian
+```
+
 ## Installation
 
 ### Mars (Meridian)
@@ -19,6 +27,8 @@ Write novels, short stories, and serial fiction with AI that maintains your voic
 meridian mars add haowjy/creative-writing-skills
 meridian mars sync
 ```
+
+Then run `meridian` to start a session with muse. First-time setup runs the bootstrap automatically.
 
 ### Claude Code / Cowork
 
@@ -126,6 +136,7 @@ flowchart TB
 | **story-architecture** | Arc shape, tension curves, structural analysis |
 | **story-context** | Context scoping — what to pass to each agent type |
 | **brainstorming** | Exploratory capture with source tagging |
+| **kb-management** | Maintaining the story knowledge base — page conventions, organization, when to create vs update |
 | **writing-artifacts** | File conventions — kb/ for durable knowledge, work/ for scratch |
 | **writing-issues** | Issue tracking across revision cycles |
 | **writing-staffing** | Team composition — which agents, how many, what focus areas |

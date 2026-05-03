@@ -6,6 +6,7 @@ description: >
   and existing kb files for deduplication.
 model: haiku
 skills:
+  - creative-writing-skills:kb-management
   - creative-writing-skills:writing-artifacts
 tools: Read, Write, Edit, Bash, Glob, Grep
 ---

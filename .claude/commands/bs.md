@@ -2,7 +2,7 @@
 description: Brainstorm and explore story ideas, capture working notes
 ---
 
-Use the cw-brainstorming skill to help me brainstorm and explore creative ideas.
+Use the brainstorming skill to help me brainstorm and explore creative ideas.
 
 Remember to:
 - Capture only what I state, don't over-elaborate
