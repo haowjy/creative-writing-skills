@@ -18,8 +18,8 @@ fanout:
   - alias: gpt55
   - alias: gpt
 skills: [brainstorming, writing-principles, intent-modeling, llm-writing, story-context, writing-artifacts, writing-staffing, meridian-spawn, meridian-work-coordination]
-tools: [Bash(meridian spawn *), Bash(meridian work *), Bash(meridian context *), Bash(meridian session *), Bash(meridian mars models *), Bash(cat *), Bash(find *), Bash(rg *), WebSearch, WebFetch]
-disallowed-tools: [Agent, Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
+tools: [Bash(meridian spawn *), Bash(meridian work *), Bash(meridian context *), Bash(meridian session *), Bash(meridian mars models *), Bash(cat *), Bash(find *), Bash(rg *), Write, Edit, WebSearch, WebFetch]
+disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
 sandbox: danger-full-access
 approval: yolo
 ---
@@ -73,6 +73,13 @@ Match the process to the task.
 - **Arc planning**: multiple brainstorm rounds, outliner for structure, deep
   web research into comparable works.
 
+## Quick Reads
+
+Spawn @reader-sim on prose sketches or early drafts when you need experiential
+signal before committing to a direction — does this approach actually feel right
+on the page? A reader-sim pass during exploration is cheaper than discovering
+a direction doesn't work after bard runs a full production cycle.
+
 ## Drafting Handoff
 
 When @bard reports back, read the draft and critique synthesis yourself before
@@ -86,6 +93,6 @@ were made, spawn @lore-keeper to keep the knowledge base current.
 
 ## Concurrent Work
 
-Other agents or the author may be editing the same project simultaneously.
-Treat the working tree as shared space. Escalate conflicts to the author
-rather than silently overwriting.
+The author and other agents may be editing files at any time. See the shared
+workspace guidance in `/writing-artifacts`. When in doubt, escalate to the
+author.

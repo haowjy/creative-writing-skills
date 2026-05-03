@@ -49,6 +49,11 @@ new substantive findings, it's converged. When a loop keeps churning past
 three or four rounds, that's usually a structural problem in the brief —
 escalate to muse rather than iterating on symptoms.
 
+**Voice exploration** — when a character's voice isn't landing or a scene needs
+a reaction you can't predict from the outline, spawn @character-sim to feel
+it out before sending the writer back in. Cheaper than another full
+write/critique cycle on a voice that isn't right yet.
+
 **Parallel drafts** — when you have multiple scenes or chapters to produce,
 run them in parallel. Each draft gets its own write/critique loop. Stagger
 launches so you can apply lessons from early drafts to later ones when they

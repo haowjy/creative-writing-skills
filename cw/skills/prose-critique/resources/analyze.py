@@ -122,7 +122,8 @@ def strip_markdown(text: str) -> str:
 
 def get_sentences(dense_text: str) -> list[str]:
     flattened = " ".join(line.strip() for line in dense_text.splitlines() if line.strip())
-    return [part.strip() for part in SENTENCE_SPLIT_RE.split(flattened) if part.strip()]
+    sentences = [part.strip() for part in SENTENCE_SPLIT_RE.split(flattened) if part.strip()]
+    return sentences
 
 
 def words(text: str) -> list[str]:

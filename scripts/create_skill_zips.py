@@ -4,7 +4,6 @@ Create `.skill` ZIP files for Claude.ai uploads.
 
 Sources:
 - `cw/skills/*`
-- `cw/cw-router`
 
 Each archive is rooted at the skill directory name and contains:
 - `SKILL.md`
@@ -32,15 +31,12 @@ def should_exclude(path: Path) -> bool:
 
 
 def find_skill_dirs(repo_root: Path) -> list[Path]:
-    """Find skills under `cw/skills/*` plus `cw/cw-router`."""
+    """Find skills under `cw/skills/*`."""
     skills_root = repo_root / "cw" / "skills"
-    router_dir = repo_root / "cw" / "cw-router"
 
     skill_dirs = []
     if skills_root.exists():
         skill_dirs.extend(sorted(d for d in skills_root.iterdir() if d.is_dir()))
-    if router_dir.is_dir():
-        skill_dirs.append(router_dir)
 
     return skill_dirs
 
@@ -98,7 +94,7 @@ def main() -> int:
     skill_dirs = find_skill_dirs(repo_root)
 
     if not skill_dirs:
-        print("Error: No skill directories found under cw/skills or cw/cw-router")
+        print("Error: No skill directories found under cw/skills")
         return 1
 
     for skill_dir in skill_dirs:

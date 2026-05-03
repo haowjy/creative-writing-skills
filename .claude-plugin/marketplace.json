@@ -1,60 +1,46 @@
 {
-    "name": "creative-writing-skills",
+    "name": "cw",
     "owner": {
       "name": "Jimmy Yao",
       "email": "dev.jimm.py@gmail.com"
     },
     "metadata": {
       "description": "Creative writing agents and skills for Claude Code",
-      "version": "0.1.0"
+      "version": "0.2.0"
     },
     "plugins": [
       {
         "name": "creative-writing-skills",
-        "description": "A set of composable agents and skills for creative writing projects. The story-orchestrator agent is the primary entry point — it coordinates brainstorming, drafting, critique, and knowledge maintenance across all specialized agents.",
+        "description": "Composable agents and skills for creative writing projects. The muse agent is the primary entry point — use it as your session agent (--agent creative-writing-skills:muse) to get a creative partner that brainstorms, drafts, critiques, and maintains your story's knowledge base.",
         "source": "./",
         "strict": false,
         "agents": [
-          "./creative-writing-skills/agents/brainstormer",
-          "./creative-writing-skills/agents/character-sim",
-          "./creative-writing-skills/agents/chronicler",
-          "./creative-writing-skills/agents/continuity-checker",
-          "./creative-writing-skills/agents/critic",
-          "./creative-writing-skills/agents/draft-orchestrator",
-          "./creative-writing-skills/agents/explorer",
-          "./creative-writing-skills/agents/graph-maintainer",
-          "./creative-writing-skills/agents/knowledge-orchestrator",
-          "./creative-writing-skills/agents/outliner",
-          "./creative-writing-skills/agents/reader-sim",
-          "./creative-writing-skills/agents/researcher",
-          "./creative-writing-skills/agents/session-miner",
-          "./creative-writing-skills/agents/story-orchestrator",
-          "./creative-writing-skills/agents/style-creator",
-          "./creative-writing-skills/agents/wiki-editor",
-          "./creative-writing-skills/agents/writer"
+          "./cw/agents/brainstormer",
+          "./cw/agents/bridge-writer",
+          "./cw/agents/character-sim",
+          "./cw/agents/chronicler",
+          "./cw/agents/continuity-checker",
+          "./cw/agents/critic",
+          "./cw/agents/muse",
+          "./cw/agents/outliner",
+          "./cw/agents/reader-sim",
+          "./cw/agents/revision-writer",
+          "./cw/agents/style-creator",
+          "./cw/agents/writer"
         ],
         "skills": [
-          "./creative-writing-skills/skills/brainstorming",
-          "./creative-writing-skills/skills/knowledge-graph",
-          "./creative-writing-skills/skills/prose-analysis",
-          "./creative-writing-skills/skills/prose-critique",
-          "./creative-writing-skills/skills/prose-writing",
-          "./creative-writing-skills/skills/story-architecture",
-          "./creative-writing-skills/skills/story-context",
-          "./creative-writing-skills/skills/story-decisions",
-          "./creative-writing-skills/skills/wiki-docs",
-          "./creative-writing-skills/skills/writing-artifacts",
-          "./creative-writing-skills/skills/writing-principles",
-          "./creative-writing-skills/skills/writing-staffing"
-        ]
-      },
-      {
-        "name": "creative-writing-router",
-        "description": "Natural-language skill router for Claude.ai web UI users who cannot install agents. Not needed for Claude Code users — use the story-orchestrator agent instead.",
-        "source": "./",
-        "strict": false,
-        "skills": [
-          "./creative-writing-skills/cw-router"
+          "./cw/skills/brainstorming",
+          "./cw/skills/project-setup",
+          "./cw/skills/prose-critique",
+          "./cw/skills/prose-writing",
+          "./cw/skills/scene-construction",
+          "./cw/skills/story-architecture",
+          "./cw/skills/story-context",
+          "./cw/skills/style-analysis",
+          "./cw/skills/writing-artifacts",
+          "./cw/skills/writing-issues",
+          "./cw/skills/writing-principles",
+          "./cw/skills/writing-staffing"
         ]
       }
     ]
