@@ -1,7 +1,6 @@
 ---
 name: writing-principles
 description: What fiction readers want (four reward channels) and the specific ways LLM training damages each one. Load when drafting prose, critiquing, or diagnosing why a passage feels flat.
-invocation: implicit
 ---
 
 # Writing Principles

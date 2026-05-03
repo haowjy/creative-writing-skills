@@ -7,7 +7,7 @@ description: >
   repeated tics across chapters, inconsistencies that affect multiple scenes,
   structural problems that need the author's attention, or patterns that should
   be fixed in revision.
-invocation: explicit
+model-invocable: false
 ---
 
 # Writing Issues

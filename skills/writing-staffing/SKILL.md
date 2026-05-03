@@ -1,7 +1,7 @@
 ---
 name: writing-staffing
 description: Team composition for writing workflows — which agents to spawn, how many, what focus areas to assign, and how to scale effort. Use when composing critic panels, dispatching researchers, staffing draft/revise loops, or setting up brainstorm fan-outs.
-invocation: explicit
+model-invocable: false
 ---
 
 # Writing Staffing

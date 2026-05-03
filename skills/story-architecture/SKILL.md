@@ -1,7 +1,7 @@
 ---
 name: story-architecture
 description: Arc structure, narrative design, and pacing at multiple scales — saga, arc, chapter, scene. Use when structuring story at any level, planning arcs, designing chapter outlines, or evaluating whether narrative structure serves the story's goals.
-invocation: explicit
+model-invocable: false
 ---
 
 # Story Architecture

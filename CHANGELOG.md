@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+- Skill schema: migrated from `invocation: explicit/implicit` to `model-invocable: false` / removed. Some skills previously marked explicit are now model-discoverable. `invocation: implicit` skills had field removed (both booleans default true).
+- Bumped meridian-base to v0.2.4.
+
 ### Added
 - Claude Code plugin under `cw/` — full translation of all 12 agents and 12 skills for flat subagent hierarchy (no `meridian spawn`, no env vars). Muse absorbs bard's drafting loop and lore-keeper's KB dispatch.
 - `cw/skills/project-setup` — user-invocable-only skill for guided project setup in Claude Code (creates CLAUDE.md, kb/ structure, optional style analysis).

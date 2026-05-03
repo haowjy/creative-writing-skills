@@ -1,6 +1,6 @@
 ---
 description: One-time project setup for creative writing. Interviews you about your project, collects writing samples, proposes kb structure, and creates CLAUDE.md with project conventions.
-disable-model-invocation: true
+model-invocable: false
 ---
 
 # Project Setup

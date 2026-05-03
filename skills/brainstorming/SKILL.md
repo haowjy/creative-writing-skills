@@ -1,7 +1,7 @@
 ---
 name: brainstorming
 description: Story brainstorming capture — minimal notes that preserve creative freedom. Use when exploring narrative ideas, discussing characters, planning chapters, or thinking through story possibilities.
-invocation: explicit
+model-invocable: false
 ---
 
 # Brainstorming Capture
