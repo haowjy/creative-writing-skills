@@ -1,6 +1,6 @@
 [package]
 name = "creative-writing-skills"
-version = "0.0.15"
+version = "0.1.0"
 
 [dependencies.meridian-base]
 url = "https://github.com/meridian-flow/meridian-base"
@@ -21,9 +21,13 @@ harness = "claude"
 description = "Opus 4.6 — best Claude for creative work. Strong voice fidelity, nuance, instruction reading between the lines."
 default_effort = "high"
 model = "claude-opus-4-6"
-provider = "anthropic"
 match = ["*opus*"]
-exclude = ["*:*", "*4-7*", "*4.7*"]
+provider = "anthropic"
+exclude = [
+    "*:*",
+    "*4-7*",
+    "*4.7*",
+]
 
 [models.opus47]
 harness = "claude"
@@ -52,8 +56,8 @@ harness = "codex"
 description = "GPT-5.4 — strongest OpenAI generalist. Deep reasoning, continuity checking, review."
 default_effort = "high"
 model = "gpt-5.4"
-provider = "openai"
 match = ["gpt-5*"]
+provider = "openai"
 exclude = [
     "*codex*",
     "*-pro",

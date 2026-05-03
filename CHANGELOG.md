@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-05-03
+
 ### Added
 - `bard` agent — production drafting lead (ghost writer). Mode-switches through agents for write/critique/revise loops. Manages parallel drafts and competing takes for pivotal passages.
 - `revision-writer` agent — surgical revision from critique findings. Preserves voice while fixing specific issues.
