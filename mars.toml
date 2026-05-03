@@ -10,10 +10,7 @@ version = "v0.2.2"
 url = "https://github.com/meridian-flow/meridian-prompter"
 
 [settings]
-targets = [
-    ".agents",
-    ".claude",
-]
+targets = [".claude"]
 models_cache_ttl_hours = 24
 
 [models.opus]
