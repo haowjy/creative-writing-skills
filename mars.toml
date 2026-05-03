@@ -4,7 +4,7 @@ version = "0.1.0"
 
 [dependencies.meridian-base]
 url = "https://github.com/meridian-flow/meridian-base"
-version = "v0.2.1"
+version = "v0.2.2"
 
 [local-dependencies.meridian-prompter]
 url = "https://github.com/meridian-flow/meridian-prompter"
