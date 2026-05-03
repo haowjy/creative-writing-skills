@@ -1,6 +1,6 @@
 [package]
 name = "creative-writing-skills"
-version = "0.1.0"
+version = "0.1.1"
 
 [dependencies.meridian-base]
 url = "https://github.com/meridian-flow/meridian-base"
