@@ -16,7 +16,7 @@ Write novels, short stories, and serial fiction with AI that maintains your voic
 ```bash
 meridian mars add haowjy/creative-writing-skills
 meridian mars sync
-meridian
+meridian bootstrap
 ```
 
 ## Installation
