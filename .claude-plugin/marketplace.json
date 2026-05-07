@@ -12,37 +12,7 @@
       {
         "name": "creative-writing-skills",
         "description": "Composable agents and skills for creative writing projects. The muse agent is the primary entry point — use it as your session agent (--agent creative-writing-skills:muse) to get a creative partner that brainstorms, drafts, critiques, and maintains your story's knowledge base.",
-        "source": "./",
-        "strict": false,
-        "agents": [
-          "./cw/agents/brainstormer",
-          "./cw/agents/bridge-writer",
-          "./cw/agents/character-sim",
-          "./cw/agents/chronicler",
-          "./cw/agents/continuity-checker",
-          "./cw/agents/critic",
-          "./cw/agents/muse",
-          "./cw/agents/outliner",
-          "./cw/agents/reader-sim",
-          "./cw/agents/revision-writer",
-          "./cw/agents/style-creator",
-          "./cw/agents/writer"
-        ],
-        "skills": [
-          "./cw/skills/brainstorming",
-          "./cw/skills/kb-management",
-          "./cw/skills/project-setup",
-          "./cw/skills/prose-critique",
-          "./cw/skills/prose-writing",
-          "./cw/skills/scene-construction",
-          "./cw/skills/story-architecture",
-          "./cw/skills/story-context",
-          "./cw/skills/style-analysis",
-          "./cw/skills/writing-artifacts",
-          "./cw/skills/writing-issues",
-          "./cw/skills/writing-principles",
-          "./cw/skills/writing-staffing"
-        ]
+        "source": "./"
       }
     ]
   }
