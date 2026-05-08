@@ -20,8 +20,19 @@ jobs:
           uv tool install meridian-cli
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
       - name: Validate package structure
         run: meridian mars check
+
+      - name: Validate Claude plugin manifest
+        run: claude plugins validate .claude-plugin/marketplace.json
 
       - name: Validate YAML frontmatter
         run: |
