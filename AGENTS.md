@@ -47,6 +47,8 @@ Version lives in `mars.toml` under `[package]`. Tags trigger CI releases.
 
 **Validate package:** `meridian mars check`
 
+**Validate plugin manifest:** `claude plugins validate .claude-plugin/marketplace.json`
+
 **Release flow:** Bump version in `mars.toml` → commit → tag `vX.Y.Z` → push tag → CI creates GitHub Release with `.skill` artifacts.
 
 **CI:** PRs run `mars check` + frontmatter validation + zip build. Tag pushes create releases.
