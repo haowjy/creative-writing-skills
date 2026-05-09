@@ -1,5 +1,6 @@
 ---
 name: writing-issues
+type: reference
 description: >
   Logging and referencing writing issues — craft problems, tics, inconsistencies,
   and structural concerns found during analysis, critique, or review. Use when

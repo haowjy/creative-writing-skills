@@ -173,6 +173,10 @@ my-story/
 
 Claude Code and Cowork use the same plugin format with all agents as flat subagents under muse. The Meridian version adds intermediate orchestrators (bard for drafting, lore-keeper for knowledge maintenance) for deeper context isolation. Claude.ai supports skills only — upload individual skill zips for craft methodology without orchestration.
 
+## Current Experiments
+
+**Rhetorical questions in skill prompts.** The economy section in `writing-principles` uses rhetorical questions ("what can you leave out and still have the scene work?") rather than declarative statements. LLMs can distinguish rhetorical from information-seeking questions internally ([arxiv 2604.14128](https://arxiv.org/abs/2604.14128)), and Self-Ask prompting shows questions improve reasoning — but no research directly tests whether rhetorical questions in system prompts improve task performance vs. equivalent declaratives. Keeping the rhetorical form to see if it activates a self-check loop that declaratives don't.
+
 ## Development
 
 ### Validate package

@@ -8,6 +8,7 @@ description: >
 model: opus
 skills:
   - creative-writing-skills:writing-principles
+  - creative-writing-skills:llm-writing
 tools: Read, Glob, Grep
 ---
 

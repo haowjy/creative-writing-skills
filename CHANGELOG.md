@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+### Added
+- `writing-principles`: economy section — every element does more than one thing, economy as counter-discipline to LLM completeness pull. Uses rhetorical questions (experimental, see README).
+- `cw/skills/llm-writing`: LLM writing awareness skill for Claude Code plugin — behavioral pulls, conversational mode leaking.
+- `cw/` agents: `llm-writing` added to muse, writer, revision-writer, bridge-writer, brainstormer, reader-sim, chronicler, style-creator.
+
+### Changed
+- All skills: added `type:` field (`principle` for writing-principles, `reference` for all others) for ordered injection consistency with meridian-base.
+- Bumped meridian-base to v0.3.0.
+
 ## [0.1.3] - 2026-05-08
 
 ## [0.1.2] - 2026-05-03

@@ -1,5 +1,6 @@
 ---
 name: prose-writing
+type: reference
 description: Prose-level immersion patterns for narrative fiction. Use when writing or revising prose — the sentence-level and paragraph-level craft that pulls readers into the story. Project-specific voice comes from style files passed alongside this skill.
 model-invocable: false
 ---

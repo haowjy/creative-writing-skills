@@ -1,5 +1,6 @@
 ---
 name: story-context
+type: reference
 description: Context scoping for writing agent spawns — use when deciding what context a spawned agent should receive, whether ephemeral story decisions should be materialized before handoff, and how much to pass. Poor context handoffs cause writers to invent contradictions and critics to miss relevant history.
 ---
 

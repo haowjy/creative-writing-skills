@@ -9,6 +9,7 @@ model: opus
 effort: high
 skills:
   - creative-writing-skills:style-analysis
+  - creative-writing-skills:llm-writing
   - creative-writing-skills:writing-artifacts
   - creative-writing-skills:writing-principles
   - creative-writing-skills:writing-issues

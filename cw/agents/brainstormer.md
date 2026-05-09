@@ -7,6 +7,7 @@ description: >
 model: sonnet
 skills:
   - creative-writing-skills:brainstorming
+  - creative-writing-skills:llm-writing
   - creative-writing-skills:story-context
 tools: Read, Write, Glob, Grep, Bash
 ---

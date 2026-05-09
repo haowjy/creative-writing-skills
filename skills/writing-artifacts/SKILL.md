@@ -1,5 +1,6 @@
 ---
 name: writing-artifacts
+type: reference
 description: Where writing artifacts live — kb for durable knowledge, work directory for scratch. Use when deciding where to read from or write to.
 ---
 

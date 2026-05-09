@@ -10,6 +10,7 @@ effort: high
 skills:
   - creative-writing-skills:brainstorming
   - creative-writing-skills:writing-principles
+  - creative-writing-skills:llm-writing
   - creative-writing-skills:story-context
   - creative-writing-skills:writing-artifacts
   - creative-writing-skills:writing-staffing

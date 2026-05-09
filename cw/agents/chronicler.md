@@ -7,6 +7,7 @@ description: >
 model: haiku
 skills:
   - creative-writing-skills:kb-management
+  - creative-writing-skills:llm-writing
   - creative-writing-skills:writing-artifacts
 tools: Read, Write, Edit, Bash, Glob, Grep
 ---

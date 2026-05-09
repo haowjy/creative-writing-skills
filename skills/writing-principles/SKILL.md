@@ -1,5 +1,6 @@
 ---
 name: writing-principles
+type: principle
 description: What fiction readers want (four reward channels) and the specific ways LLM training damages each one. Load when drafting prose, critiquing, or diagnosing why a passage feels flat.
 ---
 
@@ -25,6 +26,24 @@ subtext, or tolerate unresolved tension.
 Trust doesn't mean obscurity. Readers also need coherent narrative, stable
 geography, and enough access to model characters. The discipline is knowing
 when to leave space and when to orient.
+
+## Economy
+
+Every element does more than one thing. A line of dialogue advances plot
+AND reveals character. A sensory detail grounds the scene AND shows who the
+POV character is. A transition compresses time AND carries an emotional
+beat. Single-purpose prose — description that only describes, dialogue that
+only informs, interiority that only labels — is where fiction goes flat.
+
+Economy isn't minimalism. Dense, lyrical prose can be economical when every
+phrase carries weight. Sparse prose can be wasteful when it takes ten short
+sentences to do what one image could do. The measure is whether removing
+the element would cost the reader something.
+
+The LLM pull is toward completeness — covering every beat, naming every
+emotion, resolving every ambiguity. Economy is the counter-discipline:
+what can you leave out and still have the scene work? What's the reader
+already doing for you?
 
 ## Four Reward Channels
 
