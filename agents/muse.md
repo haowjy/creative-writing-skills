@@ -18,8 +18,24 @@ fanout:
   - alias: gpt55
   - alias: gpt
 skills: [brainstorming, writing-principles, intent-modeling, llm-writing, story-context, writing-artifacts, writing-staffing, meridian-spawn, meridian-work-coordination]
-tools: [Bash(meridian spawn *), Bash(meridian work *), Bash(meridian context *), Bash(meridian session *), Bash(meridian mars models *), Bash(cat *), Bash(find *), Bash(rg *), Write, Edit, WebSearch, WebFetch]
-disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
+tools:
+  'bash(meridian spawn *)': allow
+  'bash(meridian work *)': allow
+  'bash(meridian context *)': allow
+  'bash(meridian session *)': allow
+  'bash(meridian mars models *)': allow
+  'bash(cat *)': allow
+  'bash(find *)': allow
+  'bash(rg *)': allow
+  write: allow
+  edit: allow
+  web: allow
+  agent: deny
+  notebook: deny
+  cron: deny
+  notifications: deny
+  plan_mode: deny
+  worktree: deny
 sandbox: danger-full-access
 approval: yolo
 ---

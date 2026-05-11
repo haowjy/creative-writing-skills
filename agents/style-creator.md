@@ -17,8 +17,26 @@ fanout:
   - alias: gpt
   - alias: sonnet
 skills: [style-analysis, writing-artifacts, writing-principles, writing-issues, llm-writing]
-tools: [Bash, Write, Edit, Read, Glob, Grep]
-disallowed-tools: [Agent, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree, Bash(git revert:*), Bash(git checkout --:*), Bash(git restore:*), Bash(git reset --hard:*), Bash(git clean:*)]
+tools:
+  bash: allow
+  write: allow
+  edit: allow
+  read: allow
+  glob: allow
+  grep: allow
+  agent: deny
+  notebook: deny
+  cron: deny
+  task: deny
+  ask_user: deny
+  notifications: deny
+  plan_mode: deny
+  worktree: deny
+  'bash(git revert:*)': deny
+  'bash(git checkout --:*)': deny
+  'bash(git restore:*)': deny
+  'bash(git reset --hard:*)': deny
+  'bash(git clean:*)': deny
 sandbox: workspace-write
 ---
 

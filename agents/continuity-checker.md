@@ -16,8 +16,23 @@ fanout:
   - alias: gpt55
   - alias: opus
 skills: [prose-critique, md-validation, writing-issues]
-tools: [Bash(meridian spawn show *), Bash(meridian session *), Bash(meridian work show *), Bash(meridian kg *), Bash(git diff *), Bash(git log *)]
-disallowed-tools: [Agent, Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
+tools:
+  'bash(meridian spawn show *)': allow
+  'bash(meridian session *)': allow
+  'bash(meridian work show *)': allow
+  'bash(meridian kg *)': allow
+  'bash(git diff *)': allow
+  'bash(git log *)': allow
+  agent: deny
+  edit: deny
+  write: deny
+  notebook: deny
+  cron: deny
+  task: deny
+  ask_user: deny
+  notifications: deny
+  plan_mode: deny
+  worktree: deny
 sandbox: read-only
 ---
 

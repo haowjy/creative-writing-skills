@@ -18,8 +18,20 @@ fanout:
   - alias: gpt55
   - alias: gpt
 skills: [writing-principles, story-context]
-tools: [Bash(meridian spawn show *), Bash(meridian session *), Bash(cat *)]
-disallowed-tools: [Agent, Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
+tools:
+  'bash(meridian spawn show *)': allow
+  'bash(meridian session *)': allow
+  'bash(cat *)': allow
+  agent: deny
+  edit: deny
+  write: deny
+  notebook: deny
+  cron: deny
+  task: deny
+  ask_user: deny
+  notifications: deny
+  plan_mode: deny
+  worktree: deny
 sandbox: read-only
 ---
 

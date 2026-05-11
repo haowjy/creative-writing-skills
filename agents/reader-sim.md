@@ -18,8 +18,20 @@ fanout:
   - alias: gpt
   - alias: sonnet
 skills: [writing-principles, llm-writing]
-tools: [Read, Grep, Glob]
-disallowed-tools: [Agent, Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, TaskCreate, TaskGet, TaskList, TaskOutput, TaskStop, TaskUpdate, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
+tools:
+  read: allow
+  grep: allow
+  glob: allow
+  agent: deny
+  edit: deny
+  write: deny
+  notebook: deny
+  cron: deny
+  task: deny
+  ask_user: deny
+  notifications: deny
+  plan_mode: deny
+  worktree: deny
 sandbox: read-only
 ---
 

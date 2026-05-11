@@ -17,8 +17,25 @@ fanout:
   - alias: gpt55
   - alias: gpt
 skills: [agent-management, meridian-spawn, meridian-work-coordination, writing-staffing, story-context, writing-artifacts, decision-log, kb-conventions, md-validation]
-tools: [Bash(meridian spawn *), Bash(meridian work *), Bash(meridian context *), Bash(meridian session *), Bash(meridian kg *), Bash(meridian mermaid *), Bash(cat *), Bash(find *), Bash(rg *)]
-disallowed-tools: [Agent, Edit, Write, NotebookEdit, ScheduleWakeup, CronCreate, CronDelete, CronList, AskUserQuestion, PushNotification, RemoteTrigger, EnterPlanMode, ExitPlanMode, EnterWorktree, ExitWorktree]
+tools:
+  'bash(meridian spawn *)': allow
+  'bash(meridian work *)': allow
+  'bash(meridian context *)': allow
+  'bash(meridian session *)': allow
+  'bash(meridian kg *)': allow
+  'bash(meridian mermaid *)': allow
+  'bash(cat *)': allow
+  'bash(find *)': allow
+  'bash(rg *)': allow
+  agent: deny
+  edit: deny
+  write: deny
+  notebook: deny
+  cron: deny
+  ask_user: deny
+  notifications: deny
+  plan_mode: deny
+  worktree: deny
 sandbox: danger-full-access
 approval: auto
 autocompact: 85
