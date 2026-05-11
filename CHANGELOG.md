@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.1.5] - 2026-05-11
+
 ### Changed
 - `mars.toml`: meridian-base pin relaxed from exact `v0.3.0` to `>=0.3.0, <0.4.0`. Lets consumers pick up meridian-base patch releases (including `qi-layer` skill in v0.3.10) without re-tagging creative-writing-skills.
 
