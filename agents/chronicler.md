@@ -6,9 +6,13 @@ description: >
   chapters and updates the kb with what changed in the project's factual
   state: what's now true that wasn't before.
 model: gptmini
-fanout:
-  - alias: codex
-  - alias: sonnet
+model-policies:
+  - match:
+      alias: codex
+    override: {}
+  - match:
+      alias: sonnet
+    override: {}
 skills: [md-validation, kb-conventions, writing-artifacts, llm-writing]
 tools:
   bash: allow

@@ -12,9 +12,9 @@ model-policies:
       alias: gpt55
     override:
       effort: low
-fanout:
-  - alias: gpt55
-  - alias: opus
+  - match:
+      alias: opus
+    override: {}
 skills: [prose-critique, md-validation, writing-issues]
 tools:
   'bash(meridian spawn show *)': allow

@@ -191,7 +191,7 @@ graph LR
 
 ## Model Routing
 
-Cost tiers mapped to agent roles. All agents support multi-provider via `model-policies` and `fanout`.
+Cost tiers mapped to agent roles. All agents support multi-provider fallback via `model-policies` list order.
 
 ```mermaid
 graph LR

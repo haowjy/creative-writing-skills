@@ -13,10 +13,12 @@ model-policies:
       alias: gpt55
     override:
       effort: low
-fanout:
-  - alias: gpt55
-  - alias: gpt
-  - alias: sonnet
+  - match:
+      alias: gpt
+    override: {}
+  - match:
+      alias: sonnet
+    override: {}
 skills: [writing-principles, llm-writing]
 tools:
   read: allow

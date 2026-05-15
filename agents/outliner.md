@@ -9,13 +9,15 @@ description: >
 model: sonnet
 model-policies:
   - match:
+      alias: opus
+    override: {}
+  - match:
       alias: gpt55
     override:
       effort: low
-fanout:
-  - alias: opus
-  - alias: gpt55
-  - alias: gpt
+  - match:
+      alias: gpt
+    override: {}
 skills: [story-architecture, writing-artifacts, md-validation]
 tools:
   bash: allow

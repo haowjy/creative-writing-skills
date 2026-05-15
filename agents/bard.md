@@ -13,9 +13,9 @@ model-policies:
       alias: gpt55
     override:
       effort: low
-fanout:
-  - alias: gpt55
-  - alias: gpt
+  - match:
+      alias: gpt
+    override: {}
 skills: [agent-management, meridian-spawn, meridian-work-coordination, writing-staffing, story-context, writing-artifacts, decision-log]
 tools:
   'bash(meridian spawn *)': allow

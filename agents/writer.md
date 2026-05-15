@@ -8,17 +8,16 @@ description: >
 model: opus
 model-policies:
   - match:
+      alias: gpt55
+    override:
+      effort: low
+  - match:
       alias: gpt
     override:
       effort: high
   - match:
-      alias: gpt55
-    override:
-      effort: low
-fanout:
-  - alias: gpt55
-  - alias: gpt
-  - alias: sonnet
+      alias: sonnet
+    override: {}
 skills: [prose-writing, scene-construction, writing-principles, writing-artifacts, story-context, llm-writing]
 tools:
   bash: allow

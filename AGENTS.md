@@ -24,6 +24,14 @@ meridian mars version patch  # Bump version, commit, tag
 
 Version lives in `mars.toml` under `[package]`. Tags trigger CI releases.
 
+**Meridian session root:** If you are inside a Meridian-spawned agent/session, `MERIDIAN_PROJECT_DIR` may point at the parent control repo even after `cd` into this package. For package releases, pass the package root explicitly:
+
+```bash
+meridian mars --root "$PWD" version patch --push
+```
+
+Use explicit `--root` whenever releasing this package from an inherited Meridian environment; do not rely on CWD discovery there.
+
 ## Slash Commands
 
 | Command | Skill |

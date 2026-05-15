@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- All agents: removed `fanout:` from profile frontmatter. Fallback candidates now declared via `model-policies` list order, matching mars-agents profile schema.
+
 ## [0.2.1] - 2026-05-11
 
 ## [0.2.0] - 2026-05-11

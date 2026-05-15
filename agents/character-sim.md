@@ -10,13 +10,15 @@ description: >
 model: sonnet
 model-policies:
   - match:
+      alias: opus
+    override: {}
+  - match:
       alias: gpt55
     override:
       effort: low
-fanout:
-  - alias: opus
-  - alias: gpt55
-  - alias: gpt
+  - match:
+      alias: gpt
+    override: {}
 skills: [writing-principles, story-context]
 tools:
   'bash(meridian spawn show *)': allow
