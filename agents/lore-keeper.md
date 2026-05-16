@@ -6,13 +6,16 @@ description: >
   passing conversation context with --from and a description of what changed.
   Dispatches chronicler and base knowledge agents as needed. Reports what
   was updated.
-model: sonnet
+model: deepseek
 effort: medium
 model-policies:
   - match:
-      alias: gpt55
+      alias: deepseek
     override:
       effort: low
+  - match:
+      alias: sonnet
+    override: {}
   - match:
       alias: gpt
     override: {}

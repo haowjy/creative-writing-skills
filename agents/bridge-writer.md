@@ -6,10 +6,13 @@ description: >
   transitions, time compression, bridging passages, and connective tissue
   between the scenes that carry the story's weight. For pivotal scenes,
   use @writer.
-model: sonnet
+model: deepseek
 model-policies:
   - match:
-      alias: opus
+      alias: deepseek
+    override: {}
+  - match:
+      alias: sonnet
     override: {}
   - match:
       alias: gpt55

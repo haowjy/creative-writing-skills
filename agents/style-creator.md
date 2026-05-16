@@ -5,13 +5,16 @@ description: >
   with `meridian spawn -a style-creator`, passing sample chapters, existing
   style files, or written requirements with -f. Produces standalone style
   files that writer and critic agents load when drafting.
-model: opus
+model: deepseek
 effort: high
 model-policies:
   - match:
-      alias: gpt55
+      alias: deepseek
     override:
       effort: low
+  - match:
+      alias: opus
+    override: {}
   - match:
       alias: gpt
     override: {}

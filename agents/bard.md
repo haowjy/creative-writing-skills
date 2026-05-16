@@ -6,13 +6,16 @@ description: >
   direction and executes it to finished drafts through write/critique/revise
   loops. Manages multiple drafts in parallel when the workload allows.
   Produces final drafts + critique synthesis in the work directory.
-model: opus
+model: deepseek
 effort: high
 model-policies:
   - match:
-      alias: gpt55
+      alias: deepseek
     override:
       effort: low
+  - match:
+      alias: opus
+    override: {}
   - match:
       alias: gpt
     override: {}

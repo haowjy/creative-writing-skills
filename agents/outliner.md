@@ -6,10 +6,13 @@ description: >
   relevant story context with -f. Produces outlines at arc, chapter, and
   beat levels, plus mermaid diagrams for structure visualization. Output
   goes to the work directory.
-model: sonnet
+model: deepseek
 model-policies:
   - match:
-      alias: opus
+      alias: deepseek
+    override: {}
+  - match:
+      alias: sonnet
     override: {}
   - match:
       alias: gpt55

@@ -4,10 +4,13 @@ description: >
   Adversarial draft critic — spawn with `meridian spawn -a critic`, passing
   the draft and a focus area in the prompt along with relevant reference files
   via -f. Reports findings, doesn't edit.
-model: sonnet
+model: deepseek
 model-policies:
   - match:
-      alias: opus
+      alias: deepseek
+    override: {}
+  - match:
+      alias: sonnet
     override: {}
   - match:
       alias: gpt55

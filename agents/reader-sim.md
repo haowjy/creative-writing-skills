@@ -7,12 +7,15 @@ description: >
   reader reward channels (transportation, aesthetic, social simulation,
   flow). Produces experiential signal — what it felt like to read the draft,
   moment by moment. Read-only.
-model: opus
+model: deepseek
 model-policies:
   - match:
-      alias: gpt55
+      alias: deepseek
     override:
       effort: low
+  - match:
+      alias: opus
+    override: {}
   - match:
       alias: gpt
     override: {}

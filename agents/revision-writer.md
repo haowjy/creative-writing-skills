@@ -5,10 +5,13 @@ description: >
   the draft, critique synthesis, and style files with -f. Reads critique
   findings and surgically improves the draft, preserving voice and what
   already works. For fresh drafts from briefs, use @writer.
-model: sonnet
+model: deepseek
 model-policies:
   - match:
-      alias: opus
+      alias: deepseek
+    override: {}
+  - match:
+      alias: sonnet
     override: {}
   - match:
       alias: gpt55

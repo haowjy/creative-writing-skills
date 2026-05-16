@@ -7,10 +7,13 @@ description: >
   and produces a structured brainstorm report in the work directory.
   Fan out multiple brainstormers for creative breadth; each explores its
   assigned angle independently.
-model: sonnet
+model: deepseek
 model-policies:
   - match:
-      alias: opus
+      alias: deepseek
+    override: {}
+  - match:
+      alias: sonnet
     override: {}
   - match:
       alias: gpt55

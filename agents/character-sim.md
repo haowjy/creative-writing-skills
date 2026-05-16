@@ -7,10 +7,13 @@ description: >
   character for freeform, unscripted conversation. Works with full character
   profiles or just a sketch in the prompt. Doesn't write files — the
   conversation itself is the output, mined later by the lore-keeper.
-model: sonnet
+model: deepseek
 model-policies:
   - match:
-      alias: opus
+      alias: deepseek
+    override: {}
+  - match:
+      alias: sonnet
     override: {}
   - match:
       alias: gpt55

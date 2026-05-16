@@ -5,12 +5,16 @@ description: >
   scene brief, style files, and context with -f. Writes fiction from briefs
   in the project's voice. For revision from critique, use @revision-writer. For
   transitions and connective passages, use @bridge-writer.
-model: opus
+model: deepseek
 model-policies:
   - match:
-      alias: gpt55
+      alias: deepseek
     override:
       effort: low
+  - match:
+      alias: opus
+    override:
+      effort: high
   - match:
       alias: gpt
     override:
