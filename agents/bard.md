@@ -19,7 +19,7 @@ model-policies:
   - match:
       alias: gpt
     override: {}
-skills: [agent-management, meridian-spawn, meridian-work-coordination, writing-staffing, story-context, writing-artifacts, decision-log, handoff]
+skills: [agent-management, meridian-spawn, meridian-work-coordination, writing-staffing, story-context, writing-artifacts, decision-log, clear-mind]
 tools:
   'bash(meridian spawn *)': allow
   'bash(meridian work *)': allow
