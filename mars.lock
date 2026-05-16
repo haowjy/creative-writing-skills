@@ -5,8 +5,8 @@ path = "."
 
 [dependencies.meridian-base]
 url = "github.com/meridian-flow/meridian-base"
-version = "v0.4.6"
-commit = "661e0f95150c4d5821b27451f058b730b29677f2"
+version = "v0.4.7"
+commit = "9e5241db4979f801575261e5e289bb22d18efe9d"
 
 [dependencies.meridian-prompter]
 url = "github.com/meridian-flow/meridian-prompter"
@@ -16,12 +16,12 @@ commit = "c22069f8a979f03b22383ffbb0d77ace3c0f55b6"
 [items."agent/bard"]
 source = "_self"
 kind = "agent"
-source_checksum = "sha256:031cfb9fce5bacf2d03f32bdb5ba61c15bdeec9ab94713b9ed0ce0335a24db05"
+source_checksum = "sha256:5e8bdd7894db7e47d597743eb6276080afa21e20512cbaeb78591e869541704d"
 
 [[items."agent/bard".outputs]]
 target_root = ".mars"
 dest_path = "agents/bard.md"
-installed_checksum = "sha256:031cfb9fce5bacf2d03f32bdb5ba61c15bdeec9ab94713b9ed0ce0335a24db05"
+installed_checksum = "sha256:5e8bdd7894db7e47d597743eb6276080afa21e20512cbaeb78591e869541704d"
 
 [items."agent/brainstormer"]
 source = "_self"
@@ -119,23 +119,23 @@ installed_checksum = "sha256:faee76f73c4df2489e888a5d672626d97dbdf8ae0da0ae4a954
 [items."agent/lore-keeper"]
 source = "_self"
 kind = "agent"
-source_checksum = "sha256:b56027e82e55b14662d3f48907036ce14ef0ba3890397d167b471c3d567e37c1"
+source_checksum = "sha256:e6079ac47906dd53c0a48f940adc1e999ce6432af8f4d588440937763d607d2e"
 
 [[items."agent/lore-keeper".outputs]]
 target_root = ".mars"
 dest_path = "agents/lore-keeper.md"
-installed_checksum = "sha256:b56027e82e55b14662d3f48907036ce14ef0ba3890397d167b471c3d567e37c1"
+installed_checksum = "sha256:e6079ac47906dd53c0a48f940adc1e999ce6432af8f4d588440937763d607d2e"
 
 [items."agent/meridian-default-orchestrator"]
 source = "meridian-base"
 kind = "agent"
-version = "v0.4.6"
-source_checksum = "sha256:1a877f53f3ddbdd5340ee77b0c23e85096880418644a6990d16d700059961871"
+version = "v0.4.7"
+source_checksum = "sha256:169689fb2f230dd4025eccc6cd215f7e9db3ee3a3d6c4d546f6e71f3218ab073"
 
 [[items."agent/meridian-default-orchestrator".outputs]]
 target_root = ".mars"
 dest_path = "agents/meridian-default-orchestrator.md"
-installed_checksum = "sha256:1a877f53f3ddbdd5340ee77b0c23e85096880418644a6990d16d700059961871"
+installed_checksum = "sha256:169689fb2f230dd4025eccc6cd215f7e9db3ee3a3d6c4d546f6e71f3218ab073"
 
 [items."agent/meridian-subagent"]
 source = "meridian-base"
@@ -371,6 +371,17 @@ target_root = ".mars"
 dest_path = "skills/brainstorming"
 installed_checksum = "sha256:61ceb0a3d3f7916968d2af62b1321da4eae079d1f79cd460e83ba1ceb58488c8"
 
+[items."skill/clear-mind"]
+source = "meridian-base"
+kind = "skill"
+version = "v0.4.7"
+source_checksum = "sha256:e5486fc636f9922cb4ef784a1c20de8dd0c58e8d086ff37cafb411295e4224a5"
+
+[[items."skill/clear-mind".outputs]]
+target_root = ".mars"
+dest_path = "skills/clear-mind"
+installed_checksum = "sha256:e5486fc636f9922cb4ef784a1c20de8dd0c58e8d086ff37cafb411295e4224a5"
+
 [items."skill/decision-log"]
 source = "meridian-base"
 kind = "skill"
@@ -392,17 +403,6 @@ source_checksum = "sha256:fa10aacb70f70b7f271b4ffb195b67373f34b80697fd49e89b08e6
 target_root = ".mars"
 dest_path = "skills/grill-with-docs"
 installed_checksum = "sha256:fa10aacb70f70b7f271b4ffb195b67373f34b80697fd49e89b08e600695921e9"
-
-[items."skill/handoff"]
-source = "meridian-base"
-kind = "skill"
-version = "v0.4.6"
-source_checksum = "sha256:c33bf9ba3bbea77ecd1b7066c7490853a4ab77705297597fe9014a277f352731"
-
-[[items."skill/handoff".outputs]]
-target_root = ".mars"
-dest_path = "skills/handoff"
-installed_checksum = "sha256:c33bf9ba3bbea77ecd1b7066c7490853a4ab77705297597fe9014a277f352731"
 
 [items."skill/intent-modeling"]
 source = "meridian-base"
