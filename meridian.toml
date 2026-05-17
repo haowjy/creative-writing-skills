@@ -43,7 +43,7 @@
 # Harness override for the primary agent (str; unset = use defaults.harness).
 # harness = ""
 # Agent profile name for the primary session (str; unset = no profile).
-agent = "prompter-orchestrator"
+agent = "prompt-dev"
 
 # -- Output streaming -------------------------------------------------------
 [output]

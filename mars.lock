@@ -5,8 +5,8 @@ path = "."
 
 [dependencies.meridian-base]
 url = "github.com/meridian-flow/meridian-base"
-version = "v0.4.7"
-commit = "9e5241db4979f801575261e5e289bb22d18efe9d"
+version = "v0.4.11"
+commit = "908a53cabb33480b478a75741d9c0110a4ee39c3"
 
 [dependencies.meridian-prompter]
 url = "github.com/meridian-flow/meridian-prompter"
@@ -97,24 +97,24 @@ installed_checksum = "sha256:f5b6e0f51ad7c33f4f9f7873570ad749c6cf92139763c23e870
 [items."agent/kb-maintainer"]
 source = "meridian-base"
 kind = "agent"
-version = "v0.4.6"
-source_checksum = "sha256:cfaa1aa01244d87b50d370f89c6753e8a37b2005d129b5f886e885afb65b61a1"
+version = "v0.4.11"
+source_checksum = "sha256:f6f198146af13432b29f030cd27d3ec769443078d3e5596230fe621729e74e9d"
 
 [[items."agent/kb-maintainer".outputs]]
 target_root = ".mars"
 dest_path = "agents/kb-maintainer.md"
-installed_checksum = "sha256:cfaa1aa01244d87b50d370f89c6753e8a37b2005d129b5f886e885afb65b61a1"
+installed_checksum = "sha256:f6f198146af13432b29f030cd27d3ec769443078d3e5596230fe621729e74e9d"
 
 [items."agent/kb-writer"]
 source = "meridian-base"
 kind = "agent"
-version = "v0.4.6"
-source_checksum = "sha256:faee76f73c4df2489e888a5d672626d97dbdf8ae0da0ae4a95432449e044d6cc"
+version = "v0.4.11"
+source_checksum = "sha256:65a39ea76b1072768d367e91f10e5c2fff179c67ede70480e63a078104ab0320"
 
 [[items."agent/kb-writer".outputs]]
 target_root = ".mars"
 dest_path = "agents/kb-writer.md"
-installed_checksum = "sha256:faee76f73c4df2489e888a5d672626d97dbdf8ae0da0ae4a95432449e044d6cc"
+installed_checksum = "sha256:65a39ea76b1072768d367e91f10e5c2fff179c67ede70480e63a078104ab0320"
 
 [items."agent/lore-keeper"]
 source = "_self"
@@ -374,13 +374,13 @@ installed_checksum = "sha256:61ceb0a3d3f7916968d2af62b1321da4eae079d1f79cd460e83
 [items."skill/clear-mind"]
 source = "meridian-base"
 kind = "skill"
-version = "v0.4.7"
-source_checksum = "sha256:e5486fc636f9922cb4ef784a1c20de8dd0c58e8d086ff37cafb411295e4224a5"
+version = "v0.4.11"
+source_checksum = "sha256:1d5b4f131ea5de313bdc5f8f821b7083c844a9e26babaf1795327950ae790023"
 
 [[items."skill/clear-mind".outputs]]
 target_root = ".mars"
 dest_path = "skills/clear-mind"
-installed_checksum = "sha256:e5486fc636f9922cb4ef784a1c20de8dd0c58e8d086ff37cafb411295e4224a5"
+installed_checksum = "sha256:1d5b4f131ea5de313bdc5f8f821b7083c844a9e26babaf1795327950ae790023"
 
 [items."skill/decision-log"]
 source = "meridian-base"
@@ -418,13 +418,13 @@ installed_checksum = "sha256:a44583d5d6d6796053e3f5ca9ea7c2ffe3fac2d77c9347d5a77
 [items."skill/kb-conventions"]
 source = "meridian-base"
 kind = "skill"
-version = "v0.4.6"
-source_checksum = "sha256:b7f1eae40e9a38bbb9bff3b0db27df75c05483f0b8f25e5d173065d864461368"
+version = "v0.4.11"
+source_checksum = "sha256:08f57220a21b641fea32a5d3030271b5f8261b163afd791004e118179f723c66"
 
 [[items."skill/kb-conventions".outputs]]
 target_root = ".mars"
 dest_path = "skills/kb-conventions"
-installed_checksum = "sha256:b7f1eae40e9a38bbb9bff3b0db27df75c05483f0b8f25e5d173065d864461368"
+installed_checksum = "sha256:08f57220a21b641fea32a5d3030271b5f8261b163afd791004e118179f723c66"
 
 [items."skill/llm-writing"]
 source = "meridian-base"
@@ -462,13 +462,13 @@ installed_checksum = "sha256:2baabb91a1d2351018089ac76c5ea308c729f77068419193c20
 [items."skill/meridian-spawn"]
 source = "meridian-base"
 kind = "skill"
-version = "v0.4.6"
-source_checksum = "sha256:c62096e50d0f2405d94786e1bf7c82675cbcc2f0b5f2df192a7f894b2827bc55"
+version = "v0.4.11"
+source_checksum = "sha256:729e14382b143c6805fe4c6032a914859a2473f955463fd866c02e093824da13"
 
 [[items."skill/meridian-spawn".outputs]]
 target_root = ".mars"
 dest_path = "skills/meridian-spawn"
-installed_checksum = "sha256:c62096e50d0f2405d94786e1bf7c82675cbcc2f0b5f2df192a7f894b2827bc55"
+installed_checksum = "sha256:729e14382b143c6805fe4c6032a914859a2473f955463fd866c02e093824da13"
 
 [items."skill/meridian-work-coordination"]
 source = "meridian-base"
@@ -565,6 +565,17 @@ source_checksum = "sha256:ffaa9227f9724d4a1c4beb2d44d639ea08d2aa52126af51e7205fa
 target_root = ".mars"
 dest_path = "skills/session-mining"
 installed_checksum = "sha256:ffaa9227f9724d4a1c4beb2d44d639ea08d2aa52126af51e7205fa033168f52b"
+
+[items."skill/shared-dao"]
+source = "meridian-base"
+kind = "skill"
+version = "v0.4.11"
+source_checksum = "sha256:c01d93eb54c2751139907cdf477bfe6b3c34f53bea8949c152ec6301c3e43480"
+
+[[items."skill/shared-dao".outputs]]
+target_root = ".mars"
+dest_path = "skills/shared-dao"
+installed_checksum = "sha256:c01d93eb54c2751139907cdf477bfe6b3c34f53bea8949c152ec6301c3e43480"
 
 [items."skill/shared-workspace"]
 source = "meridian-base"
