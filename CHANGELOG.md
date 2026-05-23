@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.3.5] - 2026-05-23
+
 ### Added
 - Shared vocabulary discipline: muse, lore-keeper, bard, chronicler, and continuity-checker now load or apply `shared-dao` patterns for canonical story terms.
 - `cw/skills/shared-dao`: Claude Code vocabulary skill for story terms, aliases, and ambiguity resolution.
