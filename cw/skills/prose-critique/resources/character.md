@@ -4,7 +4,7 @@ Evaluate motivation coherence, arc progression, and relationship dynamics.
 
 ## Motivation
 
-Characters should act for reasons that are consistent with who they are — their history, values, emotional state, and what they know at this point in the story.
+Characters should act for reasons that are consistent with who they are: their history, values, emotional state, and what they know at this point in the story.
 
 Questions to ask:
 - Does this character have a reason to do what they're doing in this scene?
@@ -12,7 +12,7 @@ Questions to ask:
 - If the character changed their behavior, was the change earned? (Did something happen that would actually shift their approach?)
 - Are characters acting for plot convenience rather than their own reasons? ("Character X would never do this, but the plot needs them to.")
 
-The most common motivation failure: characters doing what the plot requires without sufficient internal justification. The fix isn't to add a paragraph explaining why — it's to make the character's situation such that the action follows naturally.
+The most common motivation failure: characters doing what the plot requires without sufficient internal justification. The fix isn't to add a paragraph explaining why. Make the character's situation lead naturally to the action.
 
 ## Arc Progression
 
@@ -30,17 +30,17 @@ Character arcs need to be visible in the character's behavior, not just in the n
 
 The protagonist should drive the story more than the story happens to them.
 
-**Reactive protagonist** — things happen TO the protagonist and they respond. This works briefly (the inciting incident disrupts their world) but becomes a problem if sustained. At some point, the protagonist needs to start making choices that drive events.
+**Reactive protagonist**: things happen TO the protagonist and they respond. This works briefly (the inciting incident disrupts their world) but becomes a problem if sustained. At some point, the protagonist needs to start making choices that drive events.
 
-**Choice-driven scenes** — the most compelling scenes present the character with a genuine choice between competing values or consequences. Not "good vs bad" but "good vs good" or "bad vs bad."
+**Choice-driven scenes**: the most compelling scenes present the character with a genuine choice between competing values or consequences. Not "good vs bad" but "good vs good" or "bad vs bad."
 
 ## Relationship Dynamics
 
 Relationships should evolve through interaction, not through narration about how they've changed.
 
-**Distinct dynamics.** Each pair of characters should have their own dynamic — power balance, communication style, history, unresolved tensions. If A's relationship with B feels the same as A's relationship with C, one relationship isn't doing enough work.
+**Distinct dynamics.** Each pair of characters should have their own dynamic: power balance, communication style, history, unresolved tensions. If A's relationship with B feels the same as A's relationship with C, one relationship isn't doing enough work.
 
-**Conflict specificity.** Conflicts between characters should arise from who they specifically are — their particular values, histories, and blind spots. Generic "misunderstanding" conflicts that any two characters could have are weak.
+**Conflict specificity.** Conflicts between characters should arise from who they specifically are: their particular values, histories, and blind spots. Generic "misunderstanding" conflicts that any two characters could have are weak.
 
 **Evolution through scenes.** Relationships change because of what happens between characters in scenes, not because the narrator says they've changed. If two characters are closer at the end of a chapter, point to the specific interaction that moved the needle.
 

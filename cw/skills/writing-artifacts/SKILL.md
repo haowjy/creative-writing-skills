@@ -1,5 +1,6 @@
 ---
-description: Where writing artifacts live — kb/ for durable knowledge, work/ for scratch. Use when deciding where to read from or write to.
+description: >
+  Where writing artifacts live: kb/ for durable knowledge, work/ for scratch. Use when deciding where to read from or write to.
 ---
 
 # Writing Artifacts
@@ -38,7 +39,7 @@ A project can customize this layout in its `CLAUDE.md`. Read that first.
 The working tree is shared between the author and all agents. Any file may
 have been edited by someone else since you last saw it.
 
-Read the current state before acting on it — a draft may have author edits
+Read the current state before acting on it; a draft may have author edits
 between critique rounds, a kb entry may have been updated by another agent,
 an outline may have been restructured. Treat what's on disk as the authority,
 not your memory of what was there.
@@ -49,5 +50,5 @@ always authoritative.
 
 ## Promotion
 
-When a drafting effort completes, promote *knowledge* from work/ to kb/ — not
+When a drafting effort completes, promote *knowledge* from work/ to kb/: not
 raw artifacts. Brainstorm captures and draft iterations stay in work/.

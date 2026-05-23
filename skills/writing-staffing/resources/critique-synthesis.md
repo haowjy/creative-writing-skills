@@ -7,12 +7,12 @@ to fix; four separate reports don't.
 When triaging findings, categorize against the four reader reward channels
 (documented in the `writing-principles` skill):
 
-- **Transportation** — narrative coherence, POV consistency, continuity, middle-passage drift
-- **Aesthetic** — voice, rhythm, syntactic variety, generic vs specific detail
-- **Social simulation** — character motivation, emotional access through behavior not labels, ambiguity preservation
-- **Flow** — pacing, over-elaboration, exposition placement, challenge-fit
+- **Transportation**: narrative coherence, POV consistency, continuity, middle-passage drift
+- **Aesthetic**: voice, rhythm, syntactic variety, generic vs specific detail
+- **Social simulation**: character motivation, emotional access through behavior not labels, ambiguity preservation
+- **Flow**: pacing, over-elaboration, exposition placement, challenge-fit
 
 "Three critics flagged findings that damage transportation" gives the author
-a clear priority call — transportation problems vs aesthetic problems is a
+a clear priority call: transportation problems vs aesthetic problems is a
 different urgency depending on where the draft stands. Prioritize findings by
 impact on the reader's experience.

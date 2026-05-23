@@ -1,5 +1,6 @@
 ---
-description: Story brainstorming capture — minimal notes that preserve creative freedom. Use when exploring narrative ideas, discussing characters, planning chapters, or thinking through story possibilities.
+description: >
+  Story brainstorming capture: minimal notes that preserve creative freedom. Use when exploring narrative ideas, discussing characters, planning chapters, or thinking through story possibilities.
 ---
 
 # Brainstorming Capture
@@ -12,7 +13,7 @@ When producing a standalone brainstorm document, tag all generated content
 as `<AI>` since none came from the author:
 
 ```markdown
-# [Topic] — [Angle]
+# [Topic]: [Angle]
 
 ## Approach
 <AI>What direction you explored and why.</AI>
@@ -34,19 +35,19 @@ as `<AI>` since none came from the author:
 
 **Default: untagged text = the author said it.**
 
-**`<AI>...</AI>`** — AI suggestions and possibilities. Keep brief: 2-3 options, not exhaustive lists.
+**`<AI>...</AI>`**: AI suggestions and possibilities. Keep brief: 2-3 options, not exhaustive lists.
 
-**`<hidden>...</hidden>`** — Author-only information for planned reveals.
+**`<hidden>...</hidden>`**: Author-only information for planned reveals.
 
-**`<rejected>...</rejected>`** — Ideas explicitly considered and discarded.
+**`<rejected>...</rejected>`**: Ideas explicitly considered and discarded.
 
 ## Minimal Capture
 
-Record what the author stated. Don't elaborate, don't fill gaps, don't invent details they didn't mention. AI suggestions are valuable — wrap them in `<AI>` tags and keep them brief.
+Record what the author stated. Don't elaborate, don't fill gaps, don't invent details they didn't mention. AI suggestions are valuable: wrap them in `<AI>` tags and keep them brief.
 
 ## Preserve Vagueness
 
-If the author left it vague, the notes stay vague. "Might," "maybe," "thinking about" — all preserved as-is. Vagueness isn't a problem to solve; it's creative space the author is keeping open. Multiple contradictory options coexist until the author chooses.
+If the author left it vague, the notes stay vague. "Might," "maybe," "thinking about": all preserved as-is. Vagueness isn't a problem to solve; it's creative space the author is keeping open. Multiple contradictory options coexist until the author chooses.
 
 ## File Placement
 

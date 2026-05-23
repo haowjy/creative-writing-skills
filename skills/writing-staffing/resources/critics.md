@@ -1,22 +1,22 @@
 # Critics
 
-Critics catch what revision can't — voice drift, structural issues, continuity holes. The value of multiple critics comes from different focus areas, not redundant reads of the same concern.
+Critics catch what revision can't: voice drift, structural issues, continuity holes. The value of multiple critics comes from different focus areas, not redundant reads of the same concern.
 
 ## critic
 
-Adversarial draft review with a specified focus area. Give each critic a different focus area so you get breadth — the content itself tells you what perspectives matter. Read-only.
+Adversarial draft review with a specified focus area. Give each critic a different focus area so you get breadth: the content itself tells you what perspectives matter. Read-only.
 
 ### Focus Areas
 
-**structure** — Plot logic, pacing, scene necessity, stakes, setup/payoff. Does every scene earn its place? Do stakes escalate or plateau? Are promises set up that get paid off? Does the pacing serve the emotional arc or fight it? Use on any draft, but especially on chapters that bridge between high-intensity scenes where pacing sag is most likely.
+**structure**: Plot logic, pacing, scene necessity, stakes, setup/payoff. Does every scene earn its place? Do stakes escalate or plateau? Are promises set up that get paid off? Does the pacing serve the emotional arc or fight it? Use on any draft, but especially on chapters that bridge between high-intensity scenes where pacing sag is most likely.
 
-**character** — Motivation coherence, arc progression, relationship dynamics. Do characters act from established motivation or convenience? Are relationship shifts earned through interaction, not narrated? Does the character's internal state match their behavior? Use when characters make significant choices, confront each other, or change.
+**character**: Motivation coherence, arc progression, relationship dynamics. Do characters act from established motivation or convenience? Are relationship shifts earned through interaction, not narrated? Does the character's internal state match their behavior? Use when characters make significant choices, confront each other, or change.
 
-**voice** — Dialogue quality, POV consistency, subtext, voice drift. Does each character sound distinct? Does the narrator's voice stay consistent? Is there subtext in dialogue or is everything surface-level? Does the prose drift toward generic AI voice or maintain the project's established style? Use on every draft — voice is the most common casualty of AI-assisted writing.
+**voice**: Dialogue quality, POV consistency, subtext, voice drift. Does each character sound distinct? Does the narrator's voice stay consistent? Is there subtext in dialogue or is everything surface-level? Does the prose drift toward generic AI voice or maintain the project's established style? Use on every draft: voice is the most common casualty of AI-assisted writing.
 
-**prose** — Line-level quality: rhythm, clarity, repetition, show vs tell. Are sentences varied or monotonous? Is language precise or vague? Does the prose show states through action or tell them through narration? Are there echoed words or phrases? Use when prose polish matters — pivotal scenes, published chapters.
+**prose**: Line-level quality: rhythm, clarity, repetition, show vs tell. Are sentences varied or monotonous? Is language precise or vague? Does the prose show states through action or tell them through narration? Are there echoed words or phrases? Use when prose polish matters: pivotal scenes, published chapters.
 
-**continuity** — Facts, timeline, geography, character state. Does this chapter contradict established canon? Are characters in the right place? Does the timeline hold? Is information the character knows consistent with what they've experienced? Use on any draft, but critical for chapters that reference events from earlier in the story.
+**continuity**: Facts, timeline, geography, character state. Does this chapter contradict established canon? Are characters in the right place? Does the timeline hold? Is information the character knows consistent with what they've experienced? Use on any draft, but critical for chapters that reference events from earlier in the story.
 
 ### Choosing Focus Areas
 
@@ -48,4 +48,4 @@ Use the continuity-checker when:
 - The story spans enough time or complexity that the critic's provided context isn't sufficient
 - After timeline or world-building changes that might invalidate earlier content
 
-The continuity-checker is more expensive than a critic with continuity focus — it reads broadly. Use the critic for routine continuity checks and the continuity-checker for deep cross-project validation.
+The continuity-checker is more expensive than a critic with continuity focus: it reads broadly. Use the critic for routine continuity checks and the continuity-checker for deep cross-project validation.

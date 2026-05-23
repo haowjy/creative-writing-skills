@@ -1,10 +1,10 @@
 # Continuity Review
 
-Evaluate factual consistency — timeline, geography, character state, and established rules.
+Evaluate factual consistency: timeline, geography, character state, and established rules.
 
 ## What to Cross-Reference
 
-Continuity errors are factual contradictions between what the draft says and what the story has established. They're distinct from character or plot issues — a character acting inconsistently is a character problem; a character being in two places at once is a continuity problem.
+Continuity errors are factual contradictions between what the draft says and what the story has established. They're distinct from character or plot issues: a character acting inconsistently is a character problem; a character being in two places at once is a continuity problem.
 
 ### Character State
 
@@ -36,12 +36,12 @@ Continuity errors are factual contradictions between what the draft says and wha
 
 For each finding, provide:
 
-1. **The contradiction** — what the draft says vs what was established
-2. **Where it was established** — specific chapter/scene reference
-3. **Where it contradicts** — specific location in the draft
-4. **Severity** — does this break the reader's trust, or is it a minor inconsistency most readers wouldn't notice?
+1. **The contradiction**: what the draft says vs what was established
+2. **Where it was established**: specific chapter/scene reference
+3. **Where it contradicts**: specific location in the draft
+4. **Severity**: does this break the reader's trust, or is it a minor inconsistency most readers wouldn't notice?
 
-Some continuity breaks are more damaging than others. A character's eye color changing is minor. A character knowing about a conversation they weren't present for is serious — it undermines the reader's trust in the narrative.
+Some continuity breaks are more damaging than others. A character's eye color changing is minor. A character knowing about a conversation they weren't present for is serious: it undermines the reader's trust in the narrative.
 
 ## Continuity vs Intentional Change
 
@@ -61,4 +61,4 @@ When available, cross-reference against:
 - Canon facts
 - Wiki pages for established world facts
 
-These are the project's knowledge base — use them as the source of truth for what's been established.
+These are the project's knowledge base: use them as the source of truth for what's been established.

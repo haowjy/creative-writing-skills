@@ -1,10 +1,10 @@
 # Knowledge Maintenance
 
-Agents that keep the kb current — extracting decisions, synthesizing facts, and maintaining connections. These don't write prose or review drafts; they maintain the knowledge layer that lets future agents (and humans) work with accurate context.
+Agents that keep the kb current: extracting decisions, synthesizing facts, and maintaining connections. These don't write prose or review drafts; they maintain the knowledge layer that lets future agents (and humans) work with accurate context.
 
 ## chronicler
 
-Extracts story facts from written chapters — character state, timeline events, canon facts, relationship changes. Reads the manuscript and produces compressed, annotated entries in the kb. Not a copy of the chapter — a synthesis of what changed in the project's factual state.
+Extracts story facts from written chapters: character state, timeline events, canon facts, relationship changes. Reads the manuscript and produces compressed, annotated entries in the kb. Not a copy of the chapter: a synthesis of what changed in the project's factual state.
 
 Also handles mining past sessions for decisions and commitments when dispatched with session references (via `meridian session`). This consolidates knowledge write-back into one agent rather than splitting session-extraction from chapter-extraction.
 
@@ -25,4 +25,4 @@ The base agents handle the generic mechanics; the chronicler handles CW-specific
 
 ### Dispatch Order
 
-Fan out the chronicler and base @session-explorer in parallel after the triggering event (chapter finalized, brainstorm concluded). Run base @kb-maintainer after both complete — it depends on the chronicler having finished writing entries.
+Fan out the chronicler and base @session-explorer in parallel after the triggering event (chapter finalized, brainstorm concluded). Run base @kb-maintainer after both complete: it depends on the chronicler having finished writing entries.

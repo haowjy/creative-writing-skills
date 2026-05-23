@@ -1,13 +1,14 @@
 ---
 name: scene-construction
 type: reference
-description: How to build scenes — entry, dialogue, pacing, transitions. Use when writing or evaluating how scenes work on the page.
+description: >
+  How to build scenes: entry, dialogue, pacing, transitions. Use when writing or evaluating how scenes work on the page.
 model-invocable: false
 ---
 
 # Scene Construction
 
-How scenes work on the page — how to enter, how dialogue works, how to pace
+How scenes work on the page: how to enter, how dialogue works, how to pace
 beats within and across scenes, how to transition. `/prose-writing` covers
 sentence-level immersion; `/story-architecture` covers what scenes do in the
 story.
@@ -18,9 +19,9 @@ Open in the middle of something happening. A character mid-task,
 mid-conversation, or mid-thought gives the reader something to track
 immediately. Let them orient through action and context.
 
-When the setting itself is the story beat — a character seeing a destroyed city
-for the first time, arriving somewhere that changes everything — the
-description carries narrative weight and earns the opening.
+When the setting itself is the story beat, such as a character seeing a
+destroyed city for the first time or arriving somewhere that changes
+everything, the description carries narrative weight and earns the opening.
 
 ## Dialogue
 
@@ -48,7 +49,7 @@ Alternate between high-tension and lower-tension beats within a scene.
 Sustained intensity becomes numbing. The quiet moment after the crisis is what
 gives the crisis weight.
 
-Chapter-level: end on forward momentum — an unanswered question, a new
+Chapter-level: end on forward momentum: an unanswered question, a new
 complication, an emotional shift. Give the reader a reason to continue.
 
 Sentence-level rhythm (length, structure, speed control) lives in

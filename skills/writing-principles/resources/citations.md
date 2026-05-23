@@ -1,6 +1,6 @@
 # Citations
 
-Full verifiable source list for claims in this skill. Citations are real — where a claim has contested replication status, the entry says so.
+Full verifiable source list for claims in this skill. Citations are real: where a claim has contested replication status, the entry says so.
 
 ## Reader psychology: the four reward channels
 
@@ -21,7 +21,7 @@ Full verifiable source list for claims in this skill. Citations are real — whe
 - Hartung, Withers, Hagoort, Willems (2021). Style and suspense rely on different processing routes.
 
 **Fiction vs factual framing**
-- Hartung, Withers, Hagoort, Willems (2017). Same short story labeled fictional vs factual — no meaningful difference in immersion, appreciation, or reading time. [pubmed 28983269](https://pubmed.ncbi.nlm.nih.gov/28983269/). Fiction works because the reader adopts a simulation stance, not because the text disclaims factuality.
+- Hartung, Withers, Hagoort, Willems (2017). Same short story labeled fictional vs factual: no meaningful difference in immersion, appreciation, or reading time. [pubmed 28983269](https://pubmed.ncbi.nlm.nih.gov/28983269/). Fiction works because the reader adopts a simulation stance, not because the text disclaims factuality.
 
 ## NLP: documented AI writing failure modes
 
@@ -37,7 +37,7 @@ Full verifiable source list for claims in this skill. Citations are real — whe
 - "HoLLMwood: Unleashing the Creativity of Large Language Models in Screenwriting via Role Playing." Findings of EMNLP 2024. [aclanthology.org/2024.findings-emnlp.474](https://aclanthology.org/2024.findings-emnlp.474/). Role decomposition into writer / editor / actor roles improves screenwriting over strong single-agent baselines.
 
 **Persona prompting interference**
-- PRISM persona study. [arxiv 2603.18507](https://arxiv.org/abs/2603.18507). Persona prompting activates instruction-following mechanisms that interfere with knowledge retrieval and reasoning on discriminative tasks — every persona variant reduced accuracy. Basis for the "no role identity" principle in agent and skill design.
+- PRISM persona study. [arxiv 2603.18507](https://arxiv.org/abs/2603.18507). Persona prompting activates instruction-following mechanisms that interfere with knowledge retrieval and reasoning on discriminative tasks: every persona variant reduced accuracy. Basis for the "no role identity" principle in agent and skill design.
 
 ## Craft tradition
 

@@ -1,16 +1,16 @@
 # Chapter Planning
 
-Guidance for capturing chapter beat and scene exploration. The author guides structure — don't impose templates.
+Guidance for capturing chapter beat and scene exploration. The author guides structure: don't impose templates.
 
 ## What Gets Captured
 
-**Beats** — record what the author mentions, at the level of detail they gave. "Confrontation in the lab" stays at that level. Don't break it into sub-beats they didn't describe.
+**Beats**: record what the author mentions, at the level of detail they gave. "Confrontation in the lab" stays at that level. Don't break it into sub-beats they didn't describe.
 
-**Scenes** — capture minimally. Don't invent dialogue, blocking, or choreography. If they said "fight scene," note the fight scene. Don't draft it.
+**Scenes**: capture minimally. Don't invent dialogue, blocking, or choreography. If they said "fight scene," note the fight scene. Don't draft it.
 
-**Pacing thoughts** — record as stated. "Fast-paced" stays abstract. "Slow build to the reveal" is preserved as-is. Don't translate pacing intentions into specific scene structures.
+**Pacing thoughts**: record as stated. "Fast-paced" stays abstract. "Slow build to the reveal" is preserved as-is. Don't translate pacing intentions into specific scene structures.
 
-**Opening/ending ideas** — multiple options coexist. The author might not decide yet, and that's fine.
+**Opening/ending ideas**: multiple options coexist. The author might not decide yet, and that's fine.
 
 ## The Author's Structure
 
@@ -25,15 +25,15 @@ Capture whatever level of detail they're exploring. Don't upgrade "I'll figure i
 
 ## Common Exploration Patterns
 
-**Goal-oriented** — "Chapter needs to accomplish X and Y." Capture X and Y.
+**Goal-oriented**: "Chapter needs to accomplish X and Y." Capture X and Y.
 
-**Opening uncertainty** — "Maybe open with scene A, or scene B?" Both noted as options.
+**Opening uncertainty**: "Maybe open with scene A, or scene B?" Both noted as options.
 
-**Ending thoughts** — "Ends with cliffhanger somehow." Vague = keep vague.
+**Ending thoughts**: "Ends with cliffhanger somehow." Vague = keep vague.
 
-**Beat structure** — "Three beats: setup, confrontation, twist." Capture those beats.
+**Beat structure**: "Three beats: setup, confrontation, twist." Capture those beats.
 
-**Pacing notes** — "Should be quick" or "Linger on the emotion." Note the pacing intention.
+**Pacing notes**: "Should be quick" or "Linger on the emotion." Note the pacing intention.
 
 ## When They're Not Sure
 

@@ -79,7 +79,7 @@ fi
 
 # Report all errors at once
 if [ ${#errors[@]} -gt 0 ]; then
-  echo "Release blocked — fix these before retrying:"
+  echo "Release blocked: fix these before retrying:"
   for err in "${errors[@]}"; do
     echo "  - $err"
   done

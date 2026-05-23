@@ -4,11 +4,11 @@ This file provides guidance to AI Agents when working with this repository.
 
 ## Repository Overview
 
-A Mars source package providing 17 composable creative writing agents and 12 skills for Claude Code. Also distributes Claude.ai skill uploads via GitHub Releases.
+A Mars source package providing composable creative writing agents and skills for Meridian and Claude Code. Also distributes Claude.ai skill uploads via GitHub Releases.
 
 ## Key Distinctions
 
-**`skills/` vs `cw/skills/`:** `skills/` is the Mars source — consumed by Claude Code projects via `mars add`. `cw/skills/` holds adapted copies for Claude.ai uploads (meridian-specific references replaced with generic equivalents). When updating a skill, edit `skills/` first, then sync changes to `cw/skills/`.
+**`skills/` vs `cw/skills/`:** `skills/` is the Mars source: consumed by Claude Code projects via `mars add`. `cw/skills/` holds adapted copies for Claude.ai uploads (meridian-specific references replaced with generic equivalents). When updating a skill, edit `skills/` first, then sync changes to `cw/skills/`.
 
 **Agents vs skills:** Agents are spawned as independent processes (orchestrators, writers, critics). Skills are reference material loaded into agent context (craft knowledge, patterns, conventions). See `agents/` and `skills/` directories.
 
@@ -38,14 +38,14 @@ Use explicit `--root` whenever releasing this package from an inherited Meridian
 |---|---|
 | `/bs` | brainstorming |
 | `/write [style]` | prose-writing |
-| `/wiki` | wiki-docs |
+| `/wiki` | kb-management |
 | `/critique` | prose-critique |
 
 ## Design Patterns
 
 **Source tagging (brainstorming):** Untagged = user stated. `<AI>...</AI>` = AI suggestion. `<hidden>...</hidden>` = author-only (twists, secrets).
 
-**Citations (wiki-docs):** Chapter references (`Chapter 3: Scene where X discovers Y`) and document references (`magic-system.md`).
+**Citations (kb-management):** Chapter references (`Chapter 3: Scene where X discovers Y`) and document references (`magic-system.md`).
 
 **Style guides:** Directive AI instructions, not human documentation. Imperative form + examples.
 
@@ -64,6 +64,6 @@ Use explicit `--root` whenever releasing this package from an inherited Meridian
 ## Conventions
 
 - Each skill's `SKILL.md` uses YAML frontmatter with `name` and `description`
-- Skills are self-contained — no cross-skill dependencies
+- Skills are self-contained: no cross-skill dependencies
 - Agent profiles declare their skills in the `skills:` frontmatter array
 - Generated directories (`.agents/`, `.mars/`, `.meridian/`) are gitignored

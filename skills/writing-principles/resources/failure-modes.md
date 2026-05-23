@@ -3,7 +3,7 @@
 When a passage feels off, find the pattern here. Each section names the
 problem, shows what to do instead, and explains why the instinct fires.
 
-The antidote is never "do the opposite." It's calibration — knowing when a
+The antidote is never "do the opposite." It's calibration: knowing when a
 pattern is serving the reader and when it's the helpfulness instinct
 expressing itself. Over-explaining breaks inference; under-explaining breaks
 transportation. Both are calibration failures.
@@ -18,7 +18,7 @@ reconciliation beat because unresolved tension felt uncomfortable.
 
 **What to do instead.** Write the brief. Stop at the brief. If the brief was
 "confrontation," the reader doesn't need the aftermath in the same beat. Let
-tension persist — scenes that resolve themselves have nothing to build on.
+tension persist: scenes that resolve themselves have nothing to build on.
 
 **Why the instinct fires.** Training rewarded complete, thorough responses.
 Partial felt penalized. The pull is to give more because more felt safer.
@@ -27,14 +27,14 @@ Partial felt penalized. The pull is to give more because more felt safer.
 
 ## Flattening voice
 
-**What happens.** All prose in the same register — competent, slightly formal,
+**What happens.** All prose in the same register: competent, slightly formal,
 emotionally even. Characters think in the same vocabulary. Emotional moments
 and mundane moments get the same measured treatment.
 
 **What to do instead.** Internalize the project's style files and let them
 shape every sentence, not just the obviously "voiced" ones. First-person and
 close-third narration should reflect the POV character's way of processing
-the world — their education, preoccupations, blind spots. If the narrator
+the world: their education, preoccupations, blind spots. If the narrator
 always sounds like "a competent novelist," the POV character is invisible.
 
 **Why the instinct fires.** Training rewarded a consistent acceptable register
@@ -53,7 +53,7 @@ specialists."
 **What to do instead.** Characters think "Tier 5. Great." The reader learns
 what that means from the character's reaction and what happens next.
 Worldbuilding leaks through experience, conversation, and consequence. Even
-in briefing scenes, filter through the POV character's attention — they
+in briefing scenes, filter through the POV character's attention: they
 notice what matters to them, not everything.
 
 **Why the instinct fires.** Training rewarded complete information delivery.
@@ -68,15 +68,15 @@ dread settled over her." Emotional states as direct facts.
 
 **What to do instead.** Show through character-specific action. "She picked up
 her coffee cup with exaggerated care, as if the alternative was throwing it"
-— fury revealed through behavior only this character would exhibit. Show when
+- fury revealed through behavior only this character would exhibit. Show when
 the moment matters (emotional peaks, character-defining choices). Tell when
 emotional texture doesn't matter (transitions, time compression).
 
 **The stock-tells trap.** When trying to show, don't reach for clenched fists,
 shaky breaths, averted eyes, tightening jaws. These are rubber-stamp gestures
-any character in any story could have. The fix isn't a different body part —
-it's a character-specific behavior that reveals how this particular person
-processes this particular feeling.
+any character in any story could have. The fix is a character-specific
+behavior that reveals how this particular person processes this particular
+feeling.
 
 **Why the instinct fires.** Labels are the clearest way to communicate state.
 Clarity was rewarded. Showing is indirect, and indirectness felt risky.
@@ -90,7 +90,7 @@ silver lining. After a dark moment, lightened tone. Every arc becomes:
 disruption → quick recovery.
 
 **What to do instead.** Let the tension persist. An argument in chapter 3
-might not resolve until chapter 8 — or ever. Grief doesn't get a comforting
+might not resolve until chapter 8, or ever. Grief doesn't get a comforting
 realization in the same scene. When you feel the urge to soften or explain
 away tension, stop and ask whether it's supposed to persist. Usually it is.
 
@@ -109,7 +109,7 @@ topics they discuss, not how they speak.
 
 **What to do instead.** Real people aren't uniformly articulate. Some avoid
 emotional honesty, some over-explain, some speak in fragments, some deflect.
-Voice variety is characterization — if all characters sound the same, readers
+Voice variety is characterization: if all characters sound the same, readers
 can only distinguish them by name.
 
 **Why the instinct fires.** Training rewarded articulate, emotionally fluent

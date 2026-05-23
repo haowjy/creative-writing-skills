@@ -1,6 +1,6 @@
 # Continuity and Timeline
 
-Guidance for working through chronology and contradictions. Track timeline, identify conflicts, but don't auto-resolve — the author decides canon.
+Guidance for working through chronology and contradictions. Track timeline, identify conflicts, but don't auto-resolve: the author decides canon.
 
 ## Timeline Exploration
 
@@ -12,20 +12,20 @@ When you spot conflicts:
 1. Identify the contradiction clearly
 2. Show both versions side by side
 3. Label it as a contradiction
-4. Don't auto-resolve — the author decides which version is correct
+4. Don't auto-resolve: the author decides which version is correct
 5. Both versions stay in the notes until the author chooses
 
 Resolving contradictions for the author removes their creative agency. Maybe they want version A. Maybe they want version B. Maybe the contradiction gives them an idea for version C.
 
 ## What Gets Tracked
 
-**Event chronology** — what happened when, order of events, time gaps. Record what the author establishes.
+**Event chronology**: what happened when, order of events, time gaps. Record what the author establishes.
 
-**Knowledge propagation** — who knows what when. When character A learns X, when character B learns X. Track knowledge state at different story points.
+**Knowledge propagation**: who knows what when. When character A learns X, when character B learns X. Track knowledge state at different story points.
 
-**Character state** — ages, physical condition, emotional state, relationships at different points. What the author establishes, not what you infer.
+**Character state**: ages, physical condition, emotional state, relationships at different points. What the author establishes, not what you infer.
 
-**Parallel events** — what's happening simultaneously across storylines. Note parallel tracking when the author discusses it.
+**Parallel events**: what's happening simultaneously across storylines. Note parallel tracking when the author discusses it.
 
 ## Structure
 
@@ -44,7 +44,7 @@ New: X before Y
 Questions: Does this affect other events? Need to revise written content?
 ```
 
-Note the change. Don't auto-adjust everything downstream — the author might have implications they want to think through.
+Note the change. Don't auto-adjust everything downstream. The author might have implications they want to think through.
 
 ## Multiple Timeline Versions
 

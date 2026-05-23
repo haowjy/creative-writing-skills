@@ -39,7 +39,7 @@ graph TD
 
 ## Skill Dependencies
 
-Which agents load which skills. Meridian infrastructure skills (meridian-spawn, meridian-work-coordination, agent-management, decision-log) omitted — orchestrators load these. `md-validation`, `kb-conventions`, `intent-modeling`, and `llm-writing` are from meridian-base.
+Which agents load which skills. Meridian infrastructure skills (meridian-spawn, meridian-work-coordination, agent-management, decision-log) omitted: orchestrators load these. `shared-dao`, `md-validation`, `kb-conventions`, `intent-modeling`, and `llm-writing` are from meridian-base.
 
 ```mermaid
 graph LR
@@ -82,16 +82,16 @@ graph LR
         PW[prose-writing]
         SCN[scene-construction]
         KC[kb-conventions]
+        SD[shared-dao]
     end
 
     subgraph "Single-Consumer Skills"
         BRS[brainstorming]
         SA[story-architecture]
-        WD[wiki-docs]
         STYA[style-analysis]
     end
 
-    %% writing-artifacts — 8 agents
+    %% writing-artifacts: 10 agents
     SO --> WA
     DO --> WA
     KO --> WA
@@ -99,9 +99,11 @@ graph LR
     WR --> WA
     RW --> WA
     BW --> WA
+    OL --> WA
+    CH --> WA
     SC --> WA
 
-    %% writing-principles — 7 agents
+    %% writing-principles: 8 agents
     SO --> WP
     WR --> WP
     RW --> WP
@@ -111,16 +113,17 @@ graph LR
     RS --> WP
     SC --> WP
 
-    %% llm-writing — 7 agents (from meridian-base)
+    %% llm-writing: 8 agents (from meridian-base)
     SO --> LW
     WR --> LW
     RW --> LW
     BW --> LW
     BS --> LW
     RS --> LW
+    CH --> LW
     SC --> LW
 
-    %% story-context — 8 agents
+    %% story-context: 8 agents
     SO --> SCtx
     DO --> SCtx
     KO --> SCtx
@@ -130,42 +133,52 @@ graph LR
     BW --> SCtx
     CS --> SCtx
 
-    %% prose-writing — 3 agents
+    %% prose-writing: 3 agents
     WR --> PW
     RW --> PW
     BW --> PW
 
-    %% scene-construction — 3 agents
+    %% scene-construction: 3 agents
     WR --> SCN
     RW --> SCN
     BW --> SCN
 
-    %% md-validation — 3 agents (from meridian-base)
+    %% md-validation: 4 agents (from meridian-base)
     KO --> MV
     CH --> MV
     OL --> MV
     CC --> MV
 
-    %% kb-conventions — 2 agents (from meridian-base)
+    %% kb-conventions: 3 agents (from meridian-base)
+    SO --> KC
     KO --> KC
     CH --> KC
 
-    %% writing-staffing — 3 orchestrators
+    %% shared-dao: 5 agents (from meridian-base)
+    SO --> SD
+    DO --> SD
+    KO --> SD
+    CH --> SD
+    CC --> SD
+
+    %% writing-staffing: 3 orchestrators
     SO --> WS
     DO --> WS
     KO --> WS
 
-    %% writing-issues — 3 agents
+    %% writing-issues: 4 agents
+    KO --> WI
     CR --> WI
     CC --> WI
     SC --> WI
 
-    %% prose-critique — 2 agents
+    %% prose-critique: 2 agents
     CR --> PC
     CC --> PC
 
-    %% intent-modeling — 2 agents (from meridian-base)
+    %% intent-modeling: 3 agents (from meridian-base)
     SO --> IM
+    KO --> IM
     BS --> IM
 
     %% single-consumer skills
@@ -185,8 +198,8 @@ graph LR
     class BS,OL,WR,RW,BW,SC creative
     class CR,CC,RS,CS review
     class CH knowledge
-    class WA,MV,WP,SCtx,WS,WI,PC,IM,LW,PW,SCN,KC sharedSkill
-    class BRS,SA,WD,STYA soloSkill
+    class WA,MV,WP,SCtx,WS,WI,PC,IM,LW,PW,SCN,KC,SD sharedSkill
+    class BRS,SA,STYA soloSkill
 ```
 
 ## Model Routing
@@ -195,7 +208,7 @@ Cost tiers mapped to agent roles. All agents support multi-provider fallback via
 
 ```mermaid
 graph LR
-    subgraph "opus — voice-sensitive"
+    subgraph "opus: voice-sensitive"
         SO[muse]
         WR[writer]
         SC[style-creator]
@@ -203,7 +216,7 @@ graph LR
         RS[reader-sim]
     end
 
-    subgraph "sonnet — balanced"
+    subgraph "sonnet: balanced"
         BS[brainstormer]
         OL[outliner]
         KO[lore-keeper]
@@ -213,11 +226,11 @@ graph LR
         BW[bridge-writer]
     end
 
-    subgraph "gptmini — high-throughput"
+    subgraph "gptmini: high-throughput"
         CH[chronicler]
     end
 
-    subgraph "gpt — deep reasoning"
+    subgraph "gpt: deep reasoning"
         CC[continuity-checker]
     end
 
@@ -238,14 +251,14 @@ How work products move between agents. Arrows show write → read relationships.
 
 ```mermaid
 graph TD
-    subgraph "work/ — temporary"
+    subgraph "work/: temporary"
         WB["work/brainstorm/"]
         WO["work/outline/"]
         WD["work/drafts/"]
         WC["work/critique-reports/"]
     end
 
-    subgraph "kb/ — durable"
+    subgraph "kb/: durable"
         KS["kb/styles/"]
         KC["kb/characters/"]
         KW["kb/world/"]
@@ -299,20 +312,21 @@ graph TD
 
 | Skill | Consumers | Notes |
 |---|---|---|
-| writing-artifacts | 8 | Shared artifact contract — orchestrators + all writers + brainstormer + style-creator |
-| story-context | 8 | Context scoping — orchestrators + all writers + brainstormer + character-sim |
-| writing-principles | 8 | Reader psychology + AI failure modes — all prose-touching agents |
-| llm-writing | 7 | General LLM writing discipline (from meridian-base) — muse, all writers, brainstormer, reader-sim, style-creator |
-| md-validation | 4 | Link topology and mermaid validation (from meridian-base) — lore-keeper, chronicler, outliner, continuity-checker |
-| prose-writing | 3 | Immersion patterns — writer, revision-writer, bridge-writer |
-| scene-construction | 3 | Beat-level craft — writer, revision-writer, bridge-writer |
-| writing-staffing | 3 | Team composition — orchestrators only |
-| writing-issues | 3 | Issue tracking — critic, continuity-checker, style-creator |
-| meridian-spawn | 3 | Spawn mechanics (from meridian-base) — orchestrators only |
-| meridian-work-coordination | 3 | Work lifecycle (from meridian-base) — orchestrators only |
-| brainstorming | 2 | Capture conventions — muse + brainstormer |
-| kb-conventions | 2 | KB model (from meridian-base) — lore-keeper + chronicler |
-| prose-critique | 2 | Critique methodology — critic + continuity-checker |
-| intent-modeling | 2 | Intent reading discipline (from meridian-base) — muse + brainstormer |
-| story-architecture | 1 | Structure methodology — outliner only |
-| style-analysis | 1 | Style file methodology — style-creator only |
+| writing-artifacts | 10 | Shared artifact contract: orchestrators + all writers + brainstormer + outliner + chronicler + style-creator |
+| story-context | 8 | Context scoping: orchestrators + all writers + brainstormer + character-sim |
+| writing-principles | 8 | Reader psychology + AI failure modes: all prose-touching agents |
+| llm-writing | 8 | General LLM writing discipline (from meridian-base): muse, all writers, brainstormer, reader-sim, chronicler, style-creator |
+| shared-dao | 5 | Shared vocabulary discipline (from meridian-base): muse, bard, lore-keeper, chronicler, continuity-checker |
+| md-validation | 4 | Link topology and mermaid validation (from meridian-base): lore-keeper, chronicler, outliner, continuity-checker |
+| prose-writing | 3 | Immersion patterns: writer, revision-writer, bridge-writer |
+| scene-construction | 3 | Beat-level craft: writer, revision-writer, bridge-writer |
+| writing-staffing | 3 | Team composition: orchestrators only |
+| writing-issues | 4 | Issue tracking: lore-keeper, critic, continuity-checker, style-creator |
+| meridian-spawn | 3 | Spawn mechanics (from meridian-base): orchestrators only |
+| meridian-work-coordination | 3 | Work lifecycle (from meridian-base): orchestrators only |
+| brainstorming | 2 | Capture conventions: muse + brainstormer |
+| kb-conventions | 3 | KB model (from meridian-base): muse + lore-keeper + chronicler |
+| prose-critique | 2 | Critique methodology: critic + continuity-checker |
+| intent-modeling | 3 | Intent reading discipline (from meridian-base): muse + lore-keeper + brainstormer |
+| story-architecture | 1 | Structure methodology: outliner only |
+| style-analysis | 1 | Style file methodology: style-creator only |

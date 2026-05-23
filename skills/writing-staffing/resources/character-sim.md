@@ -1,16 +1,16 @@
 # Character Simulation
 
-Character exploration through performance. The `character-sim` agent becomes a character for freeform conversation — the author (or another agent) interacts with the character to discover voice, test dynamics, and explore reactions in unplotted situations.
+Character exploration through performance. The `character-sim` agent becomes a character for freeform conversation: the author (or another agent) interacts with the character to discover voice, test dynamics, and explore reactions in unplotted situations.
 
 ## character-sim
 
-Stays in character. Doesn't break to explain, doesn't over-narrate, doesn't meta-comment on the interaction. Responds as the character would — with their knowledge, their biases, their emotional state.
+Stays in character. Doesn't break to explain, doesn't over-narrate, doesn't meta-comment on the interaction. Responds as the character would: with their knowledge, their biases, their emotional state.
 
 Works with whatever character context it's given:
 
-- **Full context mode** — loads relevant style files and character state files. The combination gives voice patterns AND factual grounding (what the character knows, where they are in the story, their relationships). Use when the character is established and the goal is to hear how they'd react to specific situations.
+- **Full context mode**: loads relevant style files and character state files. The combination gives voice patterns AND factual grounding (what the character knows, where they are in the story, their relationships). Use when the character is established and the goal is to hear how they'd react to specific situations.
 
-- **Ad hoc mode** — character description comes entirely from the prompt. "You're a 14-year-old from a fighting dojo who just lost his first real battle. You're proud, stubborn, and your dad is watching. React." No files needed. Use when:
+- **Ad hoc mode**: character description comes entirely from the prompt. "You're a 14-year-old from a fighting dojo who just lost his first real battle. You're proud, stubborn, and your dad is watching. React." No files needed. Use when:
   - The character doesn't exist yet
   - Sketching a one-off NPC
   - Exploring "what if" scenarios with modified traits
@@ -18,13 +18,13 @@ Works with whatever character context it's given:
 
 ## Use cases
 
-**Voice discovery** — hear how a character sounds in different emotional states. Spawn a character-sim, give it a scenario, and observe the voice that emerges. Especially valuable for characters whose voice isn't established yet.
+**Voice discovery**: hear how a character sounds in different emotional states. Spawn a character-sim, give it a scenario, and observe the voice that emerges. Especially valuable for characters whose voice isn't established yet.
 
-**Relationship testing** — play out unscripted encounters between characters. See how they interact without the author scripting the outcome. Reveals dynamics that planned scenes might miss.
+**Relationship testing**: play out unscripted encounters between characters. See how they interact without the author scripting the outcome. Reveals dynamics that planned scenes might miss.
 
-**Stress testing** — confront a character with unexpected situations and see authentic reactions. "What would the protagonist do if she discovered the secret early?" The answer reveals character, even if the scenario never appears in the story.
+**Stress testing**: confront a character with unexpected situations and see authentic reactions. "What would the protagonist do if she discovered the secret early?" The answer reveals character, even if the scenario never appears in the story.
 
-**Ad hoc sketching** — describe a character on the fly, interact with them to discover who they are before writing anything down. Useful early in character development when the author has a vague sense and needs to find the specifics.
+**Ad hoc sketching**: describe a character on the fly, interact with them to discover who they are before writing anything down. Useful early in character development when the author has a vague sense and needs to find the specifics.
 
 ## Multi-character fan-out
 
@@ -43,7 +43,7 @@ meridian spawn -a character-sim \
   -f kb/characters/kyle.md
 ```
 
-The chronicler or base @session-explorer can later extract voice patterns, relationship dynamics, and character insights from the character-sim transcripts. The value is the conversation itself — character-sim is a read-only agent that doesn't write files.
+The chronicler or base @session-explorer can later extract voice patterns, relationship dynamics, and character insights from the character-sim transcripts. The value is the conversation itself: character-sim is a read-only agent that doesn't write files.
 
 ## Staffing considerations
 

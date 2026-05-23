@@ -1,6 +1,6 @@
 ---
 description: >
-  Maintaining the story knowledge base — creating, updating, and organizing
+  Maintaining the story knowledge base: creating, updating, and organizing
   wiki-style reference pages in kb/. Use when capturing finalized story
   knowledge, updating character profiles, documenting world mechanics, or
   restructuring the kb.
@@ -13,25 +13,29 @@ from it for context. This skill covers how to maintain it well.
 
 ## Layers
 
-**Canon** — established facts the story has committed to. Once a chapter is
+**Canon**: established facts the story has committed to. Once a chapter is
 published/finalized, the facts it establishes are canon. Contradicting canon
 breaks reader trust.
 
-**Wiki** — synthesized reference pages. How the magic system works, character
+**Wiki**: synthesized reference pages. How the magic system works, character
 relationships, faction politics. Living documents that evolve as the story
 develops.
 
-**Styles** — voice reference files derived from prose samples. The writer
+**Styles**: voice reference files derived from prose samples. The writer
 and critic agents depend on these for voice consistency.
 
-**Issues** — tracked writing problems that span multiple chapters (recurring
+**Vocab**: canonical story terms, aliases, and exclusions. Project-wide terms
+live in `kb/vocab.md`; domain terms live beside the domain they govern, such as
+`kb/world/vocab.md`.
+
+**Issues**: tracked writing problems that span multiple chapters (recurring
 tics, pacing patterns, continuity errors). See the writing-issues skill.
 
 ## Page Conventions
 
 ### One Concept Per Document
 
-Each doc covers one coherent topic — one character, one location, one system.
+Each doc covers one coherent topic: one character, one location, one system.
 When a doc covers two unrelated topics, split it. When two docs explain the
 same thing from different angles, merge or cross-reference.
 
@@ -44,9 +48,12 @@ when they were written (`session-3-notes.md`).
 kb/
   characters/
     <name>.md              # one file per character
+  vocab.md                 # project-wide canonical terms
   world/
+    vocab.md               # worldbuilding terms when needed
     <topic>.md             # locations, factions, systems
     <domain>/
+      vocab.md             # subdomain terms when needed
       <topic>.md           # nest when a domain has many pages
   timeline/
     <arc-or-period>.md     # chronological entries
@@ -63,18 +70,35 @@ The project's `CLAUDE.md` may customize this. Read it first.
 ### Linking
 
 Link to related pages with relative paths. Cross-reference instead of
-duplicating — one source of truth per concept. A character page links to
+duplicating: one source of truth per concept. A character page links to
 the location page for their home, the timeline entry for their arc, etc.
 
 ### Readability
 
 Write pages that work in isolation:
 
-- **Self-contained** — enough context that a reader doesn't need three
+- **Self-contained**: enough context that a reader doesn't need three
   other pages first
-- **Scannable** — headers, bullets, tables. Bold key terms on first use.
-- **Concrete** — specific quotes, chapter references, scene citations
-- **Current** — update when the story invalidates or extends what's here
+- **Scannable**: headers, bullets, tables. Bold key terms on first use.
+- **Concrete**: specific quotes, chapter references, scene citations
+- **Current**: update when the story invalidates or extends what's here
+
+## Vocab Pages
+
+Use vocab pages when terms matter across agents: magic names, faction labels,
+place names, titles, relationship labels, invented words, recurring in-world
+phrases, and genre terms with project-specific meanings.
+
+Each entry should include:
+
+- **Canonical name**: the form agents should use
+- **Definition**: one to three sentences, including what the term is not when ambiguity is likely
+- **Aliases**: names the author, characters, drafts, or older kb pages actually use
+- **Source**: where the usage was established or decided
+
+Resolve conflicts early. If two terms seem to name the same thing, pick the
+canonical form with the author or flag it in the report instead of carrying
+both forward silently.
 
 ## When to Create vs Update
 

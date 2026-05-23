@@ -1,6 +1,6 @@
 ---
 description: >
-  Logging and referencing writing issues — craft problems, tics, inconsistencies,
+  Logging and referencing writing issues: craft problems, tics, inconsistencies,
   and structural concerns found during analysis, critique, or review. Use when
   a pattern worth tracking is identified: repeated tics, inconsistencies across
   scenes, structural problems that need the author's attention.
@@ -14,9 +14,9 @@ Issues are writing problems worth tracking beyond a single critique report. A cr
 
 Log when the problem is:
 
-- **Recurring** — the same tic, habit, or weakness across multiple chapters.
-- **Structural** — affects the project's architecture, not just one passage.
-- **Worth tracking separately** — the author might want a dedicated revision pass.
+- **Recurring**: the same tic, habit, or weakness across multiple chapters.
+- **Structural**: affects the project's architecture, not just one passage.
+- **Worth tracking separately**: the author might want a dedicated revision pass.
 
 Don't log every critique finding as an issue.
 
@@ -26,10 +26,10 @@ One file per issue in `kb/issues/`. Issues persist across drafting efforts becau
 
 ## What to Include
 
-- **What the issue is** — specific and concrete
-- **Evidence** — quotes, counts, chapter references
-- **Scope** — what's affected
-- **Severity** — how much it damages the reader's experience
+- **What the issue is**: specific and concrete
+- **Evidence**: quotes, counts, chapter references
+- **Scope**: what's affected
+- **Severity**: how much it damages the reader's experience
 
 ## Checking for Duplicates
 

@@ -1,18 +1,18 @@
 # Character Development
 
-Guidance for capturing exploration of character motivations, arcs, and relationships. Record what the author explores — don't write psychology they didn't state.
+Guidance for capturing exploration of character motivations, arcs, and relationships. Record what the author explores: don't write psychology they didn't state.
 
 ## Minimal Capture for Characters
 
-**Motivation** — "Motivated by guilt" → record guilt. Don't elaborate on psychological mechanisms, attachment styles, or defense patterns. Keep at the level of depth the author explored.
+**Motivation**: "Motivated by guilt" → record guilt. Don't elaborate on psychological mechanisms, attachment styles, or defense patterns. Keep at the level of depth the author explored.
 
-**Backstory** — "Maybe Y happened in their past" → noted as possibility. Multiple backstory versions coexist. Most backstory stays undecided during brainstorming.
+**Backstory**: "Maybe Y happened in their past" → noted as possibility. Multiple backstory versions coexist. Most backstory stays undecided during brainstorming.
 
-**Character arc** — "Goes from ruthless to caring" → record both endpoints. Don't fill in the transformation beats the author didn't mention.
+**Character arc**: "Goes from ruthless to caring" → record both endpoints. Don't fill in the transformation beats the author didn't mention.
 
-**Relationships** — "X and Y have tension" → note the dynamic. Don't invent incidents causing the tension or a resolution arc.
+**Relationships**: "X and Y have tension" → note the dynamic. Don't invent incidents causing the tension or a resolution arc.
 
-**Voice and personality** — "Sarcastic, uses humor to deflect" → capture those traits. Don't construct a psychological profile explaining why they're sarcastic.
+**Voice and personality**: "Sarcastic, uses humor to deflect" → capture those traits. Don't construct a psychological profile explaining why they're sarcastic.
 
 ## The Psychology Trap
 
@@ -48,7 +48,7 @@ Version A: Military background, stoic, tactically brilliant
 Version B: Academic background, nervous, intellectually brilliant
 Version C: Criminal background, charismatic, street-smart
 
-Not decided yet — exploring which fits the story
+Not decided yet: exploring which fits the story
 ```
 
 All coexist. Don't advocate for one.
