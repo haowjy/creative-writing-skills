@@ -2,6 +2,26 @@
 
 ## [Unreleased]
 
+### Changed
+- Bumped meridian-base dep from `>=0.4.7` to `>=0.7.0` — picks up skill consolidations (decision-log, agent-management, meridian-work-coordination folded into work-artifacts).
+- Model assignments aligned with cognitive role: muse `deepseek` -> `opus` (interactive primary), critic `deepseek` -> `gpt` (adversarial reasoning), bard `deepseek` -> `gpt55` (production execution), chronicler `gptmini` -> `deepseekflash` (cheap extraction).
+- Muse: 14 always-loaded skills -> 6 load + 6 available. Principles and spawn stay loaded; brainstorming, shared-dao, grill-with-docs load on demand.
+- Bard: 9 skills -> 4 load + 3 available. Same progressive loading split.
+- Lore-keeper: 16 skills -> 5 load + 9 available. Routing reference skills load on demand. Removed @code-mirror reference (not in package, use @kb-writer).
+- Continuity-checker: added read/rg/cat/find tools (body requires file navigation but tools didn't permit it).
+- Critic: added read/rg tools, added llm-writing (writing-principles requires it).
+- Character-sim: added llm-writing (writing-principles requires it).
+- Workers (writer, revision-writer, bridge-writer, brainstormer): removed story-context from skills — caller-side guidance wastes context on voice-sensitive agents.
+- `brainstorming`, `writing-issues`: set `model-invocable: true` (now in available lists, need loading mechanism).
+- `writing-staffing`: updated convergence logging ref (decision-log -> work directory).
+- `writing-staffing/resources/researchers.md`: muse does web research directly, not via @web-researcher.
+- Gitignored `mars.lock` (derived artifact).
+
+### Fixed
+- Removed stale base skill refs: `agent-management`, `decision-log`, `meridian-work-coordination` replaced with `work-artifacts` on bard and lore-keeper.
+- Chronicler: "before committing" -> "before reporting".
+- Outliner description grammar fix.
+
 ## [0.3.5] - 2026-05-23
 
 ### Added
