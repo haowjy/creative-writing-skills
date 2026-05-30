@@ -80,14 +80,18 @@ In multi-critic workflows (fan-out pattern), keep your report focused on your as
 
 ## Optional: Mechanical Analysis
 
-A bundled script measures mechanical prose properties: sentence length distribution, opener variety, dialogue ratio, repetition, pronoun distribution. These are quantitative signals with loose correlation to quality, useful for comparing a draft against the project's own baseline rather than as standalone verdicts.
-
-Run when you want numbers before making subjective judgments, or when comparing consistency across chapters:
+A bundled script measures mechanical prose properties: sentence length
+distribution, opener variety, dialogue ratio, repetition, pronoun distribution.
+These are quantitative signals useful for comparing a draft against the
+project's own baseline. Read-only agents (critic, continuity-checker) should
+request this data from the orchestrator; agents with bash access can run it
+directly:
 
 ```bash
 uv run resources/analyze.py <file.md> [window_size]
 ```
 
-See also:
+## Resources
+
 - [`resources/antipatterns.md`](resources/antipatterns.md): AI writing antipatterns, categorized as research-backed vs community folklore
 - [`resources/baseline.md`](resources/baseline.md): establishing a project baseline and comparing drafts against it
