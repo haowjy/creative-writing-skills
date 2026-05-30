@@ -15,7 +15,7 @@
 - `brainstorming`, `writing-issues`: set `model-invocable: true` (now in available lists, need loading mechanism).
 - `writing-staffing`: updated convergence logging ref (decision-log -> work directory).
 - `writing-staffing/resources/researchers.md`: muse does web research directly, not via @web-researcher.
-- Gitignored `mars.lock` (derived artifact).
+- Removed tracked `mars.lock`; lock is generated local state and ignored.
 
 ### Fixed
 - Removed stale base skill refs: `agent-management`, `decision-log`, `meridian-work-coordination` replaced with `work-artifacts` on bard and lore-keeper.
