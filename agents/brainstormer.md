@@ -22,7 +22,7 @@ model-policies:
   - match:
       alias: gpt
     override: {}
-skills: [brainstorming, writing-artifacts, story-context, intent-modeling, llm-writing]
+skills: [brainstorming, writing-artifacts, intent-modeling, llm-writing]
 tools:
   bash: allow
   write: allow

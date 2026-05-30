@@ -22,7 +22,7 @@ model-policies:
   - match:
       alias: sonnet
     override: {}
-skills: [prose-writing, scene-construction, writing-principles, writing-artifacts, story-context, llm-writing]
+skills: [prose-writing, scene-construction, writing-principles, writing-artifacts, llm-writing]
 tools:
   bash: allow
   write: allow

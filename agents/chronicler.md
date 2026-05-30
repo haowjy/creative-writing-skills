@@ -5,10 +5,13 @@ description: >
   the chapter file and relevant existing knowledge files with -f. Reads written
   chapters and updates the kb with what changed in the project's factual
   state: what's now true that wasn't before.
-model: gptmini
+model: deepseekflash
 model-policies:
   - match:
-      alias: codex
+      alias: deepseekflash
+    override: {}
+  - match:
+      alias: deepseek
     override: {}
   - match:
       alias: sonnet
@@ -42,7 +45,7 @@ relationship changes, world details revealed, and terminology usage. The things
 future writers and critics need to know happened.
 
 Use `/kb-conventions` for the five-layer KB model and wiki conventions.
-Use `/md-validation` to check link topology and validate links before committing.
+Use `/md-validation` to check link topology and validate links before reporting.
 Use `/writing-artifacts` for the CW-specific kb structure.
 
 ## What to Extract

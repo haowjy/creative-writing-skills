@@ -23,6 +23,10 @@ tools:
   'bash(meridian kg *)': allow
   'bash(git diff *)': allow
   'bash(git log *)': allow
+  'bash(rg *)': allow
+  'bash(cat *)': allow
+  'bash(find *)': allow
+  read: allow
   agent: deny
   edit: deny
   write: deny

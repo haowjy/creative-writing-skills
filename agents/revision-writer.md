@@ -21,7 +21,7 @@ model-policies:
       alias: gpt
     override:
       effort: high
-skills: [prose-writing, scene-construction, writing-principles, writing-artifacts, story-context, llm-writing]
+skills: [prose-writing, scene-construction, writing-principles, writing-artifacts, llm-writing]
 tools:
   bash: allow
   write: allow

@@ -14,7 +14,7 @@ Compose the right team for each writing task. The goal is coverage across perspe
 
 **Delegation keeps context clean.** Each mode of work benefits from a fresh context window and different model strengths: drafting needs voice fidelity, critique needs adversarial distance, research needs breadth. Orchestrators coordinate mode-switches through agents. If no team composition was provided by your caller, compose one yourself before starting: use the catalogs in the resources below.
 
-**Review convergence.** Critic loops run until convergence (no new substantive findings), not a fixed number of passes. The orchestrator can stop early, but must log the reasoning in the decision log so future agents understand what was decided and why.
+**Review convergence.** Critic loops run until convergence (no new substantive findings), not a fixed number of passes. The orchestrator can stop early, but must log the reasoning in the work directory so future agents understand what was decided and why.
 
 **Brainstorm diversity over brainstorm volume.** Three brainstormers exploring different angles beats five exploring the same angle. Creative diversity comes from different perspectives, not more of the same perspective.
 

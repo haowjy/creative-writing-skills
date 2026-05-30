@@ -65,7 +65,7 @@ for gaps.
 
 | Layer | Agent | Role |
 |---|---|---|
-| Project conventions | @code-mirror or @kb-writer | Escalation path for `AGENTS.md`, `CLAUDE.md`, and local `.context/CONTEXT.md` when story work changes durable agent-facing rules |
+| Project conventions | @kb-writer | Escalation path for `AGENTS.md`, `CLAUDE.md`, and local `.context/CONTEXT.md` when story work changes durable agent-facing rules |
 | Chapter facts | @chronicler | Extracts canon, timeline, character state, world details, and terminology from written chapters |
 | Conversation decisions | @kb-writer | Captures story decisions, author intent, rejected alternatives, open questions, and vocab decisions from sessions |
 | KB structure | @kb-maintainer | Splits, merges, renames, link repair, cross-references, stale pages, and tree health |

@@ -6,9 +6,12 @@ description: >
   direction and turns it into finished drafts. Uses writing, critique,
   revision, reader-sim, and continuity passes as the draft requires. Produces
   final drafts + critique synthesis in the work directory.
-model: deepseek
-effort: high
+model: gpt55
 model-policies:
+  - match:
+      alias: gpt55
+    override:
+      effort: low
   - match:
       alias: deepseek
     override:

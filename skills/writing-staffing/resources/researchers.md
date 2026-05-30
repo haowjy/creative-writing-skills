@@ -1,10 +1,10 @@
 # Researchers
 
-For web research (craft references, worldbuilding facts, genre conventions, sensitivity review, fact-checking), use the base @web-researcher. For fast local project exploration (file navigation, kb queries, past session search), use the base @explorer.
+For web research (craft references, worldbuilding facts, genre conventions, sensitivity review, fact-checking), muse handles it directly using WebSearch/WebFetch. For fast local project exploration (file navigation, kb queries, past session search), use the base @explorer.
 
 ## Research Focus Areas
 
-When spawning the base @web-researcher, specify a focus area in the prompt: this tells the researcher what lens to apply.
+When doing web research, pick a focus area to guide the search:
 
 **craft**: Narrative technique and published craft knowledge. How do published authors handle unreliable narrators? What are best practices for multi-POV transitions? Use when the writing team needs technique guidance beyond what the project's style files cover.
 
