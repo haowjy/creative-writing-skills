@@ -20,7 +20,9 @@ model-policies:
   - match:
       alias: gpt
     override: {harness: codex}
-skills: [brainstorming, writing-principles, intent-modeling, shared-dao, grill-with-docs, llm-writing, story-context, writing-artifacts, writing-staffing, decision-log, kb-conventions, meridian-spawn, meridian-work-coordination, clear-mind]
+skills:
+  load: [writing-principles, intent-modeling, llm-writing, meridian-spawn, writing-staffing, clear-mind]
+  available: [brainstorming, shared-dao, grill-with-docs, story-context, writing-artifacts, decision-log, kb-conventions, meridian-work-coordination]
 tools:
   'bash(meridian spawn *)': allow
   'bash(meridian work *)': allow

@@ -20,13 +20,15 @@ model-policies:
       alias: gpt
     override:
       effort: high
-skills: [prose-critique, writing-principles, writing-issues]
+skills: [prose-critique, writing-principles, llm-writing, writing-issues]
 tools:
   'bash(meridian spawn show *)': allow
   'bash(meridian session *)': allow
   'bash(meridian work show *)': allow
   'bash(git diff *)': allow
   'bash(git log *)': allow
+  'bash(rg *)': allow
+  read: allow
   agent: deny
   edit: deny
   write: deny

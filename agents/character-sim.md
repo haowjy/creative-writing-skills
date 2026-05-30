@@ -22,7 +22,7 @@ model-policies:
   - match:
       alias: gpt
     override: {}
-skills: [writing-principles, story-context]
+skills: [writing-principles, llm-writing, story-context]
 tools:
   'bash(meridian spawn show *)': allow
   'bash(meridian session *)': allow
