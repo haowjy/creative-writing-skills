@@ -22,7 +22,7 @@ model-policies:
     override: {harness: codex}
 skills:
   load: [writing-principles, intent-modeling, llm-writing, meridian-spawn, writing-staffing, clear-mind]
-  available: [brainstorming, shared-dao, grill-with-docs, story-context, writing-artifacts, decision-log, kb-conventions, meridian-work-coordination]
+  available: [brainstorming, shared-dao, grill-with-docs, story-context, writing-artifacts, kb-conventions]
 tools:
   'bash(meridian spawn *)': allow
   'bash(meridian work *)': allow

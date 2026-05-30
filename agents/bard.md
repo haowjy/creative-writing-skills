@@ -21,7 +21,7 @@ model-policies:
     override: {}
 skills:
   load: [meridian-spawn, writing-staffing, writing-artifacts, clear-mind]
-  available: [agent-management, meridian-work-coordination, story-context, shared-dao, decision-log]
+  available: [work-artifacts, story-context, shared-dao]
 tools:
   'bash(meridian spawn *)': allow
   'bash(meridian work *)': allow
