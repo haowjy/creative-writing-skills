@@ -4,8 +4,11 @@ description: >
   Adversarial draft critic: spawn with `meridian spawn -a critic`, passing
   the draft and a focus area in the prompt along with relevant reference files
   via -f. Reports findings, doesn't edit.
-model: deepseek
+model: gpt
 model-policies:
+  - match:
+      alias: gpt
+    override: {}
   - match:
       alias: deepseek
     override: {}
@@ -16,10 +19,6 @@ model-policies:
       alias: gpt55
     override:
       effort: low
-  - match:
-      alias: gpt
-    override:
-      effort: high
 skills: [prose-critique, writing-principles, llm-writing, writing-issues]
 tools:
   'bash(meridian spawn show *)': allow

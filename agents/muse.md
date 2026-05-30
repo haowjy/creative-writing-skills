@@ -7,19 +7,18 @@ description: >
   (drafting loops) and @lore-keeper (knowledge maintenance) to keep its own
   context focused on the author's intent. Spawn with `meridian spawn -a muse`,
   passing conversation context with --from and relevant files with -f.
-model: deepseek
-harness: pi
+model: opus
 model-policies:
+  - match:
+      alias: opus
+    override: {}
   - match:
       alias: deepseek
     override:
       effort: low
   - match:
-      alias: opus
-    override: {harness: claude}
-  - match:
       alias: gpt
-    override: {harness: codex}
+    override: {}
 skills:
   load: [writing-principles, intent-modeling, llm-writing, meridian-spawn, writing-staffing, clear-mind]
   available: [brainstorming, shared-dao, grill-with-docs, story-context, writing-artifacts, kb-conventions]
