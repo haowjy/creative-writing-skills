@@ -3,7 +3,7 @@ name = "creative-writing-skills"
 version = "0.3.5"
 
 [dependencies.meridian-base]
-url = "https://github.com/meridian-flow/meridian-base"
+url = "https://github.com/haowjy/meridian-base"
 version = ">=0.7.0, <0.8.0"
 
 [local-dependencies.meridian-prompter]
