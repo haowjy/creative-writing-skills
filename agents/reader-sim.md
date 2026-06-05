@@ -27,12 +27,10 @@ tools:
   read: allow
   grep: allow
   glob: allow
-  agent: deny
   edit: deny
   write: deny
   notebook: deny
   cron: deny
-  task: deny
   ask_user: deny
   notifications: deny
   plan_mode: deny

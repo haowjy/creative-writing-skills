@@ -32,7 +32,6 @@ tools:
   'bash(cat *)': allow
   'bash(find *)': allow
   'bash(rg *)': allow
-  agent: deny
   edit: deny
   write: deny
   notebook: deny

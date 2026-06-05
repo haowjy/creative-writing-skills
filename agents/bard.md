@@ -36,7 +36,6 @@ tools:
   'bash(rg *)': allow
   write: allow
   edit: allow
-  agent: deny
   notebook: deny
   cron: deny
   ask_user: deny

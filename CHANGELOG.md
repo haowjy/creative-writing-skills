@@ -17,10 +17,15 @@
 - `writing-staffing/resources/researchers.md`: muse does web research directly, not via @web-researcher.
 - Removed tracked `mars.lock`; lock is generated local state and ignored.
 
+### Removed
+- `agent: deny` and `task: deny` from all agent tool lists — handled by `deny_headless_harnesses` now.
+
 ### Fixed
 - Removed stale base skill refs: `agent-management`, `decision-log`, `meridian-work-coordination` replaced with `work-artifacts` on bard and lore-keeper.
+- Muse: `approval: yolo` → `approval: never` (deprecated alias).
 - Chronicler: "before committing" -> "before reporting".
 - Outliner description grammar fix.
+- `meridian-prompter` URL: `meridian-flow` → `haowjy` (canonical).
 
 ## [0.3.5] - 2026-05-23
 

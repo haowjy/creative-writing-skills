@@ -34,14 +34,13 @@ tools:
   write: allow
   edit: allow
   web: allow
-  agent: deny
   notebook: deny
   cron: deny
   notifications: deny
   plan_mode: deny
   worktree: deny
 sandbox: danger-full-access
-approval: yolo
+approval: never
 ---
 
 # Muse

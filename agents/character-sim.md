@@ -27,12 +27,10 @@ tools:
   'bash(meridian spawn show *)': allow
   'bash(meridian session *)': allow
   'bash(cat *)': allow
-  agent: deny
   edit: deny
   write: deny
   notebook: deny
   cron: deny
-  task: deny
   ask_user: deny
   notifications: deny
   plan_mode: deny
