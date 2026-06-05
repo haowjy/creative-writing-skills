@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.3.6] - 2026-06-05
+
 ### Changed
 - Bumped meridian-base dep from `>=0.4.7` to `>=0.7.0` — picks up skill consolidations (decision-log, agent-management, meridian-work-coordination folded into work-artifacts).
 - Model assignments aligned with cognitive role: muse `deepseek` -> `opus` (interactive primary), critic `deepseek` -> `gpt` (adversarial reasoning), bard `deepseek` -> `gpt55` (production execution), chronicler `gptmini` -> `deepseekflash` (cheap extraction).
