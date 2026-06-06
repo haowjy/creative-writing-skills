@@ -24,6 +24,8 @@ meridian mars version patch  # Bump version, commit, tag
 
 Version lives in `mars.toml` under `[package]`. Tags trigger CI releases.
 
+**Marketplace catalog version:** `mars version patch` bumps `mars.toml` but does **not** touch `.claude-plugin/marketplace.json`. When you bump the package, also bump `metadata.version` there by hand to match — it's a cosmetic catalog version with no CI gate, so it drifts silently if you forget (it sat at `0.2.0` while the package was `0.3.10`). The cw **plugin** manifest (`cw/.claude-plugin/plugin.json`) deliberately omits `version` and tracks the git SHA, so it needs no bump.
+
 **Meridian session roots:** Meridian spawns resolve `MERIDIAN_TASK_DIR` for the
 checkout where source work happens, but `MERIDIAN_PROJECT_DIR` stays anchored to
 the session control root for state, profiles, and context. Nested
