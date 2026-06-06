@@ -41,7 +41,7 @@ Claude Code and Cowork use the same plugin format.
 /plugin install creative-writing-skills@cw
 ```
 
-**Cowork**: open the Claude desktop app → **Customize** → **Plugins** → **+** (Personal plugins) → **Add marketplace**, enter `haowjy/creative-writing-skills`, then install the **creative-writing-skills** plugin. Cowork runs the full plugin, agents included.
+**Cowork**: in the sidebar, **Customize** → **Personal plugins** → **+** → **Create plugins** → **Add marketplace** → **Add from repository**, enter `haowjy/creative-writing-skills`, then install the **creative-writing-skills** plugin. (Same flow as [Claude.ai](#claudeai) below — Cowork just also runs the agents.)
 
 Once installed, start a session with muse as your agent:
 
@@ -61,7 +61,7 @@ Run the one-time project setup to create your `CLAUDE.md` and `kb/` structure:
 
 First, add the skills to claude.ai — pick one:
 
-- **Add the marketplace (easiest):** **Customize** → **Plugins** → **+** → **Add marketplace**, enter `haowjy/creative-writing-skills`, then install it.
+- **Add the marketplace (easiest):** in the sidebar, **Customize** → **Personal plugins** → **+** → **Create plugins** → **Add marketplace** → **Add from repository**, then enter `haowjy/creative-writing-skills` and install it.
 - **Upload the files:** download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest), then **Customize** → **Skills** → **"+"** → **Upload skill** for each one.
 
 Then start a chat, turn on **`cw-muse`**, and describe what you want to write — it leads from there. Adding skills one at a time instead? Start with **cw-muse**, **writing-principles**, **prose-writing**, **scene-construction**, and **prose-critique**.
