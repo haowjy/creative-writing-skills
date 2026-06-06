@@ -55,6 +55,8 @@ After editing a `skills/<name>/SKILL.md`, run `--apply` (MIRROR skills sync auto
 
 **`cw-muse`:** Claude.ai has no agents, so `cw/skills/cw-muse` is the entry-point skill standing in for the muse agent — activate it to drive a single-agent brainstorm/draft/critique/revise session. The plugin (Claude Code/Cowork) uses the muse **agent** instead, with cw agents flattened (no `bard`/`lore-keeper`).
 
+**Plugin manifest:** `cw/.claude-plugin/plugin.json` is required. Claude Code auto-discovers components without it, but the marketplace **add-from-GitHub** path (Cowork / claude.ai) validates the plugin and *rejects it* if the manifest is missing. `claude plugins validate .claude-plugin/marketplace.json` only checks the marketplace schema, not the plugin — so CI also runs `claude plugins validate cw`, which validates the manifest plus every agent/skill component file. `version` is intentionally omitted from the manifest so the plugin tracks the git commit SHA (always-latest, no extra bump surface).
+
 ## Slash Commands
 
 | Command | Skill |
@@ -78,11 +80,11 @@ After editing a `skills/<name>/SKILL.md`, run `--apply` (MIRROR skills sync auto
 
 **Validate package:** `meridian mars check`
 
-**Validate plugin manifest:** `claude plugins validate .claude-plugin/marketplace.json`
+**Validate plugin manifest:** `claude plugins validate .claude-plugin/marketplace.json` (marketplace schema) and `claude plugins validate cw` (cw plugin manifest + components)
 
 **Release flow:** Bump version in `mars.toml` → commit → tag `vX.Y.Z` → push tag → CI creates GitHub Release with `.skill` artifacts.
 
-**CI:** PRs run `mars check` + frontmatter validation + `sync_cw_skills.py` drift check + zip build. Tag pushes create releases.
+**CI:** PRs run `mars check` + marketplace/plugin validation (`claude plugins validate`) + frontmatter validation + `sync_cw_skills.py` drift check + zip build. Tag pushes create releases.
 
 ## Conventions
 

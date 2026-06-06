@@ -34,6 +34,9 @@ jobs:
       - name: Validate Claude plugin manifest
         run: claude plugins validate .claude-plugin/marketplace.json
 
+      - name: Validate cw plugin (manifest + components)
+        run: claude plugins validate cw
+
       - name: Validate YAML frontmatter
         run: |
           error=0

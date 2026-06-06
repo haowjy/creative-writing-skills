@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+### Fixed
+- `cw/.claude-plugin/plugin.json`: added the plugin manifest. Without it, adding the marketplace from GitHub (Cowork / claude.ai) failed with "No manifest found in directory" — Claude Code auto-discovers components locally without a manifest, but the marketplace add path validates the plugin and rejects it when the manifest is missing. `version` is omitted so the plugin tracks the git commit SHA.
+
+### Added
+- CI/release: `claude plugins validate cw` step, validating the cw plugin manifest plus every agent/skill component file. The existing `claude plugins validate .claude-plugin/marketplace.json` only checks the marketplace schema, not the plugin itself — which is how the missing manifest slipped through.
+
+### Changed
+- README: documented the marketplace-add flow (Customize → Plugins → + → Add marketplace) for Cowork and claude.ai, with manual `.skill` upload kept as the skills-only fallback; clarified that agents run in Cowork but are grayed out in plain claude.ai chat. Compatibility table updated.
+- `marketplace.json`: bumped catalog `metadata.version` 0.2.0 → 0.3.10.
+- AGENTS.md: documented the plugin manifest requirement and the new validation gate.
+
 ## [0.3.10] - 2026-06-06
 
 ### Changed

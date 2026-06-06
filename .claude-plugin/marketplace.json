@@ -6,7 +6,7 @@
     },
     "metadata": {
       "description": "Creative writing agents and skills for Claude Code",
-      "version": "0.2.0"
+      "version": "0.3.10"
     },
     "plugins": [
       {

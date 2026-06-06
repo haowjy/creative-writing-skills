@@ -41,7 +41,7 @@ Claude Code and Cowork use the same plugin format.
 /plugin install creative-writing-skills@cw
 ```
 
-**Cowork**: open the Claude Desktop app, go to Customize → "+" → Create plugin → enter `haowjy/creative-writing-skills` or upload from a local clone.
+**Cowork**: open the Claude desktop app → **Customize** → **Plugins** → **+** (Personal plugins) → **Add marketplace**, enter `haowjy/creative-writing-skills`, then install the **creative-writing-skills** plugin. Cowork runs the full plugin, agents included.
 
 Once installed, start a session with muse as your agent:
 
@@ -55,18 +55,22 @@ Run the one-time project setup to create your `CLAUDE.md` and `kb/` structure:
 /creative-writing-skills:project-setup
 ```
 
-### Claude.ai (Skills Only)
+### Claude.ai
 
-Claude.ai supports skills but not agents. The **`cw-muse`** skill stands in for the muse agent: activate it to get a session lead that brainstorms, drafts, critiques, and revises — running every mode itself in one conversation, since there are no subagents to spawn. The craft skills carry the discipline it leans on.
+Plain claude.ai chat runs **skills only** — agents and hooks appear grayed out (they execute only in Cowork). The **`cw-muse`** skill stands in for the muse agent: activate it to get a session lead that brainstorms, drafts, critiques, and revises in one conversation, with no subagents to spawn. The craft skills carry the discipline it leans on.
+
+**Add the marketplace (recommended):** the same flow as Cowork — **Customize** → **Plugins** → **+** → **Add marketplace** → `haowjy/creative-writing-skills`, then install the plugin. In chat the skills load and the agents stay grayed out; activate **`cw-muse`** to drive the session.
+
+**Manual skill upload (fallback):** if you'd rather not add the marketplace,
 
 1. Download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest).
 2. Go to [claude.ai](https://claude.ai) → Customize → Skills → "+" → Upload skill
-3. Upload each `.skill` file
-4. Activate **`cw-muse`** at the start of a story session to act as your creative partner.
+3. Upload each `.skill` file.
+4. Activate **`cw-muse`** at the start of a story session.
 
 Recommended starting set: **cw-muse**, **writing-principles**, **prose-writing**, **scene-construction**, **prose-critique**.
 
-> Prefer to build them yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate the `.skill` files in `zips/`.
+> Prefer to build the zips yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate the `.skill` files in `zips/`.
 
 ## How It Works
 
@@ -171,12 +175,12 @@ my-story/
 
 | Feature | Claude Code | Cowork | Mars (Meridian) | Claude.ai |
 |---|:---:|:---:|:---:|:---:|
-| All agents | Yes (flat) | Yes (flat) | Yes (hierarchical) | No |
-| All skills | Yes | Yes | Yes | Upload as zip |
+| All agents | Yes (flat) | Yes (flat) | Yes (hierarchical) | No (grayed out in chat) |
+| All skills | Yes | Yes | Yes | Marketplace add or zip |
 | Multi-agent orchestration | Via muse | Via muse | Via muse → bard → workers | No |
 | Project setup | Yes | Yes | Yes | No |
 
-Claude Code and Cowork use the same plugin format with all agents as flat subagents under muse. The Meridian version adds intermediate orchestrators (bard for drafting, lore-keeper for knowledge maintenance) for deeper context isolation. Claude.ai supports skills only: the `cw-muse` skill provides the session-lead orchestration in a single conversation (no subagents), backed by the craft skills.
+Claude Code and Cowork use the same plugin format with all agents as flat subagents under muse. The Meridian version adds intermediate orchestrators (bard for drafting, lore-keeper for knowledge maintenance) for deeper context isolation. You can add the marketplace to the Claude desktop app from GitHub; Cowork runs the agents, but plain claude.ai chat runs skills only (agents grayed out) — there the `cw-muse` skill provides the session-lead orchestration in a single conversation, backed by the craft skills.
 
 ## Current Experiments
 
