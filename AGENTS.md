@@ -8,7 +8,7 @@ A Mars source package providing composable creative writing agents and skills fo
 
 ## Key Distinctions
 
-**`skills/` vs `cw/skills/`:** `skills/` is the Mars source: consumed by Claude Code projects via `mars add`. `cw/skills/` holds adapted copies for Claude.ai uploads (meridian-specific references replaced with generic equivalents). When updating a skill, edit `skills/` first, then sync changes to `cw/skills/`.
+**`skills/` vs `cw/skills/`:** `skills/` is the Mars source: consumed by Claude Code projects via `mars add`. `cw/skills/` holds the Claude.ai / plugin distribution — genericized copies with Meridian-specific references removed. Edit `skills/` first, then resync `cw/` (see [Syncing the `cw/` distribution](#syncing-the-cw-distribution)). CI fails on drift, so this is not optional.
 
 **Agents vs skills:** Agents are spawned as independent processes (orchestrators, writers, critics). Skills are reference material loaded into agent context (craft knowledge, patterns, conventions). See `agents/` and `skills/` directories.
 
@@ -38,6 +38,23 @@ Use explicit `-C <package-root>` whenever running Meridian commands for this
 package from an inherited Meridian environment. For task checkouts, prefer
 `meridian -C "$MERIDIAN_TASK_DIR" ...`.
 
+## Syncing the `cw/` distribution
+
+`cw/skills/` adapts `skills/` for harnesses without Meridian (Claude.ai uploads, the Claude Code plugin). Skills split two ways:
+
+- **MIRROR** — pure-craft skills with no harness-specific content. Auto-synced verbatim from `skills/<name>/` (body + `resources/`), frontmatter rewritten to Claude vocab.
+- **MANUAL** — skills carrying Meridian→generic adaptations (spawn mechanics, env paths), skills adapted from the `meridian-base` dependency, and cw-only skills. Hand-maintained; the tool lints but never overwrites them.
+
+```bash
+python3 scripts/sync_cw_skills.py            # check for drift (CI gate); exit 1 on problems
+python3 scripts/sync_cw_skills.py --apply    # sync MIRROR skills from skills/
+python3 scripts/sync_cw_skills.py --list     # print the MIRROR/MANUAL classification
+```
+
+After editing a `skills/<name>/SKILL.md`, run `--apply` (MIRROR skills sync automatically; MANUAL skills you adapt by hand, then `--check`). CI runs the check on every PR and fails on mirror drift, leaked Meridian vocab in `cw/`, or dangling skill/agent references. cw frontmatter is Claude vocab only (`name` + `description`) — never Mars `type`/`model-invocable`/`effort`.
+
+**`cw-muse`:** Claude.ai has no agents, so `cw/skills/cw-muse` is the entry-point skill standing in for the muse agent — activate it to drive a single-agent brainstorm/draft/critique/revise session. The plugin (Claude Code/Cowork) uses the muse **agent** instead, with cw agents flattened (no `bard`/`lore-keeper`).
+
 ## Slash Commands
 
 | Command | Skill |
@@ -65,7 +82,7 @@ package from an inherited Meridian environment. For task checkouts, prefer
 
 **Release flow:** Bump version in `mars.toml` → commit → tag `vX.Y.Z` → push tag → CI creates GitHub Release with `.skill` artifacts.
 
-**CI:** PRs run `mars check` + frontmatter validation + zip build. Tag pushes create releases.
+**CI:** PRs run `mars check` + frontmatter validation + `sync_cw_skills.py` drift check + zip build. Tag pushes create releases.
 
 ## Conventions
 
