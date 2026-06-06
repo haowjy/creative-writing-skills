@@ -61,7 +61,9 @@ Run the one-time project setup to create your `CLAUDE.md` and `kb/` structure:
 
 First, add the skills to claude.ai — pick one:
 
-- **Add the marketplace (easiest):** in the sidebar, **Customize** → **Personal plugins** → **+** → **Create plugins** → **Add marketplace** → **Add from repository**, then enter `haowjy/creative-writing-skills` and install it.
+- **Add the marketplace (easiest):** in the sidebar, **Customize** → **Personal plugins** → **+** → **Create plugins** → **Add marketplace** → **Add from repository**, enter `haowjy/creative-writing-skills`, and click **Sync**.
+
+  ![Adding the marketplace in claude.ai: the plugins icon and + in the sidebar, with the repository entered in the Add marketplace dialog](docs/images/claudeai-add-marketplace.png)
 - **Upload the files:** download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest), then **Customize** → **Skills** → **"+"** → **Upload skill** for each one.
 
 Then start a chat, turn on **`cw-muse`**, and describe what you want to write — it leads from there. Adding skills one at a time instead? Start with **cw-muse**, **writing-principles**, **prose-writing**, **scene-construction**, and **prose-critique**.
