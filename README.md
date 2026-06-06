@@ -57,16 +57,16 @@ Run the one-time project setup to create your `CLAUDE.md` and `kb/` structure:
 
 ### Claude.ai
 
-Use it the way you'd use the muse agent, but inside a single chat: activate the **`cw-muse`** skill, tell it what you're writing, and it takes the lead — brainstorming, drafting, critiquing, and revising across the same conversation, switching stance as the work needs and leaning on the craft skills for discipline. claude.ai chat runs **skills only**, so `cw-muse` stands in for the muse agent: there are no subagents to spawn, and the other agents appear grayed out (they run only in Cowork).
+`cw-muse` turns an ordinary Claude chat into a creative-writing partner. Turn it on, tell it what you're working on, and it carries you from first idea to finished draft in one conversation — talking through ideas, drafting scenes in your voice, flagging what isn't working, and revising. The other skills (prose, scene craft, critique, structure) are the craft knowledge it draws on; you don't have to invoke them yourself.
 
-First, get the skills into claude.ai — pick one:
+First, add the skills to claude.ai — pick one:
 
-- **Add the marketplace (recommended):** **Customize** → **Plugins** → **+** → **Add marketplace** → `haowjy/creative-writing-skills`, then install the plugin. Skills load; agents stay grayed out in chat.
-- **Upload the zips (fallback):** download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest), then **Customize** → **Skills** → **"+"** → **Upload skill** for each one.
+- **Add the marketplace (easiest):** **Customize** → **Plugins** → **+** → **Add marketplace**, enter `haowjy/creative-writing-skills`, then install it.
+- **Upload the files:** download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest), then **Customize** → **Skills** → **"+"** → **Upload skill** for each one.
 
-Then open a chat, activate **`cw-muse`**, and start talking about your story. Recommended starting set: **cw-muse**, **writing-principles**, **prose-writing**, **scene-construction**, **prose-critique**.
+Then start a chat, turn on **`cw-muse`**, and describe what you want to write — it leads from there. Adding skills one at a time instead? Start with **cw-muse**, **writing-principles**, **prose-writing**, **scene-construction**, and **prose-critique**.
 
-> Prefer to build the zips yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate the `.skill` files in `zips/`.
+> Want to build the files yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate them in `zips/`.
 
 ## How It Works
 
