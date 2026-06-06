@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.3.7] - 2026-06-06
+
 ### Changed
 - Resynced the `cw/` Claude.ai/plugin distribution with source — it was last synced before the 0.3.5–0.3.6 agent skill changes and had drifted on frontmatter vocab and skill lists.
 - cw skill frontmatter normalized to Claude vocab: added `name` to all 15 skills; removed Mars-only `type` and `model-invocable`.
