@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### Added
+- `cw/skills/cw-muse`: session-lead skill for Claude.ai, where there are no subagents. Stands in for the muse agent — brainstorms, drafts, critiques, revises, and maintains the kb in one conversation, driving the craft skills by switching stance. Restores the entry-point role the removed `cw-router` served.
+- `scripts/sync_cw_skills.py`: syncs the generalizable cw skills from canonical `skills/` (body + resources, Claude frontmatter) and lints the cw tree for drift, leaked Meridian vocab, and dangling skill/agent refs. `--apply` to sync, default to check. Wired into CI as a drift gate.
+
+### Changed
+- README: Claude.ai install now documents activating `cw-muse` as the entry point.
+- CI/release workflows: dropped the stale `cw/cw-router/SKILL.md` frontmatter check; added the cw sync check.
+
 ## [0.3.8] - 2026-06-06
 
 ### Added

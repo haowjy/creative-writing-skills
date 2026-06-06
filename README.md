@@ -57,13 +57,14 @@ Run the one-time project setup to create your `CLAUDE.md` and `kb/` structure:
 
 ### Claude.ai (Skills Only)
 
-Claude.ai supports skills but not agents: you get the craft methodology without multi-agent orchestration.
+Claude.ai supports skills but not agents. The **`cw-muse`** skill stands in for the muse agent: activate it to get a session lead that brainstorms, drafts, critiques, and revises — running every mode itself in one conversation, since there are no subagents to spawn. The craft skills carry the discipline it leans on.
 
 1. Download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest).
 2. Go to [claude.ai](https://claude.ai) → Customize → Skills → "+" → Upload skill
 3. Upload each `.skill` file
+4. Activate **`cw-muse`** at the start of a story session to act as your creative partner.
 
-Recommended starting set: **writing-principles**, **prose-writing**, **scene-construction**, **prose-critique**.
+Recommended starting set: **cw-muse**, **writing-principles**, **prose-writing**, **scene-construction**, **prose-critique**.
 
 > Prefer to build them yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate the `.skill` files in `zips/`.
 
@@ -175,7 +176,7 @@ my-story/
 | Multi-agent orchestration | Via muse | Via muse | Via muse → bard → workers | No |
 | Project setup | Yes | Yes | Yes | No |
 
-Claude Code and Cowork use the same plugin format with all agents as flat subagents under muse. The Meridian version adds intermediate orchestrators (bard for drafting, lore-keeper for knowledge maintenance) for deeper context isolation. Claude.ai supports skills only: upload individual skill zips for craft methodology without orchestration.
+Claude Code and Cowork use the same plugin format with all agents as flat subagents under muse. The Meridian version adds intermediate orchestrators (bard for drafting, lore-keeper for knowledge maintenance) for deeper context isolation. Claude.ai supports skills only: the `cw-muse` skill provides the session-lead orchestration in a single conversation (no subagents), backed by the craft skills.
 
 ## Current Experiments
 

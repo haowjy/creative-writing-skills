@@ -39,7 +39,7 @@ jobs:
       - name: Validate YAML frontmatter
         run: |
           error=0
-          for f in agents/*.md skills/*/SKILL.md cw/skills/*/SKILL.md cw/cw-router/SKILL.md; do
+          for f in agents/*.md skills/*/SKILL.md cw/skills/*/SKILL.md; do
             if [ -f "$f" ]; then
               if ! head -1 "$f" | grep -q '^---'; then
                 echo "::error file=$f::Missing YAML frontmatter"
@@ -48,6 +48,9 @@ jobs:
             fi
           done
           exit $error
+
+      - name: Check cw skill sync (drift + leaked Meridian vocab)
+        run: python3 scripts/sync_cw_skills.py
 
       - name: Verify tag matches mars.toml version
         run: |
