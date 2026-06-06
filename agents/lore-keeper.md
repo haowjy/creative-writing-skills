@@ -14,10 +14,10 @@ model-policies:
     override:
       effort: low
   - match:
-      alias: sonnet
+      alias: gpt
     override: {}
   - match:
-      alias: gpt
+      alias: sonnet
     override: {}
 skills:
   load: [meridian-spawn, writing-staffing, writing-artifacts, kb-conventions, clear-mind]

@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Lore-keeper: reordered model fallback to prefer `gpt` over `sonnet`.
+
 ## [0.3.9] - 2026-06-06
 
 ### Added
