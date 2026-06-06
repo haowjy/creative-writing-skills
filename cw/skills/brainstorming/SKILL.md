@@ -34,22 +34,60 @@ as `<AI>` since none came from the author:
 
 ## Source Tagging
 
-**Default: untagged text = the author said it.**
+**Default: untagged text = the author said it.** Most brainstorming content comes from the author, so untagged is the common case.
 
-**`<AI>...</AI>`**: AI suggestions and possibilities. Keep brief: 2-3 options, not exhaustive lists.
+Three tags for special context:
 
-**`<hidden>...</hidden>`**: Author-only information for planned reveals.
+**`<AI>...</AI>`**: AI suggestions and possibilities. Use when offering ideas the author didn't state. Keep brief: 2-3 options, not exhaustive lists.
 
-**`<rejected>...</rejected>`**: Ideas explicitly considered and discarded.
+**`<hidden>...</hidden>`**: Author-only information for planned reveals. Secret motivations, future twists, behind-the-scenes reasoning that readers and characters don't know yet.
+
+**`<rejected>...</rejected>`**: Ideas explicitly considered and discarded. Recording why something was rejected prevents re-suggesting it and preserves the reasoning for later reconsideration.
 
 ## Minimal Capture
 
-Record what the author stated. Don't elaborate, don't fill gaps, don't invent details they didn't mention. AI suggestions are valuable: wrap them in `<AI>` tags and keep them brief.
+Record what the author stated. Don't elaborate, don't fill gaps, don't invent details they didn't mention.
+
+AI suggestions are valuable: wrap them in `<AI>` tags and keep them brief.
+
+- "Character A competes with B" → capture as stated. Optionally: `<AI>Tournament? Political? Trial?</AI>`
+- "Maybe creates tension" → record as uncertain. Don't resolve the maybe.
+- "Three kingdoms" → note three kingdoms. Don't name them.
 
 ## Preserve Vagueness
 
-If the author left it vague, the notes stay vague. "Might," "maybe," "thinking about": all preserved as-is. Vagueness isn't a problem to solve; it's creative space the author is keeping open. Multiple contradictory options coexist until the author chooses.
+If the author left it vague, the notes stay vague. "Might," "maybe," "thinking about," "something like": all preserved as-is. Vagueness isn't a problem to solve; it's creative space the author is keeping open.
+
+Multiple contradictory options coexist until the author chooses. Don't resolve them. Don't pick the "best" one.
+
+## Output Format
+
+Use whatever structure fits the discussion: bullet lists, topic sections, timeline format, question-driven, freeform. The goal is clarity, not template compliance.
+
+Essential elements:
+- Minimal capture of author's words
+- Vagueness preserved
+- AI suggestions wrapped in `<AI>` tags
+- Author-only info wrapped in `<hidden>` tags
+- Rejected ideas wrapped in `<rejected>` tags when relevant
+
+## Brainstorming Types
+
+All brainstorming types share the core principles above. See resources for specialized guidance:
+
+- [`resources/chapter-planning.md`](resources/chapter-planning.md): beat and scene exploration, pacing thoughts, chapter structure
+- [`resources/character-development.md`](resources/character-development.md): motivations, arcs, relationships, voice
+- [`resources/worldbuilding.md`](resources/worldbuilding.md): systems, cultures, geography, lore
+- [`resources/continuity-timeline.md`](resources/continuity-timeline.md): chronology, contradictions, knowledge propagation
+
+Read the relevant resource when the brainstorming focuses on that area.
+
+## Calibration
+
+The success check: the author says "yes, that's what I said." Capture stated
+facts, preserve uncertainty, add brief tagged options when useful, keep notes
+minimal.
 
 ## File Placement
 
-See the `writing-artifacts` skill for directory conventions. Brainstorm reports go in `work/brainstorm/`. Durable decisions get promoted to the kb after the brainstorm completes.
+See the `writing-artifacts` skill for directory conventions and naming. Durable decisions get promoted to the kb decisions layer after the brainstorm completes.

@@ -50,11 +50,8 @@ immersion, reflection, complex emotion. Fragments for intimacy, interrupted
 thought, the feeling of a mind catching up to what just happened.
 
 When every sentence follows the same pattern, such as subject, verb, object,
-repeat, the prose flattens regardless of content. A devastating scene and a mundane
-scene should not read the same way.
-
-If readers notice the structure instead of being immersed, you've pushed too
-far. The variety should feel natural.
+repeat, the prose flattens regardless of content. A devastating scene and a
+mundane scene should not read the same way.
 
 ## Sensory Grounding
 
@@ -96,5 +93,5 @@ what they perceive, think, and feel. In third limited, access one character's
 interiority per scene.
 
 Convey non-POV characters through observable behavior. Write "Her jaw
-tightened" rather than "She felt angry." The narrator can't know what's happening in someone
-else's head.
+tightened" rather than "She felt angry." The narrator can't know what's
+happening in someone else's head.

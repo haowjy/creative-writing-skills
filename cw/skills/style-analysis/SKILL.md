@@ -23,9 +23,9 @@ you where the boundaries are.
 
 ## File Splitting
 
-Style files are the unit of context selection: the muse passes individual
-files to writers. Every file boundary is a context decision: would an agent
-ever need this chunk without that chunk?
+Style files are the unit of context selection: an orchestrator passes
+individual files to writers via `-f`. Every file boundary is a context
+decision: would an agent ever need this chunk without that chunk?
 
 Split where a caller would plausibly want one part without the other. A
 character with distinct dialogue and narration modes might need separate files.

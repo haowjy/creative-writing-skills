@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### Added
+- cw skills `intent-modeling` and `grill-with-docs`, adapted from meridian-base and genericized for the flattened plugin. Wired into `muse` (both) and `brainstormer` (intent-modeling).
+
+### Changed
+- cw skills now carry the same content body as canonical instead of ad-hoc condensed copies. The 8 pure-craft skills (brainstorming, prose-critique, prose-writing, scene-construction, story-architecture, style-analysis, writing-issues, writing-principles) are exact mirrors of source, with their `resources/` restored and re-linked (brainstorming 4, prose-critique 8, story-architecture 3, writing-principles 2).
+- cw `story-context`: restored the "Choose the Right Mechanism" and "Cross-Phase Context" guidance, genericized for the Agent-tool model (no `-f`/`--from`/spawn-id mechanics).
+- cw `llm-writing`: synced to current meridian-base canonical.
+
 ## [0.3.7] - 2026-06-06
 
 ### Changed

@@ -1,36 +1,30 @@
 ---
 name: llm-writing
-description: >
-  Load when producing any written artifact for humans.
+description: Use when producing written artifacts for humans — catches default LLM writing patterns.
 ---
 
 # LLM Writing
 
-LLM training creates default writing behaviors that show up regardless of
-domain. Recognizing them is most of the battle: once you notice the pull,
-you can judge whether to resist it or let it through for this particular
-piece.
+Load `/intent-modeling` if it isn't already loaded.
+
+Recognizing default LLM writing behaviors is most of the battle — once you
+notice the pull, you can judge whether to resist it for this particular piece.
 
 ## Behavioral Pulls
 
-Generating fluent text that fills structural expectations without anchoring
-to purpose. Summarizing with labels instead of explaining how things work.
-Stating conclusions without showing evidence. Applying the same structure to
-every document. Smoothing over genuine uncertainty. Encoding corrections as
-absolute prohibitions. Defining things by what they aren't. Filling space
-with transitions that restate what was just said.
+Filling structure without anchoring to purpose. Summarizing with labels
+instead of explaining how things work. Stating conclusions without evidence.
+Smoothing over uncertainty. Encoding corrections as prohibitions. Defining
+by negation. Restating what was just said as a transition.
 
-These aren't always wrong. The failure is when they happen by default rather
-than by choice.
+Not always wrong — the failure is when they happen by default.
 
-## Conversational Mode Leaking into Documents
+## Conversational Bleed
 
-The most common structural tells come from writing as if responding to a user
-when producing a document for a reader who wasn't in the conversation.
-"It's not X; it's Y" corrects a misconception nobody has. "Let's break this
-down" addresses a question nobody asked. "Here's the thing" builds suspense
-for a reader who just wants the information. Fractal summaries recap a
-conversation that didn't happen.
+Writing as if responding to a user when producing a document for a reader
+who wasn't in the conversation. "It's not X — it's Y" corrects a
+misconception nobody has. "Let's break this down" addresses a question
+nobody asked.
 
-When writing a document, write for the reader. They have no context from the
-conversation that prompted the document.
+Write for the reader. They have no context from the conversation that
+prompted the document.

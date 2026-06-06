@@ -6,6 +6,9 @@ description: >
 
 # Writing Principles
 
+Load `/llm-writing` if it isn't already loaded. This skill adds the
+fiction-specific layer.
+
 ## Trust the Reader
 
 The reader is an active collaborator. They reconstruct emotions from behavior,
@@ -24,6 +27,24 @@ Trust doesn't mean obscurity. Readers also need coherent narrative, stable
 geography, and enough access to model characters. The discipline is knowing
 when to leave space and when to orient.
 
+## Economy
+
+Every element does more than one thing. A line of dialogue advances plot
+AND reveals character. A sensory detail grounds the scene AND shows who the
+POV character is. A transition compresses time AND carries an emotional
+beat. Single-purpose prose makes fiction go flat: description that only
+describes, dialogue that only informs, interiority that only labels.
+
+Economy isn't minimalism. Dense, lyrical prose can be economical when every
+phrase carries weight. Sparse prose can be wasteful when it takes ten short
+sentences to do what one image could do. The measure is whether removing
+the element would cost the reader something.
+
+The LLM pull is toward completeness: covering every beat, naming every
+emotion, resolving every ambiguity. Economy is the counter-discipline:
+what can you leave out and still have the scene work? What's the reader
+already doing for you?
+
 ## Four Reward Channels
 
 Readers enjoy fiction through four separable channels. Good prose protects all
@@ -36,7 +57,7 @@ four at once; damaging any one damages the reading experience.
   notice and miss? The full story is in your context window; the character
   only has what they've lived through. Separate those.
 - **Aesthetic**: sentence-level pleasure. Protected by variety in rhythm,
-  word choice, and sentence shape. Style is a reward channel, not decoration.
+  word choice, sentence shape, and punctuation. Style is a reward channel, not decoration.
 - **Social simulation**: modeling characters as minds. Protected by access
   through behavior and interiority, distinct voices, emotion the reader
   interprets rather than being told.
@@ -47,6 +68,16 @@ The channels compose: optimizing one at the expense of others fails.
 Over-explaining breaks social simulation. Under-explaining breaks
 transportation. Generic style breaks aesthetic pleasure. Impenetrable style
 breaks flow.
+
+## Punctuation Tells
+
+Readers increasingly associate em dashes with AI-generated prose. Default to
+punctuation that leaves less visible AI residue: sentence breaks, commas,
+colons, semicolons, parentheses, or dialogue beats. Rewrite the sentence
+around the actual relationship between clauses instead of substituting a
+hyphen. Use dashes only when a project style file or author instruction makes
+them part of the voice. When a line needs interruption, prefer the project's
+documented interruption pattern and keep it consistent.
 
 ## Applying the Principles
 
@@ -63,3 +94,5 @@ can't name why, check the four channels: which one broke? Then see
 
 - [`resources/failure-modes.md`](resources/failure-modes.md): per-pattern
   deep dives with examples and fix heuristics.
+- [`resources/citations.md`](resources/citations.md): research backing for
+  the four-channel model and documented failure modes.

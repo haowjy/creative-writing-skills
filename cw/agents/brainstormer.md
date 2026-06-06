@@ -8,6 +8,7 @@ model: sonnet
 skills:
   - creative-writing-skills:brainstorming
   - creative-writing-skills:writing-artifacts
+  - creative-writing-skills:intent-modeling
   - creative-writing-skills:llm-writing
 tools: Read, Write, Glob, Grep, Bash
 ---
