@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.3.8] - 2026-06-06
+
 ### Added
 - cw skills `intent-modeling` and `grill-with-docs`, adapted from meridian-base and genericized for the flattened plugin. Wired into `muse` (both) and `brainstormer` (intent-modeling).
 
