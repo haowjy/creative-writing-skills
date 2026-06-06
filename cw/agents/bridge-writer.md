@@ -12,7 +12,6 @@ skills:
   - creative-writing-skills:writing-principles
   - creative-writing-skills:llm-writing
   - creative-writing-skills:writing-artifacts
-  - creative-writing-skills:story-context
 tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 

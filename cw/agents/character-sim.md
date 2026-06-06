@@ -8,6 +8,7 @@ description: >
 model: sonnet
 skills:
   - creative-writing-skills:writing-principles
+  - creative-writing-skills:llm-writing
   - creative-writing-skills:story-context
 tools: Read, Glob, Grep
 ---

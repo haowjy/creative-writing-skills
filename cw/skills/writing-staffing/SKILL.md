@@ -1,4 +1,5 @@
 ---
+name: writing-staffing
 description: >
   Team composition for writing workflows: which subagents to use, how many, what focus areas to assign, and how to scale effort. Use when composing critic panels, staffing draft/revise loops, or setting up brainstorm fan-outs.
 ---

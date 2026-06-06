@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### Changed
+- Resynced the `cw/` Claude.ai/plugin distribution with source — it was last synced before the 0.3.5–0.3.6 agent skill changes and had drifted on frontmatter vocab and skill lists.
+- cw skill frontmatter normalized to Claude vocab: added `name` to all 15 skills; removed Mars-only `type` and `model-invocable`.
+- cw agents `muse`, `style-creator`: removed Mars-only `effort` field.
+- cw agents `critic`, `character-sim`: added `llm-writing` skill (`writing-principles` depends on it).
+- cw workers `writer`, `bridge-writer`, `revision-writer`, `brainstormer`: removed `story-context`; `brainstormer` gains `writing-artifacts` (was wrongly omitted).
+- README: Claude.ai install now links to the latest GitHub Release; build-from-source kept as a fallback note.
+
 ## [0.3.6] - 2026-06-05
 
 ### Changed

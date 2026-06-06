@@ -1,4 +1,5 @@
 ---
+name: prose-critique
 description: >
   Adversarial reading methodology for narrative fiction: find what doesn't work, not confirm what does. Focus-area driven. Use when reviewing drafts, evaluating prose quality, or assessing changes at any stage.
 ---

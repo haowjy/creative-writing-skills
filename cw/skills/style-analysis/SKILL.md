@@ -1,4 +1,5 @@
 ---
+name: style-analysis
 description: >
   How to analyze prose style and produce style reference files. Use when creating, updating, or evaluating style files: the reference documents that capture a project's voice patterns for writer and critic agents.
 ---

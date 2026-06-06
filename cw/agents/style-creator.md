@@ -6,7 +6,6 @@ description: >
   agents use when drafting. Pass sample chapters, existing style files,
   or requirements.
 model: opus
-effort: high
 skills:
   - creative-writing-skills:style-analysis
   - creative-writing-skills:llm-writing

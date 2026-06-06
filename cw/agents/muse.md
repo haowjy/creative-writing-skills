@@ -6,7 +6,6 @@ description: >
   draft/critique/revise loops through subagents. Use as the session agent
   for creative writing projects (--agent creative-writing-skills:muse).
 model: opus
-effort: high
 skills:
   - creative-writing-skills:brainstorming
   - creative-writing-skills:writing-principles

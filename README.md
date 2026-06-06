@@ -59,11 +59,13 @@ Run the one-time project setup to create your `CLAUDE.md` and `kb/` structure:
 
 Claude.ai supports skills but not agents: you get the craft methodology without multi-agent orchestration.
 
-1. Clone this repo and run `python scripts/create_skill_zips.py` to generate `.skill` files in `zips/`
+1. Download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest).
 2. Go to [claude.ai](https://claude.ai) → Customize → Skills → "+" → Upload skill
 3. Upload each `.skill` file
 
 Recommended starting set: **writing-principles**, **prose-writing**, **scene-construction**, **prose-critique**.
+
+> Prefer to build them yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate the `.skill` files in `zips/`.
 
 ## How It Works
 

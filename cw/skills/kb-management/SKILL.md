@@ -1,4 +1,5 @@
 ---
+name: kb-management
 description: >
   Maintaining the story knowledge base: creating, updating, and organizing
   wiki-style reference pages in kb/. Use when capturing finalized story

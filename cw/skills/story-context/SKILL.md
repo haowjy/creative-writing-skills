@@ -1,4 +1,5 @@
 ---
+name: story-context
 description: >
   Context scoping for writing subagents: use when deciding what context a subagent should receive. Poor context handoffs cause writers to invent contradictions and critics to miss relevant history.
 ---

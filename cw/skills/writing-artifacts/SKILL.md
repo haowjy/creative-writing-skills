@@ -1,4 +1,5 @@
 ---
+name: writing-artifacts
 description: >
   Where writing artifacts live: kb/ for durable knowledge, work/ for scratch. Use when deciding where to read from or write to.
 ---

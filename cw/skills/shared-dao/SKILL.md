@@ -1,9 +1,9 @@
 ---
+name: shared-dao
 description: >
   Shared vocabulary for creative writing projects. Load when establishing
   canonical story terms, resolving ambiguous names, checking term consistency,
   or deciding where vocabulary belongs in kb/.
-model-invocable: false
 ---
 
 # Shared Dao

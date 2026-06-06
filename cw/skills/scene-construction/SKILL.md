@@ -1,4 +1,5 @@
 ---
+name: scene-construction
 description: >
   How to build scenes: entry, dialogue, pacing, transitions. Use when writing or evaluating how scenes work on the page.
 ---

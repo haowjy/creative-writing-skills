@@ -9,6 +9,7 @@ model: sonnet
 skills:
   - creative-writing-skills:prose-critique
   - creative-writing-skills:writing-principles
+  - creative-writing-skills:llm-writing
   - creative-writing-skills:writing-issues
 tools: Read, Glob, Grep
 ---
