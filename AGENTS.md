@@ -86,6 +86,14 @@ After editing a `skills/<name>/SKILL.md`, run `--apply` (MIRROR skills sync auto
 
 **Release flow:** Bump version in `mars.toml` → commit → tag `vX.Y.Z` → push tag → CI creates GitHub Release with `.skill` artifacts.
 
+**Pre-commit hook:** `.githooks/pre-commit` front-loads the distribution-breaking checks (cw skill sync + `claude plugins validate cw`) so they fire at commit time instead of only in CI. It's committed but not auto-installed — enable it once per clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+It blocks the commit on failure; bypass a single commit with `git commit --no-verify`. (Skips plugin validation if the `claude` CLI isn't on PATH.)
+
 **CI:** PRs run `mars check` + marketplace/plugin validation (`claude plugins validate`) + frontmatter validation + `sync_cw_skills.py` drift check + zip build. Tag pushes create releases.
 
 ## Conventions

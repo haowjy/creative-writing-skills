@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Pre-commit hook for creative-writing-skills.
+# Front-loads the checks that protect the cw/ distribution so breakage is
+# caught here, at commit time, instead of in CI (which is only consulted at
+# release) or by a user whose marketplace add fails.
+#
+# Enable once per clone:  git config core.hooksPath .githooks
+# Bypass a single commit: git commit --no-verify
+
+set -uo pipefail
+
+fail=0
+
+echo "pre-commit: cw skill sync (drift, leaked Meridian vocab, dangling refs)..."
+if ! python3 scripts/sync_cw_skills.py; then
+  fail=1
+fi
+
+if command -v claude >/dev/null 2>&1; then
+  echo "pre-commit: cw plugin validation (manifest + components)..."
+  if ! claude plugins validate cw; then
+    fail=1
+  fi
+else
+  echo "pre-commit: 'claude' not on PATH — skipping plugin validation." >&2
+fi
+
+if [ "$fail" -ne 0 ]; then
+  echo >&2
+  echo "pre-commit: checks failed. Fix the above, or bypass with 'git commit --no-verify'." >&2
+  exit 1
+fi
+
+echo "pre-commit: ok."
