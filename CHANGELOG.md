@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.3.11] - 2026-06-13
+
 ### Fixed
 - `cw/.claude-plugin/plugin.json`: added the plugin manifest. Without it, adding the marketplace from GitHub (Cowork / claude.ai) failed with "No manifest found in directory" — Claude Code auto-discovers components locally without a manifest, but the marketplace add path validates the plugin and rejects it when the manifest is missing. `version` is omitted so the plugin tracks the git commit SHA.
 - All agents: remove invalid `tools:` deny rules (`cron`, `notifications`, `plan_mode`, `worktree`) — no matching tools in harness.
