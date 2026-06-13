@@ -28,11 +28,7 @@ tools:
   write: allow
   edit: allow
   notebook: deny
-  cron: deny
   ask_user: deny
-  notifications: deny
-  plan_mode: deny
-  worktree: deny
   'bash(git revert:*)': deny
   'bash(git checkout --:*)': deny
   'bash(git restore:*)': deny

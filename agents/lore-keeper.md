@@ -35,11 +35,7 @@ tools:
   edit: deny
   write: deny
   notebook: deny
-  cron: deny
   ask_user: deny
-  notifications: deny
-  plan_mode: deny
-  worktree: deny
 sandbox: danger-full-access
 approval: auto
 autocompact: 85
