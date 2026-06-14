@@ -21,7 +21,7 @@ model-policies:
     override: {}
 skills:
   load: [writing-principles, intent-modeling, llm-writing, meridian-spawn, writing-staffing, clear-mind]
-  available: [brainstorming, shared-dao, grill-with-docs, story-context, writing-artifacts, kb-conventions]
+  available: [brainstorming, shared-dao, grill-with-docs, story-context, writing-artifacts, knowledge-layers]
 tools:
   'bash(meridian spawn *)': allow
   'bash(meridian work *)': allow

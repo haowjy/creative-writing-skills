@@ -39,7 +39,7 @@ graph TD
 
 ## Skill Dependencies
 
-Which agents load which skills. Meridian infrastructure skills (meridian-spawn, meridian-work-coordination, agent-management, decision-log) omitted: orchestrators load these. `shared-dao`, `md-validation`, `kb-conventions`, `intent-modeling`, and `llm-writing` are from meridian-base.
+Which agents load which skills. Meridian infrastructure skills (meridian-spawn, meridian-work-coordination, agent-management, decision-log) omitted: orchestrators load these. `shared-dao`, `md-validation`, `knowledge-layers`, `intent-modeling`, and `llm-writing` are from meridian-base.
 
 ```mermaid
 graph LR
@@ -81,7 +81,7 @@ graph LR
         LW[llm-writing]
         PW[prose-writing]
         SCN[scene-construction]
-        KC[kb-conventions]
+        KC[knowledge-layers]
         SD[shared-dao]
     end
 
@@ -149,7 +149,7 @@ graph LR
     OL --> MV
     CC --> MV
 
-    %% kb-conventions: 3 agents (from meridian-base)
+    %% knowledge-layers: 3 agents (from meridian-base)
     SO --> KC
     KO --> KC
     CH --> KC
@@ -325,7 +325,7 @@ graph TD
 | meridian-spawn | 3 | Spawn mechanics (from meridian-base): orchestrators only |
 | meridian-work-coordination | 3 | Work lifecycle (from meridian-base): orchestrators only |
 | brainstorming | 2 | Capture conventions: muse + brainstormer |
-| kb-conventions | 3 | KB model (from meridian-base): muse + lore-keeper + chronicler |
+| knowledge-layers | 3 | KB model (from meridian-base): muse + lore-keeper + chronicler |
 | prose-critique | 2 | Critique methodology: critic + continuity-checker |
 | intent-modeling | 3 | Intent reading discipline (from meridian-base): muse + lore-keeper + brainstormer |
 | story-architecture | 1 | Structure methodology: outliner only |

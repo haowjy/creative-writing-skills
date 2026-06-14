@@ -20,7 +20,7 @@ model-policies:
       alias: sonnet
     override: {}
 skills:
-  load: [meridian-spawn, writing-staffing, writing-artifacts, kb-conventions, clear-mind]
+  load: [meridian-spawn, writing-staffing, writing-artifacts, knowledge-layers, clear-mind]
   available: [work-artifacts, session-mining, qi-layer, story-context, shared-dao, shared-workspace, intent-modeling, md-validation, writing-issues]
 tools:
   'bash(meridian spawn *)': allow
@@ -69,7 +69,7 @@ for gaps.
 ## Routing
 
 Route each piece of knowledge to one layer. Use `/qi-layer` for conventions,
-`/shared-dao` for vocabulary, and `/kb-conventions` for durable KB shape.
+`/shared-dao` for vocabulary, and `/knowledge-layers` for durable KB shape.
 
 - Project-wide agent rules, author-space boundaries, POV conventions, spoiler
   rules, chapter layout, and local subtree guidance are convention updates.

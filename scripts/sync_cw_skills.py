@@ -77,7 +77,7 @@ MERIDIAN_IN_SOURCE = re.compile(
 # Vocabulary that should never leak into any cw file (command/env/infra refs).
 CW_LEAKS = re.compile(
     r"\bmeridian spawn\b|\$?MERIDIAN_[A-Z_]+|--from\b|/meridian-spawn|/qi-layer"
-    r"|/kb-conventions|/md-validation|\.context/CONTEXT|deny_headless"
+    r"|/knowledge-layers|/md-validation|\.context/CONTEXT|deny_headless"
     r"|@(?:bard|lore-keeper|explorer|web-researcher|kb-writer|kb-maintainer|session-\w+)",
 )
 

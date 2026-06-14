@@ -16,7 +16,7 @@ model-policies:
   - match:
       alias: sonnet
     override: {}
-skills: [md-validation, kb-conventions, shared-dao, writing-artifacts, llm-writing]
+skills: [md-validation, knowledge-layers, shared-dao, writing-artifacts, llm-writing]
 tools:
   bash: allow
   write: allow
@@ -38,7 +38,7 @@ state: character state shifts, timeline events, canon facts established,
 relationship changes, world details revealed, and terminology usage. The things
 future writers and critics need to know happened.
 
-Use `/kb-conventions` for the five-layer KB model and wiki conventions.
+Use `/knowledge-layers` for the KB model and wiki conventions.
 Use `/md-validation` to check link topology and validate links before reporting.
 Use `/writing-artifacts` for the CW-specific kb structure.
 

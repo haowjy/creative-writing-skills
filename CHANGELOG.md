@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+- `lore-keeper`, `chronicler`, `muse` agents: `kb-conventions` → `knowledge-layers`.
+- `writing-artifacts` skill, `docs/architecture.md`, and `scripts/sync_cw_skills.py` lint regex updated for the rename.
+
 ## [0.3.11] - 2026-06-13
 
 ### Fixed

@@ -7,7 +7,7 @@ description: >
 
 # Writing Artifacts
 
-- Durable project knowledge lives in `$MERIDIAN_CONTEXT_KB_DIR`. See `kb-conventions` for the kb model.
+- Durable project knowledge lives in `$MERIDIAN_CONTEXT_KB_DIR`. See `knowledge-layers` for the kb model.
 - Work scratch lives in `$MERIDIAN_CONTEXT_WORK_DIR`, scoped to the current work item and archived on completion.
 - Project-specific structure (kb subdirectories, author's space, conventions) is documented in the project's `AGENTS.md`. Read it for this project's layout.
 
