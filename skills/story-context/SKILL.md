@@ -9,11 +9,11 @@ description: >
 
 Every spawn starts with a context decision. Get it wrong and the writer invents facts that contradict established canon, the critic misses a continuity issue because it never saw the relevant chapter, or the brainstormer explores territory the author already rejected.
 
-The `/meridian-spawn` skill teaches the mechanics of `-f`, `--from`, and spawn commands. This skill teaches the judgment: what story context to pass, when to materialize decisions before spawning, and how much is enough.
+The spawn mechanics (`-f`, `--from`, spawn commands) are documented in `meridian spawn -h`. This skill teaches the judgment: what story context to pass, when to materialize decisions before spawning, and how much is enough.
 
 ## Choose the Right Mechanism
 
-Three options, each for a different situation. `/meridian-spawn` has the
+Three options, each for a different situation. `meridian spawn -h` has the
 command syntax; this section covers when to use which.
 
 **Files (`-f`)**: when context already exists as files: chapters, outlines,

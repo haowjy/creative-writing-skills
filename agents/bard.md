@@ -23,7 +23,7 @@ model-policies:
       alias: gpt
     override: {}
 skills:
-  load: [meridian-spawn, writing-staffing, writing-artifacts, clear-mind]
+  load: [writing-staffing, writing-artifacts, clear-mind]
   available: [work-artifacts, story-context, shared-dao]
 tools:
   'bash(meridian spawn *)': allow
