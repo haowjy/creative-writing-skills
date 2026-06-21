@@ -116,37 +116,43 @@ flowchart TB
 
 | Agent | Role |
 |---|---|
-| **muse** | Author's creative partner: intent capture, brainstorming, drafting loops, knowledge maintenance |
-| **writer** | Generative prose from scene briefs in the project's voice |
-| **revision-writer** | Surgical revision from critique: preserves voice, fixes specific issues |
-| **bridge-writer** | Transitions, time compression, connective passages between pivotal scenes |
-| **critic** | Adversarial critique across the four reader reward channels |
-| **reader-sim** | Simulates a reader's experience, reports moment-by-moment |
-| **character-sim** | In-character voice performance for discovery and relationship testing |
-| **continuity-checker** | Checks drafts against established canon |
-| **brainstormer** | Wide-open option generation on a scoped question |
-| **outliner** | Structural decomposition into beat sheets and arc maps |
-| **style-creator** | Analyzes existing prose to create style reference files |
-| **chronicler** | Extracts story facts from chapters into the kb |
+| **muse** | Author-facing creative partner for all story work, from brainstorming through production handoff |
+| **bard** | Drives confirmed creative direction to finished drafts through write, critique, and revision cycles |
+| **writer** | Fresh prose drafts from scene briefs and style references |
+| **revision-writer** | Surgical revision from critique findings, preserving voice and what works |
+| **bridge-writer** | Transitions, time compression, and connective passages between scenes |
+| **critic** | Deep adversarial critique of a draft, one focus area at a time |
+| **reader-sim** | Experiential reader response to a draft, moment by moment |
+| **character-sim** | In-character conversation for voice discovery and relationship testing |
+| **continuity-checker** | Cross-references content against established canon for contradictions |
+| **brainstormer** | Creative option generation for a scoped question or angle |
+| **outliner** | Sequences confirmed direction into arc, chapter, and beat-level outlines |
+| **style-creator** | Analyzes prose samples to produce style reference files for the project's voice |
+| **chronicler** | Extracts factual state changes from written chapters into the kb |
+| **lore-keeper** | Story knowledge maintenance after brainstorms, drafts, and decisions |
 
 ## Skills
 
 | Skill | Purpose |
 |---|---|
+| **creative-direction** | Shape what the story wants to be before producing pages |
+| **production-drafting** | Turning confirmed creative direction into finished drafts |
 | **writing-principles** | Four reward channels, AI failure modes, reader psychology |
-| **prose-writing** | Immersion patterns: psychic distance, rhythm, sensory grounding, interiority |
+| **prose-writing** | Prose-level immersion patterns: psychic distance, rhythm, sensory grounding |
 | **scene-construction** | Beat-level craft: scene entry, dialogue, pacing, transitions |
 | **prose-critique** | Adversarial reading methodology with focus areas |
+| **character-voice** | Speaking as a character for voice discovery and dialogue exploration |
+| **reader-experience** | Experiential reading through the four reward channels |
+| **fact-extraction** | Extracting factual state changes from chapters into the kb |
 | **style-analysis** | How to analyze prose and produce style reference files |
 | **story-architecture** | Arc shape, tension curves, structural analysis |
-| **story-context** | Context scoping: what to pass to each agent type |
+| **story-context** | Context scoping for writing handoffs |
 | **shared-dao** | Shared vocabulary: canonical story terms, aliases, and ambiguity resolution |
 | **brainstorming** | Exploratory capture with source tagging |
-| **kb-management** | Maintaining the story knowledge base: page conventions, organization, when to create vs update |
 | **writing-artifacts** | File conventions: kb/ for durable knowledge, work/ for scratch |
-| **writing-issues** | Issue tracking across revision cycles |
-| **writing-staffing** | Team composition: which agents, how many, what focus areas |
-| **project-setup** | One-time guided setup: interviews about the project, creates CLAUDE.md and kb structure |
+| **writing-issues** | Tracking writing issues that persist beyond a single critique |
+| **writing-staffing** | Team composition for writing workflows |
+| **project-setup** | One-time guided setup: creates CLAUDE.md and kb structure |
 | **llm-writing** | General LLM writing discipline: behavioral pulls and document-writing guardrails |
 
 ## Project Layout

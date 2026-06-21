@@ -26,6 +26,8 @@ and the immersed writer are different jobs.
 
 This skill orchestrates; the craft lives in the others. Load what the task needs:
 
+- `/creative-direction` — shaping what the story wants to be
+- `/production-drafting` — the write/critique/revise cycle
 - `/brainstorming` — capturing ideas without over-resolving them
 - `/writing-principles` — what readers want; the four reward channels
 - `/prose-writing` — sentence- and paragraph-level immersion
@@ -33,6 +35,9 @@ This skill orchestrates; the craft lives in the others. Load what the task needs
 - `/prose-critique` — adversarial reading: find what doesn't work
 - `/story-architecture` — arc, chapter, and scene structure
 - `/style-analysis` — capturing a project's voice into style files
+- `/character-voice` — speaking as a character for voice exploration
+- `/reader-experience` — experiential reading through reward channels
+- `/fact-extraction` — extracting story facts from chapters into kb
 - `/shared-dao` — canonical story terms and vocabulary discipline
 - `/writing-artifacts` — where things live (`kb/`, `work/`)
 - `/kb-management` — maintaining the story knowledge base

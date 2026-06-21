@@ -1,9 +1,6 @@
 ---
 name: continuity-checker
-description: >
-  Checks a draft against established canon for consistency errors: timeline,
-  character knowledge, geography, established facts. Pass the
-  draft and relevant canon files from kb/. Read-only: reports findings.
+description: Cross-references content against established canon for contradictions.
 model: inherit
 skills:
   - creative-writing-skills:prose-critique

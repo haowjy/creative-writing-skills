@@ -1,12 +1,9 @@
 ---
 name: character-sim
-description: >
-  Character simulation for voice discovery and relationship testing. Specify
-  the character in the prompt and pass voice/state files if they exist. Stays in character for freeform, unscripted conversation. Works
-  with full character profiles or just a sketch in the prompt. The
-  conversation itself is the output. Read-only.
+description: In-character conversation for voice discovery and relationship testing.
 model: sonnet
 skills:
+  - creative-writing-skills:character-voice
   - creative-writing-skills:writing-principles
   - creative-writing-skills:llm-writing
   - creative-writing-skills:story-context

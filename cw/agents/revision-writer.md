@@ -1,9 +1,6 @@
 ---
 name: revision-writer
-description: >
-  Revision writer: reads critique findings and surgically improves a
-  draft, preserving voice and what already works. Pass the draft, critique
-  synthesis, and style files. For fresh drafts from briefs, use @writer.
+description: Surgical revision from critique findings, preserving voice and what works.
 model: sonnet
 skills:
   - creative-writing-skills:prose-writing

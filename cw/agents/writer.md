@@ -1,10 +1,6 @@
 ---
 name: writer
-description: >
-  Generative prose writer: writes fiction from briefs in the project's
-  voice. Pass scene brief, style files, and continuity context. For
-  revision from critique, use @revision-writer. For transitions and
-  connective passages, use @bridge-writer.
+description: Fresh prose drafts from scene briefs and style references.
 model: opus
 skills:
   - creative-writing-skills:prose-writing

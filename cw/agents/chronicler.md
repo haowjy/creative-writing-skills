@@ -1,11 +1,9 @@
 ---
 name: chronicler
-description: >
-  Extracts story facts from chapters into the kb: character state, world
-  details, timeline entries, canon. Pass the chapter(s) to extract from
-  and existing kb files for deduplication.
+description: Extracts factual state changes from written chapters into the kb.
 model: haiku
 skills:
+  - creative-writing-skills:fact-extraction
   - creative-writing-skills:kb-management
   - creative-writing-skills:shared-dao
   - creative-writing-skills:llm-writing

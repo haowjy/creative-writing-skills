@@ -1,9 +1,6 @@
 ---
 name: outliner
-description: >
-  Story structure: produces outlines at arc, chapter, and beat levels.
-  Pass relevant story context, character profiles, and timeline. For
-  open-ended exploration and option generation, use @brainstormer instead.
+description: Sequences confirmed direction into arc, chapter, and beat-level outlines.
 model: sonnet
 skills:
   - creative-writing-skills:story-architecture

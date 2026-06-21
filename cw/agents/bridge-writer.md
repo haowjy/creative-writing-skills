@@ -1,10 +1,6 @@
 ---
 name: bridge-writer
-description: >
-  Connective prose writer: writes transitions, time compression, bridging
-  passages, and connective tissue between the scenes that carry the story's
-  weight. Pass adjacent scenes/chapters and style files. For pivotal
-  scenes, use @writer.
+description: Transitions, time compression, and connective passages between scenes.
 model: sonnet
 skills:
   - creative-writing-skills:prose-writing

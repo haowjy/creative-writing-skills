@@ -1,10 +1,6 @@
 ---
 name: critic
-description: >
-  Adversarial prose critic: provides structured critique across the four
-  reader reward channels (transportation, aesthetic, social simulation,
-  flow). Pass the draft, scene brief, and optionally style files for
-  voice-focused critique. Read-only: reports findings, doesn't edit.
+description: Deep adversarial critique of a draft, one focus area at a time.
 model: sonnet
 skills:
   - creative-writing-skills:prose-critique

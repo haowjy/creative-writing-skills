@@ -1,7 +1,7 @@
 ---
 name: prose-writing
 description: >
-  Prose-level immersion patterns for narrative fiction. Use when writing or revising prose: the sentence-level and paragraph-level craft that pulls readers into the story. Project-specific voice comes from style files passed alongside this skill.
+  Prose-level immersion patterns: psychic distance, free indirect discourse, rhythm, sensory grounding. Use when writing or revising narrative prose.
 ---
 
 # Prose Writing

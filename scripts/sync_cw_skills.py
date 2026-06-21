@@ -39,8 +39,13 @@ CW_AGENTS = REPO / "cw" / "agents"
 # Meridian-specific content (the guard below enforces this).
 MIRROR = [
     "brainstorming",
+    "character-voice",
+    "creative-direction",
+    "fact-extraction",
+    "production-drafting",
     "prose-critique",
     "prose-writing",
+    "reader-experience",
     "scene-construction",
     "story-architecture",
     "style-analysis",

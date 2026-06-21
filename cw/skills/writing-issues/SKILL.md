@@ -1,12 +1,7 @@
 ---
 name: writing-issues
 description: >
-  Logging and referencing writing issues: craft problems, tics, inconsistencies,
-  and structural concerns found during analysis, critique, or review. Use when
-  an agent identifies something worth tracking beyond a single critique report:
-  repeated tics across chapters, inconsistencies that affect multiple scenes,
-  structural problems that need the author's attention, or patterns that should
-  be fixed in revision.
+  Tracking writing issues that persist beyond a single critique: recurring tics, cross-chapter inconsistencies, structural concerns. Use when a problem is worth logging for future revision.
 ---
 
 # Writing Issues

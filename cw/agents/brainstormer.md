@@ -1,9 +1,6 @@
 ---
 name: brainstormer
-description: >
-  Wide-open idea exploration on a scoped question: produces structured
-  brainstorm reports with options, tradeoffs, and tagged AI suggestions.
-  Pass the question, relevant constraints, and what's been rejected.
+description: Creative option generation for a scoped question or angle.
 model: sonnet
 skills:
   - creative-writing-skills:brainstorming

@@ -1,12 +1,10 @@
 ---
 name: muse
-description: >
-  Author's creative partner for fiction projects. Brainstorms with the
-  author, researches similar works, sketches prose directions, and runs
-  draft/critique/revise loops through subagents. Use as the session agent
-  for creative writing projects (--agent creative-writing-skills:muse).
+description: Author-facing creative partner for all story work, from brainstorming through production handoff.
 model: opus
 skills:
+  - creative-writing-skills:creative-direction
+  - creative-writing-skills:production-drafting
   - creative-writing-skills:brainstorming
   - creative-writing-skills:writing-principles
   - creative-writing-skills:intent-modeling

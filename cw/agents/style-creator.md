@@ -1,10 +1,6 @@
 ---
 name: style-creator
-description: >
-  Creates style reference files from sample chapters or written
-  requirements. Produces standalone style files that writer and critic
-  agents use when drafting. Pass sample chapters, existing style files,
-  or requirements.
+description: Analyzes prose samples to produce style reference files for the project's voice.
 model: opus
 skills:
   - creative-writing-skills:style-analysis
