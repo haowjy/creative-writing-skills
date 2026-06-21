@@ -1,11 +1,6 @@
 ---
 name: outliner
-description: >
-  Structural outliner: spawn with `meridian spawn -a outliner` when a
-  direction has been chosen and needs sequencing into beats. Pass
-  relevant story context with -f. Produces outlines at arc, chapter, and
-  beat levels, plus mermaid diagrams for structure visualization. Output
-  goes to the work directory.
+description: Sequences confirmed direction into arc, chapter, and beat-level outlines.
 model: deepseek
 model-policies:
   - match:

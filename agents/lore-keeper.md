@@ -1,11 +1,6 @@
 ---
 name: lore-keeper
-description: >
-  Knowledge maintenance lead: routes story knowledge work to the right layer
-  after brainstorms, chapter drafts, critique rounds, vocab changes, or kb
-  cleanup. Spawn with `meridian spawn -a lore-keeper`, passing conversation
-  context with --from and relevant files with -f. Dispatches chronicler and
-  base knowledge agents, reviews coverage, and reports what changed.
+description: Story knowledge maintenance after brainstorms, drafts, and decisions.
 model: deepseek
 effort: medium
 model-policies:

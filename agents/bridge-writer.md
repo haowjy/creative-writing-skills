@@ -1,11 +1,6 @@
 ---
 name: bridge-writer
-description: >
-  Connective prose writer: spawn with `meridian spawn -a bridge-writer`,
-  passing adjacent scenes/chapters and style files with -f. Writes
-  transitions, time compression, bridging passages, and connective tissue
-  between the scenes that carry the story's weight. For pivotal scenes,
-  use @writer.
+description: Transitions, time compression, and connective passages between scenes.
 model: deepseek
 model-policies:
   - match:

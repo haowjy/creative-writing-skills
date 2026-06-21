@@ -1,10 +1,6 @@
 ---
 name: writer
-description: >
-  Generative prose writer: spawn with `meridian spawn -a writer`, passing
-  scene brief, style files, and context with -f. Writes fiction from briefs
-  in the project's voice. For revision from critique, use @revision-writer. For
-  transitions and connective passages, use @bridge-writer.
+description: Fresh prose drafts from scene briefs and style references.
 model: deepseek
 model-policies:
   - match:

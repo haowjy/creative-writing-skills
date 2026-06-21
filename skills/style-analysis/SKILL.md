@@ -2,7 +2,7 @@
 name: style-analysis
 type: reference
 description: >
-  How to analyze prose style and produce style reference files. Use when creating, updating, or evaluating style files: the reference documents that capture a project's voice patterns for writer and critic agents.
+  How to analyze prose and produce style reference files. Use when creating, updating, or evaluating the style files that capture a project's voice patterns.
 model-invocable: false
 ---
 

@@ -1,10 +1,6 @@
 ---
 name: revision-writer
-description: >
-  Revision writer: spawn with `meridian spawn -a revision-writer`, passing
-  the draft, critique synthesis, and style files with -f. Reads critique
-  findings and surgically improves the draft, preserving voice and what
-  already works. For fresh drafts from briefs, use @writer.
+description: Surgical revision from critique findings, preserving voice and what works.
 model: deepseek
 model-policies:
   - match:

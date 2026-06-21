@@ -1,9 +1,6 @@
 ---
 name: critic
-description: >
-  Adversarial draft critic: spawn with `meridian spawn -a critic`, passing
-  the draft and a focus area in the prompt along with relevant reference files
-  via -f. Reports findings, doesn't edit.
+description: Deep adversarial critique of a draft, one focus area at a time.
 model: gpt
 model-policies:
   - match:

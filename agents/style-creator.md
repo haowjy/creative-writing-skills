@@ -1,10 +1,6 @@
 ---
 name: style-creator
-description: >
-  Creates style reference files from sample chapters or requirements: spawn
-  with `meridian spawn -a style-creator`, passing sample chapters, existing
-  style files, or written requirements with -f. Produces standalone style
-  files that writer and critic agents load when drafting.
+description: Analyzes prose samples to produce style reference files for the project's voice.
 model: deepseek
 effort: high
 model-policies:

@@ -1,10 +1,6 @@
 ---
 name: continuity-checker
-description: >
-  Continuity checker: spawn with `meridian spawn -a continuity-checker`,
-  passing the content to check and relevant canon files with -f. Cross-references
-  against timeline, character state, geography, and established facts in the
-  provided context. Reports contradictions with evidence. Read-only.
+description: Cross-references content against established canon for contradictions.
 model: gpt
 effort: high
 model-policies:

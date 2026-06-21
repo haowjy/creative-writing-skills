@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### Added
+- 5 new skills extracted from agent bodies: `character-voice`, `reader-experience`, `fact-extraction`, `production-drafting`, `creative-direction`. Methodology now lives in skills; agent bodies are thin wrappers.
+
+### Changed
+- All 14 agent descriptions rewritten as when/why selection signals (no spawn commands, no internal mechanics, no agent cross-references).
+- 8 skill descriptions tightened (removed filler, agent-specific references, internal mechanics).
+- `muse`, `bard`, `character-sim`, `reader-sim`, `chronicler`: agent bodies thinned to load extracted skills.
+
 ## [0.3.13] - 2026-06-17
 
 ## [0.3.12] - 2026-06-14

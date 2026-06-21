@@ -1,12 +1,6 @@
 ---
 name: brainstormer
-description: >
-  Option generation: spawn with `meridian spawn -a brainstormer`, passing
-  a scoped exploration prompt and relevant story context with -f. Explores
-  a question or angle in depth, generates options, tags speculative content,
-  and produces a structured brainstorm report in the work directory.
-  Fan out multiple brainstormers for creative breadth; each explores its
-  assigned angle independently.
+description: Creative option generation for a scoped question or angle.
 model: deepseek
 model-policies:
   - match:
