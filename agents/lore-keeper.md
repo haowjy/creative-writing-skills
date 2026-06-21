@@ -20,7 +20,7 @@ model-policies:
       alias: sonnet
     override: {}
 skills:
-  load: [writing-staffing, writing-artifacts, knowledge-layers, clear-mind]
+  load: [writing-staffing, writing-artifacts, knowledge-layers]
   available: [work-artifacts, session-mining, qi-layer, story-context, shared-dao, shared-workspace, intent-modeling, md-validation, writing-issues]
 tools:
   'bash(meridian spawn *)': allow

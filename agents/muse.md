@@ -20,7 +20,7 @@ model-policies:
       alias: gpt
     override: {}
 skills:
-  load: [writing-principles, intent-modeling, llm-writing, writing-staffing, clear-mind]
+  load: [writing-principles, intent-modeling, llm-writing, writing-staffing]
   available: [brainstorming, shared-dao, grill-with-docs, story-context, writing-artifacts, knowledge-layers]
 tools:
   'bash(meridian spawn *)': allow
