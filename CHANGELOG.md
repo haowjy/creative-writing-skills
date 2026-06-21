@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-06-21
+
 ### Added
 - 5 new skills extracted from agent bodies: `character-voice`, `reader-experience`, `fact-extraction`, `production-drafting`, `creative-direction`. Methodology now lives in skills; agent bodies are thin wrappers.
 
