@@ -10,3 +10,9 @@
 /.claude/agents/
 /.claude/skills/
 mars.lock
+/.cursor/agents/
+/.cursor/skills/
+/.codex/agents/
+/.codex/skills/
+/.opencode/agents/
+/.opencode/skills/

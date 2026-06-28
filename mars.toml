@@ -10,5 +10,6 @@ version = ">=0.7.0, <0.8.0"
 url = "https://github.com/haowjy/meridian-prompter"
 
 [settings]
-targets = [".claude"]
+targets = [".claude", ".cursor", ".codex", ".opencode"]
+agent_emission = "always"
 models_cache_ttl_hours = 24

@@ -1,6 +1,6 @@
 ---
 name: style-analysis
-description: >
+description: |
   How to analyze prose and produce style reference files. Use when creating, updating, or evaluating the style files that capture a project's voice patterns.
 ---
 

@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Creative Writing Workflow Map</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f8f5ef;
+      --surface: #fffaf1;
+      --surface-2: #f0e7d8;
+      --text: #211b16;
+      --muted: #6f6257;
+      --line: #d7c8b8;
+      --accent: #9b5d3d;
+      --accent-2: #536b57;
+      --shadow: 0 18px 60px rgba(50, 35, 23, .18);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #15120f;
+        --surface: #211c17;
+        --surface-2: #2c251f;
+        --text: #f3eadf;
+        --muted: #c6b7a8;
+        --line: #4a3f35;
+        --accent: #d09669;
+        --accent-2: #9fbc97;
+        --shadow: 0 18px 60px rgba(0, 0, 0, .45);
+      }
+    }
+    body { background: var(--bg); color: var(--text); }
+    .surface { background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .surface-soft { background: var(--surface-2); border: 1px solid var(--line); }
+    .muted { color: var(--muted); }
+    .accent { color: var(--accent); }
+    .diagram-wrap { touch-action: none; background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--line), transparent 55%) 1px, transparent 0); background-size: 24px 24px; }
+    #stage { transform-origin: 0 0; transition: transform .05s linear; }
+    .mermaid svg { max-width: none !important; height: auto; }
+    .mermaid .node { cursor: pointer; }
+    .panel-open { transform: translateY(0) !important; opacity: 1 !important; pointer-events: auto !important; }
+    pre.shiki { border-radius: 16px; padding: 1rem; overflow: auto; font-size: 12px; line-height: 1.55; }
+    code.inline { color: var(--accent); background: color-mix(in srgb, var(--accent), transparent 88%); padding: .1rem .3rem; border-radius: .35rem; }
+    a { color: var(--accent); text-decoration-color: color-mix(in srgb, var(--accent), transparent 55%); }
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="mx-auto max-w-7xl px-4 py-6 md:px-8 md:py-8">
+    <div class="surface rounded-3xl p-6 md:p-8">
+      <p class="text-sm uppercase tracking-[0.25em] muted">Creative Writing Skills</p>
+      <h1 class="mt-2 text-3xl font-semibold tracking-tight md:text-5xl">Writing workflow map</h1>
+      <p class="mt-4 max-w-3xl text-base leading-7 muted md:text-lg">
+        A clickable map of how the package moves from author intent to pages, critique,
+        revision, and durable story memory — and why the system is compact agents plus
+        heavier skills instead of many overlapping writers.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-2 text-sm">
+        <button class="surface-soft rounded-full px-3 py-2" onclick="resetView()">Reset view</button>
+        <button class="surface-soft rounded-full px-3 py-2" onclick="showDetail('muse')">Start with muse</button>
+        <button class="surface-soft rounded-full px-3 py-2" onclick="showDetail('why')">Why this architecture?</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="mx-auto grid max-w-7xl gap-5 px-4 pb-8 md:grid-cols-[minmax(0,1fr)_420px] md:px-8">
+    <section class="surface overflow-hidden rounded-3xl">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3 md:px-5" style="border-color: var(--line)">
+        <div>
+          <h2 class="font-semibold">System flow</h2>
+          <p class="text-sm muted">Click a node. Drag to pan; wheel or pinch to zoom.</p>
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs muted">
+          <span class="rounded-full border px-2 py-1" style="border-color: var(--line)">decision</span>
+          <span class="rounded-full border px-2 py-1" style="border-color: var(--line)">production</span>
+          <span class="rounded-full border px-2 py-1" style="border-color: var(--line)">memory</span>
+        </div>
+      </div>
+      <div id="viewport" class="diagram-wrap h-[68vh] min-h-[520px] overflow-hidden p-6">
+        <div id="stage" class="inline-block min-w-[960px]">
+          <pre class="mermaid" id="diagram">
+flowchart LR
+  author["Author intent"] --> muse["muse / creative-writing-muse"]
+  muse --> direction["Explore direction"]
+  direction --> structure["Outline / brief"]
+  structure --> context["Context packet"]
+  context --> writer["writer"]
+  writer --> draft["Draft artifact"]
+  draft --> review["Critic / reader / continuity"]
+  review --> synthesis["Muse synthesis"]
+  synthesis --> writer
+  synthesis --> done{"Converged?"}
+  done -- "no" --> writer
+  done -- "yes" --> memory["Knowledge update"]
+  memory --> context
+  skills["Craft skill layer"] -. supports .-> direction
+  skills -. supports .-> writer
+  skills -. supports .-> review
+  why["Why this shape"] -. explains .-> muse
+  distribution["cw / Mars distribution"] -. ships .-> skills
+
+  classDef lead stroke:#9b5d3d,stroke-width:3px,fill:transparent;
+  classDef make stroke:#536b57,stroke-width:2px,fill:transparent;
+  classDef review stroke:#8e5a74,stroke-width:2px,fill:transparent;
+  classDef memory stroke:#5c6f91,stroke-width:2px,fill:transparent;
+  classDef meta stroke:#8b7a6a,stroke-width:2px,stroke-dasharray: 5 5,fill:transparent;
+
+  class muse,author lead;
+  class direction,structure,context,writer,draft,synthesis make;
+  class review,done review;
+  class memory memory;
+  class skills,why,distribution meta;
+
+  click author showDetail "author"
+  click muse showDetail "muse"
+  click direction showDetail "direction"
+  click structure showDetail "structure"
+  click context showDetail "context"
+  click writer showDetail "writer"
+  click draft showDetail "draft"
+  click review showDetail "review"
+  click synthesis showDetail "synthesis"
+  click done showDetail "done"
+  click memory showDetail "memory"
+  click skills showDetail "skills"
+  click why showDetail "why"
+  click distribution showDetail "distribution"
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <aside id="panel" class="surface fixed inset-x-3 bottom-3 z-20 max-h-[78vh] translate-y-[110%] overflow-auto rounded-3xl p-5 opacity-0 transition md:static md:max-h-[calc(68vh+90px)] md:translate-y-0 md:opacity-100 md:pointer-events-auto">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <p id="panel-kicker" class="text-xs uppercase tracking-[0.22em] muted">Click a node</p>
+          <h2 id="panel-title" class="mt-1 text-2xl font-semibold">Workflow overview</h2>
+        </div>
+        <button class="rounded-full border px-3 py-1 text-sm md:hidden" style="border-color: var(--line)" onclick="closePanel()">Close</button>
+      </div>
+      <p id="panel-desc" class="mt-4 leading-7 muted">
+        The workflow keeps creative authority with the author, coordination with muse,
+        production with one writer, adversarial judgment in separate review contexts, and
+        story memory in the knowledge layer.
+      </p>
+      <div id="panel-why" class="mt-4 rounded-2xl p-4 text-sm leading-6 surface-soft"></div>
+      <div class="mt-5">
+        <h3 class="mb-2 text-sm font-semibold uppercase tracking-[0.16em] muted">Source links</h3>
+        <div id="panel-files" class="flex flex-col gap-1 text-sm"></div>
+      </div>
+      <div class="mt-5">
+        <h3 class="mb-2 text-sm font-semibold uppercase tracking-[0.16em] muted">Relevant snippet</h3>
+        <div id="panel-code"></div>
+      </div>
+    </aside>
+  </main>
+
+  <section class="mx-auto max-w-7xl px-4 pb-10 md:px-8">
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="surface rounded-3xl p-5">
+        <h3 class="font-semibold">Why one writer?</h3>
+        <p class="mt-2 text-sm leading-6 muted">Voice continuity is fragile. The system collapses drafts, revisions, bridges, alternate takes, and polish into one writer, then changes mode through progressive guidance.</p>
+      </article>
+      <article class="surface rounded-3xl p-5">
+        <h3 class="font-semibold">Why separate reviewers?</h3>
+        <p class="mt-2 text-sm leading-6 muted">Critique, felt reader response, and continuity checking are different cognitive lanes. Fresh context gives better adversarial distance than asking the writer to self-grade.</p>
+      </article>
+      <article class="surface rounded-3xl p-5">
+        <h3 class="font-semibold">Why fat skills?</h3>
+        <p class="mt-2 text-sm leading-6 muted">Agents stay small so their role survives compaction. Skills carry reusable craft method: prose, scenes, critique, reader reward, staffing, and knowledge routing.</p>
+      </article>
+    </div>
+  </section>
+
+  <script type="module">
+    import { codeToHtml } from 'https://esm.sh/shiki@1';
+    window.codeToHtml = codeToHtml;
+  </script>
+
+  <script>
+    const DETAIL = {
+      author: {
+        kicker: 'Authority',
+        title: 'Author intent',
+        desc: 'The human decides what the work is trying to become. The system can explore, pressure-test, draft, and remember, but direct author edits and decisions are authoritative.',
+        why: 'This protects creative control. The workflow is not an autonomous novelist; it is an engine for making and evaluating pages around a human intent.',
+        files: ['skills/creative-writing-muse/SKILL.md', 'agents/muse.md'],
+        code: `The author has the final say.
+
+Keep the final synthesis with you: author intent, creative direction, reviewer
+conflicts, and presentation back to the author.`,
+        lang: 'markdown'
+      },
+      muse: {
+        kicker: 'Coordinator',
+        title: 'muse / creative-writing-muse',
+        desc: 'Muse holds the thread: author intent, creative direction, reviewer conflicts, and the current state of the page. It switches stance deliberately instead of blending brainstorming, drafting, critique, and memory into one mushy response.',
+        why: 'One coordinator prevents scope loss. It can use subagents when available, or run the same stances inside a single Claude.ai chat.',
+        files: ['skills/creative-writing-muse/SKILL.md', 'agents/muse.md', 'cw/agents/muse.md'],
+        code: `Hold the thread of the work. Listen for what the author is trying to make,
+keep the page accountable to that pressure, and move between invention,
+drafting, critique, revision, and memory without blending them together.`,
+        lang: 'markdown'
+      },
+      direction: {
+        kicker: 'Exploration',
+        title: 'Explore direction before pages',
+        desc: 'Brainstormers, character simulations, outliners, and style creation happen before production when the direction is still uncertain. They widen the possibility space before the workflow commits to pages.',
+        why: 'This avoids making the writer solve structure and prose at the same time. Direction should become a brief; prose should execute the brief.',
+        files: ['skills/writing-staffing/resources/builders.md', 'skills/creative-direction/SKILL.md', 'agents/brainstormer.md', 'agents/outliner.md'],
+        code: `Brainstormer and outliner are complementary: brainstorm first to explore
+the space, then outline once a direction is chosen to lock it into structure
+the writer can build from.`,
+        lang: 'markdown'
+      },
+      structure: {
+        kicker: 'Narrowing',
+        title: 'Outline / brief',
+        desc: 'Once the author chooses a direction, the system narrows it into scene beats, constraints, style references, character state, and vocabulary. This is the writer handoff surface.',
+        why: 'A strong outline or brief keeps the writer from inventing hidden structure that later has to be criticized and rewritten.',
+        files: ['skills/writing-staffing/resources/builders.md', 'skills/production-drafting/resources/writer-modes.md'],
+        code: `The outliner's output feeds the writer: a good outline is the single
+biggest input to draft quality. Skip outlining and the writer makes structural
+choices that the critic will flag and the revision will have to redo.`,
+        lang: 'markdown'
+      },
+      context: {
+        kicker: 'Handoff',
+        title: 'Context packet',
+        desc: 'Every production pass gets the smallest complete packet: what must happen, how it should sound, what came before, relevant canon, character state, vocab, and critique synthesis when revising.',
+        why: 'Context packets keep subagents focused. The system avoids dumping the entire project into every task while still preserving the facts that constrain the page.',
+        files: ['skills/writing-staffing/resources/builders.md', 'skills/production-drafting/resources/writer-modes.md', 'skills/story-context/SKILL.md'],
+        code: `Pass the writer:
+- A scene brief or outline (what happens)
+- Relevant style files (how it should sound)
+- Continuity anchors (what came before)
+- Character state files for characters in the scene
+- Critique synthesis when revising`,
+        lang: 'markdown'
+      },
+      writer: {
+        kicker: 'Production',
+        title: 'writer: one prose owner, five modes',
+        desc: 'The writer handles fresh drafts, revisions, bridges/connective tissue, alternate takes, and line polish. It chooses the requested mode and loads only the relevant progressive guidance.',
+        why: 'One prose worker preserves voice continuity. The stance changes through mode guidance rather than splitting near-duplicate writer agents.',
+        files: ['agents/writer.md', 'skills/production-drafting/SKILL.md', 'skills/production-drafting/resources/writer-modes.md'],
+        code: `Handle the production prose pass the prompt asks for: fresh draft,
+revision, bridge/connective tissue, alternate take, or line polish.
+Use /production-drafting to choose the mode and read only the relevant section.`,
+        lang: 'markdown'
+      },
+      draft: {
+        kicker: 'Artifact',
+        title: 'Draft artifact',
+        desc: 'Drafts live as artifacts rather than chat vapor. They can be critiqued, revised, compared, and eventually mined for style and canon.',
+        why: 'A written artifact gives reviewers a stable object. It also lets the workflow distinguish draft iterations in work/ from settled knowledge in kb/.',
+        files: ['skills/writing-artifacts/SKILL.md', 'docs/architecture.md'],
+        code: `writer owns all prose production modes. Keeping one prose worker preserves
+voice continuity better than splitting fresh drafting, bridges, and revision
+across separate agents.`,
+        lang: 'markdown'
+      },
+      review: {
+        kicker: 'Distance',
+        title: 'Critic / reader / continuity',
+        desc: 'Review splits into different lenses: critic diagnoses craft failures, reader-sim reports felt experience, and continuity-checker cross-references canon and vocabulary.',
+        why: 'The writer should not be the only judge of its own draft. Separate review contexts create adversarial distance and reduce blind spots.',
+        files: ['agents/critic.md', 'agents/reader-sim.md', 'agents/continuity-checker.md', 'skills/writing-staffing/SKILL.md'],
+        code: `critic stays separate because adversarial diagnosis benefits from fresh
+context. reader-sim stays separate because reader experience is not the same
+mode as craft critique. continuity-checker stays separate when canon search
+must be broader than the critic's provided context.`,
+        lang: 'markdown'
+      },
+      synthesis: {
+        kicker: 'Judgment',
+        title: 'Muse synthesis',
+        desc: 'Muse turns raw findings into revision guidance. It resolves conflicts between critics, protects author intent, and chooses whether the next pass is structural revision, a surgical fix, an alternate take, or line polish.',
+        why: 'Raw critique is not a revision plan. The coordinator keeps responsibility for tradeoffs instead of handing the writer a pile of incompatible notes.',
+        files: ['skills/production-drafting/SKILL.md', 'agents/muse.md'],
+        code: `When critics report back, you hold the full picture. Turn their findings into
+revision guidance grouped by impact and craft pattern. Use the brief, prior
+iterations, style references, and author's intent to make calls when findings
+conflict.`,
+        lang: 'markdown'
+      },
+      done: {
+        kicker: 'Convergence',
+        title: 'Converged?',
+        desc: 'The loop stops when critique no longer surfaces substantive new issues for the current goal. If it churns, muse returns to direction instead of endlessly polishing.',
+        why: 'This prevents infinite revision loops and keeps polish from masking a structural or author-direction problem.',
+        files: ['skills/production-drafting/SKILL.md', 'skills/creative-writing-muse/SKILL.md'],
+        code: `Decide when the draft is good enough for the current goal. When critique stops
+surfacing substantive new issues, close the loop. When revisions keep circling
+the same problem, surface the constraint for the author or orchestrator.`,
+        lang: 'markdown'
+      },
+      memory: {
+        kicker: 'Durable state',
+        title: 'Knowledge update',
+        desc: 'After chapters, decisions, or meaningful revisions settle, the chronicler updates character state, timeline, canon, decisions, vocabulary, and open issues.',
+        why: 'Long-form writing fails when memory drifts. Knowledge updates make the next session start from the actual story, not from chat residue.',
+        files: ['agents/chronicler.md', 'skills/writing-staffing/resources/knowledge.md', 'skills/fact-extraction/SKILL.md'],
+        code: `Run the chronicler after the triggering event settles (chapter finalized,
+brainstorm concluded, author decision made). Finish by reviewing whether canon,
+vocab, decisions, issues, and links all landed in the right place.`,
+        lang: 'markdown'
+      },
+      skills: {
+        kicker: 'Method layer',
+        title: 'Craft skill layer',
+        desc: 'Skills carry the reusable writing method: direction, prose craft, scene construction, critique, reader reward, staffing, context, artifacts, and intentional language.',
+        why: 'Light agent bodies survive compaction and stay focused. Fat, progressively loaded skills let several agents share the same craft discipline without duplicating prompt text.',
+        files: ['docs/architecture.md', 'skills/writing-principles/SKILL.md', 'skills/production-drafting/SKILL.md'],
+        code: `Skills carry the methodology that makes the smaller agent set work.
+
+llm-writing does not replace prose craft. It catches unchosen defaults.`,
+        lang: 'markdown'
+      },
+      why: {
+        kicker: 'Architecture',
+        title: 'Why this shape?',
+        desc: 'The package intentionally collapsed overlapping writer agents. The differentiator is not a crowd of near-duplicate roles; it is one strong coordinator, one voice-consistent writer, separate reviewers, and durable story memory.',
+        why: 'The setup matches cognitive modes: invention, production, judgment, reader experience, continuity, and knowledge extraction. Splitting by cognitive mode is more reliable than splitting by every writing task name.',
+        files: ['docs/architecture.md', 'skills/writing-staffing/SKILL.md', 'agents/writer.md'],
+        code: `The product thesis is not many near-duplicate writer agents; it is a strong
+muse, a few clean cognitive roles, durable story context, and intentional prose
+methodology.`,
+        lang: 'markdown'
+      },
+      distribution: {
+        kicker: 'Packaging',
+        title: 'cw / Mars distribution',
+        desc: 'Source skills live under skills/. The cw distribution is generated from Mars-lowered .claude output for shared skills, while a small set of cw-only/manual skills stays hand-maintained.',
+        why: 'This avoids maintaining two prompt bodies for generated skills. Mars performs harness lowering; the sync script filters what belongs in the creative-writing plugin.',
+        files: ['AGENTS.md', 'scripts/sync_cw_skills.py', 'mars.toml'],
+        code: `GENERATED  Copied from a temporary Mars consumer project's .claude/skills/.
+Mars performs the harness lowering; this script only filters the skills that
+belong in the cw distribution.`,
+        lang: 'text'
+      }
+    };
+
+    const panel = document.getElementById('panel');
+
+    async function renderCode(code, lang) {
+      if (window.codeToHtml) {
+        try { return await window.codeToHtml(code, { lang, theme: 'vitesse-dark' }); }
+        catch (_) {}
+      }
+      return `<pre class="surface-soft rounded-2xl p-4 overflow-auto text-xs"><code>${code.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</code></pre>`;
+    }
+
+    window.showDetail = async function showDetail(key) {
+      const d = DETAIL[key];
+      if (!d) return;
+      document.getElementById('panel-kicker').textContent = d.kicker;
+      document.getElementById('panel-title').textContent = d.title;
+      document.getElementById('panel-desc').textContent = d.desc;
+      document.getElementById('panel-why').innerHTML = `<strong>Why it exists:</strong> ${d.why}`;
+      document.getElementById('panel-files').innerHTML = d.files.map(f => `<a href="../${f}" target="_blank" rel="noreferrer"><code class="inline">${f}</code></a>`).join('');
+      document.getElementById('panel-code').innerHTML = await renderCode(d.code, d.lang);
+      panel.classList.add('panel-open');
+    }
+
+    window.closePanel = function closePanel() { panel.classList.remove('panel-open'); }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: 'loose',
+      theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default',
+      flowchart: { curve: 'basis', nodeSpacing: 42, rankSpacing: 68, htmlLabels: true }
+    });
+
+    mermaid.run({ querySelector: '.mermaid' }).then(() => showDetail('muse'));
+
+    let scale = 1, tx = 0, ty = 0, dragging = false, sx = 0, sy = 0;
+    const stage = document.getElementById('stage');
+    const viewport = document.getElementById('viewport');
+    const apply = () => { stage.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; };
+    window.resetView = function resetView() { scale = 1; tx = 0; ty = 0; apply(); };
+
+    viewport.addEventListener('wheel', e => {
+      e.preventDefault();
+      scale = Math.min(2.5, Math.max(0.45, scale - e.deltaY * 0.001));
+      apply();
+    }, { passive: false });
+
+    viewport.addEventListener('pointerdown', e => {
+      if (e.target.closest('.node')) return;
+      dragging = true; sx = e.clientX - tx; sy = e.clientY - ty; viewport.setPointerCapture(e.pointerId);
+    });
+    viewport.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      tx = e.clientX - sx; ty = e.clientY - sy; apply();
+    });
+    window.addEventListener('pointerup', () => { dragging = false; });
+
+    const pts = new Map();
+    let pinchDist = 0;
+    viewport.addEventListener('pointerdown', e => pts.set(e.pointerId, e));
+    viewport.addEventListener('pointermove', e => {
+      if (!pts.has(e.pointerId)) return;
+      pts.set(e.pointerId, e);
+      if (pts.size === 2) {
+        const [a, b] = [...pts.values()];
+        const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        if (pinchDist) { scale = Math.min(2.5, Math.max(0.45, scale * (d / pinchDist))); apply(); }
+        pinchDist = d;
+      }
+    });
+    window.addEventListener('pointerup', e => { pts.delete(e.pointerId); pinchDist = 0; });
+  </script>
+</body>
+</html>

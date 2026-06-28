@@ -35,5 +35,5 @@ sandbox: read-only
 Use `/character-voice`.
 
 Doesn't write files: the conversation itself is the output, mined later by
-the lore-keeper.
+the chronicler or muse.
 

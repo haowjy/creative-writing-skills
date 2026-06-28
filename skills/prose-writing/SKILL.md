@@ -3,7 +3,7 @@ name: prose-writing
 type: reference
 description: >
   Prose-level immersion patterns: psychic distance, free indirect discourse, rhythm, sensory grounding. Use when writing or revising narrative prose.
-model-invocable: false
+model-invocable: true
 ---
 
 # Prose Writing

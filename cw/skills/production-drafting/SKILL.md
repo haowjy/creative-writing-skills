@@ -1,6 +1,6 @@
 ---
 name: production-drafting
-description: >
+description: |
   Turning confirmed creative direction into finished drafts. Use when running write/critique/revise cycles to produce polished prose.
 ---
 
@@ -9,6 +9,14 @@ description: >
 Turn confirmed creative direction into finished drafts. The brief captured
 the author's intent; your job is to make it work on the page. Preserve the
 brief's shared vocabulary and style references as part of that direction.
+
+
+## Writer Mode Details
+
+When acting as @writer or briefing @writer, read `resources/writer-modes.md`
+for the specific pass: fresh draft, revision, bridge/connective tissue,
+alternate take, or line polish. Load only the relevant section unless the task
+combines modes.
 
 ## Draft Judgment
 

@@ -78,8 +78,8 @@ Don't pass too much: brainstormers that receive the full project history tend to
 ## Cross-Phase Context
 
 Carry forward what a previous phase learned using `--from <prior-spawn-id>`.
-The revision writer benefits from seeing what the first-draft writer
-discovered. The critic benefits from seeing prior critique rounds.
+The writer benefits from seeing what the prior draft pass
+discovered when revising. The critic benefits from seeing prior critique rounds.
 
 Combine mechanisms when phases produce artifacts: `--from` for reasoning
 context, `-f` for the files the prior phase created.

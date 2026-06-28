@@ -44,18 +44,18 @@ package from an inherited Meridian environment. For task checkouts, prefer
 
 `cw/skills/` adapts `skills/` for harnesses without Meridian (Claude.ai uploads, the Claude Code plugin). Skills split two ways:
 
-- **MIRROR** — pure-craft skills with no harness-specific content. Auto-synced verbatim from `skills/<name>/` (body + `resources/`), frontmatter rewritten to Claude vocab.
-- **MANUAL** — skills carrying Meridian→generic adaptations (spawn mechanics, env paths), skills adapted from the `meridian-base` dependency, and cw-only skills. Hand-maintained; the tool lints but never overwrites them.
+- **GENERATED** — selected skills copied from a temporary Mars consumer project's `.claude/skills/`. Mars performs Claude frontmatter/native lowering; the script filters the skills that belong in the cw distribution.
+- **MANUAL** — skills carrying cw-specific adaptations, cw-only behavior, or dependency changes not yet available through a released Mars dependency. Hand-maintained; the tool lints but never overwrites them.
 
 ```bash
 python3 scripts/sync_cw_skills.py            # check for drift (CI gate); exit 1 on problems
-python3 scripts/sync_cw_skills.py --apply    # sync MIRROR skills from skills/
-python3 scripts/sync_cw_skills.py --list     # print the MIRROR/MANUAL classification
+python3 scripts/sync_cw_skills.py --apply    # build temp Mars consumer and refresh GENERATED skills
+python3 scripts/sync_cw_skills.py --list     # print the GENERATED/MANUAL classification
 ```
 
-After editing a `skills/<name>/SKILL.md`, run `--apply` (MIRROR skills sync automatically; MANUAL skills you adapt by hand, then `--check`). CI runs the check on every PR and fails on mirror drift, leaked Meridian vocab in `cw/`, or dangling skill/agent references. cw frontmatter is Claude vocab only (`name` + `description`) — never Mars `type`/`model-invocable`/`effort`.
+After editing a generated `skills/<name>/SKILL.md`, run `--apply` so Mars lowers it into the cw distribution. Adapt MANUAL skills by hand, then run the check. The sync script builds a temporary Mars consumer and may need network access to resolve git dependency tags. CI fails on generated drift, leaked Meridian vocab in `cw/`, or dangling skill/agent references. cw frontmatter is Claude vocab (`name` + `description`, plus Claude-native flags such as `disable-model-invocation` when Mars lowers `model-invocable: false`) — never Mars `type`/`model-invocable`/`effort`.
 
-**`cw-muse`:** Claude.ai has no agents, so `cw/skills/cw-muse` is the entry-point skill standing in for the muse agent — activate it to drive a single-agent brainstorm/draft/critique/revise session. The plugin (Claude Code/Cowork) uses the muse **agent** instead, with cw agents flattened (no `bard`/`lore-keeper`).
+**`creative-writing-muse`:** source lives in `skills/creative-writing-muse` and is generated into `cw/skills/creative-writing-muse`. It is a user-activated, single-agent muse mode for skills-only environments; the `muse` agents do not load it. The agents follow the Product Lead pattern directly: capture author intent, craft specialist prompts, route work, synthesize results, and speak back to the author.
 
 **Plugin manifest:** `cw/.claude-plugin/plugin.json` is required. Claude Code auto-discovers components without it, but the marketplace **add-from-GitHub** path (Cowork / claude.ai) validates the plugin and *rejects it* if the manifest is missing. `claude plugins validate .claude-plugin/marketplace.json` only checks the marketplace schema, not the plugin — so CI also runs `claude plugins validate cw`, which validates the manifest plus every agent/skill component file. `version` is intentionally omitted from the manifest so the plugin tracks the git commit SHA (always-latest, no extra bump surface).
 

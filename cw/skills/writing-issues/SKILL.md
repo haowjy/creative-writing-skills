@@ -1,6 +1,6 @@
 ---
 name: writing-issues
-description: >
+description: |
   Tracking writing issues that persist beyond a single critique: recurring tics, cross-chapter inconsistencies, structural concerns. Use when a problem is worth logging for future revision.
 ---
 

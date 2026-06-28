@@ -1,6 +1,6 @@
 ---
 name: character-voice
-description: >
+description: |
   Speaking as a specific character from a full profile or bare sketch. Use when exploring voice, testing relationships, or writing dialogue in character.
 ---
 

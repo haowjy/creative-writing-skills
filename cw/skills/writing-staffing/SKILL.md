@@ -1,7 +1,7 @@
 ---
 name: writing-staffing
 description: >
-  Team composition for writing workflows: which subagents to use, how many, what focus areas to assign, and how to scale effort. Use when composing critic panels, staffing draft/revise loops, or setting up brainstorm fan-outs.
+  Team composition for writing workflows: which subagents to use, how many, what focus areas to assign, and how to scale effort. Use when composing critic panels, staffing writer/critic loops, or setting up brainstorm fan-outs.
 ---
 
 # Writing Staffing
@@ -13,9 +13,9 @@ different angles. Avoid redundant passes from the same angle.
 ## General Principles
 
 **Delegation keeps context clean.** Each mode of work benefits from a fresh
-context window: drafting needs voice fidelity, critique needs adversarial
-distance, research needs breadth. Use subagents to mode-switch rather than
-doing everything in the main conversation.
+context window: prose production needs voice fidelity, critique needs
+adversarial distance, research needs breadth. Use a small set of subagents to
+mode-switch rather than doing everything in the main conversation.
 
 **Review convergence.** Critic loops run until convergence (no new substantive
 findings), not a fixed number of passes.
@@ -39,14 +39,12 @@ draft/revise cycle.
 
 ## Subagent Catalog
 
-### Writers
+### Writer
 
-- **@writer**: generative prose from briefs. One writer per scene/chapter.
-  Use opus for voice fidelity.
-- **@revision-writer**: surgical revision from critique findings. Preserves
-  voice while fixing specific issues.
-- **@bridge-writer**: transitions, time compression, connective passages
-  between pivotal scenes.
+- **@writer**: production prose from briefs, critique notes, and style files.
+  One writer handles fresh drafts, critique-driven revisions, bridge passages,
+  connective tissue, line polish, and alternate takes. Use opus for voice
+  fidelity.
 
 ### Critics and Reviewers
 

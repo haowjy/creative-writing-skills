@@ -1,6 +1,6 @@
 ---
 name: fact-extraction
-description: >
+description: |
   Extracting factual state changes from written chapters into the kb. Use when a chapter needs its canon, timeline, character state, and terminology captured.
 ---
 

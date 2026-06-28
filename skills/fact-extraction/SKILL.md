@@ -3,7 +3,7 @@ name: fact-extraction
 type: reference
 description: >
   Extracting factual state changes from written chapters into the kb. Use when a chapter needs its canon, timeline, character state, and terminology captured.
-model-invocable: false
+model-invocable: true
 ---
 
 # Fact Extraction

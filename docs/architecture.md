@@ -1,332 +1,131 @@
 # Package Architecture
 
-## Spawn Hierarchy
+Creative-writing-skills uses a compact worker set backed by richer craft skills.
+The product thesis is not many near-duplicate writer agents; it is a strong
+muse, a few clean cognitive roles, durable story context, and intentional prose
+methodology.
 
-Who orchestrates whom. Arrows show spawn relationships.
+## Agent Shape
 
 ```mermaid
 graph TD
-    SO["muse<br/>(user-facing)"]
+    M[muse]
 
-    SO -->|explores| BS[brainstormer]
-    SO -->|explores| CS[character-sim]
-    SO -->|evaluates| RS[reader-sim]
-    SO -->|structures| OL[outliner]
-    SO -->|structures| SC[style-creator]
-    SO -->|drafts| DO[bard]
-    SO -->|records| KO[lore-keeper]
+    M -->|explores options| B[brainstormer]
+    M -->|tests voice| CS[character-sim]
+    M -->|structures direction| O[outliner]
+    M -->|creates style refs| S[style-creator]
 
-    DO -->|writes| WR[writer]
-    DO -->|writes| RW[revision-writer]
-    DO -->|writes| BW[bridge-writer]
-    DO -->|explores| CS[character-sim]
-    DO -->|reviews| CR[critic]
-    DO -->|reviews| CC[continuity-checker]
-    DO -->|reviews| RS[reader-sim]
+    M -->|drafts/revises/bridges| W[writer]
+    W -->|draft| C[critic]
+    C -->|critique synthesis| W
+    M -->|felt response| R[reader-sim]
+    M -->|canon pass| CC[continuity-checker]
 
-    KO -->|extracts| CH[chronicler]
+    M -->|knowledge updates| CH[chronicler]
 
-    classDef orch fill:#4a6fa5,color:#fff
-    classDef creative fill:#6b9080,color:#fff
+    classDef lead fill:#4a6fa5,color:#fff
+    classDef create fill:#6b9080,color:#fff
     classDef review fill:#c17c74,color:#fff
     classDef knowledge fill:#b5838d,color:#fff
 
-    class SO,DO,KO orch
-    class BS,OL,WR,RW,BW,SC,CS creative
-    class CR,CC,RS review
+    class M lead
+    class B,CS,O,S,W create
+    class C,R,CC review
     class CH knowledge
 ```
 
-## Skill Dependencies
+## Roles
 
-Which agents load which skills. Meridian infrastructure skills (meridian-spawn, meridian-work-coordination, agent-management, decision-log) omitted: orchestrators load these. `shared-dao`, `md-validation`, `knowledge-layers`, `intent-modeling`, and `llm-writing` are from meridian-base.
+| Agent | Role |
+|---|---|
+| muse | Author-facing creative partner and coordinator |
+| writer | Production prose: fresh drafts, critique-driven revisions, bridges, connective passages, alternate takes, line polish |
+| critic | Adversarial craft diagnosis with focused review areas |
+| reader-sim | Experiential reader response: what it felt like to read |
+| continuity-checker | Cross-project canon and terminology contradiction pass |
+| brainstormer | Divergent option generation before commitment |
+| outliner | Arc/chapter/beat structure after direction is chosen |
+| character-sim | In-character voice and relationship exploration |
+| style-creator | Style reference extraction from prose samples |
+| chronicler | Story fact, timeline, canon, and terminology extraction into `kb/` |
 
-```mermaid
-graph LR
-    subgraph Orchestrators
-        SO[muse]
-        DO[bard]
-        KO[lore-keeper]
-    end
+## Draft Loop
 
-    subgraph Creative
-        BS[brainstormer]
-        OL[outliner]
-        WR[writer]
-        RW[revision-writer]
-        BW[bridge-writer]
-        SC[style-creator]
-    end
+The production loop is intentionally simple:
 
-    subgraph Reviewers
-        CR[critic]
-        CC[continuity-checker]
-        RS[reader-sim]
-        CS[character-sim]
-    end
-
-    subgraph Knowledge
-        CH[chronicler]
-    end
-
-    subgraph "Shared Skills"
-        WA[writing-artifacts]
-        MV[md-validation]
-        WP[writing-principles]
-        SCtx[story-context]
-        WS[writing-staffing]
-        WI[writing-issues]
-        PC[prose-critique]
-        IM[intent-modeling]
-        LW[llm-writing]
-        PW[prose-writing]
-        SCN[scene-construction]
-        KC[knowledge-layers]
-        SD[shared-dao]
-    end
-
-    subgraph "Single-Consumer Skills"
-        BRS[brainstorming]
-        SA[story-architecture]
-        STYA[style-analysis]
-    end
-
-    %% writing-artifacts: 10 agents
-    SO --> WA
-    DO --> WA
-    KO --> WA
-    BS --> WA
-    WR --> WA
-    RW --> WA
-    BW --> WA
-    OL --> WA
-    CH --> WA
-    SC --> WA
-
-    %% writing-principles: 8 agents
-    SO --> WP
-    WR --> WP
-    RW --> WP
-    BW --> WP
-    CR --> WP
-    CS --> WP
-    RS --> WP
-    SC --> WP
-
-    %% llm-writing: 8 agents (from meridian-base)
-    SO --> LW
-    WR --> LW
-    RW --> LW
-    BW --> LW
-    BS --> LW
-    RS --> LW
-    CH --> LW
-    SC --> LW
-
-    %% story-context: 8 agents
-    SO --> SCtx
-    DO --> SCtx
-    KO --> SCtx
-    BS --> SCtx
-    WR --> SCtx
-    RW --> SCtx
-    BW --> SCtx
-    CS --> SCtx
-
-    %% prose-writing: 3 agents
-    WR --> PW
-    RW --> PW
-    BW --> PW
-
-    %% scene-construction: 3 agents
-    WR --> SCN
-    RW --> SCN
-    BW --> SCN
-
-    %% md-validation: 4 agents (from meridian-base)
-    KO --> MV
-    CH --> MV
-    OL --> MV
-    CC --> MV
-
-    %% knowledge-layers: 3 agents (from meridian-base)
-    SO --> KC
-    KO --> KC
-    CH --> KC
-
-    %% shared-dao: 5 agents (from meridian-base)
-    SO --> SD
-    DO --> SD
-    KO --> SD
-    CH --> SD
-    CC --> SD
-
-    %% writing-staffing: 3 orchestrators
-    SO --> WS
-    DO --> WS
-    KO --> WS
-
-    %% writing-issues: 4 agents
-    KO --> WI
-    CR --> WI
-    CC --> WI
-    SC --> WI
-
-    %% prose-critique: 2 agents
-    CR --> PC
-    CC --> PC
-
-    %% intent-modeling: 3 agents (from meridian-base)
-    SO --> IM
-    KO --> IM
-    BS --> IM
-
-    %% single-consumer skills
-    BS --> BRS
-    SO --> BRS
-    OL --> SA
-    SC --> STYA
-
-    classDef orch fill:#4a6fa5,color:#fff
-    classDef creative fill:#6b9080,color:#fff
-    classDef review fill:#c17c74,color:#fff
-    classDef knowledge fill:#b5838d,color:#fff
-    classDef sharedSkill fill:#dda15e,color:#000
-    classDef soloSkill fill:#e9c46a,color:#000
-
-    class SO,DO,KO orch
-    class BS,OL,WR,RW,BW,SC creative
-    class CR,CC,RS,CS review
-    class CH knowledge
-    class WA,MV,WP,SCtx,WS,WI,PC,IM,LW,PW,SCN,KC,SD sharedSkill
-    class BRS,SA,STYA soloSkill
+```text
+muse → writer → critic/reader-sim/continuity-checker → writer
 ```
 
-## Model Routing
+`writer` owns all prose production modes. Keeping one prose worker preserves
+voice continuity better than splitting fresh drafting, bridges, and revision
+across separate agents. The stance still changes through the prompt: fresh
+draft, surgical revision, bridge, polish, or alternate take.
 
-Cost tiers mapped to agent roles. All agents support multi-provider fallback via `model-policies` list order.
+`critic` stays separate because adversarial diagnosis benefits from fresh
+context. `reader-sim` stays separate because reader experience is not the same
+mode as craft critique. `continuity-checker` stays separate when canon search
+must be broader than the critic's provided context.
 
-```mermaid
-graph LR
-    subgraph "opus: voice-sensitive"
-        SO[muse]
-        WR[writer]
-        SC[style-creator]
-        DO[bard]
-        RS[reader-sim]
-    end
+## Skill Layer
 
-    subgraph "sonnet: balanced"
-        BS[brainstormer]
-        OL[outliner]
-        KO[lore-keeper]
-        CS[character-sim]
-        CR[critic]
-        RW[revision-writer]
-        BW[bridge-writer]
-    end
+Skills carry the methodology that makes the smaller agent set work:
 
-    subgraph "gptmini: high-throughput"
-        CH[chronicler]
-    end
+| Skill | Purpose |
+|---|---|
+| creative-direction | Shape the story before producing pages |
+| production-drafting | Run the write/critique/revise loop |
+| writing-principles | Reader reward channels and AI fiction failure modes |
+| prose-writing | Sentence and paragraph craft for narrative immersion |
+| scene-construction | Beat-level scene craft, dialogue, pacing, transitions |
+| prose-critique | Adversarial draft review methodology |
+| reader-experience | Felt reader-response methodology |
+| story-architecture | Arc, chapter, and scene structure |
+| style-analysis | Extract style references from prose samples |
+| story-context | Scope context for handoffs |
+| writing-artifacts | Project layout: `work/` and `kb/` |
+| writing-staffing | Compose compact teams and critic panels |
+| llm-writing | Intentional language discipline for fiction and nonfiction artifacts |
+| shared-dao | Canonical terminology and vocabulary discipline |
+| fact-extraction | Extract durable story facts from chapters |
 
-    subgraph "gpt: deep reasoning"
-        CC[continuity-checker]
-    end
-
-    classDef opus fill:#4a6fa5,color:#fff
-    classDef sonnet fill:#6b9080,color:#fff
-    classDef mini fill:#b5838d,color:#fff
-    classDef gpt fill:#c17c74,color:#fff
-
-    class SO,WR,SC,DO,RS opus
-    class BS,OL,KO,CS,CR,RW,BW sonnet
-    class CH mini
-    class CC gpt
-```
+`llm-writing` does not replace prose craft. It catches unchosen defaults:
+filler structure, vague language that hides lack of choice, polished transitions
+that smooth away tension, and explanation that tells the reader what the scene
+should make them feel. In fiction, ambiguity, omission, repetition, and broken
+rhythm remain valid when they create the intended effect.
 
 ## Artifact Flow
 
-How work products move between agents. Arrows show write → read relationships.
-
 ```mermaid
 graph TD
-    subgraph "work/: temporary"
-        WB["work/brainstorm/"]
-        WO["work/outline/"]
-        WD["work/drafts/"]
-        WC["work/critique-reports/"]
-    end
+    WB[work/brainstorm] --> M[muse]
+    WO[work/outline] --> M
+    W[writer] --> WD[work/drafts]
+    WD --> C[critic]
+    WD --> R[reader-sim]
+    WD --> CC[continuity-checker]
+    C --> WC[work/critique-reports]
+    R --> WC
+    CC --> WC
+    WC --> M
+    WC --> W
 
-    subgraph "kb/: durable"
-        KS["kb/styles/"]
-        KC["kb/characters/"]
-        KW["kb/world/"]
-        KT["kb/timeline/"]
-        KCN["kb/canon/"]
-        KI["kb/issues/"]
-    end
+    S[style-creator] --> KS[kb/styles]
+    KS --> W
+    KS --> C
 
-    BS[brainstormer] -->|writes| WB
-    WB -->|read by| SO[muse]
-
-    OL[outliner] -->|writes| WO
-    WO -->|read by| DO[bard]
-
-    WR[writer] -->|writes| WD
-    BW[bridge-writer] -->|writes| WD
-    WD -->|read by| CR[critic]
-    WD -->|read by| RS[reader-sim]
-    WD -->|read by| CC[continuity-checker]
-
-    CR -->|spawn output| DO
-    CC -->|spawn output| DO
-    RS -->|spawn output| DO
-    DO -->|synthesizes| WC
-    WC -->|read by| RW[revision-writer]
-
-    SC[style-creator] -->|writes| KS
-    KS -->|read by| WR
-    KS -->|read by| RW
-    KS -->|read by| BW
-    KS -->|read by| CR
-
-    CH[chronicler] -->|writes| KC
-    CH -->|writes| KW
-    CH -->|writes| KT
-    CH -->|writes| KCN
-
-    SC -->|writes| KI
-    DO -->|promotes| KI
+    CH[chronicler] --> KC[kb/characters]
+    CH --> KW[kb/world]
+    CH --> KT[kb/timeline]
+    CH --> KCN[kb/canon]
 
     classDef work fill:#dda15e,color:#000
     classDef kb fill:#6b9080,color:#fff
     classDef agent fill:#4a6fa5,color:#fff
 
     class WB,WO,WD,WC work
-    class KS,KC,KW,KT,KCN,KI kb
-    class BS,OL,WR,RW,BW,CR,RS,CC,SC,CH,SO,DO agent
+    class KS,KC,KW,KT,KCN kb
+    class M,W,C,R,CC,S,CH agent
 ```
-
-## Skill Reuse Summary
-
-| Skill | Consumers | Notes |
-|---|---|---|
-| writing-artifacts | 10 | Shared artifact contract: orchestrators + all writers + brainstormer + outliner + chronicler + style-creator |
-| story-context | 8 | Context scoping: orchestrators + all writers + brainstormer + character-sim |
-| writing-principles | 8 | Reader psychology + AI failure modes: all prose-touching agents |
-| llm-writing | 8 | General LLM writing discipline (from meridian-base): muse, all writers, brainstormer, reader-sim, chronicler, style-creator |
-| shared-dao | 5 | Shared vocabulary discipline (from meridian-base): muse, bard, lore-keeper, chronicler, continuity-checker |
-| md-validation | 4 | Link topology and mermaid validation (from meridian-base): lore-keeper, chronicler, outliner, continuity-checker |
-| prose-writing | 3 | Immersion patterns: writer, revision-writer, bridge-writer |
-| scene-construction | 3 | Beat-level craft: writer, revision-writer, bridge-writer |
-| writing-staffing | 3 | Team composition: orchestrators only |
-| writing-issues | 4 | Issue tracking: lore-keeper, critic, continuity-checker, style-creator |
-| meridian-spawn | 3 | Spawn mechanics (from meridian-base): orchestrators only |
-| meridian-work-coordination | 3 | Work lifecycle (from meridian-base): orchestrators only |
-| brainstorming | 2 | Capture conventions: muse + brainstormer |
-| knowledge-layers | 3 | KB model (from meridian-base): muse + lore-keeper + chronicler |
-| prose-critique | 2 | Critique methodology: critic + continuity-checker |
-| intent-modeling | 3 | Intent reading discipline (from meridian-base): muse + lore-keeper + brainstormer |
-| story-architecture | 1 | Structure methodology: outliner only |
-| style-analysis | 1 | Style file methodology: style-creator only |

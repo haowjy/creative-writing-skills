@@ -1,6 +1,6 @@
 ---
 name: reader-experience
-description: >
+description: |
   Experiential reading through the four reader reward channels. Use when a draft needs reader-response signal: what it felt like to read, moment by moment, rather than analytical critique.
 ---
 

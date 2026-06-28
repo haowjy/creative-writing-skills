@@ -57,7 +57,7 @@ Run the one-time project setup to create your `CLAUDE.md` and `kb/` structure:
 
 ### Claude.ai
 
-`cw-muse` turns an ordinary Claude chat into a creative-writing partner. Turn it on, tell it what you're working on, and it carries you from first idea to finished draft in one conversation — talking through ideas, drafting scenes in your voice, flagging what isn't working, and revising. The other skills (prose, scene craft, critique, structure) are the craft knowledge it draws on; you don't have to invoke them yourself.
+`creative-writing-muse` turns an ordinary Claude chat into a creative writing partner. Turn it on, tell it what you're working on, and it carries you from first idea to finished draft in one conversation — talking through ideas, drafting scenes in your voice, flagging what isn't working, and revising. The other skills (prose, scene craft, critique, structure) are the craft knowledge it draws on; you don't have to invoke them yourself.
 
 First, add the skills to claude.ai — pick one:
 
@@ -66,7 +66,7 @@ First, add the skills to claude.ai — pick one:
   ![Adding the marketplace in claude.ai: the plugins icon and + in the sidebar, with the repository entered in the Add marketplace dialog](docs/images/claudeai-add-marketplace.png)
 - **Upload the files:** download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest), then **Customize** → **Skills** → **"+"** → **Upload skill** for each one.
 
-Then start a chat, turn on **`cw-muse`**, and describe what you want to write — it leads from there. Adding skills one at a time instead? Start with **cw-muse**, **writing-principles**, **prose-writing**, **scene-construction**, and **prose-critique**.
+Then start a chat, turn on **`creative-writing-muse`**, and describe what you want to write — it leads from there. Adding skills one at a time instead? Start with **creative-writing-muse**, **writing-principles**, **prose-writing**, **scene-construction**, and **prose-critique**.
 
 > Want to build the files yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate them in `zips/`.
 
@@ -89,8 +89,7 @@ flowchart TB
     subgraph Draft ["Draft & Revise"]
         direction TB
         W[writer] --> CR[critic]
-        CR -->|synthesis| RW[revision-writer]
-        RW -.->|iterate| CR
+        CR -->|synthesis| W
         M -.->|pivotal scenes| RS[reader-sim]
         M -.->|voice check| CC[continuity-checker]
     end
@@ -108,7 +107,7 @@ flowchart TB
 
 **Explore:** Fan out brainstormers for creative variety. Spawn character-sims to discover voices. Use outliners to shape structure once a direction is chosen.
 
-**Draft & Revise:** Muse runs the write/critique/revise loop: writer produces prose, critics evaluate across the four reward channels (transportation, aesthetic, social simulation, flow), revision-writer fixes specific issues. Reader-sim gives experiential signal on pivotal scenes.
+**Draft & Revise:** Muse runs the write/critique/revise loop: writer produces drafts, revisions, bridges, and alternate takes; critics evaluate across the four reward channels (transportation, aesthetic, social simulation, flow). Reader-sim gives experiential signal on pivotal scenes.
 
 **Knowledge:** Chronicler extracts facts from completed chapters into the kb. Style-creator captures voice patterns from prose samples. The kb grows as the project evolves, giving every future agent accurate context.
 
@@ -117,10 +116,7 @@ flowchart TB
 | Agent | Role |
 |---|---|
 | **muse** | Author-facing creative partner for all story work, from brainstorming through production handoff |
-| **bard** | Drives confirmed creative direction to finished drafts through write, critique, and revision cycles |
-| **writer** | Fresh prose drafts from scene briefs and style references |
-| **revision-writer** | Surgical revision from critique findings, preserving voice and what works |
-| **bridge-writer** | Transitions, time compression, and connective passages between scenes |
+| **writer** | Production prose from briefs, critique notes, and style references; uses progressive mode guidance for drafts, revisions, bridges, alternate takes, and line polish |
 | **critic** | Deep adversarial critique of a draft, one focus area at a time |
 | **reader-sim** | Experiential reader response to a draft, moment by moment |
 | **character-sim** | In-character conversation for voice discovery and relationship testing |
@@ -129,7 +125,6 @@ flowchart TB
 | **outliner** | Sequences confirmed direction into arc, chapter, and beat-level outlines |
 | **style-creator** | Analyzes prose samples to produce style reference files for the project's voice |
 | **chronicler** | Extracts factual state changes from written chapters into the kb |
-| **lore-keeper** | Story knowledge maintenance after brainstorms, drafts, and decisions |
 
 ## Skills
 
@@ -153,7 +148,7 @@ flowchart TB
 | **writing-issues** | Tracking writing issues that persist beyond a single critique |
 | **writing-staffing** | Team composition for writing workflows |
 | **project-setup** | One-time guided setup: creates CLAUDE.md and kb structure |
-| **llm-writing** | General LLM writing discipline: behavioral pulls and document-writing guardrails |
+| **llm-writing** | Intentional language discipline: catches unchosen LLM defaults while preserving deliberate ambiguity, omission, repetition, and rhythm |
 
 ## Project Layout
 
@@ -179,12 +174,12 @@ my-story/
 
 | Feature | Claude Code | Cowork | Mars (Meridian) | Claude.ai |
 |---|:---:|:---:|:---:|:---:|
-| All agents | Yes (flat) | Yes (flat) | Yes (hierarchical) | No (grayed out in chat) |
+| All agents | Yes (flat) | Yes (flat) | Yes | No (grayed out in chat) |
 | All skills | Yes | Yes | Yes | Marketplace add or zip |
-| Multi-agent orchestration | Via muse | Via muse | Via muse → bard → workers | No |
+| Multi-agent orchestration | Via muse | Via muse | Via muse → focused workers | No |
 | Project setup | Yes | Yes | Yes | No |
 
-Claude Code and Cowork use the same plugin format with all agents as flat subagents under muse. The Meridian version adds intermediate orchestrators (bard for drafting, lore-keeper for knowledge maintenance) for deeper context isolation. You can add the marketplace to the Claude desktop app from GitHub; Cowork runs the agents, but plain claude.ai chat runs skills only (agents grayed out) — there the `cw-muse` skill provides the session-lead orchestration in a single conversation, backed by the craft skills.
+Claude Code, Cowork, and Meridian use muse as the main coordinator over a compact worker set: writer, critic, reader-sim, brainstormer, outliner, character-sim, style-creator, chronicler, and continuity-checker. You can add the marketplace to the Claude desktop app from GitHub; Cowork runs the agents, but plain claude.ai chat runs skills only (agents grayed out) — there the `creative-writing-muse` skill provides single-agent muse mode in one conversation, backed by the craft skills.
 
 ## Current Experiments
 

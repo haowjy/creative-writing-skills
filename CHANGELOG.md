@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+### Changed
+- Promoted `creative-writing-muse` to a generated, skills-only single-agent muse mode; the `muse` agents now own Product Lead-style routing, specialist prompt-crafting, synthesis, and author-facing communication directly.
+- Reworked `scripts/sync_cw_skills.py` to build a temporary Mars consumer and copy selected `.claude/skills` output into `cw/skills`, while keeping cw-adapted skills manual.
+- Collapsed production writing agents into `writer`; fresh drafts, revisions, bridges/connective tissue, alternate takes, and line polish now route through `production-drafting/resources/writer-modes.md`.
+- Updated `llm-writing` for intentional human-facing writing and moved the cw copy to the generated Mars-lowered skill set now that the updated `meridian-base` release is available.
+- Added native Mars targets for `.claude`, `.cursor`, `.codex`, and `.opencode` with `agent_emission = "always"` so harness-native agent artifacts can be generated.
+
+### Removed
+- Removed `bard`, `revision-writer`, `bridge-writer`, and `lore-keeper`; their production and knowledge-routing responsibilities are consolidated into `writer`, `muse`, `chronicler`, and staffing skills.
+- Removed the old `cw-muse` skill in favor of `creative-writing-muse`.
+
 ## [0.4.0] - 2026-06-21
 
 ### Added
