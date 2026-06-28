@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 ### Changed
+- Preserved writing-craft, reader-interest, and book-editor research notes under `docs/research/` so source links survive beyond the active work directory.
 - Added an `editor` agent for holistic third-party editorial memos and expanded `story-review` with editorial, developmental edit, line edit, copyedit, and proofreading resources.
 - Added curiosity / prediction reward to `writing-principles` as an explicit reader-reward channel, with citations for curiosity and information-gap theory.
 - Promoted `creative-writing-muse` to a generated, skills-only single-agent muse mode; the `muse` agents now own Product Lead-style routing, specialist prompt-crafting, synthesis, and author-facing communication directly.
