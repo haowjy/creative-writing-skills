@@ -13,7 +13,7 @@ The writer's output is a draft or revised draft, not final text. It goes through
 - Character state files for characters in the scene
 - Critique synthesis when revising
 
-The writer operates in five production modes. See `/production-drafting` → `resources/writer-modes.md` for the detailed briefing shape:
+The writer operates in five production modes. See `/creative-writing-modes` → `resources/prose-modes.md` for the detailed briefing shape:
 - **Fresh draft**: receives a brief and produces new prose.
 - **Revision**: receives critique synthesis and revises surgically while preserving what works.
 - **Bridge / connective tissue**: connects scenes, compresses time, shifts register, or writes transitions.

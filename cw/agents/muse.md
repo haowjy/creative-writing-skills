@@ -65,6 +65,7 @@ Route to the most specific worker:
 
 - `writer`: fresh drafts, revisions, bridges, alternate takes, line polish
 - `critic`: adversarial craft diagnosis
+- `editor`: holistic third-party editorial memo and revision priority
 - `reader-sim`: felt reader simulation
 - `continuity-checker`: canon, timeline, character state, vocabulary contradictions
 - `brainstormer`: divergent options before commitment

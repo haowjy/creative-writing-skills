@@ -89,7 +89,9 @@ flowchart TB
     subgraph Draft ["Draft & Revise"]
         direction TB
         W[writer] --> CR[critic]
+        W --> ED[editor]
         CR -->|synthesis| W
+        ED -->|editorial memo| W
         M -.->|pivotal scenes| RS[reader-sim]
         M -.->|voice check| CC[continuity-checker]
     end
@@ -107,7 +109,7 @@ flowchart TB
 
 **Explore:** Fan out brainstormers for creative variety. Spawn character-sims to discover voices. Use outliners to shape structure once a direction is chosen.
 
-**Draft & Revise:** Muse routes prose work to writer: fresh drafts, revisions, bridges, alternate takes, and polish. Critics evaluate across the four reward channels (transportation, aesthetic, social simulation, flow). Reader-sim gives experiential signal on pivotal scenes.
+**Draft & Revise:** Muse routes prose work to writer: fresh drafts, revisions, bridges, alternate takes, and polish. Critics evaluate focused craft dimensions; editor gives holistic book-editor priority across structure, voice, line quality, copy consistency, and proofing. Reader-sim gives experiential signal on pivotal scenes.
 
 **Knowledge:** Chronicler extracts facts from completed chapters into the kb. Style-creator captures voice patterns from prose samples. The kb grows as the project evolves, giving every future agent accurate context.
 
@@ -118,6 +120,7 @@ flowchart TB
 | **muse** | Author-facing creative partner for all story work, from planning through production handoff |
 | **writer** | Production prose from briefs, critique notes, and style references; uses progressive mode guidance for drafts, revisions, bridges, alternate takes, and line polish |
 | **critic** | Deep adversarial critique of a draft, one focus area at a time |
+| **editor** | Holistic third-party book editor pass: structure, voice, line quality, copy consistency, and proofing priority |
 | **reader-sim** | Experiential reader response to a draft, moment by moment |
 | **character-sim** | In-character conversation for voice discovery and relationship testing |
 | **continuity-checker** | Cross-references content against established canon for contradictions |
@@ -134,7 +137,7 @@ flowchart TB
 | **creative-writing-craft** | Craft references for prose, scenes, style, voice, and genre/page-level technique |
 | **writing-principles** | Reader reward channels, AI failure modes, and fiction-specific taste discipline |
 | **story-planning** | Direction, brainstorming, outlining, and story architecture before pages exist |
-| **story-review** | Draft critique, continuity/voice review, and synthesis of reader-response signal |
+| **story-review** | Editorial review, developmental edit, line edit, copyedit, proofreading, craft critique, and reader-signal synthesis |
 | **story-memory** | Context, fact extraction, reference writing, artifact layout, and persistent issue tracking |
 | **reader-sim** | Skill-only first-time reader simulation from a specified persona |
 | **character-sim** | Skill-only in-character conversation for voice and relationship testing |

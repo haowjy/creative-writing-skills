@@ -2,13 +2,19 @@
 
 Full verifiable source list for claims in this skill. Citations are real: where a claim has contested replication status, the entry says so.
 
-## Reader psychology: the four reward channels
+## Reader psychology: reward channels
 
 **Transportation / absorption**
 - van Laer, de Ruyter, Visconti, Wetzels (2014). "The Extended Transportation-Imagery Model: A Meta-Analysis of the Antecedents and Consequences of Consumers' Narrative Transportation." *Journal of Consumer Research*. [doi:10.1086/673383](https://doi.org/10.1086/673383). Meta-analysis of 132 effect sizes establishing transportation as a measurable construct.
 
 **Reading flow**
 - Thissen, Menninghaus, Schlotz (2018). "Measuring optimal reading experiences: The reading flow short scale." *Frontiers in Psychology*. [doi:10.3389/fpsyg.2018.02542](https://doi.org/10.3389/fpsyg.2018.02542). Establishes reading flow as distinct from absorption, with an inverted-U challenge-fit relationship to reading pleasure.
+
+
+**Curiosity / uncertainty / prediction reward**
+- Kidd & Hayden (2015). "The Psychology and Neuroscience of Curiosity." *Neuron*. [doi:10.1016/j.neuron.2015.09.010](https://doi.org/10.1016/j.neuron.2015.09.010). Curiosity as information-seeking and reward.
+- Loewenstein (1994). "The Psychology of Curiosity: A Review and Reinterpretation." *Psychological Bulletin*. [doi:10.1037/0033-2909.116.1.75](https://doi.org/10.1037/0033-2909.116.1.75). Information-gap account of curiosity: uncertainty and missing knowledge drive attention.
+- Litman (2005). "Curiosity and the Pleasures of Learning: Wanting and Liking New Information." *Cognition and Emotion*. [doi:10.1080/02699930541000101](https://doi.org/10.1080/02699930541000101). Distinguishes wanting information from enjoying obtained information.
 
 **Social cognition and fiction**
 - Dodell-Feder, Tamir (2018). "Fiction reading has a small positive impact on social cognition: A meta-analysis." *Journal of Experimental Psychology: General*. [doi:10.1037/xge0000395](https://doi.org/10.1037/xge0000395). Small positive effect; social simulation is a real engagement mechanism.

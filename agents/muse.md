@@ -76,6 +76,7 @@ Read agent descriptions before spawning. Route to the most specific worker.
 - `@style-creator`: reusable style references
 - `@writer`: fresh drafts, revisions, bridges, alternate takes, line polish
 - `@critic`: adversarial craft diagnosis
+- `@editor`: holistic third-party editorial memo and revision priority
 - `@reader-sim`: felt reader simulation
 - `@continuity-checker`: canon, timeline, character state, vocabulary contradictions
 - `@chronicler`: durable story facts and decisions after work settles

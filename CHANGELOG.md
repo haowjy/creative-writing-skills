@@ -3,6 +3,8 @@
 ## [Unreleased]
 
 ### Changed
+- Added an `editor` agent for holistic third-party editorial memos and expanded `story-review` with editorial, developmental edit, line edit, copyedit, and proofreading resources.
+- Added curiosity / prediction reward to `writing-principles` as an explicit reader-reward channel, with citations for curiosity and information-gap theory.
 - Promoted `creative-writing-muse` to a generated, skills-only single-agent muse mode; the `muse` agents now own Product Lead-style routing, specialist prompt-crafting, synthesis, and author-facing communication directly.
 - Reworked `scripts/sync_cw_skills.py` to build a temporary Mars consumer and copy selected `.claude/skills` output into `cw/skills`, while keeping cw-adapted skills manual.
 - Collapsed the public writing skill surface into clustered skills: `creative-writing-modes`, `creative-writing-craft`, `story-planning`, `story-review`, `story-memory`, `reader-sim`, and `character-sim`; production writing stays routed through the single `writer` agent.

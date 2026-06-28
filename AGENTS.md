@@ -63,10 +63,10 @@ After editing a generated `skills/<name>/SKILL.md`, run `--apply` so Mars lowers
 
 | Command | Skill |
 |---|---|
-| `/bs` | brainstorming |
-| `/write [style]` | prose-writing |
+| `/bs` | story-planning |
+| `/write [style]` | creative-writing-modes |
 | `/wiki` | kb-management |
-| `/critique` | prose-critique |
+| `/critique` | story-review |
 
 ## Design Patterns
 

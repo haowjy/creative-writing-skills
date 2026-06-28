@@ -19,6 +19,7 @@ graph TD
     M -->|drafts/revises/bridges| W[writer]
     W -->|draft| C[critic]
     C -->|critique synthesis| W
+    M -->|editorial memo| E[editor]
     M -->|felt response| R[reader-sim]
     M -->|canon pass| CC[continuity-checker]
 
@@ -31,7 +32,7 @@ graph TD
 
     class M lead
     class B,CS,O,S,W create
-    class C,R,CC review
+    class C,E,R,CC review
     class CH knowledge
 ```
 
@@ -42,6 +43,7 @@ graph TD
 | muse | Author-facing creative partner and coordinator |
 | writer | Production prose: fresh drafts, critique-driven revisions, bridges, connective passages, alternate takes, line polish |
 | critic | Adversarial craft diagnosis with focused review areas |
+| editor | Holistic third-party editorial memo and revision priority |
 | reader-sim | Experiential reader response: what it felt like to read |
 | continuity-checker | Cross-project canon and terminology contradiction pass |
 | brainstormer | Divergent option generation before commitment |
@@ -55,7 +57,7 @@ graph TD
 The production loop is intentionally simple:
 
 ```text
-muse → writer → critic/reader-sim/continuity-checker → writer
+muse → writer → critic/editor/reader-sim/continuity-checker → writer
 ```
 
 `writer` owns all prose production modes. Keeping one prose worker preserves
@@ -64,8 +66,9 @@ across separate agents. The stance still changes through the prompt: fresh
 draft, surgical revision, bridge, polish, or alternate take.
 
 `critic` stays separate because adversarial diagnosis benefits from fresh
-context. `reader-sim` stays separate because reader simulation is not the same
-mode as craft critique. `continuity-checker` stays separate when canon search
+context. `editor` stays separate because holistic editorial prioritization is
+not the same mode as focused critique. `reader-sim` stays separate because
+reader simulation is not the same mode as craft critique. `continuity-checker` stays separate when canon search
 must be broader than the critic's provided context.
 
 ## Skill Layer
@@ -78,7 +81,7 @@ Skills carry the methodology that makes the smaller agent set work:
 | creative-writing-craft | How-to-write craft library for prose, scenes, style, and genre technique |
 | writing-principles | Reader reward channels and AI fiction failure modes |
 | story-planning | Direction, brainstorming, outlining, and architecture before drafting |
-| story-review | Critique, continuity/voice review, and reader-signal synthesis |
+| story-review | Editorial review, developmental edit, line edit, copyedit, proofreading, critique, and reader-signal synthesis |
 | story-memory | Context selection, fact extraction, reference writing, artifacts, and issues |
 | reader-sim | Persona-bound first-time reader simulation |
 | character-sim | In-character simulation for voice and relationship exploration |
@@ -100,9 +103,11 @@ graph TD
     WO[work/outline] --> M
     W[writer] --> WD[work/drafts]
     WD --> C[critic]
+    WD --> E[editor]
     WD --> R[reader-sim]
     WD --> CC[continuity-checker]
     C --> WC[work/critique-reports]
+    E --> WC
     R --> WC
     CC --> WC
     WC --> M
@@ -123,5 +128,5 @@ graph TD
 
     class WB,WO,WD,WC work
     class KS,KC,KW,KT,KCN kb
-    class M,W,C,R,CC,S,CH agent
+    class M,W,C,E,R,CC,S,CH agent
 ```

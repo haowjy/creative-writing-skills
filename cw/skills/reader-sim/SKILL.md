@@ -12,7 +12,7 @@ If no persona is provided, state the persona you are assuming before reading. Do
 
 ## Method
 
-Read from beginning to end. Track the felt experience through four reward channels:
+Read from beginning to end. Track the felt experience through reader reward channels:
 
 - **Transportation**: being pulled into the story world, losing awareness of reading
 - **Aesthetic**: pleasure from language, rhythm, imagery, craft

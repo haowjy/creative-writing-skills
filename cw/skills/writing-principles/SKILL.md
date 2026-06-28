@@ -1,7 +1,7 @@
 ---
 name: writing-principles
 description: |
-  What fiction readers want (four reward channels) and the specific ways LLM training damages each one. Load when drafting prose, critiquing, or diagnosing why a passage feels flat.
+  What fiction readers want (reader reward channels) and the specific ways LLM training damages them. Load when drafting prose, critiquing, or diagnosing why a passage feels flat.
 ---
 
 # Writing Principles
@@ -45,10 +45,10 @@ emotion, resolving every ambiguity. Economy is the counter-discipline:
 what can you leave out and still have the scene work? What's the reader
 already doing for you?
 
-## Four Reward Channels
+## Reader Reward Channels
 
-Readers enjoy fiction through four separable channels. Good prose protects all
-four at once; damaging any one damages the reading experience.
+Readers enjoy fiction through overlapping reward channels. Good prose protects
+the relevant channels at once; damaging one damages the reading experience.
 
 - **Transportation**: entering the story world. Protected by coherent
   narrative progression, consistent POV, concrete sensory grounding. Consistent
@@ -61,8 +61,13 @@ four at once; damaging any one damages the reading experience.
 - **Social simulation**: modeling characters as minds. Protected by access
   through behavior and interiority, distinct voices, emotion the reader
   interprets rather than being told.
-- **Flow**: readable challenge. Protected by pacing that matches the scene's
-  work, sentences that support comprehension.
+- **Flow**: challenge-skill fit and smooth processing. Protected by pacing that
+  matches the scene's work and sentences that support comprehension without
+  making the reading trivial.
+- **Curiosity / prediction reward**: wanting to know what happens, what a clue
+  means, what a character will choose, or whether an expectation will be
+  confirmed. Protected by information gaps, uncertainty, setup/payoff, suspense,
+  and withheld implications that the reader can actively model.
 
 The channels compose: optimizing one at the expense of others fails.
 Over-explaining breaks social simulation. Under-explaining breaks
@@ -87,7 +92,7 @@ The craft skills carry the execution: `/creative-writing-craft` for immersion pa
 pacing, transitions).
 
 This skill's job is the diagnostic layer. When a passage feels off and you
-can't name why, check the four channels: which one broke? Then see
+can't name why, check the reward channels: which one broke? Then see
 `resources/failure-modes.md` for common patterns and fix heuristics.
 
 ## Resources
@@ -95,4 +100,4 @@ can't name why, check the four channels: which one broke? Then see
 - [`resources/failure-modes.md`](resources/failure-modes.md): per-pattern
   deep dives with examples and fix heuristics.
 - [`resources/citations.md`](resources/citations.md): research backing for
-  the four-channel model and documented failure modes.
+  the reader-reward model and documented failure modes.

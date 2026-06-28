@@ -49,3 +49,21 @@ Use the continuity-checker when:
 - After timeline or world-building changes that might invalidate earlier content
 
 The continuity-checker is more expensive than a critic with continuity focus: it reads broadly. Use the critic for routine continuity checks and the continuity-checker for deep cross-project validation.
+
+
+## editor
+
+Holistic third-party editorial review. Use when the draft needs a book-editor
+read rather than a focused critic pass: narrative structure, voice, line quality,
+copy consistency, and proofreading priority in one memo. The editor should start
+large and move small, identifying revision order before listing surface nits.
+
+Use the editor when:
+- the author asks for an external editor read
+- multiple critic reports need a priority order
+- a draft is approaching a major revision boundary
+- you need to know whether to revise structure, line edit, copyedit, or proofread next
+
+Do not use the editor as a replacement for every critic panel. Focused critics
+find deep problems in one dimension; the editor tells you what matters most and
+what order to fix it in.
