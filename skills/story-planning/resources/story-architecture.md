@@ -52,11 +52,11 @@ variation in intensity at every scale: within scenes, chapters, and arcs.
 
 ## Resources
 
-- [`resources/arc-design.md`](resources/arc-design.md): arc components (hook,
+- [`resources/story-architecture/arc-design.md`](story-architecture/arc-design.md): arc components (hook,
   complications, midpoint shift, crisis, resolution) and arc pacing.
-- [`resources/chapter-and-scene.md`](resources/chapter-and-scene.md): chapter
+- [`resources/story-architecture/chapter-and-scene.md`](story-architecture/chapter-and-scene.md): chapter
   design (internal completeness, external pull), scene design (earning
   presence), outline vs discovery writing.
-- [`resources/structural-problems.md`](resources/structural-problems.md):
+- [`resources/story-architecture/structural-problems.md`](story-architecture/structural-problems.md):
   common problems (saggy middle, rushed ending, filler arcs, disconnected
   scenes, stakes plateau) and when to use diagrams.

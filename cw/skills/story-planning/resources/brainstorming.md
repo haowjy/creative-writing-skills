@@ -77,10 +77,10 @@ Essential elements:
 
 All story-planning types share the core principles above. See resources for specialized guidance:
 
-- [`resources/chapter-planning.md`](resources/chapter-planning.md): beat and scene exploration, pacing thoughts, chapter structure
-- [`resources/character-development.md`](resources/character-development.md): motivations, arcs, relationships, voice
-- [`resources/worldbuilding.md`](resources/worldbuilding.md): systems, cultures, geography, lore
-- [`resources/continuity-timeline.md`](resources/continuity-timeline.md): chronology, contradictions, knowledge propagation
+- [`resources/brainstorming/chapter-planning.md`](brainstorming/chapter-planning.md): beat and scene exploration, pacing thoughts, chapter structure
+- [`resources/brainstorming/character-development.md`](brainstorming/character-development.md): motivations, arcs, relationships, voice
+- [`resources/brainstorming/worldbuilding.md`](brainstorming/worldbuilding.md): systems, cultures, geography, lore
+- [`resources/brainstorming/continuity-timeline.md`](brainstorming/continuity-timeline.md): chronology, contradictions, knowledge propagation
 
 Read the relevant resource when the story-planning focuses on that area.
 

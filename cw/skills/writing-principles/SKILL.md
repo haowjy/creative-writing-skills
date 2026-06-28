@@ -86,14 +86,16 @@ documented interruption pattern and keep it consistent.
 
 ## Applying the Principles
 
-The craft skills carry the execution: `/creative-writing-craft` for immersion patterns
-(psychic distance, rhythm, sensory grounding, interiority) and
-`/creative-writing-craft` for how scenes work on the page (entry, dialogue,
-pacing, transitions).
+This skill is the diagnostic layer: it names what readers want and how
+training damages it. When a passage feels off and you can't name why, check
+the reward channels — which one broke? — then see `resources/failure-modes.md`
+for common patterns and fix heuristics.
 
-This skill's job is the diagnostic layer. When a passage feels off and you
-can't name why, check the reward channels: which one broke? Then see
-`resources/failure-modes.md` for common patterns and fix heuristics.
+The craft skills carry the execution. `/creative-writing-craft` has the
+how-to-write guidance: prose immersion (`resources/prose-writing.md`), scene
+mechanics (`resources/scene-construction.md`), and style analysis
+(`resources/style-analysis.md`). `/creative-writing-modes` has the production
+modes for putting prose on the page.
 
 ## Resources
 
