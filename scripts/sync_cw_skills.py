@@ -39,19 +39,14 @@ CW_AGENTS = REPO / "cw" / "agents"
 # do not belong in a creative-writing plugin.
 GENERATED = [
     # creative-writing-skills source skills
-    "brainstorming",
-    "character-voice",
-    "creative-direction",
+    "character-sim",
+    "creative-writing-craft",
+    "creative-writing-modes",
     "creative-writing-muse",
-    "fact-extraction",
-    "production-drafting",
-    "prose-critique",
-    "prose-writing",
-    "reader-experience",
-    "scene-construction",
-    "story-architecture",
-    "style-analysis",
-    "writing-issues",
+    "reader-sim",
+    "story-memory",
+    "story-planning",
+    "story-review",
     "writing-principles",
     # dependency skills intentionally bundled into cw
     "intent-modeling",
@@ -61,8 +56,6 @@ GENERATED = [
 # Hand-maintained cw-only skills the tool lints but never overwrites.
 MANUAL = [
     # local skills carrying cw-specific adaptations
-    "story-context",
-    "writing-artifacts",
     "writing-staffing",
     # dependency skills that need cw-specific de-Meridianization
     "grill-with-docs",
@@ -170,14 +163,6 @@ def run(apply: bool) -> int:
     except Exception as exc:
         problems.append(str(exc))
 
-    # 0. Classification completeness: every cw skill must be classified.
-    classified = set(GENERATED) | set(MANUAL)
-    bundled = bundled_skill_names()
-    for unknown in sorted(bundled - classified):
-        problems.append(f"cw/skills/{unknown} is unclassified — add it to GENERATED or MANUAL")
-    for missing in sorted(classified - bundled):
-        problems.append(f"{missing} is classified but missing from cw/skills/")
-
     # 1. Sync or drift-check GENERATED skills from temp Mars .claude output.
     if generated_root is not None:
         for name in GENERATED:
@@ -196,7 +181,15 @@ def run(apply: bool) -> int:
                 if _dir_differs(src_dir, cw_dir):
                     problems.append(f"{name}: cw skill dir drifted from Mars .claude output (run --apply)")
 
-    # 2. Lint all cw skills: Claude frontmatter, no leaks.
+    # 2. Classification completeness: every cw skill must be classified.
+    classified = set(GENERATED) | set(MANUAL)
+    bundled = bundled_skill_names()
+    for unknown in sorted(bundled - classified):
+        problems.append(f"cw/skills/{unknown} is unclassified — add it to GENERATED or MANUAL")
+    for missing in sorted(classified - bundled):
+        problems.append(f"{missing} is classified but missing from cw/skills/")
+
+    # 3. Lint all cw skills: Claude frontmatter, no leaks.
     for md in sorted(CW_SKILLS.glob("*/SKILL.md")):
         _, fm, _ = split_frontmatter(md.read_text())
         fm_text = "".join(fm or [])
@@ -208,7 +201,7 @@ def run(apply: bool) -> int:
         if m:
             problems.append(f"{md.relative_to(REPO)}: leaked Meridian vocab {m.group(0)!r}")
 
-    # 3. Lint cw agents: skills refs resolve, no leaks, Claude frontmatter.
+    # 4. Lint cw agents: skills refs resolve, no leaks, Claude frontmatter.
     agent_names = {p.stem for p in CW_AGENTS.glob("*.md")}
     for md in sorted(CW_AGENTS.glob("*.md")):
         for ref in agent_skill_refs(md):
@@ -221,7 +214,7 @@ def run(apply: bool) -> int:
         if m:
             problems.append(f"{md.relative_to(REPO)}: leaked Meridian vocab {m.group(0)!r}")
 
-    # 4. Lint @agent references across cw bodies.
+    # 5. Lint @agent references across cw bodies.
     for md in sorted([*CW_SKILLS.glob("*/SKILL.md"), *CW_AGENTS.glob("*.md")]):
         for ref in set(re.findall(r"@([a-z][a-z-]+)", body_of(md))):
             if ref not in agent_names and ref not in {"anthropic"}:

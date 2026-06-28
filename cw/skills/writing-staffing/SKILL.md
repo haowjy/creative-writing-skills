@@ -60,7 +60,7 @@ draft/revise cycle.
 ### Exploration
 
 - **@brainstormer**: wide-open idea exploration. Fan out for diversity.
-- **@character-sim**: character voice performance. Spawn when you need to
+- **@character-sim**: character simulation performance. Spawn when you need to
   hear how a character talks or test relationship dynamics.
 - **@outliner**: story structure at arc/chapter/beat levels.
 - **@style-creator**: analyzes prose and produces style reference files.

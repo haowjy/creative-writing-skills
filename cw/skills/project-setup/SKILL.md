@@ -31,7 +31,7 @@ Ask about writing samples: these are the foundation for style analysis:
 
 Collect whatever they have. Save samples to `kb/samples/` so they're available
 for future style analysis. If they have enough material, offer to analyze
-their style using the `/style-analysis` methodology: read the samples,
+their style using the `/creative-writing-craft` methodology: read the samples,
 identify the voice dimensions, and produce initial style files in `kb/styles/`.
 
 If they're starting fresh with no samples, capture their voice goals in

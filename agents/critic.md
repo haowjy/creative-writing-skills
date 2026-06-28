@@ -16,7 +16,7 @@ model-policies:
       alias: gpt55
     override:
       effort: low
-skills: [prose-critique, writing-principles, llm-writing, writing-issues]
+skills: [story-review, writing-principles, llm-writing, story-memory]
 tools:
   'bash(meridian spawn show *)': allow
   'bash(meridian session *)': allow
@@ -44,5 +44,5 @@ quote it, name the scene, identify the paragraph. The orchestrator synthesizes
 across multiple critics without re-reading the draft, so your references need
 to be specific enough to locate.
 
-Your `/prose-critique` skill has the methodology and focus-area guidance in
+Your `/story-review` skill has the methodology and focus-area guidance in
 its resources.

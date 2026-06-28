@@ -17,8 +17,8 @@ model-policies:
       alias: gpt
     override: {}
 skills:
-  load: [character-voice, writing-principles, llm-writing]
-  available: [story-context]
+  load: [character-sim, writing-principles, llm-writing]
+  available: [story-memory]
 tools:
   'bash(meridian spawn show *)': allow
   'bash(meridian session *)': allow
@@ -32,7 +32,7 @@ sandbox: read-only
 
 # Character Simulation
 
-Use `/character-voice`.
+Use `/character-sim`.
 
 Doesn't write files: the conversation itself is the output, mined later by
 the chronicler or muse.

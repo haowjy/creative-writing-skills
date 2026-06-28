@@ -1,0 +1,95 @@
+---
+name: story-planning
+type: reference
+description: >
+  Story story-planning capture: minimal notes that preserve creative freedom. Use when exploring narrative ideas, discussing characters, planning chapters, or thinking through story possibilities.
+model-invocable: true
+---
+
+# Brainstorming Capture
+
+Capture story brainstorming as minimal working notes that preserve creative freedom. The core principle: record what was stated, mark what was suggested, and don't fill gaps the author left open.
+
+## Report Structure
+
+When producing a standalone brainstorm document, tag all generated content
+as `<AI>` since none came from the author:
+
+```markdown
+# [Topic]: [Angle]
+
+## Approach
+<AI>What direction you explored and why.</AI>
+
+## Ideas
+<AI>Concrete possibilities, organized logically.</AI>
+
+## Tradeoffs
+<AI>What each option gains and gives up.</AI>
+
+## Connections
+<AI>How this connects to existing story threads.</AI>
+
+## Open Questions
+<AI>Questions the author should consider before committing.</AI>
+```
+
+## Source Tagging
+
+**Default: untagged text = the author said it.** Most story-planning content comes from the author, so untagged is the common case.
+
+Three tags for special context:
+
+**`<AI>...</AI>`**: AI suggestions and possibilities. Use when offering ideas the author didn't state. Keep brief: 2-3 options, not exhaustive lists.
+
+**`<hidden>...</hidden>`**: Author-only information for planned reveals. Secret motivations, future twists, behind-the-scenes reasoning that readers and characters don't know yet.
+
+**`<rejected>...</rejected>`**: Ideas explicitly considered and discarded. Recording why something was rejected prevents re-suggesting it and preserves the reasoning for later reconsideration.
+
+## Minimal Capture
+
+Record what the author stated. Don't elaborate, don't fill gaps, don't invent details they didn't mention.
+
+AI suggestions are valuable: wrap them in `<AI>` tags and keep them brief.
+
+- "Character A competes with B" → capture as stated. Optionally: `<AI>Tournament? Political? Trial?</AI>`
+- "Maybe creates tension" → record as uncertain. Don't resolve the maybe.
+- "Three kingdoms" → note three kingdoms. Don't name them.
+
+## Preserve Vagueness
+
+If the author left it vague, the notes stay vague. "Might," "maybe," "thinking about," "something like": all preserved as-is. Vagueness isn't a problem to solve; it's creative space the author is keeping open.
+
+Multiple contradictory options coexist until the author chooses. Don't resolve them. Don't pick the "best" one.
+
+## Output Format
+
+Use whatever structure fits the discussion: bullet lists, topic sections, timeline format, question-driven, freeform. The goal is clarity, not template compliance.
+
+Essential elements:
+- Minimal capture of author's words
+- Vagueness preserved
+- AI suggestions wrapped in `<AI>` tags
+- Author-only info wrapped in `<hidden>` tags
+- Rejected ideas wrapped in `<rejected>` tags when relevant
+
+## Brainstorming Types
+
+All story-planning types share the core principles above. See resources for specialized guidance:
+
+- [`resources/chapter-planning.md`](resources/chapter-planning.md): beat and scene exploration, pacing thoughts, chapter structure
+- [`resources/character-development.md`](resources/character-development.md): motivations, arcs, relationships, voice
+- [`resources/worldbuilding.md`](resources/worldbuilding.md): systems, cultures, geography, lore
+- [`resources/continuity-timeline.md`](resources/continuity-timeline.md): chronology, contradictions, knowledge propagation
+
+Read the relevant resource when the story-planning focuses on that area.
+
+## Calibration
+
+The success check: the author says "yes, that's what I said." Capture stated
+facts, preserve uncertainty, add brief tagged options when useful, keep notes
+minimal.
+
+## File Placement
+
+See the `story-memory` skill for directory conventions and naming. Durable decisions get promoted to the kb decisions layer after the brainstorm completes.

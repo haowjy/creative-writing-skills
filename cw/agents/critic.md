@@ -3,10 +3,10 @@ name: critic
 description: Deep adversarial critique of a draft, one focus area at a time.
 model: sonnet
 skills:
-  - creative-writing-skills:prose-critique
+  - creative-writing-skills:story-review
   - creative-writing-skills:writing-principles
   - creative-writing-skills:llm-writing
-  - creative-writing-skills:writing-issues
+  - creative-writing-skills:story-memory
 tools: Read, Glob, Grep
 ---
 
@@ -45,5 +45,5 @@ or quote. Classify by severity:
 Only flag issues you can tie to a concrete reader cost. "This could be
 stronger" without explaining what the reader loses is not actionable.
 
-Use `/writing-issues` to log recurring patterns that should be tracked across
+Use `/story-memory` to log recurring patterns that should be tracked across
 drafts.

@@ -46,7 +46,7 @@ graph TD
 | continuity-checker | Cross-project canon and terminology contradiction pass |
 | brainstormer | Divergent option generation before commitment |
 | outliner | Arc/chapter/beat structure after direction is chosen |
-| character-sim | In-character voice and relationship exploration |
+| character-sim | In-character simulation and relationship exploration |
 | style-creator | Style reference extraction from prose samples |
 | chronicler | Story fact, timeline, canon, and terminology extraction into `kb/` |
 
@@ -64,7 +64,7 @@ across separate agents. The stance still changes through the prompt: fresh
 draft, surgical revision, bridge, polish, or alternate take.
 
 `critic` stays separate because adversarial diagnosis benefits from fresh
-context. `reader-sim` stays separate because reader experience is not the same
+context. `reader-sim` stays separate because reader simulation is not the same
 mode as craft critique. `continuity-checker` stays separate when canon search
 must be broader than the critic's provided context.
 
@@ -74,21 +74,17 @@ Skills carry the methodology that makes the smaller agent set work:
 
 | Skill | Purpose |
 |---|---|
-| creative-direction | Shape the story before producing pages |
-| production-drafting | Run the write/critique/revise loop |
+| creative-writing-modes | Pen-on-paper prose execution modes |
+| creative-writing-craft | How-to-write craft library for prose, scenes, style, and genre technique |
 | writing-principles | Reader reward channels and AI fiction failure modes |
-| prose-writing | Sentence and paragraph craft for narrative immersion |
-| scene-construction | Beat-level scene craft, dialogue, pacing, transitions |
-| prose-critique | Adversarial draft review methodology |
-| reader-experience | Felt reader-response methodology |
-| story-architecture | Arc, chapter, and scene structure |
-| style-analysis | Extract style references from prose samples |
-| story-context | Scope context for handoffs |
-| writing-artifacts | Project layout: `work/` and `kb/` |
+| story-planning | Direction, brainstorming, outlining, and architecture before drafting |
+| story-review | Critique, continuity/voice review, and reader-signal synthesis |
+| story-memory | Context selection, fact extraction, reference writing, artifacts, and issues |
+| reader-sim | Persona-bound first-time reader simulation |
+| character-sim | In-character simulation for voice and relationship exploration |
 | writing-staffing | Compose compact teams and critic panels |
 | llm-writing | Intentional language discipline for fiction and nonfiction artifacts |
 | shared-dao | Canonical terminology and vocabulary discipline |
-| fact-extraction | Extract durable story facts from chapters |
 
 `llm-writing` does not replace prose craft. It catches unchosen defaults:
 filler structure, vague language that hides lack of choice, polished transitions

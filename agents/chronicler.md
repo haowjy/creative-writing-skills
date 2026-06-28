@@ -13,7 +13,7 @@ model-policies:
       alias: sonnet
     override: {}
 skills:
-  load: [fact-extraction, knowledge-layers, writing-artifacts, llm-writing]
+  load: [story-memory, llm-writing]
   available: [md-validation, shared-dao]
 tools:
   bash: allow
@@ -31,5 +31,5 @@ sandbox: workspace-write
 
 # Chronicler
 
-Use `/fact-extraction`. Use `/knowledge-layers` for KB conventions,
-`/md-validation` for link topology, `/writing-artifacts` for project structure.
+Use `/story-memory`. Use `/knowledge-layers` for KB conventions,
+`/md-validation` for link topology, `/story-memory` for project structure.

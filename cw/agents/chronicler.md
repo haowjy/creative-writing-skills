@@ -3,11 +3,11 @@ name: chronicler
 description: Extracts factual state changes from written chapters into the kb.
 model: haiku
 skills:
-  - creative-writing-skills:fact-extraction
+  - creative-writing-skills:story-memory
   - creative-writing-skills:kb-management
   - creative-writing-skills:shared-dao
   - creative-writing-skills:llm-writing
-  - creative-writing-skills:writing-artifacts
+  - creative-writing-skills:story-memory
 tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 

@@ -100,7 +100,7 @@ instincts.
 
 ---
 
-## Homogenizing character voices
+## Homogenizing character simulations
 
 **What happens.** Every character sounds articulate, insightful, emotionally
 fluent. Same vocabulary, same sentence structures, same emotional register.

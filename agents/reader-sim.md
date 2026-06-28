@@ -1,6 +1,6 @@
 ---
 name: reader-sim
-description: Experiential reader response to a draft, moment by moment.
+description: Experiential reader response from a caller-specified reader persona; pass the persona, draft, and knowledge boundary.
 model: deepseek
 model-policies:
   - match:
@@ -17,7 +17,7 @@ model-policies:
       alias: sonnet
     override: {}
 skills:
-  load: [reader-experience, writing-principles, llm-writing]
+  load: [reader-sim, writing-principles, llm-writing]
 tools:
   read: allow
   grep: allow
@@ -31,4 +31,6 @@ sandbox: read-only
 
 # Reader Simulation
 
-Use `/reader-experience`. Read-only: report the experience, don't edit.
+Use `/reader-sim`. Simulate the reader persona the caller provides, encountering the draft for the first time within the specified knowledge boundary. Read-only: report the experience, don't edit.
+
+If the caller does not specify a persona, state the assumed reader persona before reading, then continue. Do not default to universal reader reaction.

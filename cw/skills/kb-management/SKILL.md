@@ -30,7 +30,7 @@ live in `kb/vocab.md`; domain terms live beside the domain they govern, such as
 `kb/world/vocab.md`.
 
 **Issues**: tracked writing problems that span multiple chapters (recurring
-tics, pacing patterns, continuity errors). See the writing-issues skill.
+tics, pacing patterns, continuity errors). See the story-memory skill.
 
 ## Page Conventions
 
@@ -104,7 +104,7 @@ both forward silently.
 ## When to Create vs Update
 
 **Create** a new page when a concept is finalized enough to be referenced
-by other agents. Don't create pages for things still in brainstorming.
+by other agents. Don't create pages for things still in story-planning.
 
 **Update** an existing page when new chapters establish facts about it,
 when the author makes decisions that change it, or when a page has become

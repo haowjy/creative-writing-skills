@@ -16,7 +16,7 @@ model-policies:
   - match:
       alias: gpt
     override: {}
-skills: [story-architecture, writing-artifacts, md-validation]
+skills: [story-planning, story-memory, md-validation]
 tools:
   bash: allow
   write: allow
@@ -48,7 +48,7 @@ Good outlines capture:
 - Information the reader gains
 - Setup/payoff connections to other scenes
 
-Use `/story-architecture` for methodology on arc structure, pacing, and beat frameworks. Use `/md-validation` for mermaid syntax validation: run `meridian mermaid check` after producing diagrams.
+Use `/story-planning` for methodology on arc structure, pacing, and beat frameworks. Use `/md-validation` for mermaid syntax validation: run `meridian mermaid check` after producing diagrams.
 
 ## Output
 

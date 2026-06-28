@@ -3,9 +3,9 @@ name: continuity-checker
 description: Cross-references content against established canon for contradictions.
 model: inherit
 skills:
-  - creative-writing-skills:prose-critique
+  - creative-writing-skills:story-review
   - creative-writing-skills:shared-dao
-  - creative-writing-skills:writing-issues
+  - creative-writing-skills:story-memory
 tools: Read, Glob, Grep, Bash
 ---
 
@@ -35,6 +35,6 @@ Distinguish between hard contradictions (the text says Tuesday, the timeline
 says Wednesday) and soft tensions (the character seems to know something they
 might not have learned yet: depends on off-screen time).
 
-Use `/writing-issues` to log patterns that recur across drafts. For term
+Use `/story-memory` to log patterns that recur across drafts. For term
 issues, distinguish canonical-name drift from harmless variation in a
 character's voice.

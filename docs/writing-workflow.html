@@ -3,32 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Creative Writing Workflow Map</title>
+  <title>Creative Writing Workflow Dependencies</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <style>
     :root {
       color-scheme: light dark;
-      --bg: #f8f5ef;
-      --surface: #fffaf1;
-      --surface-2: #f0e7d8;
-      --text: #211b16;
-      --muted: #6f6257;
-      --line: #d7c8b8;
-      --accent: #9b5d3d;
-      --accent-2: #536b57;
+      --bg: #f8f5ef; --surface: #fffaf1; --surface-2: #f0e7d8;
+      --text: #211b16; --muted: #6f6257; --line: #d7c8b8;
+      --accent: #9b5d3d; --agent: #536b57; --skill: #5c6f91;
       --shadow: 0 18px 60px rgba(50, 35, 23, .18);
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #15120f;
-        --surface: #211c17;
-        --surface-2: #2c251f;
-        --text: #f3eadf;
-        --muted: #c6b7a8;
-        --line: #4a3f35;
-        --accent: #d09669;
-        --accent-2: #9fbc97;
+        --bg: #15120f; --surface: #211c17; --surface-2: #2c251f;
+        --text: #f3eadf; --muted: #c6b7a8; --line: #4a3f35;
+        --accent: #d09669; --agent: #9fbc97; --skill: #9db5dd;
         --shadow: 0 18px 60px rgba(0, 0, 0, .45);
       }
     }
@@ -36,382 +26,640 @@
     .surface { background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
     .surface-soft { background: var(--surface-2); border: 1px solid var(--line); }
     .muted { color: var(--muted); }
-    .accent { color: var(--accent); }
+    a { color: var(--accent); text-decoration-color: color-mix(in srgb, var(--accent), transparent 55%); }
+    code.inline { color: var(--accent); background: color-mix(in srgb, var(--accent), transparent 88%); padding: .1rem .3rem; border-radius: .35rem; }
+    .pill { border: 1px solid var(--line); background: var(--surface-2); }
+    .selected { outline: 2px solid var(--accent); }
     .diagram-wrap { touch-action: none; background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--line), transparent 55%) 1px, transparent 0); background-size: 24px 24px; }
     #stage { transform-origin: 0 0; transition: transform .05s linear; }
-    .mermaid svg { max-width: none !important; height: auto; }
-    .mermaid .node { cursor: pointer; }
-    .panel-open { transform: translateY(0) !important; opacity: 1 !important; pointer-events: auto !important; }
-    pre.shiki { border-radius: 16px; padding: 1rem; overflow: auto; font-size: 12px; line-height: 1.55; }
-    code.inline { color: var(--accent); background: color-mix(in srgb, var(--accent), transparent 88%); padding: .1rem .3rem; border-radius: .35rem; }
-    a { color: var(--accent); text-decoration-color: color-mix(in srgb, var(--accent), transparent 55%); }
+    #diagram svg { max-width: none !important; height: auto; }
+    #diagram .node { cursor: pointer; }
   </style>
 </head>
 <body class="min-h-screen">
   <header class="mx-auto max-w-7xl px-4 py-6 md:px-8 md:py-8">
     <div class="surface rounded-3xl p-6 md:p-8">
       <p class="text-sm uppercase tracking-[0.25em] muted">Creative Writing Skills</p>
-      <h1 class="mt-2 text-3xl font-semibold tracking-tight md:text-5xl">Writing workflow map</h1>
+      <h1 class="mt-2 text-3xl font-semibold tracking-tight md:text-5xl">Writing workflow dependencies</h1>
       <p class="mt-4 max-w-3xl text-base leading-7 muted md:text-lg">
-        A clickable map of how the package moves from author intent to pages, critique,
-        revision, and durable story memory — and why the system is compact agents plus
-        heavier skills instead of many overlapping writers.
+        Choose an agent to see the skills it loads and the agents it can route to.
+        Choose a skill to see the skills it loads and the resources it exposes.
+        Human entry points and agent-used methods are both shown, but not treated as the same thing.
       </p>
-      <div class="mt-5 flex flex-wrap gap-2 text-sm">
-        <button class="surface-soft rounded-full px-3 py-2" onclick="resetView()">Reset view</button>
-        <button class="surface-soft rounded-full px-3 py-2" onclick="showDetail('muse')">Start with muse</button>
-        <button class="surface-soft rounded-full px-3 py-2" onclick="showDetail('why')">Why this architecture?</button>
-      </div>
     </div>
   </header>
 
-  <main class="mx-auto grid max-w-7xl gap-5 px-4 pb-8 md:grid-cols-[minmax(0,1fr)_420px] md:px-8">
+  <main class="mx-auto grid max-w-7xl gap-5 px-4 pb-10 md:grid-cols-[300px_minmax(0,1fr)_360px] md:px-8">
+    <nav class="surface rounded-3xl p-4 md:max-h-[78vh] md:overflow-auto">
+      <div class="grid grid-cols-2 gap-2 text-sm">
+        <button id="agents-tab" class="pill selected rounded-2xl px-3 py-2" onclick="setMode('agents')">Agents</button>
+        <button id="skills-tab" class="pill rounded-2xl px-3 py-2" onclick="setMode('skills')">Skills</button>
+      </div>
+      <div class="mt-4">
+        <input id="filter" class="w-full rounded-2xl border bg-transparent px-3 py-2 text-sm" style="border-color: var(--line)" placeholder="Filter…" oninput="renderList()" />
+      </div>
+      <div id="list" class="mt-4 flex flex-col gap-2"></div>
+    </nav>
+
     <section class="surface overflow-hidden rounded-3xl">
       <div class="flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3 md:px-5" style="border-color: var(--line)">
         <div>
-          <h2 class="font-semibold">System flow</h2>
-          <p class="text-sm muted">Click a node. Drag to pan; wheel or pinch to zoom.</p>
+          <h2 id="diagram-title" class="font-semibold">Agent dependency graph</h2>
+          <p id="diagram-subtitle" class="text-sm muted">Solid edges are loaded skills; dashed edges are available/on-demand skills; green edges are routed agents.</p>
         </div>
-        <div class="flex flex-wrap gap-2 text-xs muted">
-          <span class="rounded-full border px-2 py-1" style="border-color: var(--line)">decision</span>
-          <span class="rounded-full border px-2 py-1" style="border-color: var(--line)">production</span>
-          <span class="rounded-full border px-2 py-1" style="border-color: var(--line)">memory</span>
-        </div>
+        <button class="pill rounded-full px-3 py-2 text-sm" onclick="resetView()">Reset view</button>
       </div>
-      <div id="viewport" class="diagram-wrap h-[68vh] min-h-[520px] overflow-hidden p-6">
-        <div id="stage" class="inline-block min-w-[960px]">
-          <pre class="mermaid" id="diagram">
-flowchart LR
-  author["Author intent"] --> muse["muse / creative-writing-muse"]
-  muse --> direction["Explore direction"]
-  direction --> structure["Outline / brief"]
-  structure --> context["Context packet"]
-  context --> writer["writer"]
-  writer --> draft["Draft artifact"]
-  draft --> review["Critic / reader / continuity"]
-  review --> synthesis["Muse synthesis"]
-  synthesis --> writer
-  synthesis --> done{"Converged?"}
-  done -- "no" --> writer
-  done -- "yes" --> memory["Knowledge update"]
-  memory --> context
-  skills["Craft skill layer"] -. supports .-> direction
-  skills -. supports .-> writer
-  skills -. supports .-> review
-  why["Why this shape"] -. explains .-> muse
-  distribution["cw / Mars distribution"] -. ships .-> skills
-
-  classDef lead stroke:#9b5d3d,stroke-width:3px,fill:transparent;
-  classDef make stroke:#536b57,stroke-width:2px,fill:transparent;
-  classDef review stroke:#8e5a74,stroke-width:2px,fill:transparent;
-  classDef memory stroke:#5c6f91,stroke-width:2px,fill:transparent;
-  classDef meta stroke:#8b7a6a,stroke-width:2px,stroke-dasharray: 5 5,fill:transparent;
-
-  class muse,author lead;
-  class direction,structure,context,writer,draft,synthesis make;
-  class review,done review;
-  class memory memory;
-  class skills,why,distribution meta;
-
-  click author showDetail "author"
-  click muse showDetail "muse"
-  click direction showDetail "direction"
-  click structure showDetail "structure"
-  click context showDetail "context"
-  click writer showDetail "writer"
-  click draft showDetail "draft"
-  click review showDetail "review"
-  click synthesis showDetail "synthesis"
-  click done showDetail "done"
-  click memory showDetail "memory"
-  click skills showDetail "skills"
-  click why showDetail "why"
-  click distribution showDetail "distribution"
-          </pre>
+      <div id="viewport" class="diagram-wrap h-[70vh] min-h-[560px] overflow-hidden p-6">
+        <div id="stage" class="inline-block min-w-[920px]">
+          <div id="diagram"></div>
         </div>
       </div>
     </section>
 
-    <aside id="panel" class="surface fixed inset-x-3 bottom-3 z-20 max-h-[78vh] translate-y-[110%] overflow-auto rounded-3xl p-5 opacity-0 transition md:static md:max-h-[calc(68vh+90px)] md:translate-y-0 md:opacity-100 md:pointer-events-auto">
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <p id="panel-kicker" class="text-xs uppercase tracking-[0.22em] muted">Click a node</p>
-          <h2 id="panel-title" class="mt-1 text-2xl font-semibold">Workflow overview</h2>
-        </div>
-        <button class="rounded-full border px-3 py-1 text-sm md:hidden" style="border-color: var(--line)" onclick="closePanel()">Close</button>
-      </div>
-      <p id="panel-desc" class="mt-4 leading-7 muted">
-        The workflow keeps creative authority with the author, coordination with muse,
-        production with one writer, adversarial judgment in separate review contexts, and
-        story memory in the knowledge layer.
-      </p>
-      <div id="panel-why" class="mt-4 rounded-2xl p-4 text-sm leading-6 surface-soft"></div>
+    <aside class="surface rounded-3xl p-5 md:max-h-[78vh] md:overflow-auto">
+      <p id="detail-kicker" class="text-xs uppercase tracking-[0.22em] muted">Selected</p>
+      <h2 id="detail-title" class="mt-1 text-2xl font-semibold"></h2>
+      <p id="detail-desc" class="mt-3 leading-7 muted"></p>
+      <div id="detail-meta" class="mt-4 flex flex-wrap gap-2 text-xs"></div>
       <div class="mt-5">
-        <h3 class="mb-2 text-sm font-semibold uppercase tracking-[0.16em] muted">Source links</h3>
-        <div id="panel-files" class="flex flex-col gap-1 text-sm"></div>
+        <h3 class="mb-2 text-sm font-semibold uppercase tracking-[0.16em] muted">Source</h3>
+        <div id="detail-source" class="text-sm"></div>
       </div>
-      <div class="mt-5">
-        <h3 class="mb-2 text-sm font-semibold uppercase tracking-[0.16em] muted">Relevant snippet</h3>
-        <div id="panel-code"></div>
-      </div>
+      <div id="detail-sections" class="mt-5 space-y-5"></div>
     </aside>
   </main>
 
-  <section class="mx-auto max-w-7xl px-4 pb-10 md:px-8">
-    <div class="grid gap-4 md:grid-cols-3">
-      <article class="surface rounded-3xl p-5">
-        <h3 class="font-semibold">Why one writer?</h3>
-        <p class="mt-2 text-sm leading-6 muted">Voice continuity is fragile. The system collapses drafts, revisions, bridges, alternate takes, and polish into one writer, then changes mode through progressive guidance.</p>
-      </article>
-      <article class="surface rounded-3xl p-5">
-        <h3 class="font-semibold">Why separate reviewers?</h3>
-        <p class="mt-2 text-sm leading-6 muted">Critique, felt reader response, and continuity checking are different cognitive lanes. Fresh context gives better adversarial distance than asking the writer to self-grade.</p>
-      </article>
-      <article class="surface rounded-3xl p-5">
-        <h3 class="font-semibold">Why fat skills?</h3>
-        <p class="mt-2 text-sm leading-6 muted">Agents stay small so their role survives compaction. Skills carry reusable craft method: prose, scenes, critique, reader reward, staffing, and knowledge routing.</p>
-      </article>
-    </div>
-  </section>
-
-  <script type="module">
-    import { codeToHtml } from 'https://esm.sh/shiki@1';
-    window.codeToHtml = codeToHtml;
-  </script>
-
   <script>
-    const DETAIL = {
-      author: {
-        kicker: 'Authority',
-        title: 'Author intent',
-        desc: 'The human decides what the work is trying to become. The system can explore, pressure-test, draft, and remember, but direct author edits and decisions are authoritative.',
-        why: 'This protects creative control. The workflow is not an autonomous novelist; it is an engine for making and evaluating pages around a human intent.',
-        files: ['skills/creative-writing-muse/SKILL.md', 'agents/muse.md'],
-        code: `The author has the final say.
-
-Keep the final synthesis with you: author intent, creative direction, reviewer
-conflicts, and presentation back to the author.`,
-        lang: 'markdown'
-      },
-      muse: {
-        kicker: 'Coordinator',
-        title: 'muse / creative-writing-muse',
-        desc: 'Muse holds the thread: author intent, creative direction, reviewer conflicts, and the current state of the page. It switches stance deliberately instead of blending brainstorming, drafting, critique, and memory into one mushy response.',
-        why: 'One coordinator prevents scope loss. It can use subagents when available, or run the same stances inside a single Claude.ai chat.',
-        files: ['skills/creative-writing-muse/SKILL.md', 'agents/muse.md', 'cw/agents/muse.md'],
-        code: `Hold the thread of the work. Listen for what the author is trying to make,
-keep the page accountable to that pressure, and move between invention,
-drafting, critique, revision, and memory without blending them together.`,
-        lang: 'markdown'
-      },
-      direction: {
-        kicker: 'Exploration',
-        title: 'Explore direction before pages',
-        desc: 'Brainstormers, character simulations, outliners, and style creation happen before production when the direction is still uncertain. They widen the possibility space before the workflow commits to pages.',
-        why: 'This avoids making the writer solve structure and prose at the same time. Direction should become a brief; prose should execute the brief.',
-        files: ['skills/writing-staffing/resources/builders.md', 'skills/creative-direction/SKILL.md', 'agents/brainstormer.md', 'agents/outliner.md'],
-        code: `Brainstormer and outliner are complementary: brainstorm first to explore
-the space, then outline once a direction is chosen to lock it into structure
-the writer can build from.`,
-        lang: 'markdown'
-      },
-      structure: {
-        kicker: 'Narrowing',
-        title: 'Outline / brief',
-        desc: 'Once the author chooses a direction, the system narrows it into scene beats, constraints, style references, character state, and vocabulary. This is the writer handoff surface.',
-        why: 'A strong outline or brief keeps the writer from inventing hidden structure that later has to be criticized and rewritten.',
-        files: ['skills/writing-staffing/resources/builders.md', 'skills/production-drafting/resources/writer-modes.md'],
-        code: `The outliner's output feeds the writer: a good outline is the single
-biggest input to draft quality. Skip outlining and the writer makes structural
-choices that the critic will flag and the revision will have to redo.`,
-        lang: 'markdown'
-      },
-      context: {
-        kicker: 'Handoff',
-        title: 'Context packet',
-        desc: 'Every production pass gets the smallest complete packet: what must happen, how it should sound, what came before, relevant canon, character state, vocab, and critique synthesis when revising.',
-        why: 'Context packets keep subagents focused. The system avoids dumping the entire project into every task while still preserving the facts that constrain the page.',
-        files: ['skills/writing-staffing/resources/builders.md', 'skills/production-drafting/resources/writer-modes.md', 'skills/story-context/SKILL.md'],
-        code: `Pass the writer:
-- A scene brief or outline (what happens)
-- Relevant style files (how it should sound)
-- Continuity anchors (what came before)
-- Character state files for characters in the scene
-- Critique synthesis when revising`,
-        lang: 'markdown'
-      },
-      writer: {
-        kicker: 'Production',
-        title: 'writer: one prose owner, five modes',
-        desc: 'The writer handles fresh drafts, revisions, bridges/connective tissue, alternate takes, and line polish. It chooses the requested mode and loads only the relevant progressive guidance.',
-        why: 'One prose worker preserves voice continuity. The stance changes through mode guidance rather than splitting near-duplicate writer agents.',
-        files: ['agents/writer.md', 'skills/production-drafting/SKILL.md', 'skills/production-drafting/resources/writer-modes.md'],
-        code: `Handle the production prose pass the prompt asks for: fresh draft,
-revision, bridge/connective tissue, alternate take, or line polish.
-Use /production-drafting to choose the mode and read only the relevant section.`,
-        lang: 'markdown'
-      },
-      draft: {
-        kicker: 'Artifact',
-        title: 'Draft artifact',
-        desc: 'Drafts live as artifacts rather than chat vapor. They can be critiqued, revised, compared, and eventually mined for style and canon.',
-        why: 'A written artifact gives reviewers a stable object. It also lets the workflow distinguish draft iterations in work/ from settled knowledge in kb/.',
-        files: ['skills/writing-artifacts/SKILL.md', 'docs/architecture.md'],
-        code: `writer owns all prose production modes. Keeping one prose worker preserves
-voice continuity better than splitting fresh drafting, bridges, and revision
-across separate agents.`,
-        lang: 'markdown'
-      },
-      review: {
-        kicker: 'Distance',
-        title: 'Critic / reader / continuity',
-        desc: 'Review splits into different lenses: critic diagnoses craft failures, reader-sim reports felt experience, and continuity-checker cross-references canon and vocabulary.',
-        why: 'The writer should not be the only judge of its own draft. Separate review contexts create adversarial distance and reduce blind spots.',
-        files: ['agents/critic.md', 'agents/reader-sim.md', 'agents/continuity-checker.md', 'skills/writing-staffing/SKILL.md'],
-        code: `critic stays separate because adversarial diagnosis benefits from fresh
-context. reader-sim stays separate because reader experience is not the same
-mode as craft critique. continuity-checker stays separate when canon search
-must be broader than the critic's provided context.`,
-        lang: 'markdown'
-      },
-      synthesis: {
-        kicker: 'Judgment',
-        title: 'Muse synthesis',
-        desc: 'Muse turns raw findings into revision guidance. It resolves conflicts between critics, protects author intent, and chooses whether the next pass is structural revision, a surgical fix, an alternate take, or line polish.',
-        why: 'Raw critique is not a revision plan. The coordinator keeps responsibility for tradeoffs instead of handing the writer a pile of incompatible notes.',
-        files: ['skills/production-drafting/SKILL.md', 'agents/muse.md'],
-        code: `When critics report back, you hold the full picture. Turn their findings into
-revision guidance grouped by impact and craft pattern. Use the brief, prior
-iterations, style references, and author's intent to make calls when findings
-conflict.`,
-        lang: 'markdown'
-      },
-      done: {
-        kicker: 'Convergence',
-        title: 'Converged?',
-        desc: 'The loop stops when critique no longer surfaces substantive new issues for the current goal. If it churns, muse returns to direction instead of endlessly polishing.',
-        why: 'This prevents infinite revision loops and keeps polish from masking a structural or author-direction problem.',
-        files: ['skills/production-drafting/SKILL.md', 'skills/creative-writing-muse/SKILL.md'],
-        code: `Decide when the draft is good enough for the current goal. When critique stops
-surfacing substantive new issues, close the loop. When revisions keep circling
-the same problem, surface the constraint for the author or orchestrator.`,
-        lang: 'markdown'
-      },
-      memory: {
-        kicker: 'Durable state',
-        title: 'Knowledge update',
-        desc: 'After chapters, decisions, or meaningful revisions settle, the chronicler updates character state, timeline, canon, decisions, vocabulary, and open issues.',
-        why: 'Long-form writing fails when memory drifts. Knowledge updates make the next session start from the actual story, not from chat residue.',
-        files: ['agents/chronicler.md', 'skills/writing-staffing/resources/knowledge.md', 'skills/fact-extraction/SKILL.md'],
-        code: `Run the chronicler after the triggering event settles (chapter finalized,
-brainstorm concluded, author decision made). Finish by reviewing whether canon,
-vocab, decisions, issues, and links all landed in the right place.`,
-        lang: 'markdown'
-      },
-      skills: {
-        kicker: 'Method layer',
-        title: 'Craft skill layer',
-        desc: 'Skills carry the reusable writing method: direction, prose craft, scene construction, critique, reader reward, staffing, context, artifacts, and intentional language.',
-        why: 'Light agent bodies survive compaction and stay focused. Fat, progressively loaded skills let several agents share the same craft discipline without duplicating prompt text.',
-        files: ['docs/architecture.md', 'skills/writing-principles/SKILL.md', 'skills/production-drafting/SKILL.md'],
-        code: `Skills carry the methodology that makes the smaller agent set work.
-
-llm-writing does not replace prose craft. It catches unchosen defaults.`,
-        lang: 'markdown'
-      },
-      why: {
-        kicker: 'Architecture',
-        title: 'Why this shape?',
-        desc: 'The package intentionally collapsed overlapping writer agents. The differentiator is not a crowd of near-duplicate roles; it is one strong coordinator, one voice-consistent writer, separate reviewers, and durable story memory.',
-        why: 'The setup matches cognitive modes: invention, production, judgment, reader experience, continuity, and knowledge extraction. Splitting by cognitive mode is more reliable than splitting by every writing task name.',
-        files: ['docs/architecture.md', 'skills/writing-staffing/SKILL.md', 'agents/writer.md'],
-        code: `The product thesis is not many near-duplicate writer agents; it is a strong
-muse, a few clean cognitive roles, durable story context, and intentional prose
-methodology.`,
-        lang: 'markdown'
-      },
-      distribution: {
-        kicker: 'Packaging',
-        title: 'cw / Mars distribution',
-        desc: 'Source skills live under skills/. The cw distribution is generated from Mars-lowered .claude output for shared skills, while a small set of cw-only/manual skills stays hand-maintained.',
-        why: 'This avoids maintaining two prompt bodies for generated skills. Mars performs harness lowering; the sync script filters what belongs in the creative-writing plugin.',
-        files: ['AGENTS.md', 'scripts/sync_cw_skills.py', 'mars.toml'],
-        code: `GENERATED  Copied from a temporary Mars consumer project's .claude/skills/.
-Mars performs the harness lowering; this script only filters the skills that
-belong in the cw distribution.`,
-        lang: 'text'
-      }
-    };
-
-    const panel = document.getElementById('panel');
-
-    async function renderCode(code, lang) {
-      if (window.codeToHtml) {
-        try { return await window.codeToHtml(code, { lang, theme: 'vitesse-dark' }); }
-        catch (_) {}
-      }
-      return `<pre class="surface-soft rounded-2xl p-4 overflow-auto text-xs"><code>${code.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</code></pre>`;
+    const DATA = {
+  "agents": {
+    "brainstormer": {
+      "name": "brainstormer",
+      "path": "agents/brainstormer.md",
+      "description": "Creative option generation for a scoped question or angle.",
+      "load": [
+        "story-planning",
+        "story-memory",
+        "intent-modeling",
+        "llm-writing"
+      ],
+      "available": [],
+      "routes": []
+    },
+    "character-sim": {
+      "name": "character-sim",
+      "path": "agents/character-sim.md",
+      "description": "In-character conversation for voice discovery and relationship testing.",
+      "load": [
+        "character-sim",
+        "writing-principles",
+        "llm-writing"
+      ],
+      "available": [
+        "story-memory"
+      ],
+      "routes": []
+    },
+    "chronicler": {
+      "name": "chronicler",
+      "path": "agents/chronicler.md",
+      "description": "Extracts factual state changes from written chapters into the kb.",
+      "load": [
+        "story-memory",
+        "llm-writing"
+      ],
+      "available": [
+        "md-validation",
+        "shared-dao"
+      ],
+      "routes": []
+    },
+    "continuity-checker": {
+      "name": "continuity-checker",
+      "path": "agents/continuity-checker.md",
+      "description": "Cross-references content against established canon for contradictions.",
+      "load": [
+        "story-review",
+        "md-validation",
+        "shared-dao",
+        "story-memory"
+      ],
+      "available": [],
+      "routes": []
+    },
+    "critic": {
+      "name": "critic",
+      "path": "agents/critic.md",
+      "description": "Deep adversarial critique of a draft, one focus area at a time.",
+      "load": [
+        "story-review",
+        "writing-principles",
+        "llm-writing",
+        "story-memory"
+      ],
+      "available": [],
+      "routes": []
+    },
+    "muse": {
+      "name": "muse",
+      "path": "agents/muse.md",
+      "description": "Author-facing creative partner for all story work, from planning through production handoff.",
+      "load": [
+        "story-planning",
+        "writing-principles",
+        "intent-modeling",
+        "llm-writing",
+        "writing-staffing"
+      ],
+      "available": [
+        "creative-writing-modes",
+        "creative-writing-craft",
+        "story-review",
+        "story-memory",
+        "reader-sim",
+        "character-sim",
+        "shared-dao",
+        "grill-with-docs"
+      ],
+      "routes": [
+        "brainstormer",
+        "character-sim",
+        "outliner",
+        "style-creator",
+        "writer",
+        "critic",
+        "reader-sim",
+        "continuity-checker",
+        "chronicler"
+      ]
+    },
+    "outliner": {
+      "name": "outliner",
+      "path": "agents/outliner.md",
+      "description": "Sequences confirmed direction into arc, chapter, and beat-level outlines.",
+      "load": [
+        "story-planning",
+        "story-memory",
+        "md-validation"
+      ],
+      "available": [],
+      "routes": []
+    },
+    "reader-sim": {
+      "name": "reader-sim",
+      "path": "agents/reader-sim.md",
+      "description": "Experiential reader response from a caller-specified reader persona; pass the persona, draft, and knowledge boundary.",
+      "load": [
+        "reader-sim",
+        "writing-principles",
+        "llm-writing"
+      ],
+      "available": [],
+      "routes": []
+    },
+    "style-creator": {
+      "name": "style-creator",
+      "path": "agents/style-creator.md",
+      "description": "Analyzes prose samples to produce style reference files for the project's voice.",
+      "load": [
+        "creative-writing-craft",
+        "story-memory",
+        "writing-principles",
+        "llm-writing"
+      ],
+      "available": [],
+      "routes": []
+    },
+    "writer": {
+      "name": "writer",
+      "path": "agents/writer.md",
+      "description": "Production prose from scene briefs, revision notes, and style references; uses progressive mode guidance for fresh drafts, revisions, bridges, alternate takes, and line polish.",
+      "load": [
+        "creative-writing-modes",
+        "creative-writing-craft",
+        "writing-principles",
+        "story-memory",
+        "llm-writing"
+      ],
+      "available": [],
+      "routes": []
     }
-
-    window.showDetail = async function showDetail(key) {
-      const d = DETAIL[key];
-      if (!d) return;
-      document.getElementById('panel-kicker').textContent = d.kicker;
-      document.getElementById('panel-title').textContent = d.title;
-      document.getElementById('panel-desc').textContent = d.desc;
-      document.getElementById('panel-why').innerHTML = `<strong>Why it exists:</strong> ${d.why}`;
-      document.getElementById('panel-files').innerHTML = d.files.map(f => `<a href="../${f}" target="_blank" rel="noreferrer"><code class="inline">${f}</code></a>`).join('');
-      document.getElementById('panel-code').innerHTML = await renderCode(d.code, d.lang);
-      panel.classList.add('panel-open');
+  },
+  "skills": {
+    "character-sim": {
+      "name": "character-sim",
+      "path": "skills/character-sim/SKILL.md",
+      "description": "Speak as a specified character from their current knowledge, voice, and emotional state. Use for skill-only workflows that need in-character conversation, voice discovery, or relationship pressure tests.",
+      "type": "mode-shift",
+      "modelInvocable": true,
+      "loads": [],
+      "resources": [],
+      "source": "source"
+    },
+    "creative-writing-craft": {
+      "name": "creative-writing-craft",
+      "path": "skills/creative-writing-craft/SKILL.md",
+      "description": "Craft references for writing fiction well: prose, scenes, style, voice, and genre/page-level technique. Load when a writer, critic, or muse needs how-to-write guidance rather than a production mode.",
+      "type": "reference",
+      "modelInvocable": true,
+      "loads": [
+        "writing-principles",
+        "creative-writing-modes"
+      ],
+      "resources": [
+        "resources/genre/fantasy.md",
+        "resources/genre/horror.md",
+        "resources/genre/litfic.md",
+        "resources/genre/mystery.md",
+        "resources/genre/romance.md",
+        "resources/genre/thriller.md",
+        "resources/prose-writing.md",
+        "resources/scene-construction.md",
+        "resources/style-analysis.md"
+      ],
+      "source": "source"
+    },
+    "creative-writing-modes": {
+      "name": "creative-writing-modes",
+      "path": "skills/creative-writing-modes/SKILL.md",
+      "description": "Creative-writing addendum to /llm-writing. Load when putting prose on the page: draft, revise, bridge, vary, or polish.",
+      "type": "mode-shift",
+      "modelInvocable": true,
+      "loads": [
+        "llm-writing",
+        "creative-writing-craft",
+        "story-planning",
+        "story-review",
+        "reader-sim"
+      ],
+      "resources": [
+        "resources/prose-modes.md"
+      ],
+      "source": "source"
+    },
+    "creative-writing-muse": {
+      "name": "creative-writing-muse",
+      "path": "skills/creative-writing-muse/SKILL.md",
+      "description": "Single-agent muse mode for creative writing sessions.",
+      "type": "mode-shift",
+      "modelInvocable": false,
+      "loads": [
+        "story-planning",
+        "creative-writing-modes",
+        "creative-writing-craft",
+        "llm-writing",
+        "story-review",
+        "reader-sim",
+        "writing-principles",
+        "character-sim",
+        "shared-dao",
+        "story-memory",
+        "kb-management",
+        "project-setup"
+      ],
+      "resources": [],
+      "source": "source"
+    },
+    "reader-sim": {
+      "name": "reader-sim",
+      "path": "skills/reader-sim/SKILL.md",
+      "description": "Read as a specified first-time reader persona and report the felt experience. Use for skill-only workflows when a draft needs persona-bound reader-response signal instead of analytical critique.",
+      "type": "mode-shift",
+      "modelInvocable": true,
+      "loads": [],
+      "resources": [],
+      "source": "source"
+    },
+    "story-memory": {
+      "name": "story-memory",
+      "path": "skills/story-memory/SKILL.md",
+      "description": "Durable story knowledge: context selection, fact extraction, wiki/reference writing, artifact layout, and issue tracking. Load when preserving or retrieving project memory.",
+      "type": "reference",
+      "modelInvocable": true,
+      "loads": [],
+      "resources": [
+        "resources/fact-extraction.md",
+        "resources/story-context.md",
+        "resources/story-reference-writing/reference-modes.md",
+        "resources/story-reference-writing.md",
+        "resources/writing-artifacts.md",
+        "resources/writing-issues.md"
+      ],
+      "source": "source"
+    },
+    "story-planning": {
+      "name": "story-planning",
+      "path": "skills/story-planning/SKILL.md",
+      "description": "Planning work before prose: creative direction, story-planning, outlining, and story architecture. Load when deciding what should happen or how a story should be structured.",
+      "type": "mode-shift",
+      "modelInvocable": true,
+      "loads": [],
+      "resources": [
+        "resources/brainstorming/chapter-planning.md",
+        "resources/brainstorming/character-development.md",
+        "resources/brainstorming/continuity-timeline.md",
+        "resources/brainstorming/worldbuilding.md",
+        "resources/brainstorming.md",
+        "resources/creative-direction.md",
+        "resources/story-architecture/arc-design.md",
+        "resources/story-architecture/chapter-and-scene.md",
+        "resources/story-architecture/structural-problems.md",
+        "resources/story-architecture.md"
+      ],
+      "source": "source"
+    },
+    "story-review": {
+      "name": "story-review",
+      "path": "skills/story-review/SKILL.md",
+      "description": "Review work after prose exists: craft critique, continuity review, voice review, and synthesis of reader-sim signal. Load when diagnosing a draft rather than rewriting it.",
+      "type": "mode-shift",
+      "modelInvocable": true,
+      "loads": [
+        "reader-sim"
+      ],
+      "resources": [
+        "resources/prose-critique/analyze.py",
+        "resources/prose-critique/antipatterns.md",
+        "resources/prose-critique/baseline.md",
+        "resources/prose-critique/character.md",
+        "resources/prose-critique/continuity.md",
+        "resources/prose-critique/prose.md",
+        "resources/prose-critique/structure.md",
+        "resources/prose-critique/voice.md",
+        "resources/prose-critique.md",
+        "resources/reader-sim-signal.md"
+      ],
+      "source": "source"
+    },
+    "writing-principles": {
+      "name": "writing-principles",
+      "path": "skills/writing-principles/SKILL.md",
+      "description": "What fiction readers want (four reward channels) and the specific ways LLM training damages each one. Load when drafting prose, critiquing, or diagnosing why a passage feels flat.",
+      "type": "principle",
+      "modelInvocable": null,
+      "loads": [
+        "llm-writing",
+        "creative-writing-craft"
+      ],
+      "resources": [
+        "resources/citations.md",
+        "resources/failure-modes.md"
+      ],
+      "source": "source"
+    },
+    "writing-staffing": {
+      "name": "writing-staffing",
+      "path": "skills/writing-staffing/SKILL.md",
+      "description": "Team composition for writing workflows. Use when composing critic panels, staffing writer/critic loops, knowledge updates, or brainstorm fan-outs.",
+      "type": "reference",
+      "modelInvocable": false,
+      "loads": [
+        "character-sim",
+        "reader-sim"
+      ],
+      "resources": [
+        "resources/builders.md",
+        "resources/character-sim.md",
+        "resources/critics.md",
+        "resources/critique-synthesis.md",
+        "resources/knowledge.md",
+        "resources/reader-sim.md",
+        "resources/researchers.md"
+      ],
+      "source": "source"
+    },
+    "grill-with-docs": {
+      "name": "grill-with-docs",
+      "path": "cw/skills/grill-with-docs/SKILL.md",
+      "description": "Use when challenging a plan \u2014 grills the author against documented decisions and sharpens terminology.",
+      "type": "cw/manual-or-dependency",
+      "modelInvocable": null,
+      "loads": [
+        "intent-modeling",
+        "shared-dao",
+        "kb-management"
+      ],
+      "resources": [],
+      "source": "cw"
+    },
+    "intent-modeling": {
+      "name": "intent-modeling",
+      "path": "cw/skills/intent-modeling/SKILL.md",
+      "description": "Use before acting on human instructions: separate what they said from what they meant.",
+      "type": "cw/manual-or-dependency",
+      "modelInvocable": null,
+      "loads": [],
+      "resources": [],
+      "source": "cw"
+    },
+    "kb-management": {
+      "name": "kb-management",
+      "path": "cw/skills/kb-management/SKILL.md",
+      "description": "Maintaining the story knowledge base: creating, updating, and organizing wiki-style reference pages in kb/. Use when capturing finalized story knowledge, updating character profiles, documenting world mechanics, or restructuring the kb.",
+      "type": "cw/manual-or-dependency",
+      "modelInvocable": null,
+      "loads": [],
+      "resources": [],
+      "source": "cw"
+    },
+    "llm-writing": {
+      "name": "llm-writing",
+      "path": "cw/skills/llm-writing/SKILL.md",
+      "description": "Load before writing or revising human-facing text. Choose words deliberately, ground the piece in the reader's context, and remove default LLM phrasing before the final draft.",
+      "type": "cw/manual-or-dependency",
+      "modelInvocable": null,
+      "loads": [
+        "intent-modeling"
+      ],
+      "resources": [],
+      "source": "cw"
+    },
+    "project-setup": {
+      "name": "project-setup",
+      "path": "cw/skills/project-setup/SKILL.md",
+      "description": "One-time project setup for creative writing. Interviews you about your project, collects writing samples, proposes kb structure, and creates CLAUDE.md with project conventions.",
+      "type": "cw/manual-or-dependency",
+      "modelInvocable": null,
+      "loads": [
+        "creative-writing-craft"
+      ],
+      "resources": [],
+      "source": "cw"
+    },
+    "shared-dao": {
+      "name": "shared-dao",
+      "path": "cw/skills/shared-dao/SKILL.md",
+      "description": "Shared vocabulary for creative writing projects. Load when establishing canonical story terms, resolving ambiguous names, checking term consistency, or deciding where vocabulary belongs in kb/.",
+      "type": "cw/manual-or-dependency",
+      "modelInvocable": null,
+      "loads": [],
+      "resources": [],
+      "source": "cw"
     }
-
-    window.closePanel = function closePanel() { panel.classList.remove('panel-open'); }
+  }
+};
+    let mode = 'agents';
+    let selected = 'muse';
+    let scale = 1, tx = 0, ty = 0, dragging = false, sx = 0, sy = 0;
 
     mermaid.initialize({
       startOnLoad: false,
       securityLevel: 'loose',
       theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default',
-      flowchart: { curve: 'basis', nodeSpacing: 42, rankSpacing: 68, htmlLabels: true }
+      flowchart: { curve: 'basis', nodeSpacing: 34, rankSpacing: 58, htmlLabels: true }
     });
 
-    mermaid.run({ querySelector: '.mermaid' }).then(() => showDetail('muse'));
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const id = s => String(s).replace(/[^a-zA-Z0-9_]/g, '_');
+    const relLink = f => `<a href="../${esc(f)}" target="_blank" rel="noreferrer"><code class="inline">${esc(f)}</code></a>`;
 
-    let scale = 1, tx = 0, ty = 0, dragging = false, sx = 0, sy = 0;
+    function setMode(next) {
+      mode = next;
+      selected = Object.keys(DATA[mode])[0];
+      if (mode === 'agents' && DATA.agents.muse) selected = 'muse';
+      if (mode === 'skills' && DATA.skills['creative-writing-modes']) selected = 'creative-writing-modes';
+      document.getElementById('agents-tab').classList.toggle('selected', mode === 'agents');
+      document.getElementById('skills-tab').classList.toggle('selected', mode === 'skills');
+      document.getElementById('filter').value = '';
+      renderAll();
+    }
+
+    function renderList() {
+      const q = document.getElementById('filter').value.toLowerCase();
+      const items = Object.values(DATA[mode]).filter(x => x.name.toLowerCase().includes(q));
+      document.getElementById('list').innerHTML = items.map(x => `
+        <button class="pill ${x.name === selected ? 'selected' : ''} rounded-2xl px-3 py-2 text-left" onclick="selectItem('${esc(x.name)}')">
+          <div class="font-medium">${esc(x.name)}</div>
+          <div class="mt-1 line-clamp-2 text-xs muted">${esc(x.description || x.type || '')}</div>
+        </button>
+      `).join('');
+    }
+
+    window.selectItem = function(name) { selected = name; renderAll(); }
+
+    function node(label, cls) { return `${id(label)}["${label}"]:::$
+{cls}`; }
+
+    function agentGraph(agent) {
+      const lines = ['flowchart LR'];
+      lines.push(`  ${id(agent.name)}["@${agent.name}"]:::agent`);
+      for (const s of agent.load) {
+        lines.push(`  ${id(s)}["/${s}"]:::skill`);
+        lines.push(`  ${id(agent.name)} -->|loads| ${id(s)}`);
+      }
+      for (const s of agent.available) {
+        lines.push(`  ${id(s)}["/${s}"]:::skill`);
+        lines.push(`  ${id(agent.name)} -. available .-> ${id(s)}`);
+      }
+      for (const a of agent.routes) {
+        lines.push(`  ${id(a)}["@${a}"]:::routed`);
+        lines.push(`  ${id(agent.name)} -->|routes| ${id(a)}`);
+      }
+      if (!agent.load.length && !agent.available.length && !agent.routes.length) lines.push(`  none["no declared links"]:::meta`);
+      addClasses(lines);
+      addClicks(lines, [...agent.load, ...agent.available], agent.routes);
+      return lines.join('\n');
+    }
+
+    function skillGraph(skill) {
+      const lines = ['flowchart LR'];
+      lines.push(`  ${id(skill.name)}["/${skill.name}"]:::skill`);
+      for (const s of skill.loads) {
+        lines.push(`  ${id(s)}["/${s}"]:::skill2`);
+        lines.push(`  ${id(skill.name)} -->|loads| ${id(s)}`);
+      }
+      const groups = {};
+      for (const r of skill.resources) {
+        const group = r.includes('/') ? r.split('/').slice(0, -1).join('/') : 'resources';
+        (groups[group] ||= []).push(r);
+      }
+      let i = 0;
+      for (const [group, resources] of Object.entries(groups)) {
+        const gid = `res_${i++}`;
+        lines.push(`  ${gid}["${group}<br/>${resources.length} file${resources.length === 1 ? '' : 's'}"]:::resource`);
+        lines.push(`  ${id(skill.name)} -. resources .-> ${gid}`);
+      }
+      if (!skill.loads.length && !skill.resources.length) lines.push(`  none["no declared loads or resources"]:::meta`);
+      addClasses(lines);
+      addClicks(lines, skill.loads, []);
+      return lines.join('\n');
+    }
+
+    function addClasses(lines) {
+      lines.push('  classDef agent stroke:#536b57,stroke-width:3px,fill:transparent;');
+      lines.push('  classDef routed stroke:#536b57,stroke-width:2px,fill:transparent;');
+      lines.push('  classDef skill stroke:#5c6f91,stroke-width:2px,fill:transparent;');
+      lines.push('  classDef skill2 stroke:#5c6f91,stroke-width:2px,fill:transparent;');
+      lines.push('  classDef resource stroke:#9b5d3d,stroke-width:2px,stroke-dasharray: 5 5,fill:transparent;');
+      lines.push('  classDef meta stroke:#8b7a6a,stroke-width:2px,stroke-dasharray: 5 5,fill:transparent;');
+    }
+
+    function addClicks(lines, skills, agents) {
+      for (const s of skills) if (DATA.skills[s]) lines.push(`  click ${id(s)} selectSkill "${s}"`);
+      for (const a of agents) if (DATA.agents[a]) lines.push(`  click ${id(a)} selectAgent "${a}"`);
+    }
+
+    window.selectSkill = function(name) { mode = 'skills'; selected = name; document.getElementById('agents-tab').classList.remove('selected'); document.getElementById('skills-tab').classList.add('selected'); renderAll(); }
+    window.selectAgent = function(name) { mode = 'agents'; selected = name; document.getElementById('skills-tab').classList.remove('selected'); document.getElementById('agents-tab').classList.add('selected'); renderAll(); }
+
+    async function renderDiagram() {
+      const graph = mode === 'agents' ? agentGraph(DATA.agents[selected]) : skillGraph(DATA.skills[selected]);
+      const el = document.getElementById('diagram');
+      el.innerHTML = '';
+      const { svg } = await mermaid.render('graph-' + mode + '-' + id(selected) + '-' + Date.now(), graph);
+      el.innerHTML = svg;
+      resetView();
+      document.getElementById('diagram-title').textContent = mode === 'agents' ? 'Agent dependency graph' : 'Skill dependency graph';
+      document.getElementById('diagram-subtitle').textContent = mode === 'agents'
+        ? 'Solid edges are loaded skills; dashed edges are available/on-demand skills; green edges are routed agents.'
+        : 'Solid edges are loaded skills; dashed edges are internal resource groups.';
+    }
+
+    function section(title, items, formatter = x => esc(x)) {
+      return `<section><h3 class="mb-2 text-sm font-semibold uppercase tracking-[0.16em] muted">${title}</h3>${items.length ? `<div class="flex flex-wrap gap-2">${items.map(formatter).join('')}</div>` : '<p class="text-sm muted">None declared.</p>'}</section>`;
+    }
+    const skillPill = s => `<button class="pill rounded-full px-3 py-1 text-sm" onclick="selectSkill('${esc(s)}')">/${esc(s)}</button>`;
+    const agentPill = a => `<button class="pill rounded-full px-3 py-1 text-sm" onclick="selectAgent('${esc(a)}')">@${esc(a)}</button>`;
+    const resourcePill = (r, base) => `<span class="pill rounded-full px-3 py-1 text-sm"><code>${esc(r)}</code></span>`;
+
+    function renderDetail() {
+      const item = DATA[mode][selected];
+      document.getElementById('detail-kicker').textContent = mode === 'agents' ? 'Agent' : 'Skill';
+      document.getElementById('detail-title').textContent = mode === 'agents' ? '@' + item.name : '/' + item.name;
+      document.getElementById('detail-desc').textContent = item.description || '';
+      const meta = [];
+      if (mode === 'skills') {
+        if (item.type) meta.push(`<span class="pill rounded-full px-2 py-1">type: ${esc(item.type)}</span>`);
+        if (item.modelInvocable !== null) meta.push(`<span class="pill rounded-full px-2 py-1">model-invocable: ${esc(item.modelInvocable)}</span>`);
+        meta.push(`<span class="pill rounded-full px-2 py-1">source: ${esc(item.source)}</span>`);
+      }
+      document.getElementById('detail-meta').innerHTML = meta.join('');
+      document.getElementById('detail-source').innerHTML = relLink(item.path);
+      if (mode === 'agents') {
+        document.getElementById('detail-sections').innerHTML = [
+          section('Loaded skills', item.load, skillPill),
+          section('Available skills', item.available, skillPill),
+          section('Routed agents', item.routes, agentPill),
+        ].join('');
+      } else {
+        document.getElementById('detail-sections').innerHTML = [
+          section('Loaded skills', item.loads, skillPill),
+          section('Internal resources', item.resources, r => resourcePill(r)),
+        ].join('');
+      }
+    }
+
+    function renderAll() { renderList(); renderDetail(); renderDiagram(); }
+
     const stage = document.getElementById('stage');
     const viewport = document.getElementById('viewport');
     const apply = () => { stage.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; };
     window.resetView = function resetView() { scale = 1; tx = 0; ty = 0; apply(); };
-
-    viewport.addEventListener('wheel', e => {
-      e.preventDefault();
-      scale = Math.min(2.5, Math.max(0.45, scale - e.deltaY * 0.001));
-      apply();
-    }, { passive: false });
-
-    viewport.addEventListener('pointerdown', e => {
-      if (e.target.closest('.node')) return;
-      dragging = true; sx = e.clientX - tx; sy = e.clientY - ty; viewport.setPointerCapture(e.pointerId);
-    });
-    viewport.addEventListener('pointermove', e => {
-      if (!dragging) return;
-      tx = e.clientX - sx; ty = e.clientY - sy; apply();
-    });
+    viewport.addEventListener('wheel', e => { e.preventDefault(); scale = Math.min(2.5, Math.max(0.45, scale - e.deltaY * 0.001)); apply(); }, { passive: false });
+    viewport.addEventListener('pointerdown', e => { if (e.target.closest('.node')) return; dragging = true; sx = e.clientX - tx; sy = e.clientY - ty; viewport.setPointerCapture(e.pointerId); });
+    viewport.addEventListener('pointermove', e => { if (!dragging) return; tx = e.clientX - sx; ty = e.clientY - sy; apply(); });
     window.addEventListener('pointerup', () => { dragging = false; });
 
-    const pts = new Map();
-    let pinchDist = 0;
-    viewport.addEventListener('pointerdown', e => pts.set(e.pointerId, e));
-    viewport.addEventListener('pointermove', e => {
-      if (!pts.has(e.pointerId)) return;
-      pts.set(e.pointerId, e);
-      if (pts.size === 2) {
-        const [a, b] = [...pts.values()];
-        const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
-        if (pinchDist) { scale = Math.min(2.5, Math.max(0.45, scale * (d / pinchDist))); apply(); }
-        pinchDist = d;
-      }
-    });
-    window.addEventListener('pointerup', e => { pts.delete(e.pointerId); pinchDist = 0; });
+    renderAll();
   </script>
 </body>
 </html>

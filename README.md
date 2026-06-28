@@ -66,7 +66,7 @@ First, add the skills to claude.ai — pick one:
   ![Adding the marketplace in claude.ai: the plugins icon and + in the sidebar, with the repository entered in the Add marketplace dialog](docs/images/claudeai-add-marketplace.png)
 - **Upload the files:** download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest), then **Customize** → **Skills** → **"+"** → **Upload skill** for each one.
 
-Then start a chat, turn on **`creative-writing-muse`**, and describe what you want to write — it leads from there. Adding skills one at a time instead? Start with **creative-writing-muse**, **writing-principles**, **prose-writing**, **scene-construction**, and **prose-critique**.
+Then start a chat, turn on **`creative-writing-muse`**, and describe what you want to write — it leads from there. Adding skills one at a time instead? Start with **creative-writing-muse**, **writing-principles**, **creative-writing-craft**, **creative-writing-craft**, and **story-review**.
 
 > Want to build the files yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate them in `zips/`.
 
@@ -107,7 +107,7 @@ flowchart TB
 
 **Explore:** Fan out brainstormers for creative variety. Spawn character-sims to discover voices. Use outliners to shape structure once a direction is chosen.
 
-**Draft & Revise:** Muse runs the write/critique/revise loop: writer produces drafts, revisions, bridges, and alternate takes; critics evaluate across the four reward channels (transportation, aesthetic, social simulation, flow). Reader-sim gives experiential signal on pivotal scenes.
+**Draft & Revise:** Muse routes prose work to writer: fresh drafts, revisions, bridges, alternate takes, and polish. Critics evaluate across the four reward channels (transportation, aesthetic, social simulation, flow). Reader-sim gives experiential signal on pivotal scenes.
 
 **Knowledge:** Chronicler extracts facts from completed chapters into the kb. Style-creator captures voice patterns from prose samples. The kb grows as the project evolves, giving every future agent accurate context.
 
@@ -115,7 +115,7 @@ flowchart TB
 
 | Agent | Role |
 |---|---|
-| **muse** | Author-facing creative partner for all story work, from brainstorming through production handoff |
+| **muse** | Author-facing creative partner for all story work, from planning through production handoff |
 | **writer** | Production prose from briefs, critique notes, and style references; uses progressive mode guidance for drafts, revisions, bridges, alternate takes, and line polish |
 | **critic** | Deep adversarial critique of a draft, one focus area at a time |
 | **reader-sim** | Experiential reader response to a draft, moment by moment |
@@ -130,25 +130,19 @@ flowchart TB
 
 | Skill | Purpose |
 |---|---|
-| **creative-direction** | Shape what the story wants to be before producing pages |
-| **production-drafting** | Turning confirmed creative direction into finished drafts |
-| **writing-principles** | Four reward channels, AI failure modes, reader psychology |
-| **prose-writing** | Prose-level immersion patterns: psychic distance, rhythm, sensory grounding |
-| **scene-construction** | Beat-level craft: scene entry, dialogue, pacing, transitions |
-| **prose-critique** | Adversarial reading methodology with focus areas |
-| **character-voice** | Speaking as a character for voice discovery and dialogue exploration |
-| **reader-experience** | Experiential reading through the four reward channels |
-| **fact-extraction** | Extracting factual state changes from chapters into the kb |
-| **style-analysis** | How to analyze prose and produce style reference files |
-| **story-architecture** | Arc shape, tension curves, structural analysis |
-| **story-context** | Context scoping for writing handoffs |
-| **shared-dao** | Shared vocabulary: canonical story terms, aliases, and ambiguity resolution |
-| **brainstorming** | Exploratory capture with source tagging |
-| **writing-artifacts** | File conventions: kb/ for durable knowledge, work/ for scratch |
-| **writing-issues** | Tracking writing issues that persist beyond a single critique |
-| **writing-staffing** | Team composition for writing workflows |
-| **project-setup** | One-time guided setup: creates CLAUDE.md and kb structure |
+| **creative-writing-modes** | Pen-on-paper prose modes: fresh draft, revision, bridge, alternate take, and line polish |
+| **creative-writing-craft** | Craft references for prose, scenes, style, voice, and genre/page-level technique |
+| **writing-principles** | Reader reward channels, AI failure modes, and fiction-specific taste discipline |
+| **story-planning** | Direction, brainstorming, outlining, and story architecture before pages exist |
+| **story-review** | Draft critique, continuity/voice review, and synthesis of reader-response signal |
+| **story-memory** | Context, fact extraction, reference writing, artifact layout, and persistent issue tracking |
+| **reader-sim** | Skill-only first-time reader simulation from a specified persona |
+| **character-sim** | Skill-only in-character conversation for voice and relationship testing |
+| **creative-writing-muse** | Single-agent muse mode for environments without spawned agents |
+| **writing-staffing** | Agent composition for writing workflows |
 | **llm-writing** | Intentional language discipline: catches unchosen LLM defaults while preserving deliberate ambiguity, omission, repetition, and rhythm |
+| **shared-dao** | Shared vocabulary: canonical story terms, aliases, and ambiguity resolution |
+| **project-setup** | One-time guided setup: creates CLAUDE.md and kb structure |
 
 ## Project Layout
 

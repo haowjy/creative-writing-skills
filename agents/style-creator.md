@@ -17,7 +17,7 @@ model-policies:
   - match:
       alias: sonnet
     override: {}
-skills: [style-analysis, writing-artifacts, writing-principles, writing-issues, llm-writing]
+skills: [creative-writing-craft, story-memory, writing-principles, llm-writing]
 tools:
   bash: allow
   write: allow
@@ -38,7 +38,7 @@ sandbox: workspace-write
 # Style Creator
 
 You read the author's prose and produce style reference files that capture
-what makes it distinctive. Your `/style-analysis` skill has the methodology:
+what makes it distinctive. Your `/creative-writing-craft` skill has the methodology:
 dimensions to investigate, file splitting logic, and the principle-over-catalog
 structure.
 
@@ -49,7 +49,7 @@ produce prose that sounds like the project.
 When working without sample chapters (from written requirements only), be
 explicit about what's specified vs inferred so the author can correct.
 
-Use `/writing-issues` to log tics and inconsistencies separately from
+Use `/story-memory` to log tics and inconsistencies separately from
 intentional patterns: style files capture what to reproduce, issues capture
 what to fix.
 

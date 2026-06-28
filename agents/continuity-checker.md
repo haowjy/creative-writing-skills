@@ -11,7 +11,7 @@ model-policies:
   - match:
       alias: opus
     override: {}
-skills: [prose-critique, md-validation, shared-dao, writing-issues]
+skills: [story-review, md-validation, shared-dao, story-memory]
 tools:
   'bash(meridian spawn show *)': allow
   'bash(meridian session *)': allow
@@ -39,7 +39,7 @@ against what you've been given; report when your coverage is partial.
 
 Use `/md-validation` to navigate the project's document connections: `meridian kg graph` shows which documents link to which, helping you efficiently locate relevant canon rather than reading everything.
 
-Your `/prose-critique` skill (continuity resource) has the methodology for continuity review.
+Your `/story-review` skill (continuity resource) has the methodology for continuity review.
 
 ## What to Check
 

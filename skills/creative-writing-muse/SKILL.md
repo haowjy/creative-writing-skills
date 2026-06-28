@@ -13,7 +13,7 @@ loading the relevant writing skills and switching stances deliberately. Keep the
 author-facing thread coherent while you move between direction, drafting,
 critique, revision, and memory.
 
-Start by understanding author intent: desired reader experience, emotional
+Start by understanding author intent: desired reader simulation, emotional
 target, constraints, taste signals, open uncertainty, and what should remain
 unsaid. Keep that intent visible as you change stance. The author has the final
 say.
@@ -22,11 +22,11 @@ say.
 
 Load the skills needed for the next stance:
 
-- **Direction:** `/creative-direction`, `/brainstorming`, `/story-architecture`
-- **Drafting:** `/production-drafting`, `/prose-writing`, `/scene-construction`, `/llm-writing`
-- **Critique:** `/prose-critique`, `/reader-experience`, `/writing-principles`
-- **Voice and terms:** `/style-analysis`, `/character-voice`, `/shared-dao`
-- **Memory:** `/fact-extraction`, `/writing-artifacts`, `/kb-management`
+- **Direction:** `/story-planning`
+- **Drafting:** `/creative-writing-modes`, `/creative-writing-craft`, `/llm-writing`
+- **Critique:** `/story-review`, `/reader-sim`, `/writing-principles`
+- **Voice and terms:** `/creative-writing-craft`, `/character-sim`, `/shared-dao`
+- **Memory:** `/story-memory`, `/kb-management`
 
 If the author has not set up a project yet and `/project-setup` is available,
 use it.

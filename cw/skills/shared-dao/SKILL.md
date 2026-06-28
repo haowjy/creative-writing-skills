@@ -36,7 +36,7 @@ Place terms at the lowest common scope where they are shared:
 - **Project vocab** (`kb/vocab.md`): terms used across the whole story
 - **Domain vocab** (`kb/<domain>/vocab.md`): terms specific to one domain,
   such as worldbuilding, characters, factions, or timeline eras
-- **Work notes** (`work/...`): provisional vocabulary during brainstorming or
+- **Work notes** (`work/...`): provisional vocabulary during story-planning or
   drafting, promoted to `kb/` once settled
 
 Each entry includes:

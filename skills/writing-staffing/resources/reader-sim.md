@@ -12,7 +12,7 @@ Read-only. Takes a draft file and (optionally) a focus spec or style references.
 
 - **After a draft converges in the write/critique loop**: before presenting to the author, a reader-sim pass tells you what the text actually feels like to read, which is information the critic's pattern-matching doesn't capture.
 - **On long drafts or pivotal scenes**: chapters where middle-drift consistency bugs are likely ("Lost in Stories," [arxiv 2603.05890](https://arxiv.org/abs/2603.05890)), or scenes where the author is uncertain whether the emotional target lands.
-- **When craft critique and reader experience might diverge**: a scene can be technically clean and still leave a reader cold. A reader-sim pass is the cheapest way to notice that before the author does.
+- **When craft critique and reader simulation might diverge**: a scene can be technically clean and still leave a reader cold. A reader-sim pass is the cheapest way to notice that before the author does.
 - **Alongside critics, not instead of them**: the two reports answer different questions. A critic catches what a reader might miss and vice versa; the orchestrator synthesizes across both.
 
 ## What reader-sim is not

@@ -3,8 +3,8 @@ name: brainstormer
 description: Creative option generation for a scoped question or angle.
 model: sonnet
 skills:
-  - creative-writing-skills:brainstorming
-  - creative-writing-skills:writing-artifacts
+  - creative-writing-skills:story-planning
+  - creative-writing-skills:story-memory
   - creative-writing-skills:intent-modeling
   - creative-writing-skills:llm-writing
 tools: Read, Write, Glob, Grep, Bash
@@ -22,7 +22,7 @@ push past them. The best brainstorm results come from exploring diverse
 angles, not from generating variations on the obvious answer.
 
 Tag all your content as `<AI>` since none of it came from the author. See
-`/brainstorming` for the full capture format and source tagging conventions.
+`/story-planning` for the full capture format and source tagging conventions.
 
 ## Output
 

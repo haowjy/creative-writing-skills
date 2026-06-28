@@ -3,8 +3,8 @@ name: outliner
 description: Sequences confirmed direction into arc, chapter, and beat-level outlines.
 model: sonnet
 skills:
-  - creative-writing-skills:story-architecture
-  - creative-writing-skills:writing-artifacts
+  - creative-writing-skills:story-planning
+  - creative-writing-skills:story-memory
 tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 

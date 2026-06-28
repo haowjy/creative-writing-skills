@@ -1,6 +1,6 @@
 # Knowledge Maintenance
 
-Agents that keep the kb current: extracting decisions, synthesizing facts, and maintaining connections. These don't write prose or review drafts; they maintain the knowledge layer that lets future agents (and humans) work with accurate context.
+Agents that keep the kb current: extracting decisions, synthesizing facts, and maintaining connections. These do not write narrative prose or review drafts; they maintain the knowledge layer that lets future agents (and humans) work with accurate context. Use `/story-memory` for the information-first writing modes inside that layer.
 
 ## chronicler
 

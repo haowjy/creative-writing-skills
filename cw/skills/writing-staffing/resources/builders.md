@@ -34,7 +34,7 @@ Use the outliner when:
 
 The outliner's output feeds the writer: a good outline is the single biggest input to draft quality. Skip outlining and the writer makes structural choices that the critic will flag and the revision will have to redo.
 
-The outliner does not brainstorm. For wide-open exploration and option generation before a direction is chosen, spawn the brainstormer instead. Outlining starts after the author has committed to a direction; brainstorming is how they get there.
+The outliner does not brainstorm. For wide-open exploration and option generation before a direction is chosen, spawn the brainstormer instead. Outlining starts after the author has committed to a direction; story-planning is how they get there.
 
 ## brainstormer
 

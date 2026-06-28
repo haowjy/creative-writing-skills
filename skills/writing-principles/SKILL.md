@@ -82,9 +82,9 @@ documented interruption pattern and keep it consistent.
 
 ## Applying the Principles
 
-The craft skills carry the execution: `/prose-writing` for immersion patterns
+The craft skills carry the execution: `/creative-writing-craft` for immersion patterns
 (psychic distance, rhythm, sensory grounding, interiority) and
-`/scene-construction` for how scenes work on the page (entry, dialogue,
+`/creative-writing-craft` for how scenes work on the page (entry, dialogue,
 pacing, transitions).
 
 This skill's job is the diagnostic layer. When a passage feels off and you

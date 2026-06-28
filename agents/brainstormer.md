@@ -16,7 +16,7 @@ model-policies:
   - match:
       alias: gpt
     override: {}
-skills: [brainstorming, writing-artifacts, intent-modeling, llm-writing]
+skills: [story-planning, story-memory, intent-modeling, llm-writing]
 tools:
   bash: allow
   write: allow
@@ -45,7 +45,7 @@ options.
 
 ## What you produce
 
-A structured brainstorm report tagged for the author's review. Use the `brainstorming` skill for capture conventions: source tagging, vagueness preservation, minimal capture.
+A structured brainstorm report tagged for the author's review. Use the `story-planning` skill for capture conventions: source tagging, vagueness preservation, minimal capture.
 
 Present options and tradeoffs rather than single recommendations. Each option should be concrete enough to evaluate and distinct enough to be a genuinely different choice. Include open questions the author should consider before committing: a good question reframes the decision space.
 
