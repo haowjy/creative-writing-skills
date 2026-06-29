@@ -15,7 +15,7 @@ model-policies:
     override: {}
 skills:
   load: [story-planning, writing-principles, intent-modeling, llm-writing, writing-staffing]
-  available: [creative-writing-modes, creative-writing-craft, story-review, story-memory, reader-sim, character-sim, shared-dao, grill-with-docs]
+  available: [creative-writing-modes, creative-writing-craft, story-review, story-memory, reader-sim, character-sim, shared-dao, grill-with-docs, interactive-artifact]
 subagents: [brainstormer, character-sim, continuity-checker, critic, editor, kb-lead, outliner, reader-sim, style-creator, web-researcher, writer]
 tools:
   'bash(meridian spawn *)': allow
