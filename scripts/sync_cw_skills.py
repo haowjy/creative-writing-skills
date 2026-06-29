@@ -51,6 +51,7 @@ GENERATED = [
     "writing-principles",
     # dependency skills intentionally bundled into cw
     "intent-modeling",
+    "interactive-artifact",
     "llm-writing",
 ]
 
