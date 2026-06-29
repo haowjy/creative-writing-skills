@@ -9,27 +9,26 @@ description: >
 
 Every spawn starts with a context decision. Get it wrong and the writer invents facts that contradict established canon, the critic misses a continuity issue because it never saw the relevant chapter, or the brainstormer explores territory the author already rejected.
 
-The spawn mechanics (`-f`, `--from`, spawn commands) are documented in `meridian spawn -h`. This skill teaches the judgment: what story context to pass, when to materialize decisions before spawning, and how much is enough.
+This skill teaches the judgment: what story context to pass, when to materialize decisions before handoff, and how much is enough.
 
 ## Choose the Right Mechanism
 
-Three options, each for a different situation. `meridian spawn -h` has the
-command syntax; this section covers when to use which.
+Three options, each for a different situation:
 
-**Files (`-f`)**: when context already exists as files: chapters, outlines,
+**Attach files**: when context already exists as files — chapters, outlines,
 wiki pages, style files, character state. Default choice because files are
 stable, inspectable, and survive compaction. Scope tightly: pass the files
 that matter, not everything.
 
-**Session history (`--from`)**: when the agent needs decisions, reasoning, or
-brainstorm context that hasn't been written down yet. Session history captures
+**Pass conversation history**: when the agent needs decisions, reasoning, or
+brainstorm context that hasn't been written down yet. History captures
 the *why* behind choices: why the author picked this angle, what they rejected.
 
 **Materialize first**: when context is too important to be ephemeral. If
 critical story decisions only live in conversation, write them to the kb or
-work directory *before* spawning. If a writer could accidentally contradict
-this context, materialize it. If it's supplementary background, `--from` is
-fine.
+work directory *before* handoff. If a worker could accidentally contradict
+this context, materialize it. If it's supplementary background, conversation
+history is fine.
 
 ## What Each Agent Needs
 
@@ -49,11 +48,11 @@ Tell the writer where to find more if it needs to explore, for example: "the ful
 
 Critics need the draft plus enough context to judge it against:
 
-- **The draft being reviewed**: always via `-f`
+- **The draft being reviewed**: always as attached files
 - **The scene brief or outline**: so the critic can check whether the draft achieved what it was supposed to
 - **Relevant style files**: so voice critics can compare against the target voice
 - **Prior chapters for continuity**: so continuity critics can cross-reference facts
-- **Author intent**: via `--from` if the orchestrator discussed direction with the author, or via materialized decision notes
+- **Author intent**: via conversation history if the orchestrator discussed direction with the author, or via materialized decision notes
 - **Known issues**: tracked issues if the critic should watch for specific recurring problems
 - **Vocab**: relevant `vocab.md` files when consistency of naming, aliases, deprecated terms, or invented language matters
 
@@ -70,19 +69,19 @@ Don't pass too much: brainstormers that receive the full project history tend to
 
 ### Knowledge Maintenance
 
-- **Chronicler**: the chapter(s) to extract facts from via `-f`, plus existing canon files, timeline entries, and vocab files for deduplication
+- **Fact extraction**: the chapter(s) to extract from as attached files, plus existing canon files, timeline entries, and vocab files for deduplication
 - **Continuity-checker**: the draft plus canon, timeline, character state, and vocab files for any domains the draft touches
-- **Base @kb-maintainer**: the kb directory structure: it needs to see everything to rebuild connections
-- **Base @kb-writer**: `--from` pointing at the conversation to mine, plus kb paths for where to write findings
+- **KB restructuring**: the full kb directory structure — needs to see everything to rebuild connections
+- **Session mining**: conversation history from the session to mine, plus kb paths for where to write findings
 
 ## Cross-Phase Context
 
-Carry forward what a previous phase learned using `--from <prior-spawn-id>`.
-The writer benefits from seeing what the prior draft pass
-discovered when revising. The critic benefits from seeing prior critique rounds.
+Carry forward what a previous phase learned. The writer benefits from seeing
+what the prior draft pass discovered when revising. The critic benefits from
+seeing prior critique rounds.
 
-Combine mechanisms when phases produce artifacts: `--from` for reasoning
-context, `-f` for the files the prior phase created.
+Combine mechanisms when phases produce artifacts: conversation history for
+reasoning context, attached files for the artifacts the prior phase created.
 
 ## Vocab Handoffs
 

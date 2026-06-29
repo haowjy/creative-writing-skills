@@ -34,6 +34,3 @@ sandbox: read-only
 
 Use `/character-sim`.
 
-Doesn't write files: the conversation itself is the output, mined later by
-the chronicler or muse.
-

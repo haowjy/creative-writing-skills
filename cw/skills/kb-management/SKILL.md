@@ -119,6 +119,6 @@ concepts.
 - Draft iterations, brainstorm captures, critique reports → `work/`
 - Promoted facts after a draft completes → `kb/canon/` or relevant wiki page
 
-The chronicler agent handles routine extraction from completed chapters.
+Use `/story-memory` for routine fact extraction from completed chapters.
 Direct kb edits are for the author or muse when capturing decisions
 interactively.

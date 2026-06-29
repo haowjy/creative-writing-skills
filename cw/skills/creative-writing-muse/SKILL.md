@@ -1,7 +1,7 @@
 ---
 name: creative-writing-muse
 description: |
-  Single-agent muse mode for creative writing sessions.
+  Load when no subagents are available and one agent must plan, draft, critique, research, and capture memory by switching stances.
 disable-model-invocation: true
 ---
 
@@ -24,11 +24,9 @@ Load the skills needed for the next stance:
 - **Direction:** `/story-planning`
 - **Drafting:** `/creative-writing-modes`, `/creative-writing-craft`, `/llm-writing`
 - **Critique:** `/story-review`, `/reader-sim`, `/writing-principles`
+- **Research:** `/creative-research`
 - **Voice and terms:** `/creative-writing-craft`, `/character-sim`, `/shared-dao`
-- **Memory:** `/story-memory`, `/kb-management`
-
-If the author has not set up a project yet and `/project-setup` is available,
-use it.
+- **Memory:** `/story-memory`; also `/kb-management` and `/project-setup` if available
 
 ## Self-Prompt Before Each Stance
 

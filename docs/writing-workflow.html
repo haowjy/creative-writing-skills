@@ -22,7 +22,7 @@
         --shadow: 0 18px 60px rgba(0, 0, 0, .45);
       }
     }
-    body { background: var(--bg); color: var(--text); }
+    body { background: var(--bg); color: var(--text); display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
     .surface { background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
     .surface-soft { background: var(--surface-2); border: 1px solid var(--line); }
     .muted { color: var(--muted); }
@@ -34,59 +34,68 @@
     #stage { transform-origin: 0 0; transition: transform .05s linear; }
     #diagram svg { max-width: none !important; height: auto; }
     #diagram .node { cursor: pointer; }
+    #diagram .cluster rect { fill: transparent !important; stroke: var(--line) !important; stroke-width: 1px !important; rx: 14px; ry: 14px; }
+    #diagram .cluster-label, #diagram .cluster .nodeLabel { color: var(--muted) !important; fill: var(--muted) !important; }
+    #diagram .cluster-label text, #diagram .cluster-label span { fill: var(--muted) !important; color: var(--muted) !important; }
+    .sidebar { flex-shrink: 0; overflow: hidden; transition: width .22s ease; }
+    .sidebar > .sidebar-inner { height: 100%; overflow-y: auto; }
+    .sidebar.left { width: 300px; }
+    .sidebar.right { width: 360px; }
+    .sidebar.collapsed { width: 0; }
   </style>
 </head>
-<body class="min-h-screen">
-  <header class="mx-auto max-w-7xl px-4 py-6 md:px-8 md:py-8">
-    <div class="surface rounded-3xl p-6 md:p-8">
-      <p class="text-sm uppercase tracking-[0.25em] muted">Creative Writing Skills</p>
-      <h1 class="mt-2 text-3xl font-semibold tracking-tight md:text-5xl">Writing workflow dependencies</h1>
-      <p class="mt-4 max-w-3xl text-base leading-7 muted md:text-lg">
-        Choose an agent to see the skills it loads and the agents it can route to.
-        Choose a skill to see the skills it loads and the resources it exposes.
-        Human entry points and agent-used methods are both shown, but not treated as the same thing.
-      </p>
-    </div>
-  </header>
-
-  <main class="mx-auto grid max-w-7xl gap-5 px-4 pb-10 md:grid-cols-[300px_minmax(0,1fr)_360px] md:px-8">
-    <nav class="surface rounded-3xl p-4 md:max-h-[78vh] md:overflow-auto">
-      <div class="grid grid-cols-2 gap-2 text-sm">
-        <button id="agents-tab" class="pill selected rounded-2xl px-3 py-2" onclick="setMode('agents')">Agents</button>
-        <button id="skills-tab" class="pill rounded-2xl px-3 py-2" onclick="setMode('skills')">Skills</button>
-      </div>
-      <div class="mt-4">
-        <input id="filter" class="w-full rounded-2xl border bg-transparent px-3 py-2 text-sm" style="border-color: var(--line)" placeholder="Filter…" oninput="renderList()" />
-      </div>
-      <div id="list" class="mt-4 flex flex-col gap-2"></div>
-    </nav>
-
-    <section class="surface overflow-hidden rounded-3xl">
-      <div class="flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3 md:px-5" style="border-color: var(--line)">
-        <div>
-          <h2 id="diagram-title" class="font-semibold">Agent dependency graph</h2>
-          <p id="diagram-subtitle" class="text-sm muted">Solid edges are loaded skills; dashed edges are available/on-demand skills; green edges are routed agents.</p>
+<body>
+  <main class="flex flex-1 min-h-0 gap-4 p-4 md:px-8">
+    <div id="nav-panel" class="sidebar left collapsed surface rounded-3xl">
+      <div class="sidebar-inner" style="width: 300px;">
+        <div class="flex items-center justify-between p-4 border-b" style="border-color: var(--line)">
+          <span class="text-sm font-semibold uppercase tracking-[0.16em] muted">Browse</span>
+          <button class="pill rounded-full w-8 h-8 flex items-center justify-center" onclick="closeNav()">&times;</button>
         </div>
-        <button class="pill rounded-full px-3 py-2 text-sm" onclick="resetView()">Reset view</button>
+        <div class="p-4">
+          <input id="filter" class="w-full rounded-2xl border bg-transparent px-3 py-2 text-sm" style="border-color: var(--line)" placeholder="Filter…" oninput="renderList()" />
+          <div id="list" class="mt-4 flex flex-col gap-2"></div>
+        </div>
       </div>
-      <div id="viewport" class="diagram-wrap h-[70vh] min-h-[560px] overflow-hidden p-6">
+    </div>
+
+    <section class="flex-1 min-w-0 surface overflow-hidden rounded-3xl flex flex-col">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b px-4 py-3 md:px-5" style="border-color: var(--line)">
+        <div class="flex items-center gap-3">
+          <button class="pill rounded-full px-3 py-2 text-sm" onclick="toggleNav()">☰</button>
+          <h2 id="diagram-title" class="font-semibold">Writing workflow</h2>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="pill rounded-full px-3 py-2 text-sm" onclick="toggleDetail()">Details</button>
+          <button class="pill rounded-full px-3 py-2 text-sm" onclick="resetView()">Reset</button>
+        </div>
+      </div>
+      <p id="diagram-subtitle" class="px-5 py-1.5 text-xs muted border-b" style="border-color: var(--line)"></p>
+      <div id="viewport" class="diagram-wrap flex-1 min-h-0 overflow-hidden p-6">
         <div id="stage" class="inline-block min-w-[920px]">
           <div id="diagram"></div>
         </div>
       </div>
     </section>
 
-    <aside class="surface rounded-3xl p-5 md:max-h-[78vh] md:overflow-auto">
-      <p id="detail-kicker" class="text-xs uppercase tracking-[0.22em] muted">Selected</p>
-      <h2 id="detail-title" class="mt-1 text-2xl font-semibold"></h2>
-      <p id="detail-desc" class="mt-3 leading-7 muted"></p>
-      <div id="detail-meta" class="mt-4 flex flex-wrap gap-2 text-xs"></div>
-      <div class="mt-5">
-        <h3 class="mb-2 text-sm font-semibold uppercase tracking-[0.16em] muted">Source</h3>
-        <div id="detail-source" class="text-sm"></div>
+    <div id="detail-panel" class="sidebar right collapsed surface rounded-3xl">
+      <div class="sidebar-inner" style="width: 360px;">
+        <div class="flex items-center justify-between p-5 border-b" style="border-color: var(--line)">
+          <p id="detail-kicker" class="text-xs uppercase tracking-[0.22em] muted">Selected</p>
+          <button class="pill rounded-full w-8 h-8 flex items-center justify-center" onclick="closeDetail()">&times;</button>
+        </div>
+        <div class="p-5">
+          <h2 id="detail-title" class="text-2xl font-semibold"></h2>
+          <p id="detail-desc" class="mt-3 leading-7 muted"></p>
+          <div id="detail-meta" class="mt-4 flex flex-wrap gap-2 text-xs"></div>
+          <div class="mt-5">
+            <h3 class="mb-2 text-sm font-semibold uppercase tracking-[0.16em] muted">Source</h3>
+            <div id="detail-source" class="text-sm"></div>
+          </div>
+          <div id="detail-sections" class="mt-5 space-y-5"></div>
+        </div>
       </div>
-      <div id="detail-sections" class="mt-5 space-y-5"></div>
-    </aside>
+    </div>
   </main>
 
   <script>
@@ -116,20 +125,6 @@
       ],
       "available": [
         "story-memory"
-      ],
-      "routes": []
-    },
-    "chronicler": {
-      "name": "chronicler",
-      "path": "agents/chronicler.md",
-      "description": "Extracts factual state changes from written chapters into the kb.",
-      "load": [
-        "story-memory",
-        "llm-writing"
-      ],
-      "available": [
-        "md-validation",
-        "shared-dao"
       ],
       "routes": []
     },
@@ -197,14 +192,15 @@
       "routes": [
         "brainstormer",
         "character-sim",
-        "outliner",
-        "style-creator",
-        "writer",
+        "continuity-checker",
         "critic",
         "editor",
+        "kb-lead",
+        "outliner",
         "reader-sim",
-        "continuity-checker",
-        "chronicler"
+        "style-creator",
+        "web-researcher",
+        "writer"
       ]
     },
     "outliner": {
@@ -237,9 +233,20 @@
       "description": "Analyzes prose samples to produce style reference files for the project's voice.",
       "load": [
         "creative-writing-craft",
-        "story-memory",
         "writing-principles",
         "llm-writing"
+      ],
+      "available": [
+        "story-memory"
+      ],
+      "routes": []
+    },
+    "web-researcher": {
+      "name": "web-researcher",
+      "path": "agents/web-researcher.md",
+      "description": "Web research for fiction — primary sources, reference works, cultural detail, domain expertise, and community discussion.",
+      "load": [
+        "creative-research"
       ],
       "available": [],
       "routes": []
@@ -265,6 +272,16 @@
       "path": "skills/character-sim/SKILL.md",
       "description": "Speak as a specified character from their current knowledge, voice, and emotional state. Use for skill-only workflows that need in-character conversation, voice discovery, or relationship pressure tests.",
       "type": "mode-shift",
+      "modelInvocable": true,
+      "loads": [],
+      "resources": [],
+      "source": "source"
+    },
+    "creative-research": {
+      "name": "creative-research",
+      "path": "skills/creative-research/SKILL.md",
+      "description": "Load when a story needs factual grounding the writer doesn't have: historical detail, cultural texture, domain accuracy, or how other authors handled similar material. Pass the question and story context; returns a sourced report the writer can draw from.",
+      "type": "reference",
       "modelInvocable": true,
       "loads": [],
       "resources": [],
@@ -314,7 +331,7 @@
     "creative-writing-muse": {
       "name": "creative-writing-muse",
       "path": "skills/creative-writing-muse/SKILL.md",
-      "description": "Single-agent muse mode for creative writing sessions.",
+      "description": "Load when no subagents are available and one agent must plan, draft, critique, research, and capture memory by switching stances.",
       "type": "mode-shift",
       "modelInvocable": false,
       "loads": [
@@ -325,6 +342,7 @@
         "story-review",
         "reader-sim",
         "writing-principles",
+        "creative-research",
         "character-sim",
         "shared-dao",
         "story-memory",
@@ -347,7 +365,7 @@
     "story-memory": {
       "name": "story-memory",
       "path": "skills/story-memory/SKILL.md",
-      "description": "Durable story knowledge: context selection, fact extraction, wiki/reference writing, artifact layout, and issue tracking. Load when preserving or retrieving project memory.",
+      "description": "Creative-writing domain knowledge for durable story state. Load when preserving or retrieving project memory — fact extraction, context scoping, reference writing, artifact layout, and issue tracking. If you are @kb-lead, load this for the fiction-specific categories and conventions your general methodology doesn't cover.",
       "type": "reference",
       "modelInvocable": true,
       "loads": [],
@@ -418,7 +436,8 @@
       "modelInvocable": null,
       "loads": [
         "llm-writing",
-        "creative-writing-craft"
+        "creative-writing-craft",
+        "creative-writing-modes"
       ],
       "resources": [
         "resources/citations.md",
@@ -429,28 +448,21 @@
     "writing-staffing": {
       "name": "writing-staffing",
       "path": "skills/writing-staffing/SKILL.md",
-      "description": "Team composition for writing workflows. Use when composing critic panels, staffing writer/critic loops, knowledge updates, or brainstorm fan-outs.",
+      "description": "Dispatch reference for composing writing teams. Teaches which extra skills to attach via --skills, which resources to reference in spawn prompts, and when to fan out. Load when staffing a workflow.",
       "type": "reference",
       "modelInvocable": false,
       "loads": [
-        "character-sim",
-        "reader-sim"
+        "creative-writing-modes",
+        "creative-writing-craft",
+        "story-review"
       ],
-      "resources": [
-        "resources/builders.md",
-        "resources/character-sim.md",
-        "resources/critics.md",
-        "resources/critique-synthesis.md",
-        "resources/knowledge.md",
-        "resources/reader-sim.md",
-        "resources/researchers.md"
-      ],
+      "resources": [],
       "source": "source"
     },
     "grill-with-docs": {
       "name": "grill-with-docs",
       "path": "cw/skills/grill-with-docs/SKILL.md",
-      "description": "Use when challenging a plan \u2014 grills the author against documented decisions and sharpens terminology.",
+      "description": "Use when challenging a plan — grills the author against documented decisions and sharpens terminology.",
       "type": "cw/manual-or-dependency",
       "modelInvocable": null,
       "loads": [
@@ -461,10 +473,10 @@
       "resources": [],
       "source": "cw"
     },
-    "intent-modeling": {
-      "name": "intent-modeling",
-      "path": "cw/skills/intent-modeling/SKILL.md",
-      "description": "Use before acting on human instructions: separate what they said from what they meant.",
+    "shared-dao": {
+      "name": "shared-dao",
+      "path": "cw/skills/shared-dao/SKILL.md",
+      "description": "Shared vocabulary for creative writing projects. Load when establishing canonical story terms, resolving ambiguous names, checking term consistency, or deciding where vocabulary belongs in kb/.",
       "type": "cw/manual-or-dependency",
       "modelInvocable": null,
       "loads": [],
@@ -477,18 +489,8 @@
       "description": "Maintaining the story knowledge base: creating, updating, and organizing wiki-style reference pages in kb/. Use when capturing finalized story knowledge, updating character profiles, documenting world mechanics, or restructuring the kb.",
       "type": "cw/manual-or-dependency",
       "modelInvocable": null,
-      "loads": [],
-      "resources": [],
-      "source": "cw"
-    },
-    "llm-writing": {
-      "name": "llm-writing",
-      "path": "cw/skills/llm-writing/SKILL.md",
-      "description": "Load before writing or revising human-facing text. Choose words deliberately, ground the piece in the reader's context, and remove default LLM phrasing before the final draft.",
-      "type": "cw/manual-or-dependency",
-      "modelInvocable": null,
       "loads": [
-        "intent-modeling"
+        "story-memory"
       ],
       "resources": [],
       "source": "cw"
@@ -504,20 +506,10 @@
       ],
       "resources": [],
       "source": "cw"
-    },
-    "shared-dao": {
-      "name": "shared-dao",
-      "path": "cw/skills/shared-dao/SKILL.md",
-      "description": "Shared vocabulary for creative writing projects. Load when establishing canonical story terms, resolving ambiguous names, checking term consistency, or deciding where vocabulary belongs in kb/.",
-      "type": "cw/manual-or-dependency",
-      "modelInvocable": null,
-      "loads": [],
-      "resources": [],
-      "source": "cw"
     }
   }
 };
-    let mode = 'agents';
+    let mode = 'system';
     let selected = 'muse';
     let scale = 1, tx = 0, ty = 0, dragging = false, sx = 0, sy = 0;
 
@@ -532,75 +524,169 @@
     const id = s => String(s).replace(/[^a-zA-Z0-9_]/g, '_');
     const relLink = f => `<a href="../${esc(f)}" target="_blank" rel="noreferrer"><code class="inline">${esc(f)}</code></a>`;
 
-    function setMode(next) {
-      mode = next;
-      selected = Object.keys(DATA[mode])[0];
-      if (mode === 'agents' && DATA.agents.muse) selected = 'muse';
-      if (mode === 'skills' && DATA.skills['creative-writing-modes']) selected = 'creative-writing-modes';
-      document.getElementById('agents-tab').classList.toggle('selected', mode === 'agents');
-      document.getElementById('skills-tab').classList.toggle('selected', mode === 'skills');
-      document.getElementById('filter').value = '';
-      renderAll();
+    const agentNodeId = name => `agent_${id(name)}`;
+    const skillNodeId = name => `skill_${id(name)}`;
+    const resourceNodeId = name => `resource_${id(name)}`;
+    const EDGE_STYLES = {
+      loaded: 'stroke:#5c6f91,stroke-width:2px',
+      available: 'stroke:#5c6f91,stroke-width:2px,stroke-dasharray: 5 5',
+      routed: 'stroke:#536b57,stroke-width:2.5px',
+      skillLoad: 'stroke:#8b7a6a,stroke-width:1.5px,stroke-dasharray: 3 5'
+    };
+    const ROLE_GROUPS = [
+      { id: 'production', label: 'Production', agents: ['writer', 'editor'] },
+      { id: 'critique', label: 'Critique', agents: ['critic', 'reader-sim', 'continuity-checker'] },
+      { id: 'planning', label: 'Planning', agents: ['brainstormer', 'outliner'] },
+      { id: 'support', label: 'Support', agents: ['style-creator', 'web-researcher', 'character-sim'] },
+      { id: 'memory', label: 'Memory', agents: ['kb-lead'] }
+    ];
+
+    function unique(items) { return [...new Set(items.filter(Boolean))]; }
+
+    function allAgentNames() {
+      const names = new Set(Object.keys(DATA.agents));
+      for (const agent of Object.values(DATA.agents)) for (const route of agent.routes || []) names.add(route);
+      return [...names];
+    }
+
+    function allSkillNames() {
+      const names = new Set(Object.keys(DATA.skills));
+      for (const agent of Object.values(DATA.agents)) {
+        for (const skill of agent.load || []) names.add(skill);
+        for (const skill of agent.available || []) names.add(skill);
+      }
+      for (const skill of Object.values(DATA.skills)) for (const loaded of skill.loads || []) names.add(loaded);
+      return [...names];
+    }
+
+    function agentInfo(name) {
+      return DATA.agents[name] || {
+        name,
+        path: null,
+        description: 'Referenced routed agent from a dependency package; detailed metadata is not embedded in this page.',
+        load: [],
+        available: [],
+        routes: [],
+        external: true
+      };
+    }
+
+    function skillInfo(name) {
+      return DATA.skills[name] || {
+        name,
+        path: null,
+        description: 'Referenced skill from a dependency package; detailed metadata is not embedded in this page.',
+        type: 'dependency reference',
+        modelInvocable: null,
+        loads: [],
+        resources: [],
+        source: 'referenced'
+      };
+    }
+
+    function sortedAgentItems() {
+      return allAgentNames().map(agentInfo).sort((a, b) => (a.name === 'muse' ? -1 : b.name === 'muse' ? 1 : a.name.localeCompare(b.name)));
+    }
+
+    function sortedSkillItems() {
+      return allSkillNames().map(skillInfo).sort((a, b) => a.name.localeCompare(b.name));
     }
 
     function renderList() {
       const q = document.getElementById('filter').value.toLowerCase();
-      const items = Object.values(DATA[mode]).filter(x => x.name.toLowerCase().includes(q));
-      document.getElementById('list').innerHTML = items.map(x => `
-        <button class="pill ${x.name === selected ? 'selected' : ''} rounded-2xl px-3 py-2 text-left" onclick="selectItem('${esc(x.name)}')">
-          <div class="font-medium">${esc(x.name)}</div>
-          <div class="mt-1 line-clamp-2 text-xs muted">${esc(x.description || x.type || '')}</div>
+      const list = document.getElementById('list');
+      const agents = sortedAgentItems().filter(x => x.name.toLowerCase().includes(q));
+      const skills = sortedSkillItems().filter(x => x.name.toLowerCase().includes(q));
+      list.innerHTML = `
+        <div class="text-xs font-semibold uppercase tracking-[0.16em] muted">Agents</div>
+        ${agents.map(x => listButton(x, 'agent')).join('')}
+        <div class="pt-3 text-xs font-semibold uppercase tracking-[0.16em] muted">Skills</div>
+        ${skills.map(x => listButton(x, 'skill')).join('')}
+      `;
+    }
+
+    function listButton(item, type) {
+      const active = item.name === selected && ((type === 'agent' && mode === 'agents') || (type === 'skill' && mode === 'skills'));
+      const action = type === 'agent' ? `selectAgent('${esc(item.name)}')` : `selectSkill('${esc(item.name)}')`;
+      const prefix = type === 'agent' ? '@' : '/';
+      return `
+        <button class="pill ${active ? 'selected' : ''} rounded-2xl px-3 py-2 text-left" onclick="${action}">
+          <div class="font-medium">${prefix}${esc(item.name)}</div>
+          <div class="mt-1 line-clamp-2 text-xs muted">${esc(item.description || item.type || '')}</div>
         </button>
-      `).join('');
+      `;
     }
 
-    window.selectItem = function(name) { selected = name; renderAll(); }
-
-    function node(label, cls) { return `${id(label)}["${label}"]:::$
-{cls}`; }
-
-    function agentGraph(agent) {
-      const lines = ['flowchart LR'];
-      lines.push(`  ${id(agent.name)}["@${agent.name}"]:::agent`);
-      for (const s of agent.load) {
-        lines.push(`  ${id(s)}["/${s}"]:::skill`);
-        lines.push(`  ${id(agent.name)} -->|loads| ${id(s)}`);
-      }
-      for (const s of agent.available) {
-        lines.push(`  ${id(s)}["/${s}"]:::skill`);
-        lines.push(`  ${id(agent.name)} -. available .-> ${id(s)}`);
-      }
-      for (const a of agent.routes) {
-        lines.push(`  ${id(a)}["@${a}"]:::routed`);
-        lines.push(`  ${id(agent.name)} -->|routes| ${id(a)}`);
-      }
-      if (!agent.load.length && !agent.available.length && !agent.routes.length) lines.push(`  none["no declared links"]:::meta`);
-      addClasses(lines);
-      addClicks(lines, [...agent.load, ...agent.available], agent.routes);
-      return lines.join('\n');
+    function addEdge(lines, edgeStyles, from, edge, to, style) {
+      lines.push(`  ${from} ${edge} ${to}`);
+      edgeStyles.push(style);
     }
 
-    function skillGraph(skill) {
-      const lines = ['flowchart LR'];
-      lines.push(`  ${id(skill.name)}["/${skill.name}"]:::skill`);
-      for (const s of skill.loads) {
-        lines.push(`  ${id(s)}["/${s}"]:::skill2`);
-        lines.push(`  ${id(skill.name)} -->|loads| ${id(s)}`);
+    function addEdgeStyles(lines, edgeStyles) {
+      edgeStyles.forEach((style, index) => lines.push(`  linkStyle ${index} ${style};`));
+    }
+
+    function addSkillGroup(lines, groupId, label, skills, direction) {
+      if (!skills.length) return;
+      lines.push(`  subgraph ${groupId}["${label}"]`);
+      lines.push(`    direction ${direction}`);
+      for (const skill of skills) lines.push(`    ${skillNodeId(skill)}["/${skill}"]:::skill`);
+      lines.push('  end');
+    }
+
+    function addAgentGroup(lines, groupId, label, agents, direction) {
+      if (!agents.length) return;
+      lines.push(`    subgraph ${groupId}["${label}"]`);
+      lines.push(`      direction ${direction}`);
+      for (const agent of agents) lines.push(`      ${agentNodeId(agent)}["@${agent}"]:::routed`);
+      lines.push('    end');
+    }
+
+    function fullSystemGraph() {
+      const edgeStyles = [];
+      const lines = ['flowchart TB'];
+      const agentNames = allAgentNames();
+      const skillNames = allSkillNames();
+      const assignedAgents = new Set(['muse']);
+      const root = agentNodeId('muse');
+
+      lines.push(`  ${root}["@muse"]:::agent`);
+      lines.push('  subgraph routed_agents["Routed agents"]');
+      lines.push('    direction LR');
+      for (const group of ROLE_GROUPS) {
+        const members = group.agents.filter(name => agentNames.includes(name) && !assignedAgents.has(name));
+        members.forEach(name => assignedAgents.add(name));
+        addAgentGroup(lines, `role_${group.id}`, group.label, members, 'TB');
       }
-      const groups = {};
-      for (const r of skill.resources) {
-        const group = r.includes('/') ? r.split('/').slice(0, -1).join('/') : 'resources';
-        (groups[group] ||= []).push(r);
+      const remaining = agentNames.filter(name => !assignedAgents.has(name));
+      addAgentGroup(lines, 'role_other', 'Other', remaining, 'TB');
+      lines.push('  end');
+
+      const agentSkillCounts = {};
+      for (const agent of Object.values(DATA.agents)) {
+        for (const skill of unique([...(agent.load || []), ...(agent.available || [])])) agentSkillCounts[skill] = (agentSkillCounts[skill] || 0) + 1;
       }
-      let i = 0;
-      for (const [group, resources] of Object.entries(groups)) {
-        const gid = `res_${i++}`;
-        lines.push(`  ${gid}["${group}<br/>${resources.length} file${resources.length === 1 ? '' : 's'}"]:::resource`);
-        lines.push(`  ${id(skill.name)} -. resources .-> ${gid}`);
+      const sharedSkills = skillNames.filter(skill => (agentSkillCounts[skill] || 0) > 1).sort();
+      const singleSkills = skillNames.filter(skill => !sharedSkills.includes(skill)).sort();
+      lines.push('  subgraph skills_layer["Skills"]');
+      lines.push('    direction TB');
+      addSkillGroup(lines, 'shared_skills', 'Shared infrastructure', sharedSkills, 'LR');
+      addSkillGroup(lines, 'single_skills', 'Single-agent or indirect', singleSkills, 'LR');
+      lines.push('  end');
+
+      const muse = DATA.agents.muse;
+      if (muse) for (const route of unique(muse.routes || [])) addEdge(lines, edgeStyles, root, '-->|routes|', agentNodeId(route), EDGE_STYLES.routed);
+      for (const agent of Object.values(DATA.agents)) {
+        const source = agentNodeId(agent.name);
+        for (const skill of unique(agent.load || [])) addEdge(lines, edgeStyles, source, '-->|loads|', skillNodeId(skill), EDGE_STYLES.loaded);
+        for (const skill of unique(agent.available || [])) addEdge(lines, edgeStyles, source, '-. available .->', skillNodeId(skill), EDGE_STYLES.available);
       }
-      if (!skill.loads.length && !skill.resources.length) lines.push(`  none["no declared loads or resources"]:::meta`);
+      for (const skill of Object.values(DATA.skills)) {
+        for (const loaded of unique(skill.loads || [])) addEdge(lines, edgeStyles, skillNodeId(skill.name), '-. loads .->', skillNodeId(loaded), EDGE_STYLES.skillLoad);
+      }
+
       addClasses(lines);
-      addClicks(lines, skill.loads, []);
+      addEdgeStyles(lines, edgeStyles);
       return lines.join('\n');
     }
 
@@ -613,25 +699,45 @@
       lines.push('  classDef meta stroke:#8b7a6a,stroke-width:2px,stroke-dasharray: 5 5,fill:transparent;');
     }
 
-    function addClicks(lines, skills, agents) {
-      for (const s of skills) if (DATA.skills[s]) lines.push(`  click ${id(s)} selectSkill "${s}"`);
-      for (const a of agents) if (DATA.agents[a]) lines.push(`  click ${id(a)} selectAgent "${a}"`);
+    function clickTargetForNode(node) {
+      const nodeId = node.getAttribute('id') || '';
+      const isAgent = node.classList.contains('agent') || node.classList.contains('routed');
+      const isSkill = node.classList.contains('skill') || node.classList.contains('skill2');
+      const names = isAgent ? allAgentNames() : isSkill ? allSkillNames() : [];
+      for (const name of names) {
+        const graphId = isAgent ? agentNodeId(name) : skillNodeId(name);
+        if (nodeId.includes(`flowchart-${graphId}-`)) return { type: isAgent ? 'agent' : 'skill', name };
+      }
+      return null;
     }
 
-    window.selectSkill = function(name) { mode = 'skills'; selected = name; document.getElementById('agents-tab').classList.remove('selected'); document.getElementById('skills-tab').classList.add('selected'); renderAll(); }
-    window.selectAgent = function(name) { mode = 'agents'; selected = name; document.getElementById('skills-tab').classList.remove('selected'); document.getElementById('agents-tab').classList.add('selected'); renderAll(); }
+    window.selectSkill = function(name) { mode = 'skills'; selected = name; renderList(); renderDetail(); openDetail(); }
+    window.selectAgent = function(name) { mode = 'agents'; selected = name; renderList(); renderDetail(); openDetail(); }
+
+    function bindDiagramClicks() {
+      document.querySelectorAll('#diagram .node').forEach(node => {
+        const target = clickTargetForNode(node);
+        if (!target) return;
+        node.setAttribute('title', target.name);
+        node.classList.add('clickable');
+        node.addEventListener('click', event => {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          if (target.type === 'agent') selectAgent(target.name);
+          if (target.type === 'skill') selectSkill(target.name);
+        }, true);
+      });
+    }
 
     async function renderDiagram() {
-      const graph = mode === 'agents' ? agentGraph(DATA.agents[selected]) : skillGraph(DATA.skills[selected]);
       const el = document.getElementById('diagram');
       el.innerHTML = '';
-      const { svg } = await mermaid.render('graph-' + mode + '-' + id(selected) + '-' + Date.now(), graph);
+      const { svg } = await mermaid.render('graph-system-' + Date.now(), fullSystemGraph());
       el.innerHTML = svg;
+      bindDiagramClicks();
       resetView();
-      document.getElementById('diagram-title').textContent = mode === 'agents' ? 'Agent dependency graph' : 'Skill dependency graph';
-      document.getElementById('diagram-subtitle').textContent = mode === 'agents'
-        ? 'Solid edges are loaded skills; dashed edges are available/on-demand skills; green edges are routed agents.'
-        : 'Solid edges are loaded skills; dashed edges are internal resource groups.';
+      document.getElementById('diagram-title').textContent = 'Writing workflow';
+      document.getElementById('diagram-subtitle').textContent = 'Solid = loaded, dashed = on-demand / skill-loads, green = routed agents.';
     }
 
     function section(title, items, formatter = x => esc(x)) {
@@ -642,7 +748,29 @@
     const resourcePill = (r, base) => `<span class="pill rounded-full px-3 py-1 text-sm"><code>${esc(r)}</code></span>`;
 
     function renderDetail() {
-      const item = DATA[mode][selected];
+      if (mode === 'system') {
+        const agentCount = allAgentNames().length;
+        const skillCount = allSkillNames().length;
+        document.getElementById('detail-kicker').textContent = 'Overview';
+        document.getElementById('detail-title').textContent = 'Full system';
+        document.getElementById('detail-desc').textContent = 'Muse is shown as the orchestrator, routed agents are grouped by role, and skill nodes are shared across the agents that use them.';
+        document.getElementById('detail-meta').innerHTML = [
+          `<span class="pill rounded-full px-2 py-1">${agentCount} agents</span>`,
+          `<span class="pill rounded-full px-2 py-1">${skillCount} skills</span>`
+        ].join('');
+        document.getElementById('detail-source').innerHTML = '<span class="text-sm muted">Generated from embedded dependency metadata.</span>';
+        document.getElementById('detail-sections').innerHTML = [
+          section('Agent groups', ROLE_GROUPS.map(group => group.label)),
+          section('Shared skills', allSkillNames().filter(skill => {
+            let count = 0;
+            for (const agent of Object.values(DATA.agents)) if ([...(agent.load || []), ...(agent.available || [])].includes(skill)) count++;
+            return count > 1;
+          }).sort(), skillPill)
+        ].join('');
+        return;
+      }
+
+      const item = mode === 'agents' ? agentInfo(selected) : skillInfo(selected);
       document.getElementById('detail-kicker').textContent = mode === 'agents' ? 'Agent' : 'Skill';
       document.getElementById('detail-title').textContent = mode === 'agents' ? '@' + item.name : '/' + item.name;
       document.getElementById('detail-desc').textContent = item.description || '';
@@ -652,18 +780,19 @@
         if (item.modelInvocable !== null) meta.push(`<span class="pill rounded-full px-2 py-1">model-invocable: ${esc(item.modelInvocable)}</span>`);
         meta.push(`<span class="pill rounded-full px-2 py-1">source: ${esc(item.source)}</span>`);
       }
+      if (item.external) meta.push('<span class="pill rounded-full px-2 py-1">source: referenced</span>');
       document.getElementById('detail-meta').innerHTML = meta.join('');
-      document.getElementById('detail-source').innerHTML = relLink(item.path);
+      document.getElementById('detail-source').innerHTML = item.path ? relLink(item.path) : '<span class="text-sm muted">No source path embedded in this page.</span>';
       if (mode === 'agents') {
         document.getElementById('detail-sections').innerHTML = [
-          section('Loaded skills', item.load, skillPill),
-          section('Available skills', item.available, skillPill),
-          section('Routed agents', item.routes, agentPill),
+          section('Loaded skills', item.load || [], skillPill),
+          section('Available skills', item.available || [], skillPill),
+          section('Routed agents', item.routes || [], agentPill),
         ].join('');
       } else {
         document.getElementById('detail-sections').innerHTML = [
-          section('Loaded skills', item.loads, skillPill),
-          section('Internal resources', item.resources, r => resourcePill(r)),
+          section('Loaded skills', item.loads || [], skillPill),
+          section('Internal resources', item.resources || [], r => resourcePill(r)),
         ].join('');
       }
     }
@@ -678,6 +807,13 @@
     viewport.addEventListener('pointerdown', e => { if (e.target.closest('.node')) return; dragging = true; sx = e.clientX - tx; sy = e.clientY - ty; viewport.setPointerCapture(e.pointerId); });
     viewport.addEventListener('pointermove', e => { if (!dragging) return; tx = e.clientX - sx; ty = e.clientY - sy; apply(); });
     window.addEventListener('pointerup', () => { dragging = false; });
+
+    function toggleNav() { document.getElementById('nav-panel').classList.toggle('collapsed'); }
+    function openNav() { document.getElementById('nav-panel').classList.remove('collapsed'); }
+    function closeNav() { document.getElementById('nav-panel').classList.add('collapsed'); }
+    function toggleDetail() { document.getElementById('detail-panel').classList.toggle('collapsed'); }
+    function openDetail() { document.getElementById('detail-panel').classList.remove('collapsed'); }
+    function closeDetail() { document.getElementById('detail-panel').classList.add('collapsed'); }
 
     renderAll();
   </script>

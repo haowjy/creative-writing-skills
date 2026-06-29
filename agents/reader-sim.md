@@ -31,6 +31,4 @@ sandbox: read-only
 
 # Reader Simulation
 
-Use `/reader-sim`. Simulate the reader persona the caller provides, encountering the draft for the first time within the specified knowledge boundary. Read-only: report the experience, don't edit.
-
-If the caller does not specify a persona, state the assumed reader persona before reading, then continue. Do not default to universal reader reaction.
+Use `/reader-sim`.

@@ -1,17 +1,18 @@
 ---
 name: story-memory
 description: |
-  Durable story knowledge: context selection, fact extraction, wiki/reference writing, artifact layout, and issue tracking. Load when preserving or retrieving project memory.
+  Creative-writing domain knowledge for durable story state. Load when preserving or retrieving project memory — fact extraction, context scoping, reference writing, artifact layout, and issue tracking. If you are @kb-lead, load this for the fiction-specific categories and conventions your general methodology doesn't cover.
 ---
 
 # Story Memory
 
-Use this for knowledge that must survive the current pass: canon facts, context handoffs, vocab/reference material, project files, and persistent issues.
+Knowledge that must survive the current pass: canon facts, context handoffs,
+vocab/reference material, project layout, and persistent issues.
 
-Load only the resource needed:
+Load the resource needed:
 
-- `resources/story-memory.md` — what context to pass into handoffs.
-- `resources/story-memory.md` — extract durable facts from chapters or sessions.
-- `resources/story-memory.md` — wiki pages, vocab, decisions, summaries, issue logs.
-- `resources/story-memory.md` — where work and kb artifacts live.
-- `resources/story-memory.md` — persistent writing issue tracking.
+- `resources/story-context.md` — what context to pass into handoffs for writers, critics, brainstormers, and knowledge agents.
+- `resources/fact-extraction.md` — extract durable facts from chapters: character state, timeline, reveals, terminology.
+- `resources/story-reference-writing.md` — wiki pages, vocab, decisions, summaries, issue logs.
+- `resources/writing-artifacts.md` — where work and kb artifacts live.
+- `resources/writing-issues.md` — persistent writing issue tracking across chapters.

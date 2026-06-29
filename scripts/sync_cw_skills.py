@@ -40,6 +40,7 @@ CW_AGENTS = REPO / "cw" / "agents"
 GENERATED = [
     # creative-writing-skills source skills
     "character-sim",
+    "creative-research",
     "creative-writing-craft",
     "creative-writing-modes",
     "creative-writing-muse",
@@ -69,7 +70,7 @@ MANUAL = [
 CW_LEAKS = re.compile(
     r"\bmeridian spawn\b|\$?MERIDIAN_[A-Z_]+|--from\b|/meridian-spawn|/qi-layer"
     r"|/knowledge-layers|/md-validation|\.context/CONTEXT|deny_headless"
-    r"|@(?:bard|lore-keeper|explorer|web-researcher|kb-writer|kb-maintainer|session-\w+)",
+    r"|@(?:bard|lore-keeper|explorer|kb-writer|kb-maintainer|session-\w+)",
 )
 
 # Mars-only frontmatter keys (cw must use Claude vocab: name + description).
@@ -189,7 +190,7 @@ def run(apply: bool) -> int:
     for missing in sorted(classified - bundled):
         problems.append(f"{missing} is classified but missing from cw/skills/")
 
-    # 3. Lint all cw skills: Claude frontmatter, no leaks.
+    # 3. Lint all cw skills: Claude frontmatter, no leaks (SKILL.md + resources).
     for md in sorted(CW_SKILLS.glob("*/SKILL.md")):
         _, fm, _ = split_frontmatter(md.read_text())
         fm_text = "".join(fm or [])
@@ -197,6 +198,11 @@ def run(apply: bool) -> int:
             problems.append(f"{md.relative_to(REPO)}: Mars-only frontmatter key")
         if "name:" not in fm_text:
             problems.append(f"{md.relative_to(REPO)}: missing `name`")
+        m = CW_LEAKS.search(md.read_text())
+        if m:
+            problems.append(f"{md.relative_to(REPO)}: leaked Meridian vocab {m.group(0)!r}")
+    # Also lint resource files for leaks.
+    for md in sorted(CW_SKILLS.rglob("resources/*.md")):
         m = CW_LEAKS.search(md.read_text())
         if m:
             problems.append(f"{md.relative_to(REPO)}: leaked Meridian vocab {m.group(0)!r}")
@@ -214,10 +220,12 @@ def run(apply: bool) -> int:
         if m:
             problems.append(f"{md.relative_to(REPO)}: leaked Meridian vocab {m.group(0)!r}")
 
-    # 5. Lint @agent references across cw bodies.
-    for md in sorted([*CW_SKILLS.glob("*/SKILL.md"), *CW_AGENTS.glob("*.md")]):
-        for ref in set(re.findall(r"@([a-z][a-z-]+)", body_of(md))):
-            if ref not in agent_names and ref not in {"anthropic"}:
+    # 5. Lint @agent references across all cw markdown (bodies, resources, descriptions).
+    all_cw_md = sorted([*CW_SKILLS.rglob("*.md"), *CW_AGENTS.glob("*.md")])
+    for md in all_cw_md:
+        text = md.read_text()
+        for ref in set(re.findall(r"@([a-z][a-z-]+)", text)):
+            if ref not in agent_names and ref not in {"anthropic", "kb-lead"}:
                 problems.append(f"{md.relative_to(REPO)}: @{ref} does not match a cw agent")
 
     for n in notes:

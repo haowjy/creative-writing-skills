@@ -1,81 +1,99 @@
 ---
 name: writing-staffing
 description: >
-  Team composition for writing workflows: which subagents to use, how many, what focus areas to assign, and how to scale effort. Use when composing critic panels, staffing writer/critic loops, or setting up brainstorm fan-outs.
+  Dispatch reference for composing writing teams. Teaches which skills to
+  load for each subagent, which resources to reference, and when to fan out.
+  Load when staffing a workflow.
 ---
 
 # Writing Staffing
 
-Compose the right team for each writing task. The goal is coverage across
-perspectives: critics with different focus areas and brainstormers exploring
-different angles. Avoid redundant passes from the same angle.
+Each subagent has its own skill set. This skill teaches what *extra* skills
+to load and reference when dispatching work.
 
-## General Principles
+## Dispatch Reference
 
-**Delegation keeps context clean.** Each mode of work benefits from a fresh
-context window: prose production needs voice fidelity, critique needs
-adversarial distance, research needs breadth. Use a small set of subagents to
-mode-switch rather than doing everything in the main conversation.
+### `@writer`
 
-**Review convergence.** Critic loops run until convergence (no new substantive
-findings), not a fixed number of passes.
+Extra skills: `/character-sim` for voice fidelity, `/shared-dao` for
+project vocabulary.
 
-**Brainstorm diversity over brainstorm volume.** Three brainstormers exploring
-different angles beats five exploring the same angle.
+Reference: name the production mode from `/creative-writing-modes` →
+`resources/prose-modes.md` (fresh draft, revision, bridge, alternate take,
+line polish). Point to `/creative-writing-craft` →
+`resources/prose-writing.md` or `resources/scene-construction.md` when
+relevant. Include style files, character state, and continuity anchors.
 
-**Style creation and style evaluation are separate modes.** Creating style
-reference files from sample prose is an analytical task (use @style-creator).
-Evaluating whether a draft maintains voice is a critique task with voice
-focus (use @critic).
+One writer per scene — voice consistency degrades when multiple writers
+handle adjacent content.
+
+### `@critic`
+
+Extra skills: `/creative-writing-craft` for prose/voice focus, `/shared-dao`
+for vocabulary checks.
+
+Assign a focus area: structure, character, voice, prose, or continuity.
+Include style files for voice critique.
+
+Fan out with different focus areas simultaneously. Scale to stakes:
+1–2 for low-stakes, 3 for standard chapters, 4–5 for pivotal scenes with
+duplicated coverage on the critical dimension.
+
+### `@editor`
+
+Name the edit level: editorial review, developmental, line edit, copyedit,
+proofreading. Point to `/story-review` → `resources/editorial-review.md` for
+holistic pass, or the specific edit-level resource.
+
+Use when the draft needs a priority order across concerns. For depth on
+one dimension, use `@critic`.
+
+### `@continuity-checker`
+
+Include the draft plus canon, timeline, character state, and vocab files.
+More expensive than a critic with continuity focus — reads broadly. Use the
+critic for routine checks, the continuity-checker for deep validation.
+
+### `@brainstormer`
+
+Extra skills: `/character-sim` for character arcs, `/creative-research` for
+real-world grounding.
+
+Fan out on different *angles*, not the same angle. Three perspectives
+beats five instances of one.
+
+### `@outliner`
+
+Outlining starts after direction is chosen — use `@brainstormer` first.
+The outliner's output feeds the writer.
+
+### `@style-creator`
+
+Include sample chapters or existing style files. Point to
+`/creative-writing-craft` → `resources/style-analysis.md`.
+
+### `@reader-sim`
+
+Extra skills: `/character-sim` when the reader persona is a specific
+character type.
+
+Specify the reader persona and knowledge boundary (what has this reader
+already read). Include the draft.
+
+Run after the write/critique loop converges, before presenting to the
+author. A scene can be technically clean and leave a reader cold.
+
+### `@character-sim`
+
+Include character state and voice/style files. Specify the scenario or
+relationship to explore. Fan out for multi-character scenes.
+
+### `@web-researcher`
+
+Specify the question, story context, and what the story currently assumes
+so the researcher can flag contradictions.
 
 ## Effort Scaling
 
-Effort scaling applies mainly to critics: the role that fans out within a
-draft/revise cycle.
-
-- Low-stakes drafts (brainstorm captures, wiki stubs): 1-2 critics
-- Standard chapters: 3 critics with split focus areas
-- Pivotal scenes (character deaths, reveals, arc climaxes): 4-5 critics
-
-## Subagent Catalog
-
-### Writer
-
-- **@writer**: production prose from briefs, critique notes, and style files.
-  One writer handles fresh drafts, critique-driven revisions, bridge passages,
-  connective tissue, line polish, and alternate takes. Use opus for voice
-  fidelity.
-
-### Critics and Reviewers
-
-- **@critic**: adversarial prose critique. Fan out with different focus areas:
-  voice, pacing, character, continuity. Sonnet default; use opus for
-  final-pass on pivotal scenes.
-- **@continuity-checker**: specialist: checks draft against canon files.
-  Use when a scene references established facts.
-- **@reader-sim**: experiential reading. Reports what it felt like to read
-  the draft. Use for pivotal scenes or when something feels off but you can't
-  name it. Opus for nuance.
-
-### Exploration
-
-- **@brainstormer**: wide-open idea exploration. Fan out for diversity.
-- **@character-sim**: character simulation performance. Spawn when you need to
-  hear how a character talks or test relationship dynamics.
-- **@outliner**: story structure at arc/chapter/beat levels.
-- **@style-creator**: analyzes prose and produces style reference files.
-
-### Knowledge
-
-- **@chronicler**: extracts facts from chapters into the kb. Cheap (haiku)
-  and focused.
-
-## Parallelism
-
-Think about what depends on what:
-
-- Critics need a finished draft: they wait for the writer
-- Critics examine different dimensions: fan them all out simultaneously
-- Brainstormers are independent: fan them out
-- Character simulations in a multi-character scene are independent: fan out
-- Chronicler runs after a chapter is finalized, not during drafting
+Scale critic coverage to stakes. Knowledge maintenance waits until direction
+or chapters settle. Reader-sim runs after the write/critique loop converges.

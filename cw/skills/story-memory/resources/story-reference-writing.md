@@ -12,7 +12,7 @@ Load `/llm-writing` if it is not already loaded. This skill is for writing story
 support material, not narrative prose. The goal is durable, source-aware,
 information-first writing that future humans and agents can use.
 
-Read `resources/reference-modes.md` for the mode that matches the artifact:
+Pick the mode that matches the artifact:
 
 - **Fact extraction** — turn pages or sessions into durable story facts.
 - **Wiki / reference writing** — explain a story concept clearly.
