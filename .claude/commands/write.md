@@ -6,10 +6,11 @@ argument-hint: <optional-style-name>
 Use the prose-writing and scene-construction skills to write narrative fiction prose.
 
 Before writing:
-1. Check for style files in kb/styles/
-2. Read relevant style files and character profiles
+1. Check for style in kb/styles/ if it exists
+2. Read relevant style and character state (history, circumstances, current knowledge)
 3. Check for lore docs and other reference materials in kb/
 4. Apply discovered conventions while writing
+5. If the requested writing contradicts character state, write to the request and tell me. Do not update it unless I say to.
 
 $ARGUMENTS
 

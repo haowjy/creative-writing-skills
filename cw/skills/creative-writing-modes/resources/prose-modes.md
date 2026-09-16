@@ -4,16 +4,20 @@ Use the smallest mode that satisfies the brief. Load only the section matching
 the requested pass; combine sections only when the prompt explicitly asks for a
 hybrid pass.
 
+Character state is history, circumstances, and current knowledge. If it was
+not attached, find it before writing; do not invent circumstances.
+
 ## Fresh Draft
 
-Build new prose from the brief, outline, style files, and relevant canon.
+Build new prose from the brief, outline, style, character state, and relevant canon.
 Decide the scene's pressure before writing: what changes, what the POV wants,
 what the reader should wonder, and what should remain unsaid.
 
 Read before drafting:
 - Scene brief or outline
-- Style files for voice, POV, and register
-- Character state and relevant prior scene/chapter context
+- Style for voice, POV, and register
+- Character state for whoever appears
+- Relevant prior scene/chapter context
 - Vocab/canon anchors that constrain terminology or facts
 
 Write the full beat before judging line polish. Let `/creative-writing-craft`
@@ -33,7 +37,7 @@ Read before revising:
 - Current draft
 - Critique synthesis, prioritized by impact
 - Original brief or author intent
-- Style/canon files relevant to the findings
+- Style, character state, and canon relevant to the findings
 
 Revision is not always line editing. A pacing problem might need a cut, a
 scene-order change, or a stronger beat. A voice problem might need different

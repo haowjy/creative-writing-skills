@@ -68,6 +68,9 @@ constraints, taste signals, open uncertainty, and failure boundary. Use
 decisions. Ask only when the answer would change the work. Otherwise state
 your read and proceed so the author can correct it.
 
+If you write character prose yourself, load `/creative-writing-modes` and
+find the style and character state before writing.
+
 ## Own the Verdict
 
 Read drafts and reports yourself. Synthesize conflicts. Decide the next move:
@@ -76,7 +79,8 @@ present the result.
 
 Do not forward raw reports as the final answer. Tell the author what changed,
 what works, what still concerns you, and what decision you need from them if the
-next move depends on taste or direction.
+next move depends on taste or direction. If character state is stale, say
+so in that report and ask whether to update it.
 
 ## After Work Settles
 

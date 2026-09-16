@@ -16,7 +16,7 @@ This skill teaches the judgment: what story context to pass, when to materialize
 Three options, each for a different situation:
 
 **Attach files**: when context already exists as files — chapters, outlines,
-wiki pages, style files, character state. Default choice because files are
+wiki pages, style, character state. Default choice because files are
 stable, inspectable, and survive compaction. Scope tightly: pass the files
 that matter, not everything.
 
@@ -37,9 +37,9 @@ history is fine.
 Writers need enough to stay in voice and on-canon, not everything ever written. The essential context:
 
 - **Scene brief or outline**: what happens in this scene, the beats to hit
-- **Relevant style files**: look at what exists in the styles directory and pick the files that match the scene. Character files for whoever appears, scene-type files for the kind of scene being written. Each style file is self-describing: read the top to know when it applies.
+- **Style**: how they sound. Look in the styles directory if this project has one; each reference says when it applies.
+- **Character state**: history, circumstances, and current knowledge for whoever appears. Attach whatever this project uses. If you cannot attach it, tell the writer where it lives.
 - **Continuity anchors**: the immediately preceding chapter or scene (for flow), plus any chapters that establish facts this scene references. Two to four files, not the entire manuscript.
-- **Character state**: character files for characters who appear in the scene, especially if their emotional state or knowledge has changed recently
 - **Vocab**: relevant `vocab.md` files when the scene uses invented terms, magic/faction names, titles, relationship labels, or genre terms with project-specific meanings
 
 Tell the writer where to find more if it needs to explore, for example: "the full arc outline is in the work directory; focus on the Route 1 section." Avoid attaching everything preemptively.
@@ -50,7 +50,8 @@ Critics need the draft plus enough context to judge it against:
 
 - **The draft being reviewed**: always as attached files
 - **The scene brief or outline**: so the critic can check whether the draft achieved what it was supposed to
-- **Relevant style files**: so voice critics can compare against the target voice
+- **Style**: so voice critics can compare against the target voice
+- **Character state**: so character and continuity critics can check it
 - **Prior chapters for continuity**: so continuity critics can cross-reference facts
 - **Author intent**: via conversation history if the orchestrator discussed direction with the author, or via materialized decision notes
 - **Known issues**: tracked issues if the critic should watch for specific recurring problems
@@ -61,7 +62,7 @@ Critics need the draft plus enough context to judge it against:
 Brainstormers need constraints, not answers:
 
 - **The question being explored**: scoped tightly in the prompt
-- **Established context that constrains the answer**: character profiles, timeline, prior decisions that limit the design space
+- **Established context that constrains the answer**: character state, timeline, prior decisions that limit the design space
 - **What's been rejected**: so they don't re-propose dead ends
 - **Existing vocabulary**: enough vocab context to avoid minting new names for concepts the project has already named
 
@@ -71,6 +72,7 @@ Don't pass too much: brainstormers that receive the full project history tend to
 
 - **Fact extraction**: the chapter(s) to extract from as attached files, plus existing canon files, timeline entries, and vocab files for deduplication
 - **Continuity-checker**: the draft plus canon, timeline, character state, and vocab files for any domains the draft touches
+- **Character-state contradiction**: do not patch character state from a draft. Update only after the author confirms.
 - **KB restructuring**: the full kb directory structure — needs to see everything to rebuild connections
 - **Session mining**: conversation history from the session to mine, plus kb paths for where to write findings
 

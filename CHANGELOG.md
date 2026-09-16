@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Character prose now requires character state (history, circumstances, current knowledge) alongside style. Contradictions are written and flagged; wiki updates wait for the author.
+
 ## [0.5.9] - 2026-08-08
 
 ### Changed

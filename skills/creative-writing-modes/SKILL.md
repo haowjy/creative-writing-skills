@@ -15,9 +15,13 @@ rhythm, omission, ambiguity, genre promise, and reader simulation.
 Use the smallest mode that fits the task. Read only the matching section in
 `resources/prose-modes.md` unless the prompt explicitly asks for a hybrid pass.
 
+Load style and character state before writing a character. If the
+request contradicts character state, write to the request, note the
+contradiction, and do not update character state.
+
 ## Prose Modes
 
-- **Fresh draft** — new prose from a brief, outline, style files, and canon.
+- **Fresh draft** — new prose from a brief, outline, style, character state, and canon.
 - **Revision** — change an existing draft from author direction or critique.
 - **Bridge / connective tissue** — connect scenes, compress time, or shift register.
 - **Alternate take** — test a meaningfully different execution of the same beat.

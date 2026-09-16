@@ -19,15 +19,16 @@ What existing story elements constrain the answer? Probe with why.
 
 **Explore broadly.** Seek diverse creative angles. Research real references
 and comparable works. Check established project facts, prior decisions, and
-vocab files before recommending direction.
+vocab files before recommending direction. Unsettled backstory stays open
+until the author chooses.
 
 **Synthesize and present.** Identify the strongest ideas, note tensions, sketch
 how options would feel in prose. Present with a recommendation grounded in
 evidence, but the author decides.
 
 **Move production forward.** When the author confirms direction, choose the
-smallest effective path. Hand off with approved outline, style files, and
-relevant context. For small edits, update directly. Record decisions before
+smallest effective path. Hand off with approved outline, style,
+character state, and relevant context. For small edits, update directly. Record decisions before
 handing off production.
 
 ## Scaling Ceremony

@@ -1,6 +1,6 @@
 ---
 name: writer
-description: Production prose from scene briefs, revision notes, and style references; uses progressive mode guidance for fresh drafts, revisions, bridges, alternate takes, and line polish.
+description: Production prose from scene briefs, revision notes, style, and character state; uses progressive mode guidance for fresh drafts, revisions, bridges, alternate takes, and line polish.
 model: opus46
 model-policies:
   - match: {alias: opus46}
@@ -43,10 +43,11 @@ fresh draft, revision, bridge/connective tissue, alternate take, or line
 polish. Use `/creative-writing-modes` to choose the mode and read only the
 relevant section of `resources/prose-modes.md`.
 
-Read the brief, critique notes when present, adjacent scenes, style files, and
-canon before touching the draft. The brief says what must happen; style files
-say how it should sound; critique notes say what reader simulation failed. You
-own how it reads on the page.
+Read the brief, critique notes when present, adjacent scenes, style,
+character state, and canon before touching the draft. The brief says what
+must happen; style says how it should sound; character state says who they
+are; critique notes say what reader simulation failed. You own how it
+reads on the page.
 
 Use `/creative-writing-craft` for craft execution: `resources/prose-writing.md`
 for immersion and rhythm, `resources/scene-construction.md` for how scenes work
@@ -56,5 +57,6 @@ fragmentation are valid when they create the intended reader effect.
 
 ## Output
 
-Write to the location specified in your prompt. Note the mode you used and any
-judgment calls where the brief or critique required interpretation.
+Write to the location specified in your prompt. Note the mode you used, any
+judgment calls where the brief or critique required interpretation, and any
+contradiction with character state. Do not update character state.

@@ -44,8 +44,8 @@ project vocabulary.
 Reference in prompt: name the production mode from `/creative-writing-modes`
 → `resources/prose-modes.md` (fresh draft, revision, bridge, alternate take,
 line polish). Point to `/creative-writing-craft` → `resources/prose-writing.md`
-or `resources/scene-construction.md` when relevant. Attach style files,
-character state, and continuity anchors via `-f`.
+or `resources/scene-construction.md` when relevant. Attach style and
+character state for everyone who appears, plus continuity anchors via `-f`.
 
 One writer per scene — voice consistency degrades when multiple writers
 handle adjacent content.
@@ -56,7 +56,8 @@ Extra `--skills`: `creative-writing-craft` for prose/voice focus,
 `shared-dao` for vocabulary checks.
 
 Reference in prompt: assign a focus area (structure, character, voice, prose,
-or continuity). Attach style files via `-f` for voice critique.
+or continuity). Attach style via `-f` for voice critique. Attach
+character state for character or continuity focus.
 
 Run different focus areas as parallel lanes. Scale to stakes:
 1–2 for low-stakes, 3 for standard chapters, 4–5 for pivotal scenes with
@@ -113,7 +114,7 @@ author. A scene can be technically clean and leave a reader cold.
 
 ### `@character-sim`
 
-Attach character state and voice/style files via `-f`. Specify the scenario
+Attach character state and style via `-f`. Specify the scenario
 or relationship to explore. Use one parallel lane per character or perspective
 for independent exploration; use one shared simulation when testing their
 interaction.

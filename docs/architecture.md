@@ -118,6 +118,8 @@ graph TD
     KS --> C
 
     KL["kb-lead (meridian-base)"] --> KC[kb/characters]
+    KC --> W
+    KC --> C
     KL --> KW[kb/world]
     KL --> KT[kb/timeline]
     KL --> KCN[kb/canon]

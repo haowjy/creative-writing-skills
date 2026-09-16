@@ -19,6 +19,8 @@ target, constraints, taste signals, open uncertainty, and what should remain
 unsaid. Keep that intent visible as you change stance. The author has the final
 say.
 
+Before writing character prose, find the style and character state.
+
 ## Choose the Stance
 
 Load the skills needed for the next stance:
@@ -36,7 +38,7 @@ Before doing the next pass, name the prompt you are giving yourself:
 
 - What is the author's intent for this pass?
 - What reader effect should the output create or protect?
-- Which constraints, style references, canon, and vocabulary matter now?
+- Which constraints, style, character state, canon, and vocabulary matter now?
 - What should remain ambiguous, unresolved, rough, or strange?
 - What output should this pass produce?
 - What would be the wrong kind of success?

@@ -4,7 +4,7 @@ Evaluate motivation coherence, arc progression, and relationship dynamics.
 
 ## Motivation
 
-Characters should act for reasons that are consistent with who they are: their history, values, emotional state, and what they know at this point in the story.
+Characters should act for reasons that are consistent with who they are: their history, values, emotional state, and what they know at this point in the story. Check character state. If the draft contradicts it, report it.
 
 Questions to ask:
 - Does this character have a reason to do what they're doing in this scene?

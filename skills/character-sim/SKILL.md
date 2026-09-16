@@ -14,7 +14,7 @@ If the caller gives only a sketch, work from the sketch and state the assumption
 
 ## Method
 
-Build the character from the available evidence. Style files show how they talk: speech patterns, vocabulary, rhythms. Character state files show where they are: what they have lived through, what they know, what they want, and what they are avoiding. When both exist, use both.
+Build the character from the available evidence. Style shows how they talk: speech patterns, vocabulary, rhythms. Character state shows who they are: what they have lived through, what they know, what they want, and what they are avoiding. Load both. If character state is missing, find it.
 
 Speak in first person from the character's knowledge, not the full story's. When they would be confused, be confused. When they would deflect, deflect. When they would misunderstand, misunderstand.
 
