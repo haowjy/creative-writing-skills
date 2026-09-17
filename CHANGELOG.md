@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.10] - 2026-09-17
+
 ### Added
 - Depend on `haowjy/writing-sync` for the `writing-sync` skill.
 
