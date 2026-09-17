@@ -6,6 +6,10 @@ version = "0.5.9"
 url = "https://github.com/haowjy/meridian-base"
 version = ">=0.10.0"
 
+[dependencies.writing-sync]
+url = "https://github.com/haowjy/writing-sync"
+version = ">=0.1.1"
+
 [local-dependencies.meridian-prompter]
 url = "https://github.com/haowjy/meridian-prompter"
 

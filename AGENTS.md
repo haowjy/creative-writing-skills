@@ -12,6 +12,8 @@ A Mars source package providing composable creative writing agents and skills fo
 
 **Agents vs skills:** Agents are spawned as independent processes (orchestrators, writers, critics). Skills are reference material loaded into agent context (craft knowledge, patterns, conventions). See `agents/` and `skills/` directories.
 
+**Destination sync:** Comes from the `writing-sync` Mars dependency (`haowjy/writing-sync`), not this repo. Do not vendor those skills here or add them to `cw/` / `GENERATED_SKILLS`.
+
 ## Package Management
 
 This repo is both a Mars source package (publishes agents/skills) and a Mars consumer (depends on `meridian-base`).

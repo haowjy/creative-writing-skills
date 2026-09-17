@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Added
+- Depend on `haowjy/writing-sync` for the `writing-sync` skill.
+
 ### Changed
 - Character prose now requires character state (history, circumstances, current knowledge) alongside style. Contradictions are written and flagged; wiki updates wait for the author.
 
