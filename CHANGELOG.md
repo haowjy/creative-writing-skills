@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Fixed
+- Corrected story-planning resource paths in both the source skill and the generated `cw/` distribution.
+
 ## [0.5.10] - 2026-09-17
 
 ## [0.5.10] - 2026-09-17
