@@ -10,6 +10,6 @@ Use this for pre-page decisions: what the story wants, what options exist, and h
 
 Load only the resource needed:
 
-- `resources/story-planning.md` — author-facing direction and option synthesis.
-- `resources/story-planning.md` — exploratory capture and source tagging.
-- `resources/story-planning.md` — arc, chapter, scene, and beat structure.
+- `resources/creative-direction.md` — author-facing direction and option synthesis.
+- `resources/brainstorming.md` — exploratory capture and source tagging.
+- `resources/story-architecture.md` — arc, chapter, scene, and beat structure.
