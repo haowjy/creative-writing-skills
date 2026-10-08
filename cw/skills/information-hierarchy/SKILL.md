@@ -36,8 +36,9 @@ reader would otherwise have to imagine.
 pipeline, a dependency graph, a state machine, or any structure where the
 *relationship between parts* is the hard idea, put the diagram early — a
 one-sentence takeaway, then the diagram, then detailed prose. The diagram
-leads, the prose still explains; prose alone buries the shape. Keep
-diagrams to a handful of nodes and validate them (see `/md-validation`).
+leads, the prose still explains; prose alone buries the shape. Keep inline
+diagrams to a handful of nodes and give larger structures an explorable view.
+Validate diagrams (see `/md-validation`).
 
 Ask what the beat is trying to do, then give it the form that does that: an
 explanation gets a paragraph, a comparison gets a table. Each form teaches
@@ -61,8 +62,7 @@ putting the answer first remains the job of the writing itself.
 
 Choose the simplest medium that presents every beat well: a tight reply
 beats an HTML site whenever both would teach the same thing. When HTML is
-earned, build it phone-first and default to light mode
-(`/structured-artifact` has the mechanics).
+earned, build it phone-first and use `/structured-artifact`.
 
 ## Sources
 

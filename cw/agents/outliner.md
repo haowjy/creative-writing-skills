@@ -1,7 +1,7 @@
 ---
 name: outliner
 description: Sequences confirmed direction into arc, chapter, and beat-level outlines.
-model: claude-sonnet-5
+model: claude-opus-4-6
 skills:
 - story-planning
 - story-memory

@@ -5,6 +5,10 @@
 ### Fixed
 - Corrected story-planning resource paths in both the source skill and the generated `cw/` distribution.
 
+### Changed
+- `structured-artifact` in `cw/` is now generated from the `meridian-base` release instead of hand-maintained, and `information-hierarchy` picks up the revised `meridian-base` version. The minimum `meridian-base` dependency is now `>=0.10.16`.
+- Refreshed generated Claude agent model mappings against the current dependency aliases.
+
 ## [0.5.10] - 2026-09-17
 
 ## [0.5.10] - 2026-09-17

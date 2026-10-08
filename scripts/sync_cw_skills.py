@@ -61,6 +61,7 @@ GENERATED_SKILLS = [
     "llm-writing",
     "qi-layer",
     "reflect",
+    "structured-artifact",
 ]
 
 # Hand-maintained cw-only skills the tool lints but never overwrites.
@@ -70,7 +71,6 @@ MANUAL_SKILLS = [
     # dependency skills that need cw-specific de-Meridianization
     "grill-with-docs",
     "shared-dao",
-    "structured-artifact",
     # base skills with Meridian CLI refs replaced
     "md-validation",
     "zoom-out",

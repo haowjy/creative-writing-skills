@@ -1,7 +1,7 @@
 ---
 name: continuity-checker
 description: Cross-references content against established canon for contradictions.
-model: claude-sonnet-5
+model: claude-opus-4-6
 skills:
 - story-review
 - md-validation
