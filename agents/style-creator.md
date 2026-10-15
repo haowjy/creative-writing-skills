@@ -1,21 +1,13 @@
 ---
 name: style-creator
 description: Analyzes prose samples to produce style reference files for the project's voice.
-model: opus46
+model: opus
 effort: high
 model-policies:
-  - match: {alias: opus46}
-    override: {effort: high}
-  - match: {alias: "opus46[1m]"}
+  - match: {alias: opus}
     override: {effort: high}
   - match: {alias: fable}
     override: {effort: high}
-  - match: {alias: opus}
-    override: {effort: high}
-  - match: {alias: opus48}
-    override: {}
-  - match: {alias: sonnet5}
-    override: {}
   - match: {alias: sonnet}
     override: {}
   - match: {alias: sol}

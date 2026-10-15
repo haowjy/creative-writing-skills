@@ -1,21 +1,13 @@
 ---
 name: editor
 description: Holistic third-party book editor pass across narrative structure, voice, line quality, copy consistency, and proofreading priority.
-model: opus46
+model: opus
 effort: high
 model-policies:
-  - match: {alias: opus46}
-    override: {effort: high}
-  - match: {alias: "opus46[1m]"}
+  - match: {alias: opus}
     override: {effort: high}
   - match: {alias: fable}
     override: {effort: high}
-  - match: {alias: opus}
-    override: {effort: high}
-  - match: {alias: opus48}
-    override: {}
-  - match: {alias: sonnet5}
-    override: {}
   - match: {alias: sonnet}
     override: {}
   - match: {alias: sol}

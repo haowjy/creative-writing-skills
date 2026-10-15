@@ -7,14 +7,10 @@ effort: medium
 model-policies:
   - match: {alias: luna}
     override: {effort: medium}
-  - match: {alias: sonnet5}
-    override: {}
   - match: {alias: sonnet}
     override: {}
-  - match: {alias: deepseekflash}
-    override: {effort: low}
   - match: {alias: deepseek}
-    override: {}
+    override: {effort: low}
 skills:
   load: [creative-research]
 tools:

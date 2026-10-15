@@ -1,15 +1,9 @@
 ---
 name: outliner
 description: Sequences confirmed direction into arc, chapter, and beat-level outlines.
-model: sonnet5
+model: sonnet
 model-policies:
-  - match: {alias: sonnet5}
-    override: {}
   - match: {alias: sonnet}
-    override: {}
-  - match: {alias: opus46}
-    override: {}
-  - match: {alias: "opus46[1m]"}
     override: {}
   - match: {alias: opus}
     override: {}

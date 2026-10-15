@@ -1,19 +1,11 @@
 ---
 name: brainstormer
 description: Creative option generation for a scoped question or angle.
-model: opus46
+model: opus
 model-policies:
-  - match: {alias: opus46}
-    override: {}
-  - match: {alias: "opus46[1m]"}
-    override: {}
-  - match: {alias: fable}
-    override: {}
   - match: {alias: opus}
     override: {}
-  - match: {alias: opus48}
-    override: {}
-  - match: {alias: sonnet5}
+  - match: {alias: fable}
     override: {}
   - match: {alias: sonnet}
     override: {}

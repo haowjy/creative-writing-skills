@@ -1,17 +1,11 @@
 ---
 name: continuity-checker
 description: Cross-references content against established canon for contradictions.
-model: sonnet5
+model: sonnet
 effort: high
 model-policies:
-  - match: {alias: sonnet5}
-    override: {effort: high}
   - match: {alias: sonnet}
-    override: {}
-  - match: {alias: opus46}
-    override: {}
-  - match: {alias: "opus46[1m]"}
-    override: {}
+    override: {effort: high}
   - match: {alias: opus}
     override: {}
   - match: {alias: terra}

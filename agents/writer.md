@@ -1,20 +1,12 @@
 ---
 name: writer
 description: Production prose from scene briefs, revision notes, style, and character state; uses progressive mode guidance for fresh drafts, revisions, bridges, alternate takes, and line polish.
-model: opus46
+model: opus
 model-policies:
-  - match: {alias: opus46}
-    override: {effort: high}
-  - match: {alias: "opus46[1m]"}
+  - match: {alias: opus}
     override: {effort: high}
   - match: {alias: fable}
     override: {effort: high}
-  - match: {alias: opus}
-    override: {effort: high}
-  - match: {alias: opus48}
-    override: {effort: high}
-  - match: {alias: sonnet5}
-    override: {}
   - match: {alias: sonnet}
     override: {}
   - match: {alias: sol}

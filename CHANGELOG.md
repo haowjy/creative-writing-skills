@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Writing agents default to `opus` (Opus 5.5) instead of `opus46`. Dropped `opus46[1m]` and `opus48` fallbacks. `sonnet5` → `sonnet` (`@outliner` and `@continuity-checker` default to it). `@web-researcher`: undefined `deepseekflash` folded into `deepseek`.
+
 ## [0.5.11] - 2026-10-08
 
 ### Fixed
