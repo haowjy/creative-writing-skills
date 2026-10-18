@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- No agent falls back to Fable (`no-fallback: true` on brainstormer, character-sim, critic, editor, muse, reader-sim, style-creator, writer); Fable is escalation only, still selectable explicitly.
+
 ## [0.5.13] - 2026-10-18
 
 ### Changed

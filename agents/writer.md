@@ -6,6 +6,7 @@ model-policies:
   - match: {alias: opus}
     override: {effort: high}
   - match: {alias: fable}
+    no-fallback: true
     override: {effort: high}
   - match: {alias: sonnet}
     override: {}
