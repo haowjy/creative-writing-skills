@@ -34,7 +34,7 @@ it exists:
 
 1. Vocabulary pages in the kb — `kb/vocab.md` for project-wide terms,
    `kb/<domain>/vocab.md` for domain-specific ones.
-2. Project conventions in `CLAUDE.md` — established names and labels.
+2. Project conventions in `AGENTS.md` — established names and labels.
 3. Active work notes in `work/` — terms already defined for the current effort.
 4. Prior decisions — terms established by earlier choices.
 

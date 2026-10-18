@@ -53,7 +53,7 @@ Each entry includes:
 Before defining new terms, check what already exists:
 
 1. Read relevant vocab files.
-2. Search `CLAUDE.md`, kb pages, outlines, drafts, and work notes.
+2. Search `AGENTS.md`, kb pages, outlines, drafts, and work notes.
 3. Spawn focused subagents when the search is broad enough to crowd your context.
 4. Check how the author uses the term in conversation and prose.
 

@@ -43,12 +43,11 @@ Present the draft and let the author adjust. Iterate until they're satisfied.
 Once approved:
 
 1. Write `AGENTS.md` with the agreed content
-2. Write `CLAUDE.md` containing `@AGENTS.md`
-3. Create any kb directories referenced in the AGENTS.md
-4. Create `$MERIDIAN_CONTEXT_KB_DIR/vocab.md` when the project has named concepts agents must use consistently; create domain vocab files when a domain already has enough distinct terms
-5. Save writing samples to `$MERIDIAN_CONTEXT_KB_DIR/samples/`
-6. Create the standard work directories
-7. If samples were provided, offer to spawn style-creator
+2. Create any kb directories referenced in the AGENTS.md
+3. Create `$MERIDIAN_CONTEXT_KB_DIR/vocab.md` when the project has named concepts agents must use consistently; create domain vocab files when a domain already has enough distinct terms
+4. Save writing samples to `$MERIDIAN_CONTEXT_KB_DIR/samples/`
+5. Create the standard work directories
+6. If samples were provided, offer to spawn style-creator
 
 ## Existing Projects
 

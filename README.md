@@ -49,7 +49,7 @@ Once installed, start a session with muse as your agent:
 claude --agent creative-writing-skills:muse
 ```
 
-Run the one-time project setup to create your `CLAUDE.md` and `kb/` structure:
+Run the one-time project setup to create your `AGENTS.md` and `kb/` structure:
 
 ```
 /creative-writing-skills:project-setup
@@ -146,13 +146,13 @@ Knowledge extraction into the kb is not a bundled agent: muse routes it to merid
 | **writing-staffing** | Agent composition for writing workflows |
 | **llm-writing** | Intentional language discipline: catches unchosen LLM defaults while preserving deliberate ambiguity, omission, repetition, and rhythm |
 | **shared-dao** | Shared vocabulary: canonical story terms, aliases, and ambiguity resolution |
-| **project-setup** | One-time guided setup: creates CLAUDE.md and kb structure |
+| **project-setup** | One-time guided setup: creates AGENTS.md and kb structure |
 
 ## Project Layout
 
 ```text
 my-story/
-├── CLAUDE.md              # Project conventions (created by project-setup)
+├── AGENTS.md              # Project conventions (created by project-setup)
 ├── story/                 # Chapters and manuscript
 ├── work/                  # Current drafting effort
 │   ├── outline/

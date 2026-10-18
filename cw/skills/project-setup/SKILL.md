@@ -1,13 +1,13 @@
 ---
 name: project-setup
 description: >
-  One-time project setup for creative writing. Interviews you about your project, collects writing samples, proposes kb structure, and creates CLAUDE.md with project conventions.
+  One-time project setup for creative writing. Interviews you about your project, collects writing samples, proposes kb structure, and creates AGENTS.md with project conventions.
 ---
 
 # Project Setup
 
 Guide the author through setting up their creative writing project. The goal
-is a working `CLAUDE.md` and directory structure that all agents read for
+is a working `AGENTS.md` and directory structure that all agents read for
 project-specific conventions, plus initial style files if writing samples are
 available.
 
@@ -35,11 +35,11 @@ their style using the `/creative-writing-craft` methodology: read the samples,
 identify the voice dimensions, and produce initial style files in `kb/styles/`.
 
 If they're starting fresh with no samples, capture their voice goals in
-CLAUDE.md so style files can be created from early drafts.
+AGENTS.md so style files can be created from early drafts.
 
 ## Propose and Iterate
 
-Based on what you learn, draft a `CLAUDE.md` section and show it to the
+Based on what you learn, draft a `AGENTS.md` section and show it to the
 author. Cover:
 
 - **Project overview**: what the project is, one paragraph
@@ -64,8 +64,8 @@ Present the draft and let the author adjust. Iterate until they're satisfied.
 
 Once approved:
 
-1. Write or update `CLAUDE.md` with the agreed content
-2. Create the `kb/` directories referenced in CLAUDE.md
+1. Write or update `AGENTS.md` with the agreed content
+2. Create the `kb/` directories referenced in AGENTS.md
 3. Create `kb/vocab.md` when the project has named concepts agents must use
    consistently; create domain vocab files when a domain already has enough
    distinct terms
@@ -77,5 +77,5 @@ Once approved:
 
 ## Existing Projects
 
-If `CLAUDE.md` already has creative writing conventions, read it first and
+If `AGENTS.md` already has creative writing conventions, read it first and
 suggest updates rather than overwriting.

@@ -66,7 +66,7 @@ kb/
     <issue-name>.md        # tracked writing problems
 ```
 
-The project's `CLAUDE.md` may customize this. Read it first.
+The project's `AGENTS.md` may customize this. Read it first.
 
 ### Linking
 
