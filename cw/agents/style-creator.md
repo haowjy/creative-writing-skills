@@ -1,7 +1,6 @@
 ---
 name: style-creator
 description: Analyzes prose samples to produce style reference files for the project's voice.
-model: claude-opus-4-6
 skills:
 - creative-writing-craft
 - writing-principles

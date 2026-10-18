@@ -1,11 +1,11 @@
 ---
 name: qi-layer
-description: 'Use when writing or maintaining AGENTS.md, .context/CONTEXT.md, or CLAUDE.md mirrors: keep intent docs minimal and load-bearing.'
+description: 'Use when writing or maintaining AGENTS.md, .context/CONTEXT.md, or a Claude-specific CLAUDE.md: keep intent docs minimal and load-bearing.'
 ---
 
 # qi-layer
 
-`/qi-maintenance` owns when colocated knowledge must move with source changes.
+`/qi-maintenance` owns when colocated knowledge must move with the changes it describes.
 This skill owns how to write and structure that knowledge.
 
 Load `/knowledge-layers` for where each layer lives and what it holds.
@@ -26,7 +26,7 @@ every line load-bearing.
    frame. Leaves provide local working knowledge. Agents accumulate
    understanding as they descend.
 3. **LCA Deduplication**: shared knowledge appears once at the shallowest
-   node covering all relevant paths. Never duplicate between siblings.
+   node covering all relevant paths.
 4. **Progressive Disclosure**: give just enough to work correctly at this
    level. Link to `.context/CONTEXT.md` for depth.
 
@@ -50,7 +50,7 @@ An agent that also reads .context/ should be able to change things safely.
 
 ## Writing .context/CONTEXT.md
 
-Reference depth, co-located with the code it describes. Where an agent
+Reference depth, co-located with what it describes. Where an agent
 goes when it needs contracts, architecture, or rationale in detail.
 
 Sections (use only those with substance):
@@ -72,7 +72,7 @@ in that domain's AGENTS.md or .context/, not root.
 Apply the **think-vs-lookup test**: text whose removal would cause a
 *wrong decision* belongs in AGENTS.md. Text an agent would merely have to
 *look up* belongs in .context/. Text that changes no behavior gets
-deleted — agents already know how to code and follow common conventions.
+deleted — agents already know their craft and common conventions.
 
 Specific failure modes:
 
@@ -82,9 +82,10 @@ Specific failure modes:
 - **Reference material posing as intent**: tables, command blocks, full
   scheme vocabularies, implementation specifics.
 - **Redundant guards**: prose warnings for invariants already enforced by
-  tests or types. The code is the real guard; prose rots faster.
+  a check (tests, types, validators). The check is the real guard; prose
+  rots faster.
 - **Duplicated knowledge**: restating what lives in a skill, a domain
-  .context/, or a KB page. Point, don't duplicate.
+  .context/, or a KB page. Link to where it lives.
 - **Domain-specific detail at root**: URI scheme tables, gateway pricing
   internals, auth implementation details. These belong in their domain's
   AGENTS.md, not root.
@@ -97,21 +98,16 @@ Specific failure modes:
 - Lateral links between `.context/` directories with contracts between them
 - LCA deduplication: if two siblings share context, put it in the parent
 
-## CLAUDE.md Mirrors
+## CLAUDE.md
 
-Claude harnesses read CLAUDE.md, not AGENTS.md. Give every AGENTS.md a
-sibling CLAUDE.md whose first line is `@AGENTS.md` — normally the whole
-file. Run `meridian qi claude-md-fix <target-root>` on the containing tree
-after creating or moving AGENTS.md files: it creates missing mirrors, skips
-exact ones, and reports anything else as a conflict.
+Claude Code reads AGENTS.md when a directory has no CLAUDE.md, so most
+directories need only AGENTS.md. Add a CLAUDE.md only for Claude-specific
+instructions, and make `@AGENTS.md` its first line: when CLAUDE.md exists,
+Claude reads it instead of AGENTS.md. Never write shared instructions into
+CLAUDE.md.
 
-Never write shared instructions into CLAUDE.md. Claude-only knowledge is
-rare; when it exists, put it below the `@AGENTS.md` import and expect
-`claude-md-fix` to keep flagging the file, so the divergence stays visible.
-
-Loading differs by level. At the root, each harness auto-loads its own
-file every session: Claude reads CLAUDE.md, others read AGENTS.md. In
-subdirectories, Claude auto-injects CLAUDE.md when it touches files there;
-other agents see nested AGENTS.md only by reading it on entry. Don't lean
-on Claude's auto-injection: a nested AGENTS.md carries the local additions
-an agent needs on entry, with everything else inherited from ancestors.
+Loading differs by level. At the root, every harness loads AGENTS.md each
+session. In subdirectories, Claude loads a nested AGENTS.md when it touches
+files there; other agents see nested AGENTS.md only by reading it on entry. Write each nested
+AGENTS.md for that reader: the local additions an agent needs on entry, with
+everything else inherited from ancestors.

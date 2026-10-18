@@ -63,7 +63,7 @@ read as current truth, never narrate their own evolution.
 ## Writing
 
 - One concept per page. Split when a page covers two unrelated topics.
-- Cross-reference, don't re-explain. Each concept has one source of truth.
+- Each concept has one source of truth; other pages link to it.
 - Name files by what they describe (`token-validation.md`), not when
   (`auth-redesign-notes.md`).
 - Calibrate depth to importance. Reference material is terse and scannable.

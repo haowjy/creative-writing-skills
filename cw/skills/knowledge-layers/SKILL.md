@@ -15,7 +15,7 @@ Load `/llm-writing` if not already loaded.
 | Layer | What it holds | When to use it |
 |---|---|---|
 | `AGENTS.md` | Intent and mental model for a directory | First thing agents read on entry; what to understand *before* working here |
-| `.context/` | Contracts, architecture, rationale (`CONTEXT.md`); deferred work (`TODO`, `FUTURE`) | Reference depth and tracked deferrals, co-located with the code they describe |
+| `.context/` | Contracts, architecture, rationale (`CONTEXT.md`); deferred work (`TODO`, `FUTURE`) | Reference depth and tracked deferrals, co-located with the material they describe |
 | KB | Cross-cutting decisions, domain concepts, patterns | Spans directories; outlives sessions; no single directory owns it |
 | `docs/` | User-facing documentation | Different audience, different update cadence |
 | Work directory | Temporary design decisions and scratch | Not colocated with durable content; scoped to an active work item |
@@ -31,14 +31,17 @@ external visibility get filed in the project's issue tracker instead.
 If it's big picture — cross-cutting decisions, domain concepts,
 higher-level system architecture → KB.
 If it's for end users → `docs/`.
+If it's the human correcting an agent → the KB corrections register
+(`resources/corrections/register.md`; `code.md` beside it for code projects).
+`/correct` fixes the classes that repeat.
 If it's a temporary work artifact → work directory.
 
 When in doubt, colocate. Knowledge that depends on one subsystem belongs
 in that subsystem's AGENTS.md or .context/ even when it reads like a
-concept; the KB stays code-agnostic, holding what survives implementation
-change. Knowledge that lives far from what it describes rots faster:
-changes to the code don't trigger awareness that a distant doc needs
-updating.
+concept; the KB stays independent of any one implementation, holding what
+survives a change to it. Knowledge that lives far from what it describes
+rots faster: changes to the thing don't trigger awareness that a distant doc
+needs updating.
 
 ## Current Truth Over History
 
@@ -56,19 +59,19 @@ with nothing new to write in its place. Stale knowledge is worse than a
 gap: agents load it and reason from it. Deletion is the content-truth
 owner's call; structural roles flag instead.
 
-**Git history is the archive.** Commit untracked files before deleting them
-so the removal lands in history, and say what was removed and why in the
-commit message. Deletion is cheap because nothing tracked is ever truly
-lost.
+**History is the archive.** In a version-controlled tree, commit untracked
+files before deleting them so the removal lands in history, and say what was
+removed and why in the commit message. Elsewhere, preserve what still matters
+in the project's archive before deleting. Deletion is cheap because nothing
+preserved is truly lost.
 
 **Truth is anchored per layer.** AGENTS.md and `.context/` describe the
-checkout that contains them: update them in the same branch as the code
-change and let the merge carry both — with parallel PRs in flight, each
-branch documents itself. The KB is code-agnostic: it records the current
-settled intent — what the system *should be* — and a settled decision is KB
-truth the moment it's made, merged or not. Unsettled intent isn't KB
-material; it stays in the work directory. `docs/` describes shipped
-behavior.
+tree that contains them: update them in the same change as what they
+describe. The KB records the current settled intent — what the project
+*should be* — and a settled decision is KB truth the moment it's made, built
+or not. Unsettled intent isn't KB material; it stays in the work directory.
+`docs/` describes what has shipped to its readers. In a code project, load
+`resources/code.md` for how this maps to branches, merges, and shipped code.
 
 Decision records are the exception: preserve superseded decisions in place
 when they explain why the system changed. Mark the old decision as
@@ -90,8 +93,8 @@ See `resources/bootstrap.md` for a suggested starting layout.
 Follow `/information-hierarchy`. One concept per document; name files by
 what they describe (`token-validation.md`), not when (`auth-redesign-notes.md`).
 Cross-reference instead of re-explaining. Load `/shared-dao` for vocabulary
-methodology. Use mermaid for anything spatial; capture what code can't
-easily tell you.
+methodology. Use mermaid for anything spatial; capture what the files
+themselves can't easily tell you.
 
 ## Operations
 

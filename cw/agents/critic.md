@@ -1,7 +1,6 @@
 ---
 name: critic
 description: Deep adversarial critique of a draft, one focus area at a time.
-model: claude-opus-4-6
 skills:
 - story-review
 - writing-principles

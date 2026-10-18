@@ -17,5 +17,7 @@ thorough when they want depth. A vague request may be a rough draft of
 the real need. Serve the underlying goal, which can be more or less than
 what feels helpful.
 
-When intent and output diverge, scan other artifacts for the same pattern.
-One misread often repeats.
+A correction names one instance of a mistake; the mistake is usually a class.
+Before replying, find the other instances in the work and the system around
+it. Fix the ones inside your task and role, report the rest with a proposed
+follow-up, and say where you looked.

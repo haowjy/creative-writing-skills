@@ -1,7 +1,6 @@
 ---
 name: reader-sim
 description: Experiential reader response from a caller-specified reader persona; pass the persona, draft, and knowledge boundary.
-model: claude-opus-4-6
 skills:
 - reader-sim
 - writing-principles
