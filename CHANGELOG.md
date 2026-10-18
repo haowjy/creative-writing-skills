@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.13] - 2026-10-18
+
 ### Changed
 - Project conventions live in `AGENTS.md`, not `CLAUDE.md`: `project-setup` writes `AGENTS.md`, and `kb-management`, `grill-with-docs`, `shared-dao` and `/kb` read it. Claude Code reads `AGENTS.md` itself, so setup no longer writes a `@AGENTS.md` mirror.
 
