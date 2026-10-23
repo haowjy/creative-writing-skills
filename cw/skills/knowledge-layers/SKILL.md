@@ -43,6 +43,14 @@ survives a change to it. Knowledge that lives far from what it describes
 rots faster: changes to the thing don't trigger awareness that a distant doc
 needs updating.
 
+**The KB links to the work's own docs.** Before writing to the KB about
+some work, read the docs, `AGENTS.md`, `.context/`, and comments the work
+updated. Link to what they describe, and write only what they don't say:
+the settled intent, the reason, the rejected alternatives, how it relates
+to the rest of the project. When they say all of it, the KB gets a link or
+nothing. Cut a KB section that restates them down to the link and the
+parts they don't say; the copy drifts the next time they change.
+
 ## Current Truth Over History
 
 Every durable layer — AGENTS.md, `.context/`, KB, `docs/` — holds the best
@@ -68,14 +76,35 @@ preserved is truly lost.
 **Truth is anchored per layer.** AGENTS.md and `.context/` describe the
 tree that contains them: update them in the same change as what they
 describe. The KB records the current settled intent — what the project
-*should be* — and a settled decision is KB truth the moment it's made, built
-or not. Unsettled intent isn't KB material; it stays in the work directory.
+*should be* — and an invariant is KB truth the moment the human settles it,
+done or not. Unsettled intent isn't KB material; it stays in the work directory.
 `docs/` describes what has shipped to its readers. In a code project, load
 `resources/code.md` for how this maps to branches, merges, and shipped code.
 
 Decision records are the exception: preserve superseded decisions in place
 when they explain why the system changed. Mark the old decision as
 superseded and link to the replacement.
+
+## Invariants and Current Choices
+
+Record each settled point as one of two kinds. An **invariant** must hold
+however the work is done. A **current choice** is what the project is doing
+or trying for now. The test: if an agent found a better way that broke it,
+should it stop and ask the human who owns the project first? If yes, it's an
+invariant; if no, the agent changes it and updates the doc.
+
+Default to current choice. The human's hedges ("for now", "let's try", "i
+think", "whatever is less work") mark a trial, and so does the human agreeing
+to something an agent proposed. An agent's own call stays a current choice
+until the human makes it an invariant. Quote the human with their hedges
+kept, and never record a trial as their ruling.
+
+Write invariants as rules, in decision records or `AGENTS.md`. Write current
+choices as how things stand now, beside the work they describe. Measurements
+and the story of what went wrong go beside what they measure or explain, not
+inside a rule. A status line says only whether the thing is done, partly
+done, not done, or superseded; how it got there belongs in version control
+or the archive.
 
 ## KB Conventions
 

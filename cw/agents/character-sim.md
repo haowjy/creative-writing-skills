@@ -6,13 +6,11 @@ skills:
 - writing-principles
 - llm-writing
 - story-memory
-tools:
-- Bash(cat *)
 disallowed-tools:
 - Edit
 - Write
-- Notebook
-- AskUser
+- NotebookEdit
+- AskUserQuestion
 ---
 
 # Character Simulation

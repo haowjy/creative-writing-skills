@@ -6,21 +6,14 @@ skills:
 - writing-principles
 - llm-writing
 - story-memory
-tools:
-- Bash
-- Write
-- Edit
-- Read
-- Glob
-- Grep
 disallowed-tools:
-- Notebook
-- AskUser
-- Bash(git revert:*)
-- Bash(git checkout --:*)
-- Bash(git restore:*)
-- Bash(git reset --hard:*)
-- Bash(git clean:*)
+- NotebookEdit
+- AskUserQuestion
+- Bash(git revert *)
+- Bash(git checkout -- *)
+- Bash(git restore *)
+- Bash(git reset --hard *)
+- Bash(git clean *)
 ---
 
 # Style Creator

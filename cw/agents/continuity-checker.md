@@ -6,18 +6,11 @@ skills:
 - md-validation
 - shared-dao
 - story-memory
-tools:
-- Bash(git diff *)
-- Bash(git log *)
-- Bash(rg *)
-- Bash(cat *)
-- Bash(find *)
-- Read
 disallowed-tools:
 - Edit
 - Write
-- Notebook
-- AskUser
+- NotebookEdit
+- AskUserQuestion
 ---
 
 # Continuity Checker

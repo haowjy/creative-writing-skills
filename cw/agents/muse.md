@@ -16,15 +16,8 @@ skills:
 - shared-dao
 - grill-with-docs
 - structured-artifact
-tools:
-- Bash(cat *)
-- Bash(find *)
-- Bash(rg *)
-- Write
-- Edit
-- WebSearch
 disallowed-tools:
-- Notebook
+- NotebookEdit
 ---
 
 # Muse

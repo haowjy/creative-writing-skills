@@ -6,8 +6,8 @@ How the layers' truth maps onto branches, merges, and shipped code.
   describe the checkout that contains them. Update them in the same branch as
   the code change and let the merge carry both; with parallel PRs in flight,
   each branch documents itself.
-- **The KB doesn't wait for code.** A settled decision is KB truth the moment
-  it's made, merged or not. Where the code hasn't converged on it yet,
+- **The KB doesn't wait for code.** An invariant is KB truth the moment
+  the human settles it, merged or not. Where the code hasn't converged on it yet,
   colocated docs describe current behavior and flag the divergence; never
   describe the intended system as if it were built.
 - **`docs/` describes shipped behavior**, updated when the change ships to
@@ -17,3 +17,8 @@ How the layers' truth maps onto branches, merges, and shipped code.
 - **Deferred work** in `.context/TODO` and `FUTURE` names the affected path
   and the concrete follow-up; a TODO comment in code needs a matching entry
   or an issue.
+- **Current choices live beside the code.** Error codes, names, timers,
+  sizes, ordering, and how a PR builds a feature are current choices. They go
+  in `.context/` or an architecture page as the current implementation, not
+  in a decision's rule or an `AGENTS.md`. PR numbers and branch names stay out
+  of status lines.

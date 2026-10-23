@@ -6,16 +6,11 @@ skills:
 - writing-principles
 - llm-writing
 - story-memory
-tools:
-- Bash(git diff *)
-- Bash(git log *)
-- Bash(rg *)
-- Read
 disallowed-tools:
 - Edit
 - Write
-- Notebook
-- AskUser
+- NotebookEdit
+- AskUserQuestion
 ---
 
 # Critic

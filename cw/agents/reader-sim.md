@@ -5,15 +5,11 @@ skills:
 - reader-sim
 - writing-principles
 - llm-writing
-tools:
-- Read
-- Grep
-- Glob
 disallowed-tools:
 - Edit
 - Write
-- Notebook
-- AskUser
+- NotebookEdit
+- AskUserQuestion
 ---
 
 # Reader Simulation

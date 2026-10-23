@@ -7,18 +7,14 @@ skills:
 - writing-principles
 - story-memory
 - llm-writing
-tools:
-- Bash
-- Write
-- Edit
 disallowed-tools:
-- Notebook
-- AskUser
-- Bash(git revert:*)
-- Bash(git checkout --:*)
-- Bash(git restore:*)
-- Bash(git reset --hard:*)
-- Bash(git clean:*)
+- NotebookEdit
+- AskUserQuestion
+- Bash(git revert *)
+- Bash(git checkout -- *)
+- Bash(git restore *)
+- Bash(git reset --hard *)
+- Bash(git clean *)
 ---
 
 # Writer

@@ -7,18 +7,11 @@ skills:
 - creative-writing-craft
 - llm-writing
 - story-memory
-tools:
-- Bash(git diff *)
-- Bash(git log *)
-- Bash(rg *)
-- Read
-- Glob
-- Grep
 disallowed-tools:
 - Edit
 - Write
-- Notebook
-- AskUser
+- NotebookEdit
+- AskUserQuestion
 ---
 
 # Editor
