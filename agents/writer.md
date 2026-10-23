@@ -1,19 +1,20 @@
 ---
 name: writer
 description: Production prose from scene briefs, revision notes, style, and character state; uses progressive mode guidance for fresh drafts, revisions, bridges, alternate takes, and line polish.
-model: opus
+model: argon
 model-policies:
+  - match: {alias: argon}
+    override: {}
   - match: {alias: opus}
-    override: {effort: high}
-  - match: {alias: fable}
-    no-fallback: true
     override: {effort: high}
   - match: {alias: sonnet}
     override: {}
-  - match: {alias: sol}
+  - match: {alias: argon-contributor}
+    no-fallback: true
     override: {}
-  - match: {alias: deepseek}
-    override: {effort: low}
+  - match: {alias: fable}
+    no-fallback: true
+    override: {effort: high}
 skills: [creative-writing-modes, creative-writing-craft, writing-principles, story-memory, llm-writing]
 tools:
   bash: allow

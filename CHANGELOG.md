@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Changed
+- writer defaults to `argon` (Gemini 4 Argon, through OpenCode) and falls back to Opus, then Sonnet, when it can't be routed. `argon-contributor`, a free endpoint that may train on your text, is explicit-only. Sol and DeepSeek are no longer writer backups.
+- muse can run on `argon` when you ask for it (`-m argon`); it is never an automatic fallback.
+- Requires meridian-base 0.11.15 or later, which defines the `argon` aliases.
+
 ## [0.5.14] - 2026-10-18
 
 ### Changed
