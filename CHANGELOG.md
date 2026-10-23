@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.16] - 2026-10-23
+
 ### Fixed
 - Claude plugin: rebuilt with current Mars, which reads a tools list as grants only, so agents no longer carry tool allowlists; `disallowed-tools` (Edit and Write on the read-only agents) still applies. Agents use Claude's real tool names (`NotebookEdit`, `AskUserQuestion`) and current Bash patterns. This also fixes the writing agents' old lists, which left out `Read`, and lets muse reach its subagents.
 - Claude plugin: knowledge-layers picks up meridian-base 0.11.15 (invariants vs current choices, link to the work's own docs).
