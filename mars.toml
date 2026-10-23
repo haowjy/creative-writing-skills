@@ -4,7 +4,7 @@ version = "0.5.14"
 
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
-version = ">=0.11.15"
+version = ">=0.11.15, <0.12.0"
 
 [dependencies.writing-sync]
 url = "https://github.com/haowjy/writing-sync"
