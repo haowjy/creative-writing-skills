@@ -105,3 +105,15 @@ It blocks the commit on failure; bypass a single commit with `git commit --no-ve
 - Skills are self-contained: no cross-skill dependencies
 - Agent profiles declare their skills in the `skills:` frontmatter array
 - Generated directories (`.agents/`, `.mars/`, `.meridian/`) are gitignored
+
+## Watching
+
+Behavior a released change expects but no real run has shown yet. Check it on
+the next runs that exercise it, then delete the entry, fixing the prompt first
+if the runs show otherwise.
+
+- **writer on `argon` (0.5.15).** No spawn has run on Gemini 4 Argon yet, and
+  its tool calling is reported unreliable. On the first writer runs routed to
+  it: it reads the brief, style and character-state files, writes the draft
+  where the brief says, and follows the style. If the tool loop fails, make
+  the writer's work text in, text out, or move the default back to Opus.
