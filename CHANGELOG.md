@@ -9,6 +9,7 @@
 
 ### Fixed
 - Delegation guidance consistently says to attach skills, pass files, and carry a prior run while preserving the pass-versus-point-to-location distinction.
+- Story-context guidance distinguishes the current author conversation from a prior run when carrying unwritten intent.
 
 ## [0.5.18] - 2026-10-25
 

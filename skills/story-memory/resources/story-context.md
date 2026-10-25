@@ -23,15 +23,16 @@ wiki pages, style, character state. Default choice because files are
 stable, inspectable, and survive compaction. Scope tightly: pass the files
 that matter, not everything.
 
-**Carry a prior run**: when the agent needs decisions, reasoning, or brainstorm
-context that has not been written down yet. The prior run captures the *why*
-behind choices: why the author picked this angle and what they rejected.
+**Carry this conversation or a prior run**: when the agent needs decisions,
+reasoning, or brainstorm context that has not been written down yet. The
+carried context captures the *why* behind choices: why the author picked this
+angle and what they rejected.
 
 **Materialize first**: when context is too important to be ephemeral. If
 critical story decisions only live in conversation, write them to the kb or
 work directory *before* handoff. If a worker could accidentally contradict
 this context, materialize it. If it is supplementary background, carry the
-prior run.
+current conversation or a prior run.
 
 ## What Each Agent Needs
 
@@ -56,7 +57,7 @@ Critics need the draft plus enough context to judge it against:
 - **Style**: so voice critics can compare against the target voice
 - **Character state**: so character and continuity critics can check it
 - **Prior chapters for continuity**: so continuity critics can cross-reference facts
-- **Author intent**: carry the prior run when the orchestrator discussed direction with the author, or pass materialized decision notes
+- **Author intent**: carry this conversation or a prior run when the orchestrator discussed direction with the author, or pass materialized decision notes
 - **Known issues**: tracked issues if the critic should watch for specific recurring problems
 - **Vocab**: relevant `vocab.md` files when consistency of naming, aliases, deprecated terms, or invented language matters
 
