@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.19] - 2026-10-25
+
 ### Changed
 - Requires Meridian >=0.14.5 and accepts meridian-base 0.12, which moved Meridian's own skills into Meridian.
 - Writing agents and staffing guidance name portable coordination capabilities instead of Meridian CLI commands, flags, and environment-specific model aliases.
