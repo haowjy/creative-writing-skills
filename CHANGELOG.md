@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Requires Meridian >=0.13.0 for platform-owned Meridian command permissions.
+
 ## [0.5.16] - 2026-10-23
 
 ### Fixed
