@@ -7,7 +7,10 @@ description: >
 
 # Story Context
 
-Every spawn starts with a context decision. Get it wrong and the writer invents facts that contradict established canon, the critic misses a continuity issue because it never saw the relevant chapter, or the brainstormer explores territory the author already rejected.
+Every specialist handoff starts with a context decision. Get it wrong and the
+writer invents facts that contradict established canon, the critic misses a
+continuity issue because it never saw the relevant chapter, or the brainstormer
+explores territory the author already rejected.
 
 This skill teaches the judgment: what story context to pass, when to materialize decisions before handoff, and how much is enough.
 
@@ -89,7 +92,7 @@ reasoning context, attached files for the artifacts the prior phase created.
 
 Treat vocabulary as operational story context. If a writer, critic, or
 brainstormer could choose the wrong name for a concept, pass the relevant
-`vocab.md` file or materialize the decision before spawning. This matters most
+`vocab.md` file or materialize the decision before handing off. This matters most
 for magic systems, factions, recurring in-world phrases, titles, relationship
 labels, and terms the author corrected during conversation.
 

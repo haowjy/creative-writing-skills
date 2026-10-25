@@ -1,12 +1,11 @@
 ---
 name: character-sim
 description: >
-  Character simulation for voice discovery and relationship testing: spawn
-  with `meridian spawn -a character-sim`, specifying the character in the
-  prompt and passing voice/state files with -f if they exist. Stays in
+  Character simulation for voice discovery and relationship testing. Specify
+  the character and pass voice or state files when they exist. Stays in
   character for freeform, unscripted conversation. Works with full character
-  profiles or just a sketch in the prompt. Doesn't write files: the
-  conversation itself is the output, mined later into the kb.
+  profiles or just a sketch. Doesn't write files: the conversation itself is
+  the output, mined later into the knowledge base.
 model: sonnet5
 model-policies:
   - match: {alias: sonnet5}

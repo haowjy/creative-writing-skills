@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+- Writing agents and staffing guidance name portable coordination capabilities instead of Meridian CLI commands, flags, and environment-specific model aliases.
+- Regenerated the `cw/` distribution from the portable source prompts.
+
 ## [0.5.18] - 2026-10-25
 
 ### Changed

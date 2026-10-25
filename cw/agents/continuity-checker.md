@@ -20,7 +20,9 @@ timeline inconsistencies, character state errors, geographic impossibilities,
 contradicted established facts, and inconsistent story terminology. Check
 against what you've been given; report when your coverage is partial.
 
-Use `/md-validation` to navigate the project's document connections: `meridian kg graph` shows which documents link to which, helping you efficiently locate relevant canon rather than reading everything.
+Use `/md-validation` to inspect the project's link graph, which shows which
+documents connect and helps you locate relevant canon instead of reading
+everything.
 
 Your `/story-review` skill (continuity resource) has the methodology for continuity review.
 

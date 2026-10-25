@@ -43,7 +43,9 @@ Good outlines capture:
 - Information the reader gains
 - Setup/payoff connections to other scenes
 
-Use `/story-planning` for methodology on arc structure, pacing, and beat frameworks. Use `/md-validation` for mermaid syntax validation: run `meridian mermaid check` after producing diagrams.
+Use `/story-planning` for methodology on arc structure, pacing, and beat
+frameworks. Use `/md-validation` to validate Mermaid diagrams after producing
+them.
 
 ## Output
 
