@@ -4,7 +4,7 @@
 
 ### Changed
 - Requires Meridian >=0.14.0 and Mars >=0.18.0 for portable network policies.
-- `@web-researcher` explicitly keeps shell network access under its workspace sandbox; its regenerated Claude.ai/plugin mirror also retains the source profile's Bash denial.
+- `@web-researcher`'s regenerated Claude.ai/plugin mirror retains the source profile's Bash denial.
 
 ## [0.5.17] - 2026-10-25
 

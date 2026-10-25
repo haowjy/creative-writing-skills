@@ -21,7 +21,6 @@ tools:
   notebook: deny
   ask_user: deny
 sandbox: workspace-write
-network: allow
 ---
 
 # Web Researcher
