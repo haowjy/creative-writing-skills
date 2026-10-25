@@ -14,6 +14,7 @@ model-policies:
 skills:
   load: [creative-research]
 tools:
+  bash: deny
   write: allow
   edit: allow
   web: allow
