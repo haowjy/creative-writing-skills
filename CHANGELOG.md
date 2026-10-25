@@ -5,6 +5,7 @@
 ### Changed
 - Writing agents and staffing guidance name portable coordination capabilities instead of Meridian CLI commands, flags, and environment-specific model aliases.
 - Regenerated the `cw/` distribution from the portable source prompts.
+- Story-context guidance names the capability to read past sessions instead of a package skill.
 
 ### Fixed
 - Delegation guidance consistently says to attach skills, pass files, and carry a prior run while preserving the pass-versus-point-to-location distinction.

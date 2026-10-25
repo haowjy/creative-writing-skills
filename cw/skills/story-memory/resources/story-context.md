@@ -77,7 +77,7 @@ Don't pass too much: brainstormers that receive the full project history tend to
 - **Continuity-checker**: the draft plus canon, timeline, character state, and vocab files for any domains the draft touches
 - **Character-state contradiction**: do not patch character state from a draft. Update only after the author confirms.
 - **KB restructuring**: the full kb directory structure — needs to see everything to rebuild connections
-- **Session mining**: carry the prior run to mine, and pass the kb paths where findings belong
+- **Read past sessions**: carry the prior run to mine, and pass the kb paths where findings belong
 
 ## Cross-Phase Context
 
