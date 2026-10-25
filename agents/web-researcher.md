@@ -14,7 +14,6 @@ model-policies:
 skills:
   load: [creative-research]
 tools:
-  'bash(meridian *)': allow
   write: allow
   edit: allow
   web: allow

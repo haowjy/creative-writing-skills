@@ -17,9 +17,7 @@ model-policies:
     override: {effort: low}
 skills: [story-review, writing-principles, llm-writing, story-memory]
 tools:
-  'bash(meridian spawn show *)': allow
   'bash(meridian session *)': allow
-  'bash(meridian work show *)': allow
   'bash(git diff *)': allow
   'bash(git log *)': allow
   'bash(rg *)': allow

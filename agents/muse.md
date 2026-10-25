@@ -22,7 +22,6 @@ skills:
   available: [creative-writing-modes, creative-writing-craft, story-review, story-memory, reader-sim, character-sim, shared-dao, grill-with-docs, structured-artifact]
 subagents: [brainstormer, character-sim, continuity-checker, critic, editor, kb-lead, outliner, reader-sim, style-creator, web-researcher, writer]
 tools:
-  'bash(meridian spawn *)': allow
   'bash(meridian work *)': allow
   'bash(meridian context *)': allow
   'bash(meridian session *)': allow

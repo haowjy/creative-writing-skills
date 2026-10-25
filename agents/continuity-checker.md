@@ -14,10 +14,7 @@ model-policies:
     override: {effort: low}
 skills: [story-review, md-validation, shared-dao, story-memory]
 tools:
-  'bash(meridian spawn show *)': allow
   'bash(meridian session *)': allow
-  'bash(meridian work show *)': allow
-  'bash(meridian kg *)': allow
   'bash(git diff *)': allow
   'bash(git log *)': allow
   'bash(rg *)': allow

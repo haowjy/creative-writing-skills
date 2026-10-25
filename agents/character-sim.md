@@ -18,7 +18,6 @@ skills:
   load: [character-sim, writing-principles, llm-writing]
   available: [story-memory]
 tools:
-  'bash(meridian spawn show *)': allow
   'bash(meridian session *)': allow
   'bash(cat *)': allow
   edit: deny
