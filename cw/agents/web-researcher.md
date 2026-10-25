@@ -4,6 +4,7 @@ description: Web research for fiction — primary sources, reference works, cult
 skills:
 - creative-research
 disallowed-tools:
+- Bash
 - NotebookEdit
 - AskUserQuestion
 ---
