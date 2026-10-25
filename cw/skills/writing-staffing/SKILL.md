@@ -2,16 +2,16 @@
 name: writing-staffing
 description: >
   Dispatch reference for composing writing teams. Teaches which skills to
-  load for each subagent, which resources to reference, and when to fan out
-  versus run parallel lanes. Load when staffing a workflow.
+  attach, which files to pass, which resources to reference, and when to fan
+  out versus run parallel lanes. Load when staffing a workflow.
 ---
 
 # Writing Staffing
 
-Each subagent has its own skill set. This skill teaches what *extra* skills
-to load and reference when dispatching work.
+Each delegated agent has its own skill set. This skill teaches which extra
+skills to attach, files to pass, and resources to reference.
 
-**Fan-out** gives the same question and files to different model families for
+**Fan-out** passes the same question and files to different model families for
 independent judgment. Reserve it for high-stakes calls where model diversity
 can reveal different blind spots. **Parallel lanes** use different prompts or
 focus areas; use them when the work divides cleanly.
@@ -20,27 +20,27 @@ focus areas; use them when the work divides cleanly.
 
 ### `@writer`
 
-Extra skills: `/character-sim` for voice fidelity, `/shared-dao` for
+Attach `/character-sim` for voice fidelity and `/shared-dao` for
 project vocabulary.
 
 Reference: name the production mode from `/creative-writing-modes` →
 `resources/prose-modes.md` (fresh draft, revision, bridge, alternate take,
 line polish). Point to `/creative-writing-craft` →
 `resources/prose-writing.md` or `resources/scene-construction.md` when
-relevant. Include style and character state for everyone who
-appears, plus continuity anchors.
+relevant. Pass style and character state for everyone who appears, plus
+continuity anchors.
 
 One writer per scene — voice consistency degrades when multiple writers
 handle adjacent content.
 
 ### `@critic`
 
-Extra skills: `/creative-writing-craft` for prose/voice focus, `/shared-dao`
+Attach `/creative-writing-craft` for prose or voice focus and `/shared-dao`
 for vocabulary checks.
 
-Assign a focus area: structure, character, voice, prose, or continuity.
-Include style for voice critique. Include character state for
-character or continuity focus.
+Assign a focus area: structure, character, voice, prose, or continuity. Pass
+style for voice critique and character state for character or continuity
+focus.
 
 Run different focus areas as parallel lanes. Scale to stakes:
 1–2 for low-stakes, 3 for standard chapters, 4–5 for pivotal scenes with
@@ -60,13 +60,13 @@ one dimension, use `@critic`.
 
 ### `@continuity-checker`
 
-Include the draft plus canon, timeline, character state, and vocab files.
+Pass the draft plus canon, timeline, character state, and vocab files.
 More expensive than a critic with continuity focus — reads broadly. Use the
 critic for routine checks, the continuity-checker for deep validation.
 
 ### `@brainstormer`
 
-Extra skills: `/character-sim` for character arcs, `/creative-research` for
+Attach `/character-sim` for character arcs and `/creative-research` for
 real-world grounding.
 
 Run parallel lanes on different *angles*, not the same angle. Three perspectives
@@ -79,23 +79,22 @@ The outliner's output feeds the writer.
 
 ### `@style-creator`
 
-Include sample chapters or existing style files. Point to
+Pass sample chapters or existing style files. Point to
 `/creative-writing-craft` → `resources/style-analysis.md`.
 
 ### `@reader-sim`
 
-Extra skills: `/character-sim` when the reader persona is a specific
-character type.
+Attach `/character-sim` when the reader persona is a specific character type.
 
 Specify the reader persona and knowledge boundary (what has this reader
-already read). Include the draft.
+already read). Pass the draft.
 
 Run after the write/critique loop converges, before presenting to the
 author. A scene can be technically clean and leave a reader cold.
 
 ### `@character-sim`
 
-Include character state and style. Specify the scenario or
+Pass character state and style. Specify the scenario or
 relationship to explore. Use one parallel lane per character or perspective
 for independent exploration; use one shared simulation when testing their
 interaction.

@@ -27,15 +27,15 @@ coordinate specialists, judge the results, and speak back to the author.
 
 <delegate>
 Stay author-facing: clarify intent, synthesize results, present output.
-Each specialist run gets its own context window, model, and skill set tuned to
+Each delegated run gets its own context window, model, and skill set tuned to
 the task. Keeping stances in separate runs prevents critique from contaminating
 drafting and drafting from contaminating memory.
 
 Read subagent descriptions and route to the most specific one for each
-task. Use `/writing-staffing` to decide what extra skills and files each
-specialist needs — `/creative-writing-modes` for `@writer`, `/story-memory`
-for knowledge capture. Tell each specialist what reader effect to create and
-what to leave ambiguous or unresolved.
+task. Use `/writing-staffing` to decide which skills to attach and which files
+to pass to each delegated agent — `/creative-writing-modes` for `@writer`,
+`/story-memory` for knowledge capture. Tell each delegated agent what reader
+effect to create and what to leave ambiguous or unresolved.
 </delegate>
 
 ## Preserve Author Intent

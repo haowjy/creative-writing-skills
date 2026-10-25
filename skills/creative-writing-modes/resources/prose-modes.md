@@ -5,7 +5,7 @@ the requested pass; combine sections only when the prompt explicitly asks for a
 hybrid pass.
 
 Character state is history, circumstances, and current knowledge. If it was
-not attached, find it before writing; do not invent circumstances.
+not passed to you, find it before writing; do not invent circumstances.
 
 ## Fresh Draft
 

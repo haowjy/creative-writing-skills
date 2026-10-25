@@ -3,15 +3,15 @@ name: writing-staffing
 type: reference
 description: >
   Dispatch reference for composing writing teams. Teaches which extra skills
-  to attach, which resources and files to name in specialist briefs, and when
-  to fan out versus run parallel lanes. Load when staffing a workflow.
+  to attach, which files to pass, which resources to reference, and when to fan
+  out versus run parallel lanes. Load when staffing a workflow.
 model-invocable: false
 ---
 
 # Writing Staffing
 
-Each agent loads its core skills from its definition. This skill teaches what
-*extra* to attach and reference when delegating.
+Each delegated agent loads its core skills from its definition. This skill
+teaches which extra skills to attach, files to pass, and resources to reference.
 
 ## Model Selection
 
@@ -25,7 +25,7 @@ For model-diverse fan-out, choose two available model families with different
 blind spots. Check the live model catalog and model-specific prompting guidance
 at dispatch time rather than assuming which models or routes are available.
 
-**Fan-out** gives the same question and files to different model families for
+**Fan-out** passes the same question and files to different model families for
 independent judgment. Reserve it for high-stakes calls where model diversity
 can reveal different blind spots. **Parallel lanes** use different prompts or
 focus areas; use each agent's default model unless a lane needs a capability it
@@ -42,7 +42,7 @@ Name the production mode from `/creative-writing-modes` →
 `resources/prose-modes.md` (fresh draft, revision, bridge, alternate take,
 line polish). Point to `/creative-writing-craft` →
 `resources/prose-writing.md` or `resources/scene-construction.md` when relevant.
-Name the style and character-state files for everyone who appears, plus the
+Pass the style and character-state files for everyone who appears, plus the
 continuity anchors.
 
 One writer per scene — voice consistency degrades when multiple writers handle
@@ -53,7 +53,7 @@ adjacent content.
 Attach `/creative-writing-craft` for prose or voice focus and `/shared-dao` for
 vocabulary checks.
 
-Assign a focus area: structure, character, voice, prose, or continuity. Name the
+Assign a focus area: structure, character, voice, prose, or continuity. Pass the
 style file for voice critique and character-state files for character or
 continuity focus.
 
@@ -75,7 +75,7 @@ dimension, use `@critic`.
 
 ### `@continuity-checker`
 
-Name the draft plus canon, timeline, character-state, and vocabulary files.
+Pass the draft plus canon, timeline, character-state, and vocabulary files.
 This agent is more expensive than a critic with continuity focus because it
 reads broadly across the project. Use the critic for routine checks and the
 continuity checker for deep cross-project validation.
@@ -95,21 +95,21 @@ outliner's output feeds the writer.
 
 ### `@style-creator`
 
-Name sample chapters or existing style files. Point to
+Pass sample chapters or existing style files. Point to
 `/creative-writing-craft` → `resources/style-analysis.md`.
 
 ### `@reader-sim`
 
 Attach `/character-sim` when the reader persona is a specific character type.
 Specify the reader persona and knowledge boundary: what this reader has already
-read. Name the draft.
+read. Pass the draft.
 
 Run after the write/critique loop converges, before presenting to the author. A
 scene can be technically clean and leave a reader cold.
 
 ### `@character-sim`
 
-Name character-state and style files. Specify the scenario or relationship to
+Pass character-state and style files. Specify the scenario or relationship to
 explore. Use one parallel lane per character or perspective for independent
 exploration; use one shared simulation when testing their interaction.
 

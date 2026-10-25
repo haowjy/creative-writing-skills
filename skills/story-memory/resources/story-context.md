@@ -18,20 +18,20 @@ This skill teaches the judgment: what story context to pass, when to materialize
 
 Three options, each for a different situation:
 
-**Attach files**: when context already exists as files — chapters, outlines,
+**Pass files**: when context already exists as files — chapters, outlines,
 wiki pages, style, character state. Default choice because files are
 stable, inspectable, and survive compaction. Scope tightly: pass the files
 that matter, not everything.
 
-**Pass conversation history**: when the agent needs decisions, reasoning, or
-brainstorm context that hasn't been written down yet. History captures
-the *why* behind choices: why the author picked this angle, what they rejected.
+**Carry a prior run**: when the agent needs decisions, reasoning, or brainstorm
+context that has not been written down yet. The prior run captures the *why*
+behind choices: why the author picked this angle and what they rejected.
 
 **Materialize first**: when context is too important to be ephemeral. If
 critical story decisions only live in conversation, write them to the kb or
 work directory *before* handoff. If a worker could accidentally contradict
-this context, materialize it. If it's supplementary background, conversation
-history is fine.
+this context, materialize it. If it is supplementary background, carry the
+prior run.
 
 ## What Each Agent Needs
 
@@ -41,22 +41,22 @@ Writers need enough to stay in voice and on-canon, not everything ever written. 
 
 - **Scene brief or outline**: what happens in this scene, the beats to hit
 - **Style**: how they sound. Look in the styles directory if this project has one; each reference says when it applies.
-- **Character state**: history, circumstances, and current knowledge for whoever appears. Attach whatever this project uses. If you cannot attach it, tell the writer where it lives.
+- **Character state**: history, circumstances, and current knowledge for whoever appears. Pass whatever this project uses. If you cannot pass it, tell the writer where it lives.
 - **Continuity anchors**: the immediately preceding chapter or scene (for flow), plus any chapters that establish facts this scene references. Two to four files, not the entire manuscript.
 - **Vocab**: relevant `vocab.md` files when the scene uses invented terms, magic/faction names, titles, relationship labels, or genre terms with project-specific meanings
 
-Tell the writer where to find more if it needs to explore, for example: "the full arc outline is in the work directory; focus on the Route 1 section." Avoid attaching everything preemptively.
+Tell the writer where to find more if it needs to explore, for example: "the full arc outline is in the work directory; focus on the Route 1 section." Avoid passing everything preemptively.
 
 ### Critics
 
 Critics need the draft plus enough context to judge it against:
 
-- **The draft being reviewed**: always as attached files
+- **The draft being reviewed**: always pass the draft files
 - **The scene brief or outline**: so the critic can check whether the draft achieved what it was supposed to
 - **Style**: so voice critics can compare against the target voice
 - **Character state**: so character and continuity critics can check it
 - **Prior chapters for continuity**: so continuity critics can cross-reference facts
-- **Author intent**: via conversation history if the orchestrator discussed direction with the author, or via materialized decision notes
+- **Author intent**: carry the prior run when the orchestrator discussed direction with the author, or pass materialized decision notes
 - **Known issues**: tracked issues if the critic should watch for specific recurring problems
 - **Vocab**: relevant `vocab.md` files when consistency of naming, aliases, deprecated terms, or invented language matters
 
@@ -73,11 +73,11 @@ Don't pass too much: brainstormers that receive the full project history tend to
 
 ### Knowledge Maintenance
 
-- **Fact extraction**: the chapter(s) to extract from as attached files, plus existing canon files, timeline entries, and vocab files for deduplication
+- **Fact extraction**: pass the chapter files to extract from, plus existing canon files, timeline entries, and vocab files for deduplication
 - **Continuity-checker**: the draft plus canon, timeline, character state, and vocab files for any domains the draft touches
 - **Character-state contradiction**: do not patch character state from a draft. Update only after the author confirms.
 - **KB restructuring**: the full kb directory structure — needs to see everything to rebuild connections
-- **Session mining**: conversation history from the session to mine, plus kb paths for where to write findings
+- **Session mining**: carry the prior run to mine, and pass the kb paths where findings belong
 
 ## Cross-Phase Context
 
@@ -85,8 +85,8 @@ Carry forward what a previous phase learned. The writer benefits from seeing
 what the prior draft pass discovered when revising. The critic benefits from
 seeing prior critique rounds.
 
-Combine mechanisms when phases produce artifacts: conversation history for
-reasoning context, attached files for the artifacts the prior phase created.
+Combine mechanisms when phases produce artifacts: carry the prior run for
+reasoning context, and pass files for the artifacts the prior phase created.
 
 ## Vocab Handoffs
 
