@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.5.17] - 2026-10-25
+
 ### Changed
 - Requires Meridian >=0.13.0 for platform-owned Meridian command permissions.
 - Agents rely on Meridian's platform grants for read-only and declared-subagent commands instead of repeating them in tool rules; the web researcher no longer grants unrelated write-capable Meridian commands.
