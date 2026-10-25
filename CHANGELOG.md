@@ -3,8 +3,9 @@
 ## [Unreleased]
 
 ### Changed
+- Requires Meridian >=0.14.5 and accepts meridian-base 0.12, which moved Meridian's own skills into Meridian.
 - Writing agents and staffing guidance name portable coordination capabilities instead of Meridian CLI commands, flags, and environment-specific model aliases.
-- Regenerated the `cw/` distribution from the portable source prompts.
+- Regenerated the `cw/` distribution from the portable source prompts and meridian-base 0.12.
 - Story-context guidance names the capability to read past sessions instead of a package skill.
 
 ### Fixed

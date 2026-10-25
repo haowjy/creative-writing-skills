@@ -26,7 +26,7 @@ One table, then a candidates list:
 
 | Class | Correct behavior | Enforced by | Occurrences |
 |---|---|---|---|
-| What the agent did, one line | What the human wanted, one line | What prevents or catches the mistake, by kind and location: a structural change, an automated check, a tool permission, a written rule (name the file), or `none` | `chat:c123` or `spawn:p123`, date, a short quote; one per line |
+| What the agent did, one line | What the human wanted, one line | What prevents or catches the mistake, by kind and location: a structural change, an automated check, a tool permission, a written rule (name the file), or `none` | Session or run ID, date, a short quote; one per line |
 
 A class seen once goes under **Candidates** with its occurrence and moves into
 the table on its second. Delete a row once its mistake can no longer happen;

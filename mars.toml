@@ -2,11 +2,11 @@
 name = "creative-writing-skills"
 version = "0.5.18"
 requires-mars = ">=0.18.0"
-requires-meridian = ">=0.14.0"
+requires-meridian = ">=0.14.5"
 
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
-version = ">=0.11.15, <0.12.0"
+version = ">=0.11.15, <0.13.0"
 
 [dependencies.writing-sync]
 url = "https://github.com/haowjy/writing-sync"
