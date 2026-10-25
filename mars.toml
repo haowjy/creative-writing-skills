@@ -1,6 +1,6 @@
 [package]
 name = "creative-writing-skills"
-version = "0.5.17"
+version = "0.5.18"
 requires-mars = ">=0.18.0"
 requires-meridian = ">=0.14.0"
 
