@@ -1,8 +1,9 @@
 [package]
 name = "creative-writing-skills"
 version = "0.5.19"
-requires-mars = ">=0.18.0"
+requires-mars = ">=0.20.0"
 requires-meridian = ">=0.14.5"
+schema = 1
 
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"

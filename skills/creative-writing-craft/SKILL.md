@@ -1,9 +1,10 @@
 ---
 name: creative-writing-craft
-type: reference
 description: >
   Craft references for writing fiction well: prose, scenes, style, voice, and genre/page-level technique. Load when a writer, critic, or muse needs how-to-write guidance rather than a production mode.
 model-invocable: true
+metadata:
+  type: reference
 ---
 
 # Creative Writing Craft

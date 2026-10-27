@@ -1,9 +1,10 @@
 ---
 name: story-planning
-type: mode-shift
 description: >
   Planning work before prose: creative direction, story-planning, outlining, and story architecture. Load when deciding what should happen or how a story should be structured.
 model-invocable: true
+metadata:
+  type: mode-shift
 ---
 
 # Story Planning

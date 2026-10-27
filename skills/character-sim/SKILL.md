@@ -1,9 +1,10 @@
 ---
 name: character-sim
-type: mode-shift
 description: >
   Speak as a specified character from their current knowledge, voice, and emotional state. Use for skill-only workflows that need in-character conversation, voice discovery, or relationship pressure tests.
 model-invocable: true
+metadata:
+  type: mode-shift
 ---
 
 # Character Simulation

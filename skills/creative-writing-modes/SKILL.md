@@ -1,9 +1,10 @@
 ---
 name: creative-writing-modes
-type: mode-shift
 description: >
   Creative-writing addendum to /llm-writing. Load when putting prose on the page: draft, revise, bridge, vary, or polish.
 model-invocable: true
+metadata:
+  type: mode-shift
 ---
 
 # Creative Writing Modes

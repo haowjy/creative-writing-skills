@@ -1,9 +1,10 @@
 ---
 name: story-review
-type: mode-shift
 description: >
   Review work after prose exists: editorial review, craft critique, continuity/voice review, copyediting, proofreading, and synthesis of reader-sim signal. Load when diagnosing a draft rather than rewriting it.
 model-invocable: true
+metadata:
+  type: mode-shift
 ---
 
 # Story Review

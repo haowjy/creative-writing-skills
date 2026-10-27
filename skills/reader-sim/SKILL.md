@@ -1,9 +1,10 @@
 ---
 name: reader-sim
-type: mode-shift
 description: >
   Read as a specified first-time reader persona and report the felt experience. Use for skill-only workflows when a draft needs persona-bound reader-response signal instead of analytical critique.
 model-invocable: true
+metadata:
+  type: mode-shift
 ---
 
 # Reader Simulation

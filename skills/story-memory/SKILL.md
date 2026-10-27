@@ -1,6 +1,5 @@
 ---
 name: story-memory
-type: reference
 description: >
   Creative-writing domain knowledge for durable story state. Load when
   preserving or retrieving project memory — fact extraction, context scoping,
@@ -9,6 +8,8 @@ description: >
   fiction-specific categories and conventions your general methodology
   doesn't cover.
 model-invocable: true
+metadata:
+  type: reference
 ---
 
 # Story Memory

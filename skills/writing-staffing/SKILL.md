@@ -1,11 +1,12 @@
 ---
 name: writing-staffing
-type: reference
 description: >
   Dispatch reference for composing writing teams. Teaches which extra skills
   to attach, which files to pass, which resources to reference, and when to fan
   out versus run parallel lanes. Load when staffing a workflow.
 model-invocable: false
+metadata:
+  type: reference
 ---
 
 # Writing Staffing

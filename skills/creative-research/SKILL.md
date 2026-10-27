@@ -1,12 +1,13 @@
 ---
 name: creative-research
-type: reference
 description: >
   Load when a story needs factual grounding the writer doesn't have: historical
   detail, cultural texture, domain accuracy, or how other authors handled
   similar material. Pass the question and story context; returns a sourced
   report the writer can draw from.
 model-invocable: true
+metadata:
+  type: reference
 ---
 
 # Creative Research

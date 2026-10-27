@@ -1,8 +1,9 @@
 ---
 name: writing-principles
-type: principle
 description: >
   What fiction readers want (reader reward channels) and the specific ways LLM training damages them. Load when drafting prose, critiquing, or diagnosing why a passage feels flat.
+metadata:
+  type: principle
 ---
 
 # Writing Principles
