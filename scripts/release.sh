@@ -1,19 +1,24 @@
 #!/usr/bin/env bash
 
-# DEPRECATED: prefer `meridian mars version patch --push`. This script only
-# bumps mars.toml — cw/.claude-plugin/plugin.json and marketplace.json must be
-# re-synced separately — and its macOS-style `sed -i ''` fails with GNU sed
-# (Linux, Git Bash on Windows).
+# Release script: bump the version in mars.toml, rebuild the committed plugin
+# output, commit, tag, and optionally push.
 #
-# Release script: bump version in mars.toml, commit, tag, optionally push.
 # Usage:
-#   ./scripts/release.sh              # patch bump (0.0.6 -> 0.0.7)
-#   ./scripts/release.sh minor        # minor bump (0.0.6 -> 0.1.0)
-#   ./scripts/release.sh major        # major bump (0.0.6 -> 1.0.0)
+#   ./scripts/release.sh              # patch bump (0.5.19 -> 0.5.20)
+#   ./scripts/release.sh minor        # minor bump (0.5.19 -> 0.6.0)
+#   ./scripts/release.sh major        # major bump (0.5.19 -> 1.0.0)
 #   ./scripts/release.sh --push       # patch bump + push
 #   ./scripts/release.sh minor --push # minor bump + push
+#
+# `mars version` would do this in one step, but it refuses this package today:
+# the hand-authored hook directories under `.claude/hooks/` and
+# `.codex/hooks/` are unmanaged target directories to Mars, so its publish
+# check fails. Once those hooks live in a Mars-managed source location, this
+# script can delegate.
 
-cd "$(git rev-parse --show-toplevel)" || exit 1
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
 
 bump="patch"
 push=false
@@ -24,65 +29,55 @@ for arg in "$@"; do
     --push) push=true ;;
     -h|--help)
       echo "Usage: $0 [patch|minor|major] [--push]"
-      echo "  patch (default): 0.0.6 -> 0.0.7"
-      echo "  minor:           0.0.6 -> 0.1.0"
-      echo "  major:           0.0.6 -> 1.0.0"
+      echo "  patch (default): 0.5.19 -> 0.5.20"
+      echo "  minor:           0.5.19 -> 0.6.0"
+      echo "  major:           0.5.19 -> 1.0.0"
       echo "  --push:          push commit and tag to origin"
       exit 0
       ;;
-    *) echo "Unknown argument: $arg"; exit 1 ;;
+    *) echo "Unknown argument: $arg" >&2; exit 1 ;;
   esac
 done
 
-# --- Collect all preflight errors before failing ---
+current=$(grep '^version' mars.toml | head -1 | sed 's/.*= *"\(.*\)"/\1/')
+if [ -z "$current" ]; then
+  echo "release.sh: could not read version from mars.toml" >&2
+  exit 1
+fi
+
+IFS='.' read -r maj min pat <<< "$current"
+case "$bump" in
+  patch) pat=$((pat + 1)) ;;
+  minor) min=$((min + 1)); pat=0 ;;
+  major) maj=$((maj + 1)); min=0; pat=0 ;;
+esac
+
+next="${maj}.${min}.${pat}"
+tag="v${next}"
 
 errors=()
 
-# Read current version from mars.toml
-current=$(grep '^version' mars.toml | head -1 | sed 's/.*= *"\(.*\)"/\1/')
-if [ -z "$current" ]; then
-  errors+=("Could not read version from mars.toml")
+if git rev-parse "$tag" >/dev/null 2>&1; then
+  errors+=("Tag $tag already exists")
 fi
 
-if [ ${#errors[@]} -eq 0 ]; then
-  IFS='.' read -r maj min pat <<< "$current"
-
-  case "$bump" in
-    patch) pat=$((pat + 1)) ;;
-    minor) min=$((min + 1)); pat=0 ;;
-    major) maj=$((maj + 1)); min=0; pat=0 ;;
-  esac
-
-  next="${maj}.${min}.${pat}"
-  tag="v${next}"
-
-  # Check tag doesn't already exist
-  if git rev-parse "$tag" >/dev/null 2>&1; then
-    errors+=("Tag $tag already exists")
-  fi
-fi
-
-# Check for uncommitted changes (except mars.toml which we're about to edit)
-if ! git diff --quiet --exit-code -- ':!mars.toml'; then
-  errors+=("Working tree has uncommitted changes")
-  echo "  Dirty files:"
-  git diff --name-only -- ':!mars.toml' | sed 's/^/    /'
-fi
-
-# Check for staged changes
-if ! git diff --cached --quiet --exit-code; then
-  errors+=("Staged changes exist")
-  echo "  Staged files:"
-  git diff --cached --name-only | sed 's/^/    /'
-fi
-
-# Check we're on main
 branch=$(git branch --show-current)
 if [ "$branch" != "main" ]; then
   errors+=("Not on main branch (currently on '$branch')")
 fi
 
-# Report all errors at once
+if ! git diff --quiet --exit-code -- ':!mars.toml'; then
+  errors+=("Working tree has uncommitted changes")
+fi
+
+if ! git diff --cached --quiet --exit-code; then
+  errors+=("Staged changes exist")
+fi
+
+if ! command -v mars >/dev/null 2>&1; then
+  errors+=("'mars' is not on PATH (install mars-agents==0.20.2); it rebuilds plugin/")
+fi
+
 if [ ${#errors[@]} -gt 0 ]; then
   echo "Release blocked: fix these before retrying:"
   for err in "${errors[@]}"; do
@@ -93,19 +88,26 @@ fi
 
 echo "Bumping: $current -> $next ($bump)"
 
-# Bump version in mars.toml
-sed -i '' "s/^version = \"${current}\"/version = \"${next}\"/" mars.toml
+# Portable in-place edit: `sed -i ''` is macOS-only, `sed -i` is GNU-only.
+sed "s/^version = \"${current}\"/version = \"${next}\"/" mars.toml > mars.toml.new
+mv mars.toml.new mars.toml
 
-# Verify the change took
 verify=$(grep '^version' mars.toml | head -1 | sed 's/.*= *"\(.*\)"/\1/')
 if [ "$verify" != "$next" ]; then
-  echo "Error: version replacement failed (got '$verify', expected '$next')"
-  git checkout mars.toml
+  echo "release.sh: version replacement failed (got '$verify', expected '$next')" >&2
+  git checkout -- mars.toml
   exit 1
 fi
 
-git add mars.toml
-git commit -m "Release $tag"
+echo "Rebuilding the plugin at $next..."
+if ! mars build plugin; then
+  echo "release.sh: plugin build failed; restoring mars.toml" >&2
+  git checkout -- mars.toml
+  exit 1
+fi
+
+git add mars.toml plugin .claude-plugin .cursor-plugin package.json
+git commit -m "v${next}"
 git tag "$tag"
 
 echo "Created commit and tag: $tag"

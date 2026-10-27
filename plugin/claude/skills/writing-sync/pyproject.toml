@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "independent-drive-sync"
+version = "0.1.1"
+description = "Guarded local-source and Google Drive synchronization"
+requires-python = ">=3.11"
+dependencies = ["ruamel.yaml==0.18.15", "markdown-it-py==4.0.0", "google-auth-oauthlib==1.2.2"]
+
+[project.scripts]
+drive-sync = "drive_sync.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["scripts"]

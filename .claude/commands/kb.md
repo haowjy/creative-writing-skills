@@ -3,7 +3,7 @@ description: Create or update knowledge base pages: character profiles, world do
 argument-hint: <what to document>
 ---
 
-Use the kb-management skill to create or update reference pages in kb/.
+Use the story-memory skill to create or update reference pages in kb/.
 
 Before writing:
 1. Check what already exists in kb/ for this topic

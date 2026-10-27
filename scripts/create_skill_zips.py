@@ -3,7 +3,7 @@
 Create `.skill` ZIP files for Claude.ai uploads.
 
 Sources:
-- `cw/skills/*`
+- `plugin/claude/skills/*` (the committed Mars plugin build)
 
 Each archive is rooted at the skill directory name and contains:
 - `SKILL.md`
@@ -31,8 +31,8 @@ def should_exclude(path: Path) -> bool:
 
 
 def find_skill_dirs(repo_root: Path) -> list[Path]:
-    """Find skills under `cw/skills/*`."""
-    skills_root = repo_root / "cw" / "skills"
+    """Find skills under `plugin/claude/skills/*`."""
+    skills_root = repo_root / "plugin" / "claude" / "skills"
 
     skill_dirs = []
     if skills_root.exists():
@@ -94,7 +94,8 @@ def main() -> int:
     skill_dirs = find_skill_dirs(repo_root)
 
     if not skill_dirs:
-        print("Error: No skill directories found under cw/skills")
+        print("Error: No skill directories found under plugin/claude/skills")
+        print("Run `mars build plugin` to generate them.")
         return 1
 
     for skill_dir in skill_dirs:

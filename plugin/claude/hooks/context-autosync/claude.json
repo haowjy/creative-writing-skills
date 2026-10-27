@@ -1,0 +1,16 @@
+{
+  "SubagentStop": [
+    {
+      "hooks": [
+        { "type": "command", "command": "bash \"${MARS_HOOK_DIR}/run.sh\"" }
+      ]
+    }
+  ],
+  "SessionEnd": [
+    {
+      "hooks": [
+        { "type": "command", "command": "bash \"${MARS_HOOK_DIR}/run.sh\"", "timeout": 30 }
+      ]
+    }
+  ]
+}

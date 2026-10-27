@@ -1,0 +1,8 @@
+{
+  "name": "creative-writing-skills",
+  "version": "0.5.19",
+  "main": "plugin/opencode/index.mjs",
+  "files": [
+    "plugin/opencode"
+  ]
+}

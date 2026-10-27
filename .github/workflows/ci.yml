@@ -15,9 +15,11 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
 
-      - name: Install meridian
+      # Pinned: `mars check` compares the committed `plugin/` tree against the
+      # Mars that built it, so CI must run the version authors build with.
+      - name: Install Mars
         run: |
-          uv tool install meridian-cli
+          uv tool install "mars-agents==0.20.2"
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Setup Node.js
@@ -28,19 +30,30 @@ jobs:
       - name: Install Claude Code CLI
         run: npm install -g @anthropic-ai/claude-code
 
-      - name: Validate package structure
-        run: meridian mars check
+      - name: Validate package
+        run: mars check
 
-      - name: Validate Claude plugin manifest
+      - name: Check committed plugin output is up to date
+        run: |
+          mars build plugin
+          changed=$(git diff --name-only -- plugin .claude-plugin .cursor-plugin package.json)
+          untracked=$(git ls-files --others --exclude-standard -- plugin .claude-plugin .cursor-plugin package.json)
+          if [ -n "$changed$untracked" ]; then
+            echo "::error::Committed plugin output is stale. Run 'mars build plugin' and commit the result."
+            printf '%s\n' "$changed" "$untracked"
+            exit 1
+          fi
+
+      - name: Validate Claude plugin (manifest + components)
+        run: claude plugins validate plugin/claude
+
+      - name: Validate Claude marketplace catalog
         run: claude plugins validate .claude-plugin/marketplace.json
-
-      - name: Validate cw plugin (manifest + components)
-        run: claude plugins validate cw
 
       - name: Validate YAML frontmatter
         run: |
           error=0
-          for f in agents/*.md skills/*/SKILL.md cw/skills/*/SKILL.md; do
+          for f in agents/*.md skills/*/SKILL.md; do
             if [ -f "$f" ]; then
               if ! head -1 "$f" | grep -q '^---'; then
                 echo "::error file=$f::Missing YAML frontmatter"
@@ -49,9 +62,6 @@ jobs:
             fi
           done
           exit $error
-
-      - name: Lint cw distribution (leaks, refs, frontmatter, version)
-        run: python3 scripts/sync_cw_skills.py --lint
 
       - name: Build Claude.ai skill packages
         run: python3 scripts/create_skill_zips.py
