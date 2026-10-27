@@ -51,6 +51,13 @@ Once installed, start a session with muse as your agent:
 claude --agent creative-writing-skills:muse
 ```
 
+Run the one-time project setup to create your `AGENTS.md`, `kb/` layout, and
+style files:
+
+```
+/creative-writing-skills:project-setup
+```
+
 ### Claude.ai
 
 `creative-writing-muse` turns an ordinary Claude chat into a creative writing partner. Turn it on, tell it what you're working on, and it carries you from first idea to finished draft in one conversation — talking through ideas, drafting scenes in your voice, flagging what isn't working, and revising. The other skills (prose, scene craft, critique, structure) are the craft knowledge it draws on; you don't have to invoke them yourself.
@@ -63,6 +70,8 @@ First, add the skills to claude.ai — pick one:
 - **Upload the files:** download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest), then **Customize** → **Skills** → **"+"** → **Upload skill** for each one.
 
 Then start a chat, turn on **`creative-writing-muse`**, and describe what you want to write — it leads from there. Adding skills one at a time instead? Start with **creative-writing-muse**, **writing-principles**, **creative-writing-craft**, **creative-writing-craft**, and **story-review**.
+
+Run **`project-setup`** once before writing. On claude.ai it returns the `AGENTS.md`, kb layout, and style guidance as text to save; in Cowork it writes them into the project.
 
 > Want to build the files yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate them in `zips/`. It packages the committed `plugin/claude/skills` tree; run `mars build plugin` first if you changed a source skill.
 
@@ -142,7 +151,7 @@ Knowledge extraction into the kb is not a bundled agent: muse routes it to merid
 | **writing-staffing** | Agent composition for writing workflows |
 | **llm-writing** | Intentional language discipline: catches unchosen LLM defaults while preserving deliberate ambiguity, omission, repetition, and rhythm |
 | **shared-dao** | Shared vocabulary: canonical story terms, aliases, and ambiguity resolution |
-| **project-setup** | One-time guided setup: creates AGENTS.md and kb structure |
+| **project-setup** | One-time guided setup (user-invoked): interviews you, then creates AGENTS.md, the kb layout, and style files |
 
 ## Project Layout
 
@@ -171,7 +180,7 @@ my-story/
 | All agents | Yes (flat) | Yes (flat) | Yes | No (grayed out in chat) |
 | All skills | Yes | Yes | Yes | Marketplace add or zip |
 | Multi-agent orchestration | Via muse | Via muse | Via muse → focused workers | No |
-| Project setup | No | No | Yes | No |
+| Project setup | Yes | Yes | Yes | Text to save |
 
 Claude Code, Cowork, and Meridian use muse as the main coordinator over a compact worker set: writer, critic, reader-sim, brainstormer, outliner, character-sim, style-creator, and continuity-checker. You can add the marketplace to the Claude desktop app from GitHub; Cowork runs the agents, but plain claude.ai chat runs skills only (agents grayed out) — there the `creative-writing-muse` skill provides single-agent muse mode in one conversation, backed by the craft skills.
 

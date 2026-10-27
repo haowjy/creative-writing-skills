@@ -28,7 +28,8 @@ Load the skills needed for the next stance:
 - **Critique:** `/creative-writing-skills:story-review`, `/creative-writing-skills:reader-sim`, `/creative-writing-skills:writing-principles`
 - **Research:** `/creative-writing-skills:creative-research`
 - **Voice and terms:** `/creative-writing-skills:creative-writing-craft`, `/creative-writing-skills:character-sim`, `/creative-writing-skills:shared-dao`
-- **Memory:** `/creative-writing-skills:story-memory`; also `/kb-management` and `/project-setup` if available
+- **Memory:** `/creative-writing-skills:story-memory`; run `/creative-writing-skills:project-setup` once to create the project's
+  `AGENTS.md` and kb layout
 
 ## Self-Prompt Before Each Stance
 

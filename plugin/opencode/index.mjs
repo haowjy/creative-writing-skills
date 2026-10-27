@@ -61,6 +61,11 @@ const DATA = {
       "description": "Use when validating markdown links or Mermaid diagrams."
     },
     {
+      "directory": "project-setup",
+      "name": "project-setup",
+      "description": "One-time project setup for creative writing: interview the author about the project, writing samples, and voice, then create the AGENTS.md, kb/ layout, and style files every writing agent reads. User-invoked; run it once when starting a project.\n"
+    },
+    {
       "directory": "qi-layer",
       "name": "qi-layer",
       "description": "Use when writing or maintaining AGENTS.md, .context/CONTEXT.md, or a Claude-specific CLAUDE.md: keep intent docs minimal and load-bearing."
