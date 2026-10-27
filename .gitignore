@@ -3,16 +3,13 @@
 /test/
 /.mars/
 /.meridian/
-.claude/settings.local.json
 
 /.agents/agents/
+/.claude/
+/.codex/
 /.agents/skills/
-/.claude/agents/
-/.claude/skills/
 mars.lock
 /.cursor/agents/
 /.cursor/skills/
-/.codex/agents/
-/.codex/skills/
 /.opencode/agents/
 /.opencode/skills/

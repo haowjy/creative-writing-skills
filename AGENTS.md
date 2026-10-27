@@ -23,9 +23,7 @@ mars check                   # Validate package, schema, and plugin output state
 ./scripts/release.sh patch   # Bump version, rebuild plugin/, commit, tag
 ```
 
-`mars sync` and `mars version` currently fail in this package: see [Hook ownership](#hook-ownership).
-
-Version lives in `mars.toml` under `[package]`. Tags trigger CI releases.
+Version lives in `mars.toml` under `[package]`. Tags trigger CI releases. Release with `scripts/release.sh` rather than `mars version` until [mars-agents#239](https://github.com/haowjy/mars-agents/issues/239) ships: a single build leaves `plugin/.mars-plugin.json` different from a rebuild, which fails CI's rebuild-and-diff check, so the script builds twice.
 
 **Version sync:** `scripts/release.sh` bumps `mars.toml`, rebuilds `plugin/` and the root catalogs at the new version, and commits them together, so the plugin version never lags `mars.toml`.
 
@@ -66,15 +64,6 @@ The build reads published state only (`mars.toml` plus the dependency graph), ne
 
 **Plugin manifest:** `plugin/claude/.claude-plugin/plugin.json` is generated from `[package]` (name, version, description, first author, homepage, license). Claude Code auto-discovers components without it, but the marketplace **add-from-GitHub** path (Cowork / claude.ai) validates the plugin and *rejects it* if the manifest is missing. `claude plugins validate .claude-plugin/marketplace.json` only checks the marketplace schema, not the plugin — so CI also runs `claude plugins validate plugin/claude`, which validates the manifest plus every agent/skill component file.
 
-## Slash Commands
-
-| Command | Skill |
-|---|---|
-| `/bs` | story-planning |
-| `/write [style]` | creative-writing-modes |
-| `/kb` | story-memory |
-| `/critique` | story-review |
-
 ## Design Patterns
 
 **Source tagging (brainstorming):** Untagged = user stated. `<AI>...</AI>` = AI suggestion. `<hidden>...</hidden>` = author-only (twists, secrets).
@@ -105,10 +94,6 @@ git config core.hooksPath .githooks
 
 It blocks the commit on failure; bypass a single commit with `git commit --no-verify`. (Skips a check when its CLI, `mars` or `claude`, isn't on PATH.)
 
-### Hook ownership
-
-The hooks in `.claude/hooks/` and `.codex/hooks/` are hand-authored but sit in Mars target directories, so `mars sync` and `mars version` refuse them as unmanaged (`unmanaged target hook directory ... blocks hook`). `mars check`, `mars build plugin`, and this repo's own scripts work. Fix: move each directory to `hooks/<name>/` at the package root (the files already carry `hook.toml` with `visibility` and `[targets."..."]`), let sync emit the target copies, and gitignore the generated `.claude/hooks/`, `.codex/hooks/`, and `.codex/hooks.json`. Do that in its own change and verify the hooks still fire.
-
 **CI:** PRs run `mars check` + a rebuild-and-diff check on `plugin/` and the root catalogs + the reference check (`scripts/check_refs.py`) + Claude plugin/marketplace validation (`claude plugins validate`) + frontmatter validation + zip build. `mars check` only warns about stale output, so the rebuild-and-diff step is what fails the build. CI pins `mars-agents==0.20.2` because the committed tree is compared against the Mars that built it. Tag pushes create releases.
 
 ## Conventions
@@ -116,7 +101,7 @@ The hooks in `.claude/hooks/` and `.codex/hooks/` are hand-authored but sit in M
 - Each skill's `SKILL.md` uses YAML frontmatter with `name` and `description`
 - Skills may reference another skill by name; the dependency filter ships the closure of those references and `scripts/check_refs.py` proves it resolves
 - Agent profiles declare their skills in the `skills:` frontmatter block
-- Generated directories (`.agents/`, `.mars/`, `.meridian/`) are gitignored
+- Generated directories (`.agents/`, `.claude/`, `.codex/`, `.cursor/` and `.opencode/` agent and skill output, `.mars/`, `.meridian/`) are gitignored; `mars sync` writes them
 
 ## Watching
 

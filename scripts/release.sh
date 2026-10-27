@@ -10,11 +10,10 @@
 #   ./scripts/release.sh --push       # patch bump + push
 #   ./scripts/release.sh minor --push # minor bump + push
 #
-# `mars version` would do this in one step, but it refuses this package today:
-# the hand-authored hook directories under `.claude/hooks/` and
-# `.codex/hooks/` are unmanaged target directories to Mars, so its publish
-# check fails. Once those hooks live in a Mars-managed source location, this
-# script can delegate.
+# `mars version` would do this in one step, but one build leaves the committed
+# plugin sentinel different from a rebuild, which fails CI's rebuild-and-diff
+# check (https://github.com/haowjy/mars-agents/issues/239). Delegate to
+# `mars version` once that ships.
 
 set -euo pipefail
 

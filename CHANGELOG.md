@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Removed
+- Tracked `.claude/` and `.codex/` files: stale copies of meridian-base hooks that no settings file registered, the `/bs`, `/write`, `/kb` and `/critique` commands (they named skills that no longer exist), and personal permission settings. Both directories are now ignored, so `mars sync` and `mars version` run in the repo.
+
 ## [0.6.1] - 2026-10-27
 
 ### Fixed
