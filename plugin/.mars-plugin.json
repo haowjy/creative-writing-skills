@@ -3,7 +3,7 @@
   "mars_version": "0.20.2",
   "plugin_name": "creative-writing-skills",
   "version": "0.5.19",
-  "inputs_hash": "sha256:6ca5a9f5c6bb074d30c1b82deb0099086eb3b1592f92fec3621ae50bb9bfa442",
+  "inputs_hash": "sha256:b903af6925c9de12defbfe1555ef7bb81da749a5837194050e3c3015afe92e9d",
   "dependencies": {
     "meridian-base": {
       "version": "0.12.1",

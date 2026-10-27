@@ -7,7 +7,7 @@ authors = ["Jimmy Yao <dev.jimm.py@gmail.com>"]
 homepage = "https://github.com/haowjy/creative-writing-skills"
 license = "Apache-2.0"
 requires-mars = ">=0.20.0"
-requires-meridian = ">=0.14.5"
+requires-meridian = ">=0.15.0"
 
 [plugin]
 
