@@ -58,7 +58,7 @@ mars build plugin        # needs Mars 0.20.2 or newer
 mars check               # reports stale, hand-edited, or missing plugin output
 ```
 
-The build reads published state only (`mars.toml` plus the dependency graph), never `mars.local.toml`, `mars.lock`, or `.mars/`. Bootstrap documents have no plugin surface, so `bootstrap/project-setup` ships to Meridian only. The plugin ships the source skills of this package and of `meridian-base`/`writing-sync` as Mars lowers them; there is no curated or hand-adapted copy any more.
+The build reads published state only (`mars.toml` plus the dependency graph), never `mars.local.toml`, `mars.lock`, or `.mars/`. Bootstrap documents have no plugin surface, so `bootstrap/project-setup` ships to Meridian only. The plugin ships this package's agents plus the skills they load: `[dependencies.meridian-base].skills` filters Meridian's operational agents, skills, and hooks out, `writing-sync` contributes its one skill, and no hand-adapted copy exists any more. Widen that list deliberately — a dependency skill or agent that comes back in is user-visible surface.
 
 **`creative-writing-muse`:** source lives in `skills/creative-writing-muse` and reaches the plugin through the same build. It is a user-activated, single-agent muse mode for skills-only environments; the `muse` agents do not load it. The agents follow the Product Lead pattern directly: capture author intent, craft specialist prompts, route work, synthesize results, and speak back to the author.
 

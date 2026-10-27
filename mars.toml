@@ -14,6 +14,21 @@ requires-meridian = ">=0.14.5"
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
 version = ">=0.11.15, <0.13.0"
+# The plugin ships what cw shipped: this package's agents plus the shared
+# skills they load, not Meridian's operational agents, skills, and hooks.
+skills = [
+    "grill-with-docs",
+    "information-hierarchy",
+    "intent-modeling",
+    "knowledge-layers",
+    "llm-writing",
+    "md-validation",
+    "qi-layer",
+    "reflect",
+    "shared-dao",
+    "structured-artifact",
+    "zoom-out",
+]
 
 [dependencies.writing-sync]
 url = "https://github.com/haowjy/writing-sync"

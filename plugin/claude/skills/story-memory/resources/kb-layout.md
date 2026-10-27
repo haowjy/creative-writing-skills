@@ -1,0 +1,122 @@
+---
+name: story-memory
+type: reference
+description: >
+  Where story knowledge lives in kb/ and how pages are organized: canon, wiki, styles, vocab, and issues. Use when creating, updating, or restructuring kb pages.
+---
+
+# KB Layout
+
+The knowledge base (`kb/`) is the project's durable memory. Every agent reads
+from it for context. This resource covers how to maintain it well.
+
+## Layers
+
+**Canon**: established facts the story has committed to. Once a chapter is
+published/finalized, the facts it establishes are canon. Contradicting canon
+breaks reader trust.
+
+**Wiki**: synthesized reference pages. How the magic system works, character
+relationships, faction politics. Living documents that evolve as the story
+develops.
+
+**Styles**: voice reference files derived from prose samples. The writer
+and critic agents depend on these for voice consistency.
+
+**Vocab**: canonical story terms, aliases, and exclusions. Project-wide terms
+live in `kb/vocab.md`; domain terms live beside the domain they govern, such as
+`kb/world/vocab.md`.
+
+**Issues**: tracked writing problems that span multiple chapters (recurring
+tics, pacing patterns, continuity errors). See `resources/writing-issues.md`.
+
+## Page Conventions
+
+### One Concept Per Document
+
+Each doc covers one coherent topic: one character, one location, one system.
+When a doc covers two unrelated topics, split it. When two docs explain the
+same thing from different angles, merge or cross-reference.
+
+Name files by what they describe (`fire-magic.md`, `protagonist.md`), not
+when they were written (`session-3-notes.md`).
+
+### Organization
+
+```text
+kb/
+  characters/
+    <name>.md              # one file per character
+  vocab.md                 # project-wide canonical terms
+  world/
+    vocab.md               # worldbuilding terms when needed
+    <topic>.md             # locations, factions, systems
+    <domain>/
+      vocab.md             # subdomain terms when needed
+      <topic>.md           # nest when a domain has many pages
+  timeline/
+    <arc-or-period>.md     # chronological entries
+  canon/
+    <chapter-or-arc>.md    # hard facts per chapter/arc
+  styles/
+    <style-name>.md        # voice reference files
+  issues/
+    <issue-name>.md        # tracked writing problems
+```
+
+The project's `AGENTS.md` may customize this. Read it first.
+
+### Linking
+
+Link to related pages with relative paths. Cross-reference instead of
+duplicating: one source of truth per concept. A character page links to
+the location page for their home, the timeline entry for their arc, etc.
+
+### Readability
+
+Write pages that work in isolation:
+
+- **Self-contained**: enough context that a reader doesn't need three
+  other pages first
+- **Scannable**: headers, bullets, tables. Bold key terms on first use.
+- **Concrete**: specific quotes, chapter references, scene citations
+- **Current**: update when the story invalidates or extends what's here
+
+## Vocab Pages
+
+Use vocab pages when terms matter across agents: magic names, faction labels,
+place names, titles, relationship labels, invented words, recurring in-world
+phrases, and genre terms with project-specific meanings.
+
+Each entry should include:
+
+- **Canonical name**: the form agents should use
+- **Definition**: one to three sentences, including what the term is not when ambiguity is likely
+- **Aliases**: names the author, characters, drafts, or older kb pages actually use
+- **Source**: where the usage was established or decided
+
+Resolve conflicts early. If two terms seem to name the same thing, pick the
+canonical form with the author or flag it in the report instead of carrying
+both forward silently.
+
+## When to Create vs Update
+
+**Create** a new page when a concept is finalized enough to be referenced
+by other agents. Don't create pages for things still in story-planning.
+
+**Update** an existing page when new chapters establish facts about it,
+when the author makes decisions that change it, or when a page has become
+stale.
+
+**Split** when a page grows past ~200 lines or covers multiple unrelated
+concepts.
+
+## What Belongs in KB vs Work
+
+- Finalized knowledge → `kb/`
+- Draft iterations, brainstorm captures, critique reports → `work/`
+- Promoted facts after a draft completes → `kb/canon/` or relevant wiki page
+
+Use `resources/fact-extraction.md` for routine fact extraction from completed chapters.
+Direct kb edits are for the author or muse when capturing decisions
+interactively.

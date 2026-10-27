@@ -35,7 +35,7 @@ higher-level system architecture → KB.
 If it's for end users → `docs/`.
 If it's the human correcting an agent → the KB corrections register
 (`resources/corrections/register.md`; `code.md` beside it for code projects).
-`/creative-writing-skills:correct` fixes the classes that repeat.
+`/correct` fixes the classes that repeat.
 If it's a temporary work artifact → work directory.
 
 When in doubt, colocate. Knowledge that depends on one subsystem belongs
