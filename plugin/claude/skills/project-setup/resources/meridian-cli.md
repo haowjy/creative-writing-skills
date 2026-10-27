@@ -1,11 +1,11 @@
-# Meridian
+# meridian-cli
 
-Meridian runs `muse` as the session agent and can spawn the other agents as
-separate sessions, each with its own context.
+meridian-cli is the command-line tool. It runs `muse` as the session agent and
+can spawn the other agents as separate sessions, each with its own context.
 
 ## Setup
 
-Add the package to the project, then sync it. This needs Meridian with Mars
+Add the package to the project, then sync it. This needs meridian-cli with Mars
 0.20 or newer.
 
 ```bash

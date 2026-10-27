@@ -8,6 +8,6 @@ The interview is the `project-setup` skill installed in this project. Read
 the interview: the questions, the `AGENTS.md` contents, the `kb/` layout, and
 the style-file steps all live there.
 
-This is Meridian, so read exactly
-`.mars/skills/project-setup/resources/meridian.md` and skip the question about
-which environment the author works in.
+This is meridian-cli, so read exactly
+`.mars/skills/project-setup/resources/meridian-cli.md` and skip the question
+about which environment the author works in.

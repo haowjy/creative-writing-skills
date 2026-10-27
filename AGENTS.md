@@ -4,11 +4,11 @@ This file provides guidance to AI Agents when working with this repository.
 
 ## Repository Overview
 
-A Mars source package providing composable creative writing agents and skills for Meridian and Claude Code. Also distributes Claude.ai skill uploads via GitHub Releases.
+A Mars source package providing composable creative writing agents and skills for meridian-cli and Claude Code. Also distributes Claude.ai skill uploads via GitHub Releases.
 
 ## Key Distinctions
 
-**`skills/` vs `plugin/`:** `skills/` and `agents/` are the Mars source: consumed by Claude Code and Meridian projects via `mars add`. `plugin/` is Mars-owned output: `mars build plugin` lowers the source plus the dependency graph into Claude/Codex/Grok, Cursor, and OpenCode trees and writes the marketplace catalogs. Never edit `plugin/` or those catalogs by hand; edit the source and rebuild (see [Building the plugin](#building-the-plugin)). CI fails on a stale or hand-edited tree.
+**`skills/` vs `plugin/`:** `skills/` and `agents/` are the Mars source: consumed by Claude Code and meridian-cli projects via `mars add`. `plugin/` is Mars-owned output: `mars build plugin` lowers the source plus the dependency graph into Claude/Codex/Grok, Cursor, and OpenCode trees and writes the marketplace catalogs. Never edit `plugin/` or those catalogs by hand; edit the source and rebuild (see [Building the plugin](#building-the-plugin)). CI fails on a stale or hand-edited tree.
 
 **Agents vs skills:** Agents are spawned as independent processes (orchestrators, writers, critics). Skills are reference material loaded into agent context (craft knowledge, patterns, conventions). See `agents/` and `skills/` directories.
 
@@ -29,24 +29,24 @@ Version lives in `mars.toml` under `[package]`. Tags trigger CI releases.
 
 **Version sync:** `scripts/release.sh` bumps `mars.toml`, rebuilds `plugin/` and the root catalogs at the new version, and commits them together, so the plugin version never lags `mars.toml`.
 
-**Meridian session roots:** Meridian spawns resolve `MERIDIAN_TASK_DIR` for the
+**meridian-cli session roots:** meridian-cli spawns resolve `MERIDIAN_TASK_DIR` for the
 checkout where source work happens, but `MERIDIAN_PROJECT_DIR` stays anchored to
 the session control root for state, profiles, and context. Nested
 `meridian ...` commands use project-root resolution, so CWD alone may not target
 this package. `scripts/release.sh` anchors itself to the repository root; when
-running Mars by hand from an inherited Meridian environment, pass the root
+running Mars by hand from an inherited meridian-cli environment, pass the root
 explicitly:
 
 ```bash
 mars build plugin --root "$PWD"
 ```
 
-Use explicit `-C <package-root>` whenever running Meridian commands for this
-package from an inherited Meridian environment. For task checkouts, prefer
+Use explicit `-C <package-root>` whenever running meridian-cli commands for this
+package from an inherited meridian-cli environment. For task checkouts, prefer
 `meridian -C "$MERIDIAN_TASK_DIR" ...`.
 
 Release with `mars` directly, not `meridian mars`: the Mars bundled in current
-Meridian releases predates schema 1 and `[plugin]`, so it cannot build the
+meridian-cli releases predates schema 1 and `[plugin]`, so it cannot build the
 plugin tree or read this package.
 
 ## Building the plugin
@@ -58,9 +58,9 @@ mars build plugin        # needs Mars 0.20.2 or newer
 mars check               # reports stale, hand-edited, or missing plugin output
 ```
 
-The build reads published state only (`mars.toml` plus the dependency graph), never `mars.local.toml`, `mars.lock`, or `.mars/`. The plugin ships this package's agents plus the skills and delegates they name: the `agents` and `skills` filters on `[dependencies.meridian-base]` keep Meridian's operational surface and its `context-autosync` hook out, `writing-sync` contributes its one skill, and no hand-adapted copy exists any more. Both lists hold the closure of the prose references in the shipped tree — what Mars cannot infer from frontmatter — and `scripts/check_refs.py` fails the build when the closure grows; widen them deliberately, because a dependency skill or agent that comes back in is user-visible surface. Prefer widening over switching to `exclude`: include mode is what keeps the hook out.
+The build reads published state only (`mars.toml` plus the dependency graph), never `mars.local.toml`, `mars.lock`, or `.mars/`. The plugin ships this package's agents plus the skills and delegates they name: the `agents` and `skills` filters on `[dependencies.meridian-base]` keep meridian-base's operational surface and its `context-autosync` hook out, `writing-sync` contributes its one skill, and no hand-adapted copy exists any more. Both lists hold the closure of the prose references in the shipped tree — what Mars cannot infer from frontmatter — and `scripts/check_refs.py` fails the build when the closure grows; widen them deliberately, because a dependency skill or agent that comes back in is user-visible surface. Prefer widening over switching to `exclude`: include mode is what keeps the hook out.
 
-`skills/project-setup` is `model-invocable: false`, so Mars lowers it to a user-invoked `/creative-writing-skills:project-setup`; its resources hold one setup walkthrough per environment, and `SKILL.md` loads exactly one. `bootstrap/project-setup` is its Meridian automatic-setup counterpart: bootstrap documents have no plugin surface, so it is not in the plugin, and the Meridian first-run document only names the skill and the walkthrough to follow, so the interview has one source.
+`skills/project-setup` is `model-invocable: false`, so Mars lowers it to a user-invoked `/creative-writing-skills:project-setup`; its resources hold one setup walkthrough per environment, and `SKILL.md` loads exactly one. `bootstrap/project-setup` is its meridian-cli automatic-setup counterpart: bootstrap documents have no plugin surface, so it is not in the plugin, and the meridian-cli first-run document only names the skill and the walkthrough to follow, so the interview has one source.
 
 **`creative-writing-muse`:** source lives in `skills/creative-writing-muse` and reaches the plugin through the same build. It is a user-activated, single-agent muse mode for skills-only environments; the `muse` agents do not load it. The agents follow the Product Lead pattern directly: capture author intent, craft specialist prompts, route work, synthesize results, and speak back to the author.
 

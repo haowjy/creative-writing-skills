@@ -17,12 +17,14 @@ samples.
 Ask the author where they work, or infer it from the session, then read exactly
 one of these and follow its setup and walkthrough:
 
-- `resources/meridian.md` — Meridian, with the package installed by `mars add`.
+- `resources/meridian-cli.md` — meridian-cli, with the package installed by `mars add`.
 - `resources/claude-code.md` — Claude Code with this plugin.
 - `resources/claude-desktop.md` — claude.ai, Claude Desktop, or Cowork.
 - `resources/other-harnesses.md` — Codex, Cursor, OpenCode, or Grok.
 
-Do not load the others.
+Do not load the others. Meridian Flow, the writing app, has no setup path yet:
+it will import packages once its importer ships, so use the environment you are
+in.
 
 ## Learn About the Project
 
