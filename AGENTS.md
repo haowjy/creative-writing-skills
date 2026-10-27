@@ -43,9 +43,10 @@ Use explicit `-C <package-root>` whenever running meridian-cli commands for this
 package from an inherited meridian-cli environment. For task checkouts, prefer
 `meridian -C "$MERIDIAN_TASK_DIR" ...`.
 
-Release with `mars` directly, not `meridian mars`: the Mars bundled in current
-meridian-cli releases predates schema 1 and `[plugin]`, so it cannot build the
-plugin tree or read this package.
+`meridian mars` can check, build and release this package from meridian-cli
+0.15.0, which bundles Mars 0.20.2. Older meridian-cli releases bundle a Mars that
+predates schema 1 and `[plugin]` and cannot read this package; use `mars`
+directly there.
 
 ## Building the plugin
 
