@@ -100,9 +100,13 @@ if [ "$verify" != "$next" ]; then
 fi
 
 echo "Rebuilding the plugin at $next..."
-if ! mars build plugin; then
+# Built twice: the first build after a version change leaves a recovery record
+# (`root_files_previous`) in plugin/.mars-plugin.json that the next build drops,
+# so CI's rebuild-and-diff check would fail on the tag
+# (https://github.com/haowjy/mars-agents/issues/239).
+if ! mars build plugin || ! mars build plugin; then
   echo "release.sh: plugin build failed; restoring mars.toml" >&2
-  git checkout -- mars.toml
+  git checkout -- mars.toml plugin .claude-plugin .cursor-plugin package.json
   exit 1
 fi
 

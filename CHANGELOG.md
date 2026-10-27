@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [0.6.1] - 2026-10-27
+
+### Fixed
+- The release build leaves `plugin/` matching a fresh `mars build plugin`, so the tag's CI check and GitHub Release run.
+
 ## [0.6.0] - 2026-10-27
 
 ### Changed
