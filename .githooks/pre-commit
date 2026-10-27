@@ -36,7 +36,7 @@ if command -v mars >/dev/null 2>&1; then
   fi
 else
   echo "pre-commit: 'mars' not on PATH — skipping package and plugin checks." >&2
-  echo "             install it with: uv tool install 'mars-agents==0.20.2'" >&2
+  echo "             install it with: uv tool install 'mars-agents==0.20.6'" >&2
 fi
 
 if [ "$fail" -eq 0 ]; then

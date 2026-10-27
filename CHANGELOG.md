@@ -2,7 +2,11 @@
 
 ## [Unreleased]
 
+### Changed
+- Releases use `mars version` (Mars 0.20.6+), which also promotes this changelog; CI pins Mars 0.20.6.
+
 ### Removed
+- `scripts/release.sh`, which only existed to build the plugin twice around mars-agents#239.
 - Tracked `.claude/` and `.codex/` files: stale copies of meridian-base hooks that no settings file registered, the `/bs`, `/write`, `/kb` and `/critique` commands (they named skills that no longer exist), and personal permission settings. Both directories are now ignored, so `mars sync` and `mars version` run in the repo.
 
 ## [0.6.1] - 2026-10-27

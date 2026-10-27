@@ -4,6 +4,10 @@ import { fileURLToPath } from "node:url"
 
 const DATA = {
   "plugin": "creative-writing-skills",
+  "tokens": {
+    "hookDir": "${MARS_HOOK_DIR}",
+    "mcpDir": "${MARS_MCP_DIR}"
+  },
   "skills": [
     {
       "directory": "character-sim",
@@ -150,22 +154,35 @@ const DATA = {
   "hooks": []
 }
 const ROOT = dirname(fileURLToPath(import.meta.url))
-const HOOK_DIR_TOKEN = "${MARS_HOOK_DIR}"
+const HOOK_DIR_TOKEN = DATA.tokens.hookDir
+const MCP_DIR_TOKEN = DATA.tokens.mcpDir
 
-function runtimeServer(server) {
-  if (!server.environment) return server
+function substituteMcpDir(value, mcpDirectory) {
+  if (typeof value === "string") return value.replaceAll(MCP_DIR_TOKEN, () => mcpDirectory)
+  if (Array.isArray(value)) return value.map((item) => substituteMcpDir(item, mcpDirectory))
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, item]) => [key, substituteMcpDir(item, mcpDirectory)]),
+    )
+  }
+  return value
+}
+
+function runtimeServer(name, server) {
+  const resolved = substituteMcpDir(server, join(ROOT, "mcp", name))
+  if (!resolved.environment) return resolved
 
   const environment = {}
-  for (const [key, value] of Object.entries(server.environment)) {
+  for (const [key, value] of Object.entries(resolved.environment)) {
     const match = /^\{env:(.+)\}$/.exec(value)
     if (!match) {
       environment[key] = value
       continue
     }
-    const resolved = process.env[match[1]]
-    if (resolved !== undefined) environment[key] = resolved
+    const resolvedValue = process.env[match[1]]
+    if (resolvedValue !== undefined) environment[key] = resolvedValue
   }
-  return { ...server, environment }
+  return { ...resolved, environment }
 }
 
 function encodeForJavaScriptString(value) {
@@ -207,7 +224,7 @@ export default {
       const servers = JSON.parse(await readFile(join(ROOT, "mcp.json"), "utf8"))
       await ctx.mcp.transform((editor) => {
         for (const name of DATA.mcp) {
-          editor.set(`${DATA.plugin}:${name}`, runtimeServer(servers[name]))
+          editor.set(`${DATA.plugin}:${name}`, runtimeServer(name, servers[name]))
         }
       })
     }

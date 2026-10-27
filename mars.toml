@@ -14,8 +14,8 @@ requires-meridian = ">=0.15.0"
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
 version = ">=0.13.0, <0.14.0"
-# The plugin ships what cw shipped — this package's agents plus the shared
-# skills and delegates they name — not Meridian's operational surface or its
+# The plugin ships this package's agents plus the shared skills and delegates
+# they name — not Meridian's operational surface or its
 # hooks. Include mode rather than `exclude` is what keeps the context-autosync
 # hook out. These lists hold what Mars cannot infer from frontmatter: the prose
 # mentions of an agent or skill. A `skills:` dep in a frontmatter block is

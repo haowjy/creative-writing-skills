@@ -21,7 +21,7 @@ jobs:
       # Mars that built it, so CI must run the version authors build with.
       - name: Install Mars
         run: |
-          uv tool install "mars-agents==0.20.2"
+          uv tool install "mars-agents==0.20.6"
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Setup Node.js

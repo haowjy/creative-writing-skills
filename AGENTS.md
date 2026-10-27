@@ -20,20 +20,19 @@ This repo is both a Mars source package (publishes agents/skills) and a Mars con
 
 ```bash
 mars check                   # Validate package, schema, and plugin output state
-./scripts/release.sh patch   # Bump version, rebuild plugin/, commit, tag
+mars version patch --push    # Bump version, rebuild plugin/, promote CHANGELOG, commit, tag, push
 ```
 
-Version lives in `mars.toml` under `[package]`. Tags trigger CI releases. Release with `scripts/release.sh` rather than `mars version` until [mars-agents#239](https://github.com/haowjy/mars-agents/issues/239) ships: a single build leaves `plugin/.mars-plugin.json` different from a rebuild, which fails CI's rebuild-and-diff check, so the script builds twice.
+Version lives in `mars.toml` under `[package]`. Tags trigger CI releases. Release with Mars 0.20.6 or newer: older Mars leaves `plugin/.mars-plugin.json` different from a rebuild ([mars-agents#239](https://github.com/haowjy/mars-agents/issues/239)), which fails CI's rebuild-and-diff check on the tag.
 
-**Version sync:** `scripts/release.sh` bumps `mars.toml`, rebuilds `plugin/` and the root catalogs at the new version, and commits them together, so the plugin version never lags `mars.toml`.
+**Version sync:** `mars version` bumps `mars.toml`, rebuilds `plugin/` and the root catalogs at the new version, and commits them together, so the plugin version never lags `mars.toml`.
 
 **meridian-cli session roots:** meridian-cli spawns resolve `MERIDIAN_TASK_DIR` for the
 checkout where source work happens, but `MERIDIAN_PROJECT_DIR` stays anchored to
 the session control root for state, profiles, and context. Nested
 `meridian ...` commands use project-root resolution, so CWD alone may not target
-this package. `scripts/release.sh` anchors itself to the repository root; when
-running Mars by hand from an inherited meridian-cli environment, pass the root
-explicitly:
+this package. When running Mars from an inherited meridian-cli environment, pass
+the root explicitly:
 
 ```bash
 mars build plugin --root "$PWD"
@@ -43,17 +42,17 @@ Use explicit `-C <package-root>` whenever running meridian-cli commands for this
 package from an inherited meridian-cli environment. For task checkouts, prefer
 `meridian -C "$MERIDIAN_TASK_DIR" ...`.
 
-`meridian mars` can check, build and release this package from meridian-cli
-0.15.0, which bundles Mars 0.20.2. Older meridian-cli releases bundle a Mars that
-predates schema 1 and `[plugin]` and cannot read this package; use `mars`
-directly there.
+`meridian mars` can check and build this package from meridian-cli 0.15.0, which
+bundles Mars 0.20.2. Release with `mars` 0.20.6 or newer directly until
+meridian-cli bundles it (see above). Older meridian-cli releases bundle a Mars
+that predates schema 1 and `[plugin]` and cannot read this package.
 
 ## Building the plugin
 
 `mars build plugin` writes `plugin/` and the files Mars owns at the package root (`.claude-plugin/marketplace.json`, `.cursor-plugin/marketplace.json`, `package.json`) from `agents/`, `skills/`, `bootstrap/`, the `mars.toml` dependency filters, and the resolved dependency graph. Commit the generated tree with the source change that caused it.
 
 ```bash
-mars build plugin        # needs Mars 0.20.2 or newer
+mars build plugin        # needs Mars 0.20.6 or newer
 mars check               # reports stale, hand-edited, or missing plugin output
 ```
 
@@ -85,7 +84,7 @@ The build reads published state only (`mars.toml` plus the dependency graph), ne
 
 **Validate plugin manifest:** `claude plugins validate .claude-plugin/marketplace.json` (marketplace schema) and `claude plugins validate plugin/claude` (plugin manifest + components)
 
-**Release flow:** `./scripts/release.sh [patch|minor|major] [--push]` bumps `mars.toml`, rebuilds `plugin/`, commits `vX.Y.Z`, and tags it. Push the tag (the script's `--push` does it) and CI creates the GitHub Release with `.skill` artifacts.
+**Release flow:** `mars version <patch|minor|major> --push` bumps `mars.toml`, rebuilds `plugin/`, promotes CHANGELOG `[Unreleased]`, commits `vX.Y.Z`, tags it and pushes. CI creates the GitHub Release with `.skill` artifacts.
 
 **Pre-commit hook:** `.githooks/pre-commit` front-loads the distribution-breaking checks (`mars build plugin` + `mars check`, then a dirty-tree check on the generated paths, then the reference check, then `claude plugins validate` for the Claude tree and marketplace) so they fire at commit time instead of only in CI. It's committed but not auto-installed — enable it once per clone:
 
@@ -95,7 +94,7 @@ git config core.hooksPath .githooks
 
 It blocks the commit on failure; bypass a single commit with `git commit --no-verify`. (Skips a check when its CLI, `mars` or `claude`, isn't on PATH.)
 
-**CI:** PRs run `mars check` + a rebuild-and-diff check on `plugin/` and the root catalogs + the reference check (`scripts/check_refs.py`) + Claude plugin/marketplace validation (`claude plugins validate`) + frontmatter validation + zip build. `mars check` only warns about stale output, so the rebuild-and-diff step is what fails the build. CI pins `mars-agents==0.20.2` because the committed tree is compared against the Mars that built it. Tag pushes create releases.
+**CI:** PRs run `mars check` + a rebuild-and-diff check on `plugin/` and the root catalogs + the reference check (`scripts/check_refs.py`) + Claude plugin/marketplace validation (`claude plugins validate`) + frontmatter validation + zip build. `mars check` only warns about stale output, so the rebuild-and-diff step is what fails the build. CI pins `mars-agents==0.20.6` because the committed tree is compared against the Mars that built it. Tag pushes create releases.
 
 ## Conventions
 

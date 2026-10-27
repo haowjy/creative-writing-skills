@@ -209,7 +209,7 @@ Mars from `agents/`, `skills/`, `bootstrap/`, and the dependency graph. After
 editing a source agent or skill, rebuild and commit the output:
 
 ```bash
-mars build plugin        # Mars 0.20.2 or newer
+mars build plugin        # Mars 0.20.6 or newer
 ```
 
 `mars check` reports stale or hand-edited output; CI rebuilds and fails on any difference.
@@ -223,11 +223,11 @@ mars check
 ### Release
 
 ```bash
-./scripts/release.sh              # bump, rebuild plugin/, commit, tag
-./scripts/release.sh --push       # also push the commit and tag
+mars version patch               # bump, rebuild plugin/, promote CHANGELOG, commit, tag
+mars version patch --push        # also push the commit and tag
 ```
 
-`mars` is required (install `mars-agents`, 0.20.2 or newer); the script rebuilds `plugin/` and the marketplace catalogs at the new version inside the release commit.
+Use `mars` 0.20.6 or newer (`uv tool install mars-agents`); it rebuilds `plugin/` and the marketplace catalogs at the new version inside the release commit.
 
 ## License
 

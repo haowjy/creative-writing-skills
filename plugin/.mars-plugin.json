@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "mars_version": "0.20.2",
+  "mars_version": "0.20.6",
   "plugin_name": "creative-writing-skills",
   "version": "0.6.1",
   "inputs_hash": "sha256:aee157d13a1db0c9d5524d05ea51004a232bdb01315efd95b28be7870e83fbe4",
@@ -477,7 +477,7 @@
     "cursor/skills/writing-sync/tests/test_unchanged.py": "sha256:9a995015896c35d1a2ed9e12df0b1ae5e3f345dd25d8005dcb83a009f11cfb07",
     "cursor/skills/writing-sync/uv.lock": "sha256:fb68b9c104c1c15bca6dbe31e4468b3d463ba7da1c0b2cbe059159dfa8fa1eb9",
     "cursor/skills/zoom-out/SKILL.md": "sha256:5bd7bebafd37b363058ecc3b831e0f4ac7b53f5659cbab4649ed9c30105e5f13",
-    "opencode/index.mjs": "sha256:acf36286d22039b22fb0fcfb28e60d5a9f1aa130390ffa2d4c20e5b752118b8c",
+    "opencode/index.mjs": "sha256:3aa158e8fa1441d1b9faa3279b13f1a6318d8069aeefd203d926cc174ee16d4a",
     "opencode/package.json": "sha256:1f2bcbbf7fe30096354347389d51869da469925b7d3edb2d3f4e7b848cd678c6",
     "opencode/skills/character-sim/SKILL.md": "sha256:b96c7ffec18764b4e70237a16bf8b14072447c7ef076a2364568955b4676d4a1",
     "opencode/skills/correct/SKILL.md": "sha256:50eaead760b8b42663025017c16476203ea778b93f5c1b9f97723d74dc868d12",
