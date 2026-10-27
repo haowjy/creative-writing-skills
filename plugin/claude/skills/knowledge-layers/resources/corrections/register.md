@@ -42,5 +42,5 @@ message; a correction already recorded is not a new one.
 
 A correction that gives a class its second occurrence, or any later one, is a
 repeat. Report repeats
-to the caller for `/correct`, and flag any that recurred despite a check or
+to the caller for `/creative-writing-skills:correct`, and flag any that recurred despite a check or
 permission: that enforcement failed.

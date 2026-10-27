@@ -39,6 +39,13 @@ else
   echo "             install it with: uv tool install 'mars-agents==0.20.2'" >&2
 fi
 
+if [ "$fail" -eq 0 ]; then
+  echo "pre-commit: agent and skill references (scripts/check_refs.py)..."
+  if ! python3 scripts/check_refs.py; then
+    fail=1
+  fi
+fi
+
 if command -v claude >/dev/null 2>&1; then
   echo "pre-commit: plugin validation (manifest, components, marketplace)..."
   if ! claude plugins validate plugin/claude; then

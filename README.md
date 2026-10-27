@@ -116,7 +116,7 @@ flowchart TB
 
 **Draft & Revise:** Muse routes prose work to writer: fresh drafts, revisions, bridges, alternate takes, and polish. Critics evaluate focused craft dimensions; editor gives holistic book-editor priority across structure, voice, line quality, copy consistency, and proofing. Reader-sim gives experiential signal on pivotal scenes.
 
-**Knowledge:** Fact extraction into the kb flows through the `story-memory` skill — muse dispatches meridian-base's `kb-lead` agent with it, or applies it directly in harnesses without kb-lead. Style-creator captures voice patterns from prose samples. The kb grows as the project evolves, giving every future agent accurate context.
+**Knowledge:** Fact extraction into the kb flows through the `story-memory` skill — muse dispatches `kb-lead` with it, or applies it directly in harnesses without kb-lead. Style-creator captures voice patterns from prose samples. The kb grows as the project evolves, giving every future agent accurate context.
 
 ## Agents
 
@@ -132,8 +132,11 @@ flowchart TB
 | **brainstormer** | Creative option generation for a scoped question or angle |
 | **outliner** | Sequences confirmed direction into arc, chapter, and beat-level outlines |
 | **style-creator** | Analyzes prose samples to produce style reference files for the project's voice |
+| **kb-lead** | Mines settled work for decisions and updates the kb; the agent behind `story-memory` |
 
-Knowledge extraction into the kb is not a bundled agent: muse routes it to meridian-base's `kb-lead` loaded with the `story-memory` skill, or performs it directly where no kb-lead subagent exists.
+Four Meridian-base delegates ship with the plugin for the work around the writing: `explorer` reads widely and reports facts, `session-miner` mines past sessions for decisions already made, `cold-reader` checks text that outlives the work for what a reader who wasn't there cannot follow, and `kb-maintainer` refactors a documentation tree's structure.
+
+Knowledge extraction into the kb in harnesses without agents stays in the conversation: the muse applies the `story-memory` skill directly.
 
 ## Skills
 
@@ -152,6 +155,8 @@ Knowledge extraction into the kb is not a bundled agent: muse routes it to merid
 | **llm-writing** | Intentional language discipline: catches unchosen LLM defaults while preserving deliberate ambiguity, omission, repetition, and rhythm |
 | **shared-dao** | Shared vocabulary: canonical story terms, aliases, and ambiguity resolution |
 | **project-setup** | One-time guided setup (user-invoked): interviews you, then creates AGENTS.md, the kb layout, and style files |
+
+The plugin also ships the shared Meridian-base skills its agents load: `grill` (with `grill-with-docs`) to stress-test a direction in rounds of questions, `correct` to fix a class of repeated mistake at the strongest level that holds, `zoom-out` for orienting in an unfamiliar area, and `knowledge-layers`, `qi-layer`, `qi-maintenance`, `information-hierarchy`, `intent-modeling`, `md-validation`, `reflect`, `shared-workspace`, and `structured-artifact` for the rest of the knowledge and craft discipline.
 
 ## Project Layout
 

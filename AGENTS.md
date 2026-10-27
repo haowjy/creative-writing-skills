@@ -58,9 +58,9 @@ mars build plugin        # needs Mars 0.20.2 or newer
 mars check               # reports stale, hand-edited, or missing plugin output
 ```
 
-The build reads published state only (`mars.toml` plus the dependency graph), never `mars.local.toml`, `mars.lock`, or `.mars/`. The plugin ships this package's agents plus the skills they load: `[dependencies.meridian-base].skills` filters Meridian's operational agents, skills, and hooks out, `writing-sync` contributes its one skill, and no hand-adapted copy exists any more. Widen that list deliberately — a dependency skill or agent that comes back in is user-visible surface.
+The build reads published state only (`mars.toml` plus the dependency graph), never `mars.local.toml`, `mars.lock`, or `.mars/`. The plugin ships this package's agents plus the skills and delegates they name: the `agents` and `skills` filters on `[dependencies.meridian-base]` keep Meridian's operational surface and its `context-autosync` hook out, `writing-sync` contributes its one skill, and no hand-adapted copy exists any more. Both lists hold the closure of the prose references in the shipped tree — what Mars cannot infer from frontmatter — and `scripts/check_refs.py` fails the build when the closure grows; widen them deliberately, because a dependency skill or agent that comes back in is user-visible surface. Prefer widening over switching to `exclude`: include mode is what keeps the hook out.
 
-`skills/project-setup` is `model-invocable: false`, so Mars lowers it to a user-invoked `/creative-writing-skills:project-setup`; its resources hold one setup walkthrough per environment, and `SKILL.md` loads exactly one. `bootstrap/project-setup` is its Meridian automatic-setup counterpart: bootstrap documents have no plugin surface, so it is not in the plugin.
+`skills/project-setup` is `model-invocable: false`, so Mars lowers it to a user-invoked `/creative-writing-skills:project-setup`; its resources hold one setup walkthrough per environment, and `SKILL.md` loads exactly one. `bootstrap/project-setup` is its Meridian automatic-setup counterpart: bootstrap documents have no plugin surface, so it is not in the plugin, and the Meridian first-run document only names the skill and the walkthrough to follow, so the interview has one source.
 
 **`creative-writing-muse`:** source lives in `skills/creative-writing-muse` and reaches the plugin through the same build. It is a user-activated, single-agent muse mode for skills-only environments; the `muse` agents do not load it. The agents follow the Product Lead pattern directly: capture author intent, craft specialist prompts, route work, synthesize results, and speak back to the author.
 
@@ -89,13 +89,15 @@ The build reads published state only (`mars.toml` plus the dependency graph), ne
 
 **Validate package and plugin:** `mars check`
 
+**Check references:** `python3 scripts/check_refs.py` lists every `@agent` and `/skill` in the built `plugin/claude` tree that does not resolve to a shipped item. CI and the pre-commit hook run it after the rebuild, so a filter that drops an item another file names fails there instead of shipping. Run it after any source edit that mentions an agent or a skill.
+
 **Rebuild the plugin:** `mars build plugin`, then commit `plugin/`
 
 **Validate plugin manifest:** `claude plugins validate .claude-plugin/marketplace.json` (marketplace schema) and `claude plugins validate plugin/claude` (plugin manifest + components)
 
 **Release flow:** `./scripts/release.sh [patch|minor|major] [--push]` bumps `mars.toml`, rebuilds `plugin/`, commits `vX.Y.Z`, and tags it. Push the tag (the script's `--push` does it) and CI creates the GitHub Release with `.skill` artifacts.
 
-**Pre-commit hook:** `.githooks/pre-commit` front-loads the distribution-breaking checks (`mars build plugin` + `mars check`, then a dirty-tree check on the generated paths, then `claude plugins validate` for the Claude tree and marketplace) so they fire at commit time instead of only in CI. It's committed but not auto-installed — enable it once per clone:
+**Pre-commit hook:** `.githooks/pre-commit` front-loads the distribution-breaking checks (`mars build plugin` + `mars check`, then a dirty-tree check on the generated paths, then the reference check, then `claude plugins validate` for the Claude tree and marketplace) so they fire at commit time instead of only in CI. It's committed but not auto-installed — enable it once per clone:
 
 ```bash
 git config core.hooksPath .githooks
@@ -107,13 +109,13 @@ It blocks the commit on failure; bypass a single commit with `git commit --no-ve
 
 The hooks in `.claude/hooks/` and `.codex/hooks/` are hand-authored but sit in Mars target directories, so `mars sync` and `mars version` refuse them as unmanaged (`unmanaged target hook directory ... blocks hook`). `mars check`, `mars build plugin`, and this repo's own scripts work. Fix: move each directory to `hooks/<name>/` at the package root (the files already carry `hook.toml` with `visibility` and `[targets."..."]`), let sync emit the target copies, and gitignore the generated `.claude/hooks/`, `.codex/hooks/`, and `.codex/hooks.json`. Do that in its own change and verify the hooks still fire.
 
-**CI:** PRs run `mars check` + a rebuild-and-diff check on `plugin/` and the root catalogs + Claude plugin/marketplace validation (`claude plugins validate`) + frontmatter validation + zip build. `mars check` only warns about stale output, so the rebuild-and-diff step is what fails the build. CI pins `mars-agents==0.20.2` because the committed tree is compared against the Mars that built it. Tag pushes create releases.
+**CI:** PRs run `mars check` + a rebuild-and-diff check on `plugin/` and the root catalogs + the reference check (`scripts/check_refs.py`) + Claude plugin/marketplace validation (`claude plugins validate`) + frontmatter validation + zip build. `mars check` only warns about stale output, so the rebuild-and-diff step is what fails the build. CI pins `mars-agents==0.20.2` because the committed tree is compared against the Mars that built it. Tag pushes create releases.
 
 ## Conventions
 
 - Each skill's `SKILL.md` uses YAML frontmatter with `name` and `description`
-- Skills are self-contained: no cross-skill dependencies
-- Agent profiles declare their skills in the `skills:` frontmatter array
+- Skills may reference another skill by name; the dependency filter ships the closure of those references and `scripts/check_refs.py` proves it resolves
+- Agent profiles declare their skills in the `skills:` frontmatter block
 - Generated directories (`.agents/`, `.mars/`, `.meridian/`) are gitignored
 
 ## Watching

@@ -44,6 +44,9 @@ jobs:
             exit 1
           fi
 
+      - name: Check every agent and skill reference resolves
+        run: python3 scripts/check_refs.py
+
       - name: Validate Claude plugin (manifest + components)
         run: claude plugins validate plugin/claude
 

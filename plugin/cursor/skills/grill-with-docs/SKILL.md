@@ -9,7 +9,7 @@ alwaysApply: false
 
 # Grill With Docs
 
-Load `/grill` if it isn't already loaded.
+Load `/creative-writing-skills:grill` if it isn't already loaded.
 Load `/creative-writing-skills:knowledge-layers` if it isn't already loaded.
 
 Use this when the challenge should be grounded primarily in project

@@ -7,7 +7,7 @@ metadata:
 
 # qi-layer
 
-`/qi-maintenance` owns when colocated knowledge must move with the changes it describes.
+`/creative-writing-skills:qi-maintenance` owns when colocated knowledge must move with the changes it describes.
 This skill owns how to write and structure that knowledge.
 
 Load `/creative-writing-skills:knowledge-layers` for where each layer lives and what it holds.

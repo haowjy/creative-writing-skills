@@ -11,6 +11,11 @@ const DATA = {
       "description": "Speak as a specified character from their current knowledge, voice, and emotional state. Use for skill-only workflows that need in-character conversation, voice discovery, or relationship pressure tests.\n"
     },
     {
+      "directory": "correct",
+      "name": "correct",
+      "description": "Use when the human wants the mistakes agents keep repeating fixed for good. Works the KB corrections register: fixes each recurring class at the strongest level that holds (remove the wrong way, an automated check, a tool permission, a written rule last), proves each fix on a real past mistake, and updates the register."
+    },
+    {
       "directory": "creative-research",
       "name": "creative-research",
       "description": "Load when a story needs factual grounding the writer doesn't have: historical detail, cultural texture, domain accuracy, or how other authors handled similar material. Pass the question and story context; returns a sourced report the writer can draw from.\n"
@@ -29,6 +34,11 @@ const DATA = {
       "directory": "creative-writing-muse",
       "name": "creative-writing-muse",
       "description": "Load when no subagents are available and one agent must plan, draft, critique, research, and capture memory by switching stances.\n"
+    },
+    {
+      "directory": "grill",
+      "name": "grill",
+      "description": "Use in conversation to stress-test a plan or direction. Interviews the human in rounds, asking every question that is ready with a recommended answer, until no decision is left open.\n"
     },
     {
       "directory": "grill-with-docs",
@@ -71,6 +81,11 @@ const DATA = {
       "description": "Use when writing or maintaining AGENTS.md, .context/CONTEXT.md, or a Claude-specific CLAUDE.md: keep intent docs minimal and load-bearing."
     },
     {
+      "directory": "qi-maintenance",
+      "name": "qi-maintenance",
+      "description": "Load on agents that make durable changes to a project's files, so the colocated AGENTS.md and .context/ docs stay true for the next cold agent."
+    },
+    {
       "directory": "reader-sim",
       "name": "reader-sim",
       "description": "Read as a specified first-time reader persona and report the felt experience. Use for skill-only workflows when a draft needs persona-bound reader-response signal instead of analytical critique.\n"
@@ -84,6 +99,11 @@ const DATA = {
       "directory": "shared-dao",
       "name": "shared-dao",
       "description": "Use when establishing shared vocabulary: resolve terminology early, one name per concept, vocab files as record."
+    },
+    {
+      "directory": "shared-workspace",
+      "name": "shared-workspace",
+      "description": "Use when a workspace has changes from other agents: safe orientation, preserving unfamiliar files."
     },
     {
       "directory": "story-memory",
