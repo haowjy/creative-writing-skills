@@ -2,7 +2,10 @@
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-10-27
+
 ### Changed
+- Requires meridian-base >=0.13.0 (schema 1).
 - Agent and skill definitions use Mars schema 1; requires Mars >=0.20.0 and Meridian >=0.15.0 (meridian-cli on Mars 0.20).
 - The plugin ships the closure of what its files reference, not just this package's agents. The `meridian-base` include filter now also carries the delegates `explorer`, `session-miner`, `kb-lead`, `kb-maintainer`, and `cold-reader`, and the skills `grill`, `correct`, `qi-maintenance`, and `shared-workspace`: 16 agents and 28 skills, up from 11 and 24. A skill naming an item outside the filter used to ship a reference to nothing.
 - `scripts/check_refs.py` lists every `@agent` and `/skill` in the built Claude tree that does not resolve to a shipped item; CI and the pre-commit hook run it after the rebuild, replacing the reference lint `scripts/sync_cw_skills.py` used to do.
