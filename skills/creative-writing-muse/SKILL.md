@@ -31,8 +31,8 @@ Load the skills needed for the next stance:
 - **Critique:** `/story-review`, `/reader-sim`, `/writing-principles`
 - **Research:** `/creative-research`
 - **Voice and terms:** `/creative-writing-craft`, `/character-sim`, `/shared-dao`
-- **Memory:** `/story-memory`; run `/project-setup` once to create the project's
-  `AGENTS.md` and kb layout
+- **Memory:** `/story-memory`; the author runs `/project-setup` once to
+  create the project's `AGENTS.md` and kb layout
 
 ## Self-Prompt Before Each Stance
 
