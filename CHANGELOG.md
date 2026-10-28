@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-10-28
+
 ### Added
 - `story-workflow` skill: the lifecycle of story work with an author, from reading their intent through direction, drafting, critique, the verdict, knowledge capture and presenting. Plans mark which parts the author confirmed and which are provisional, and critique stops after two completed critique/revise rounds per chapter, when the author decides.
 - `writing-staffing` resources `producers.md` and `reviewers.md` hold the per-agent dispatch entries.
