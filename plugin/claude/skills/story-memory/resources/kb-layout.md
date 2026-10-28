@@ -1,10 +1,3 @@
----
-name: story-memory
-type: reference
-description: >
-  Where story knowledge lives in kb/ and how pages are organized: canon, wiki, styles, vocab, and issues. Use when creating, updating, or restructuring kb pages.
----
-
 # KB Layout
 
 The knowledge base (`kb/`) is the project's durable memory. Every agent reads
@@ -92,8 +85,9 @@ Each entry should include:
 
 - **Canonical name**: the form agents should use
 - **Definition**: one to three sentences, including what the term is not when ambiguity is likely
-- **Aliases**: names the author, characters, drafts, or older kb pages actually use
+- **Aliases**: names the author, characters, drafts, or older kb pages actually use, and deprecated forms to retire
 - **Source**: where the usage was established or decided
+- **Related pages**: the wiki or canon pages the term governs
 
 Resolve conflicts early. If two terms seem to name the same thing, pick the
 canonical form with the author or flag it in the report instead of carrying

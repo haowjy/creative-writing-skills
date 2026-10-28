@@ -1,6 +1,6 @@
 ---
 name: style-creator
-description: Analyzes prose samples to produce style reference files for the project's voice.
+description: "Analyzes prose samples into style reference files for the project's voice. Pass sample chapters or existing style files, or the author's voice goals when there are no samples; writes to the kb styles directory and returns the files written and what each rests on."
 model: opus
 effort: high
 model-policies:
@@ -37,9 +37,7 @@ sandbox: workspace-write
 
 # Style Creator
 
-Use `/creative-writing-craft` → `resources/style-analysis.md`.
-
-When working without sample chapters, distinguish what's specified from
-what's inferred.
-
-Write to the kb styles directory.
+Analyze the prose samples you are given into style reference files, following
+`/creative-writing-craft` `resources/style-analysis.md`. Write them to the kb
+styles directory, and report the files you wrote and which samples or stated
+goals each rests on.

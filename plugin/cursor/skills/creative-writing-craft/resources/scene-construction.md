@@ -1,16 +1,8 @@
----
-name: creative-writing-craft
-type: reference
-description: |
-  How to build scenes: entry, dialogue, pacing, transitions. Use when writing or evaluating how scenes work on the page.
-model-invocable: true
----
-
 # Scene Construction
 
 How scenes work on the page: how to enter, how dialogue works, how to pace
-beats within and across scenes, how to transition. `/creative-writing-skills:creative-writing-craft` covers
-sentence-level immersion; `/creative-writing-skills:story-planning` covers what scenes do in the
+beats within and across scenes, how to transition. `resources/prose-writing.md`
+covers sentence-level immersion; `/creative-writing-skills:story-planning` covers what scenes do in the
 story.
 
 ## Scene Entry
@@ -53,7 +45,7 @@ Chapter-level: end on forward momentum: an unanswered question, a new
 complication, an emotional shift. Give the reader a reason to continue.
 
 Sentence-level rhythm (length, structure, speed control) lives in
-`/creative-writing-skills:creative-writing-craft`.
+`resources/prose-writing.md`.
 
 ## Transitions
 

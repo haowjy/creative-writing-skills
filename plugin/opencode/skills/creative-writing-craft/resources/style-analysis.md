@@ -1,11 +1,3 @@
----
-name: creative-writing-craft
-type: reference
-description: >
-  How to analyze prose and produce style reference files. Use when creating, updating, or evaluating the style files that capture a project's voice patterns.
-model-invocable: true
----
-
 # Style Analysis
 
 How to analyze a project's prose and produce style reference files that writer
@@ -80,6 +72,12 @@ The test: would the author want a writer agent to reproduce this? If "for a
 moment" appears 29 times across 17 chapters, that's a tic. If an emotional
 technique works in chapters 2 and 15 but is absent from chapter 11, that's an
 inconsistency to log as an issue.
+
+## Without Samples
+
+When the project has no sample chapters, build the file from the author's stated
+voice goals and mark which patterns the author specified and which you
+inferred, so the first drafts can confirm or correct the inferred ones.
 
 ## Quality Tests
 

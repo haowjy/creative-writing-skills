@@ -18,17 +18,10 @@ history, even when a page links to them.
 Check each page against `/creative-writing-skills:llm-writing` item by item: its Scope question for
 the page's reader, then every entry on What to Delete, conversational bleed
 first. Wherever the reader would stall, quote the text and say what that
-reader would need instead. Common stalls:
-- a label or ID minted during the work: a ruling number, a finding ID, a
-  lane name
-- a term used before it is explained
-- a reason that points at an incident instead of the mechanism
-- a link into a work directory, or to anything else that won't last
-- content pitched at a different reader than the one named
+reader would need instead.
 
 The writer holds the context you lack and decides what to change, so report
-without editing: for each page, every
-stall with its quote and what the reader needs, or a line saying the page
-reads cleanly.
+without editing: for each page, every stall with its quote and what the
+reader needs, or a line saying the page reads cleanly.
 
 Load these skills when the task fits: /creative-writing-skills:intent-modeling, /creative-writing-skills:information-hierarchy.

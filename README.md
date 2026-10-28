@@ -99,12 +99,10 @@ flowchart TB
 
     subgraph Draft ["Draft & Revise"]
         direction TB
-        W[writer] --> CR[critic]
-        W --> ED[editor]
-        CR -->|synthesis| W
-        ED -->|editorial memo| W
+        W[muse drafts, or writer] --> CR[critic lanes]
+        CR -->|findings or editorial memo| W
         M -.->|pivotal scenes| RS[reader-sim]
-        M -.->|voice check| CC[continuity-checker]
+        M -.->|canon check| CC[continuity-checker]
     end
 
     subgraph Maintain ["Knowledge"]
@@ -120,18 +118,17 @@ flowchart TB
 
 **Explore:** Fan out brainstormers for creative variety. Spawn character-sims to discover voices. Use outliners to shape structure once a direction is chosen.
 
-**Draft & Revise:** Muse routes prose work to writer: fresh drafts, revisions, bridges, alternate takes, and polish. Critics evaluate focused craft dimensions; editor gives holistic book-editor priority across structure, voice, line quality, copy consistency, and proofing. Reader-sim gives experiential signal on pivotal scenes.
+**Draft & Revise:** Muse drafts and revises with you, and hands writer the passes that need their own session: alternate takes on another model, a polish pass you ask for, or a very long draft. Each critic runs one lane: a focus area for depth on one craft dimension, or an edit level, where editorial review gives the holistic book-editor priority across structure, voice, line quality, and surface. After two critique rounds on a chapter, muse brings you what is still open and you decide. Reader-sim gives experiential signal on pivotal scenes.
 
-**Knowledge:** Fact extraction into the kb flows through the `story-memory` skill — muse dispatches `kb-lead` with it, or applies it directly in harnesses without kb-lead. Style-creator captures voice patterns from prose samples. The kb grows as the project evolves, giving every future agent accurate context.
+**Knowledge:** When a chapter, revision, or ruling settles, muse dispatches `kb-lead` with the `story-memory` skill and your decisions quoted with their hedges, so a trial stays a trial; in harnesses without agents it applies `story-memory` itself. Style-creator captures voice patterns from prose samples. The kb grows as the project evolves, giving every future agent accurate context.
 
 ## Agents
 
 | Agent | Role |
 |---|---|
-| **muse** | Author-facing creative partner for all story work, from planning through production handoff |
-| **writer** | Production prose from briefs, critique notes, and style references; uses progressive mode guidance for drafts, revisions, bridges, alternate takes, and line polish |
-| **critic** | Deep adversarial critique of a draft, one focus area at a time |
-| **editor** | Holistic third-party book editor pass: structure, voice, line quality, copy consistency, and proofing priority |
+| **muse** | Author-facing creative partner for all story work: talks, plans, and drafts with you, spawns critique and knowledge capture, and owns the verdict |
+| **writer** | Production prose in one mode (draft, revision, bridge, alternate take, line polish) for passes that need their own session |
+| **critic** | Diagnoses a draft in one lane: a focus area (structure, character, voice, prose, continuity) or an edit level (editorial review, developmental, line edit, copyedit, proofreading) |
 | **reader-sim** | Experiential reader response to a draft, moment by moment |
 | **character-sim** | In-character conversation for voice discovery and relationship testing |
 | **continuity-checker** | Cross-references content against established canon for contradictions |
@@ -148,16 +145,16 @@ Knowledge extraction into the kb in harnesses without agents stays in the conver
 
 | Skill | Purpose |
 |---|---|
-| **creative-writing-modes** | Pen-on-paper prose modes: fresh draft, revision, bridge, alternate take, and line polish |
-| **creative-writing-craft** | Craft references for prose, scenes, style, voice, and genre/page-level technique |
+| **creative-writing-craft** | Prose modes (fresh draft, revision, bridge, alternate take, line polish) and craft references for prose, scenes, style, voice, and genre |
 | **writing-principles** | Reader reward channels, AI failure modes, and fiction-specific taste discipline |
 | **story-planning** | Direction, brainstorming, outlining, and story architecture before pages exist |
 | **story-review** | Editorial review, developmental edit, line edit, copyedit, proofreading, craft critique, and reader-signal synthesis |
 | **story-memory** | Context, fact extraction, reference writing, artifact layout, and persistent issue tracking |
-| **reader-sim** | Skill-only first-time reader simulation from a specified persona |
-| **character-sim** | Skill-only in-character conversation for voice and relationship testing |
-| **creative-writing-muse** | Single-agent muse mode for environments without spawned agents |
-| **writing-staffing** | Agent composition for writing workflows |
+| **reader-sim** | First-time reader simulation from a specified persona |
+| **character-sim** | In-character conversation for voice and relationship testing |
+| **creative-writing-muse** | The muse's method: one creative partner that talks, plans, drafts, and spawns what needs its own context; turn it on in any environment |
+| **story-workflow** | The lifecycle of story work: intent, direction, drafting, critique rounds, the verdict, knowledge capture, presenting |
+| **writing-staffing** | Which agent takes which lane, what to tell it to load, and how many lanes to run |
 | **llm-writing** | Intentional language discipline: catches unchosen LLM defaults while preserving deliberate ambiguity, omission, repetition, and rhythm |
 | **shared-dao** | Shared vocabulary: canonical story terms, aliases, and ambiguity resolution |
 | **project-setup** | One-time guided setup (user-invoked): interviews you, then creates AGENTS.md, the kb layout, and style files |
@@ -193,7 +190,7 @@ my-story/
 | Multi-agent orchestration | Via muse | Via muse | Via muse → focused workers | No |
 | Project setup | Yes | Yes | Yes | Text to save |
 
-Claude Code, Cowork, and meridian-cli use muse as the main coordinator over a compact worker set: writer, critic, reader-sim, brainstormer, outliner, character-sim, style-creator, and continuity-checker. You can add the marketplace to the Claude desktop app from GitHub; Cowork runs the agents, but plain claude.ai chat runs skills only (agents grayed out) — there the `creative-writing-muse` skill provides single-agent muse mode in one conversation, backed by the craft skills.
+Claude Code, Cowork, and meridian-cli run muse as the session agent: it drafts with you and spawns a compact worker set: writer, critic, reader-sim, brainstormer, outliner, character-sim, style-creator, continuity-checker, and web-researcher. You can add the marketplace to the Claude desktop app from GitHub; Cowork runs the agents, but plain claude.ai chat runs skills only (agents grayed out) — there the `creative-writing-muse` skill runs the same muse method in one conversation, backed by the craft skills.
 
 ## Current Experiments
 

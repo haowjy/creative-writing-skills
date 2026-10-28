@@ -1,10 +1,3 @@
----
-name: story-memory
-type: reference
-description: >
-  Where writing artifacts live: kb for durable knowledge, work directory for scratch. Use when deciding where to read from or write to.
----
-
 # Writing Artifacts
 
 - Durable project knowledge lives in the kb directory. Look for `kb/` in the project root or check project docs for the configured location.

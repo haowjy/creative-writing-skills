@@ -33,11 +33,13 @@ creative-writing-skills:outliner`. Skills are invoked as
 
 ## A Chapter
 
-1. Ask `muse` for a chapter plan; it dispatches `outliner` with the confirmed
-   direction.
-2. `muse` dispatches `writer` with the brief, style file, and character state
-   for everyone who appears.
-3. `muse` dispatches `critic` on the draft, one focus area at a time, and
-   turns the reports into what to change. It adds `continuity-checker` or
-   `reader-sim` when the chapter is pivotal.
-4. When the chapter settles, `muse` uses `story-memory` to update the kb.
+1. Ask `muse` for a chapter plan; it can dispatch `outliner` with the
+   confirmed direction.
+2. `muse` drafts the chapter with you from the plan, the style file, and the
+   character state for everyone who appears. It dispatches `writer` for an
+   alternate take, a polish pass you ask for, or a very long draft.
+3. `muse` dispatches `critic` on the draft, one lane at a time (a focus area
+   or an edit level), and turns the reports into what to change, for up to
+   two rounds. It adds `continuity-checker` or `reader-sim` when the chapter
+   is pivotal.
+4. When the chapter settles, `muse` dispatches `kb-lead` to update the kb.

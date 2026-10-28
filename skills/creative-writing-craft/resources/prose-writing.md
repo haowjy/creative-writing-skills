@@ -1,11 +1,3 @@
----
-name: creative-writing-craft
-type: reference
-description: >
-  Prose-level immersion patterns: psychic distance, free indirect discourse, rhythm, sensory grounding. Use when writing or revising narrative prose.
-model-invocable: true
----
-
 # Prose Writing
 
 How prose pulls readers in. Style files carry the project's specific voice;

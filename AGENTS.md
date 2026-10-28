@@ -60,7 +60,7 @@ The build reads published state only (`mars.toml` plus the dependency graph), ne
 
 `skills/project-setup` is `model-invocable: false`, so Mars lowers it to a user-invoked `/creative-writing-skills:project-setup`; its resources hold one setup walkthrough per environment, and `SKILL.md` loads exactly one. `bootstrap/project-setup` is its meridian-cli automatic-setup counterpart: bootstrap documents have no plugin surface, so it is not in the plugin, and the meridian-cli first-run document only names the skill and the walkthrough to follow, so the interview has one source.
 
-**`creative-writing-muse`:** source lives in `skills/creative-writing-muse` and reaches the plugin through the same build. It is a user-activated, single-agent muse mode for skills-only environments; the `muse` agents do not load it. The agents follow the Product Lead pattern directly: capture author intent, craft specialist prompts, route work, synthesize results, and speak back to the author.
+**Muse's method lives in skills:** `creative-writing-muse` (do the talking, planning and drafting yourself; spawn what needs its own context) and `story-workflow` (intent → direction → produce → verdict → after settle → present) are the one copy of the muse method. The `muse` agent loads both, and its body holds only the job, the verdict it owns, the `@kb-lead` hand-off and the report, so claude.ai, Codex and OpenCode users, who get skills but no agents, run the same method. Write muse behavior into those skills, not the agent body. The shape mirrors meridian-dev-workflow's `/solo-dev` and `/dev-workflow`, so a lesson learned in one package has an obvious home in the other.
 
 **Plugin manifest:** `plugin/claude/.claude-plugin/plugin.json` is generated from `[package]` (name, version, description, first author, homepage, license). Claude Code auto-discovers components without it, but the marketplace **add-from-GitHub** path (Cowork / claude.ai) validates the plugin and *rejects it* if the manifest is missing. `claude plugins validate .claude-plugin/marketplace.json` only checks the marketplace schema, not the plugin — so CI also runs `claude plugins validate plugin/claude`, which validates the manifest plus every agent/skill component file.
 
@@ -109,6 +109,31 @@ Behavior a released change expects but no real run has shown yet. Check it on
 the next runs that exercise it, then delete the entry, fixing the prompt first
 if the runs show otherwise.
 
+- **Muse runs the lifecycle from `/story-workflow`.** On the next muse
+  sessions, and the next claude.ai or Codex sessions with
+  `creative-writing-muse` on: it states its read in a line instead of a
+  question list; it drafts in its own context and spawns `@writer` only for
+  an alternate take, an author-asked polish pass, or a very long draft; every
+  plan marks confirmed versus provisional parts; after two critique rounds on
+  a chapter it presents the open concerns and lets the author decide.
+- **`@kb-lead` briefs carry the author's hedges.** When a chapter or ruling
+  settles, muse spawns `@kb-lead` with the decisions quoted with their hedges,
+  and a trial direction lands in the kb as a trial, not canon (#10). If
+  trials still harden, story-memory needs the three kinds of story knowledge
+  #10.1 proposes.
+- **`@critic` covers editorial review.** Asked for an editorial review, a
+  critic reads the whole draft before writing,
+  leads with the overall diagnosis, orders notes by reader cost, and writes
+  no replacement prose. Callers name a focus area or an edit level; a critic
+  with neither says which lane it chose.
+- **Writer and critic without `/llm-writing`.** Writer drafts and line
+  polish avoid the negation pairs and summary endings `antipatterns.md`
+  lists, and the writer's report stays readable. If drafts show more
+  explanatory smoothing than before, compare a run with `/llm-writing` back
+  on the same brief before restoring it.
+- **Staffing says "tell it to load", not "attach" (#11).** Meridian muse runs
+  still get the named skills onto the spawn, and Claude Code subagents load
+  them when the brief names them.
 - **writer on `argon` (0.5.15).** No spawn has run on Gemini 4 Argon yet, and
   its tool calling is reported unreliable. On the first writer runs routed to
   it: it reads the brief, style and character-state files, writes the draft

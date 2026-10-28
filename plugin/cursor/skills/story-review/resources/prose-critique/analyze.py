@@ -2,8 +2,8 @@
 """
 Mechanical prose metrics for a markdown file.
 
-Usage:
-    uv run resources/analyze.py <file.md> [window_size]
+Usage (standard library only):
+    python3 <story-review skill folder>/resources/prose-critique/analyze.py <file.md> [window_size]
 """
 
 from __future__ import annotations
@@ -275,7 +275,8 @@ def main() -> int:
     args = parse_args()
     path = Path(args.file)
     if not path.is_file():
-        print("Usage: uv run resources/analyze.py <file.md> [window_size]", file=sys.stderr)
+        print(f"File not found: {path}", file=sys.stderr)
+        print(f"Usage: python3 {sys.argv[0]} <file.md> [window_size]", file=sys.stderr)
         return 1
     if args.window_size <= 0:
         print("window_size must be a positive integer", file=sys.stderr)

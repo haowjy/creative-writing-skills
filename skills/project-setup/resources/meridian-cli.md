@@ -28,10 +28,12 @@ project runs the setup bootstrap on first launch.
 
 1. Ask `muse` for a chapter plan, or spawn the outliner directly:
    `meridian spawn -a outliner -f work/outline/current.md`.
-2. `muse` spawns `writer` with the brief, style file, and character state.
-3. `muse` spawns `critic` on the draft, one focus area at a time, and
-   synthesizes what to change.
-4. When the chapter settles, `muse` runs `story-memory` to update the kb.
+2. `muse` drafts the chapter with you from the plan, the style file, and the
+   character state. It spawns `writer` for an alternate take on another model,
+   a polish pass you ask for, or a draft too long to hold in one session.
+3. `muse` spawns `critic` on the draft, one lane at a time (a focus area or
+   an edit level), and synthesizes what to change, for up to two rounds.
+4. When the chapter settles, `muse` spawns `kb-lead` to update the kb.
 
 Spawn any agent by name when you want it to own a session:
 `meridian spawn -a critic -f story/ch04.md`.

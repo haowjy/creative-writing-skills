@@ -1,6 +1,6 @@
 ---
 name: character-sim
-description: In-character conversation for voice discovery and relationship testing.
+description: "In-character conversation for voice discovery and relationship testing. Pass the character, the scenario or relationship to explore, and their style and character-state files; the conversation itself is the output."
 model: opus
 model-policies:
   - match: {alias: opus}

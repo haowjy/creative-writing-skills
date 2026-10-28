@@ -1,6 +1,6 @@
 ---
 name: md-validation
-description: Use when validating markdown links or Mermaid diagrams.
+description: 'Load after writing, moving, or linking markdown pages or Mermaid diagrams, before committing them: validates links, the KB link graph, and diagram syntax.'
 metadata:
   type: reference
 alwaysApply: false

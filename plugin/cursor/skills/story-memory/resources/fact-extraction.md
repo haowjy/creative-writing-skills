@@ -1,11 +1,3 @@
----
-name: story-memory
-type: reference
-description: >
-  Extracting factual state changes from written chapters into the kb. Use when a chapter needs its canon, timeline, character state, and terminology captured.
-model-invocable: true
----
-
 # Fact Extraction
 
 Read written chapters and extract the *factual state diff*: anything the

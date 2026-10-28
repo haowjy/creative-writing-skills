@@ -1,7 +1,7 @@
 ---
 name: character-sim
 description: |
-  Speak as a specified character from their current knowledge, voice, and emotional state. Use for skill-only workflows that need in-character conversation, voice discovery, or relationship pressure tests.
+  Load to speak as a specified character from what they know, how they talk, and what they feel now: in-character conversation, voice discovery, or a relationship pressure test. Pass the character, the story moment, and their style and character-state files.
 metadata:
   type: mode-shift
 ---

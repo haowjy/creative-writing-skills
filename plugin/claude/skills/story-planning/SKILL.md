@@ -13,5 +13,6 @@ Use this for pre-page decisions: what the story wants, what options exist, and h
 Load only the resource needed:
 
 - `resources/creative-direction.md` — author-facing direction and option synthesis.
-- `resources/brainstorming.md` — exploratory capture and source tagging.
+- `resources/brainstorming.md` — exploratory capture, source tagging, and the brainstorm report.
 - `resources/story-architecture.md` — arc, chapter, scene, and beat structure.
+- `resources/story-architecture/chapter-and-scene.md` — writing an outline: what each beat carries.

@@ -1,6 +1,6 @@
 ---
 name: shared-dao
-description: 'Use when establishing shared vocabulary: resolve terminology early, one name per concept, vocab files as record.'
+description: 'Load when a concept has two names, a name has two meanings, or you are about to coin a term: resolve it early, one name per concept, in the project''s vocab files.'
 metadata:
   type: principle
 ---

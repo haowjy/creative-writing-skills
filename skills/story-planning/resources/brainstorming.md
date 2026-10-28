@@ -1,11 +1,3 @@
----
-name: story-planning
-type: reference
-description: >
-  Story story-planning capture: minimal notes that preserve creative freedom. Use when exploring narrative ideas, discussing characters, planning chapters, or thinking through story possibilities.
-model-invocable: true
----
-
 # Brainstorming Capture
 
 Capture story brainstorming as minimal working notes that preserve creative freedom. The core principle: record what was stated, mark what was suggested, and don't fill gaps the author left open.
@@ -17,6 +9,9 @@ as `<AI>` since none came from the author:
 
 ```markdown
 # [Topic]: [Angle]
+
+## The Need
+<AI>The creative need you read behind the question, in a sentence or two.</AI>
 
 ## Approach
 <AI>What direction you explored and why.</AI>
@@ -33,6 +28,17 @@ as `<AI>` since none came from the author:
 ## Open Questions
 <AI>Questions the author should consider before committing.</AI>
 ```
+
+Open with the need: the first phrasing of a brainstorm question is often a
+surface framing of a deeper creative need (`/intent-modeling`), and stating
+your read lets the author correct it before weighing options.
+
+Present options and tradeoffs, not a recommendation: convergence is the
+author's. Make each option concrete enough to evaluate and distinct enough to
+be a different choice. A good open question reframes the decision space.
+
+Save the document in the work directory's `brainstorm/` folder as
+`brainstorm-[topic].md`.
 
 ## Source Tagging
 
@@ -92,4 +98,4 @@ minimal.
 
 ## File Placement
 
-See the `story-memory` skill for directory conventions and naming. Durable decisions get promoted to the kb decisions layer after the brainstorm completes.
+`/story-memory` `resources/writing-artifacts.md` has the work layout. Durable decisions get promoted to the kb after the brainstorm completes.

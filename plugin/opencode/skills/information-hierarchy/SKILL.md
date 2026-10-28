@@ -1,9 +1,6 @@
 ---
 name: information-hierarchy
-description: |
-  Load for large human-facing outputs: reports, docs, multi-section
-  explanations, artifacts. Choose the right form for each beat (prose, diagram,
-  table, mockup) and put the answer first, depth behind it. If the medium allows, use progressive disclosure.
+description: 'Load when a report, doc, or explanation runs past one screen, or will be browsed rather than read: choose the form for each beat (prose, diagram, table, mockup), put the answer first and depth behind it.'
 metadata:
   type: principle
 ---

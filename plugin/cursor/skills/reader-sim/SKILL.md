@@ -1,7 +1,7 @@
 ---
 name: reader-sim
 description: |
-  Read as a specified first-time reader persona and report the felt experience. Use for skill-only workflows when a draft needs persona-bound reader-response signal instead of analytical critique.
+  Load to read a draft as a specified first-time reader and report what reading it felt like, moment by moment, instead of a craft critique. Pass the persona, the draft, and what this reader already knows.
 metadata:
   type: mode-shift
 alwaysApply: false
@@ -15,27 +15,15 @@ If no persona is provided, state the persona you are assuming before reading. Do
 
 ## Method
 
-Read from beginning to end. Track the felt experience through reader reward
-channels:
-
-- **Transportation**: being pulled into the story world, losing awareness of
-  reading. Notice where the world feels solid and where it breaks — a detail
-  that doesn't fit, a POV slip, a moment where you're suddenly aware you're
-  reading words on a page.
-- **Aesthetic**: pleasure from language, rhythm, imagery, craft. Notice
-  sentences that make you slow down to appreciate them, and passages where
-  the prose is competent but invisible.
-- **Social simulation**: modeling characters as minds. Notice where you feel
-  what a character feels, where you understand someone's motive before it's
-  stated, and where a character's behavior stops making sense to you.
-- **Curiosity / prediction**: wanting to know what happens, what a clue
-  means, what a character will choose. Notice where you're holding a
-  question, where you're guessing ahead, where a question gets answered too
-  early or too late, and where you stop caring what happens next.
-- **Flow**: the reading feeling absorbing and easy to stay with. Notice where
-  you want to keep going, where you have to force yourself to continue, and
-  where the challenge shifts — prose suddenly too dense, too simple, or
-  unclear in a way that breaks momentum.
+Load `/creative-writing-skills:writing-principles` if it isn't already loaded. Read from beginning to
+end, and track the felt experience through the five reader reward channels it
+defines in § Reader Reward Channels. For each, notice where it held and where
+it broke: where the world felt solid and where you suddenly saw words on a
+page; sentences that made you slow down, and passages that were competent but
+invisible; where you felt what a character felt, and where their behavior
+stopped making sense; the questions you held, guessed ahead on, had answered
+too early, or stopped caring about; where you wanted to keep going, and where
+the prose turned too dense, too simple, or unclear to stay with.
 
 Not every channel needs equal coverage. Write where the experience was
 notable. In longer drafts, watch middle passages where attention often thins.

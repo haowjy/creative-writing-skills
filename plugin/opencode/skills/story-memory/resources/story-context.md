@@ -1,10 +1,3 @@
----
-name: story-memory
-type: reference
-description: >
-  Context scoping for writing handoffs. Use when deciding what story context to pass, whether to materialize decisions before handoff, and how much is enough.
----
-
 # Story Context
 
 Every specialist handoff starts with a context decision. Get it wrong and the
@@ -12,7 +5,7 @@ writer invents facts that contradict established canon, the critic misses a
 continuity issue because it never saw the relevant chapter, or the brainstormer
 explores territory the author already rejected.
 
-This skill teaches the judgment: what story context to pass, when to materialize decisions before handoff, and how much is enough.
+This resource covers the judgment: what story context to pass, when to materialize decisions before handoff, and how much is enough.
 
 ## Choose the Right Mechanism
 
@@ -71,6 +64,25 @@ Brainstormers need constraints, not answers:
 - **Existing vocabulary**: enough vocab context to avoid minting new names for concepts the project has already named
 
 Don't pass too much: brainstormers that receive the full project history tend to produce conservative ideas that fit neatly into existing patterns instead of exploring fresh territory.
+
+### Outliners
+
+- **The confirmed direction**: what the author approved, with provisional parts marked
+- **What came before**: existing outlines, character state, timeline, and the prior chapters the outline builds on
+
+### Simulations
+
+- **Reader simulation**: the draft, the reader persona, and the knowledge boundary: what this reader has already read
+- **Character simulation**: the character's style and character-state files, plus the scenario or relationship to explore
+
+### Style Analysis
+
+- **Samples**: sample chapters or existing style files; without samples, the author's stated voice goals
+
+### Research
+
+- **The question**: scoped to what the story needs
+- **Story context**: setting, period, and what the story currently assumes, so the researcher can flag contradictions
 
 ### Knowledge Maintenance
 

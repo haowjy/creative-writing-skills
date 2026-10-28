@@ -2,12 +2,37 @@
 
 ## [Unreleased]
 
+### Added
+- `story-workflow` skill: the lifecycle of story work with an author, from reading their intent through direction, drafting, critique, the verdict, knowledge capture and presenting. Plans mark which parts the author confirmed and which are provisional, and critique stops after two completed critique/revise rounds per chapter, when the author decides.
+- `writing-staffing` resources `producers.md` and `reviewers.md` hold the per-agent dispatch entries.
+- The AI-prose antipatterns catalog is `writing-principles` `resources/antipatterns.md` (moved from `story-review`), so writers and critics reach it from the skill both load. It lists negation pairs ("It wasn't anger. It was something quieter."), and every prose mode checks a draft against the catalog before handing it back.
+
 ### Changed
+- `creative-writing-muse` is the muse's method everywhere, rewritten to the solo-dev shape: the muse talks, plans, and drafts itself and spawns what needs a context of its own (critique lanes, continuity, reader-sim, research, alternate takes, `@kb-lead`). It no longer assumes there are no subagents, and states its read of each pass in one line instead of answering six self-prompt questions (#8.5).
+- The `muse` agent loads `creative-writing-muse`, `story-workflow`, `creative-writing-craft` and `story-memory`, and its body keeps only the job, the verdict it owns, the `@kb-lead` hand-off and the report, so Meridian, plugin and skills-only users run one copy of the method (#10.3). It can spawn `@explorer`, which `grill-with-docs` uses; `@editor` is gone from its subagents.
+- `@kb-lead` stays the knowledge-capture hand-off: muse spawns it when a chapter, revision or ruling settles and work will pause, with the author's decisions quoted with their hedges; without subagents, muse applies `story-memory` itself (#10.4).
+- `@critic` runs one lane, a focus area or an edit level, and absorbs the editor's holistic pass as the editorial-review lane.
+- `@writer` and `@critic` no longer load `llm-writing`; `writing-principles` no longer tells agents to load it. Muse, brainstormer, character-sim, reader-sim, style-creator and story-memory's reference writing keep it.
+- `writing-staffing` says to tell an agent which skills to load and which files to pass, instead of "attach", which only Meridian has (#11). It is now model-invocable, so a skills-only session with subagents can load it, and the files each agent needs live in `story-memory` `resources/story-context.md`.
+- Agent bodies hold only the job, boundaries, engagement and report; their method moved into the skills they load: brainstorm report shape into `brainstorming.md`, what an outline beat carries into `chapter-and-scene.md` § Writing an Outline, continuity's decision and vocabulary checks into `continuity.md`, the "errors cluster in the middle" check into `prose-critique.md`, and style files without samples into `style-analysis.md`.
+- `story-planning` `resources/creative-direction.md` no longer hands chapter drafting off by default; who drafts is `creative-writing-muse`'s call.
+- Delegation in `story-workflow` and `creative-writing-muse` turns on whether this package's agents can be spawned, not on whether the harness has subagents, so a Codex or OpenCode session with native subagents but no package agents runs each lane itself.
+- `reader-sim` reports through the reward channels `writing-principles` defines instead of restating them.
+- Agent and skill descriptions open with when to use them and say what to pass and what comes back (`brainstormer`, `critic`, `outliner`, `writer`, `continuity-checker`, `muse`, `character-sim`, `reader-sim`, `creative-writing-craft`).
 - Releases use `mars version` (Mars 0.20.6+), which also promotes this changelog; CI pins Mars 0.20.6.
 
 ### Removed
+- **Breaking:** the `editor` agent. Spawn `@critic` with the edit level (editorial review for the holistic pass, or developmental, line edit, copyedit, proofreading); the method stays in `story-review` `resources/editorial-review.md`.
+- **Breaking:** the `creative-writing-modes` skill. Its modes are `creative-writing-craft` `resources/prose-modes.md`; load `creative-writing-craft` instead.
+- `story-memory` `resources/story-reference-writing/reference-modes.md`, folded into `resources/story-reference-writing.md`.
+- The uncompiled `agents/character-sim.author-variant`.
 - `scripts/release.sh`, which only existed to build the plugin twice around mars-agents#239.
 - Tracked `.claude/` and `.codex/` files: stale copies of meridian-base hooks that no settings file registered, the `/bs`, `/write`, `/kb` and `/critique` commands (they named skills that no longer exist), and personal permission settings. Both directories are now ignored, so `mars sync` and `mars version` run in the repo.
+
+### Fixed
+- `prose-critique.md` and `baseline.md` give the real path to the metrics script, `<skill folder>/resources/prose-critique/analyze.py`, run from the project, and say `python3` runs it; the script names a missing input file instead of printing only its usage line (#8.1).
+- `brainstorming/worldbuilding.md` points to `story-memory`'s reference writing instead of a `wiki-docs` skill that does not exist, and `scene-construction.md` sends sentence rhythm to `resources/prose-writing.md` instead of its own skill (#10.6).
+- Resource files no longer carry skill frontmatter (`name:`, `model-invocable:`) left from when they were skills.
 
 ## [0.6.1] - 2026-10-27
 

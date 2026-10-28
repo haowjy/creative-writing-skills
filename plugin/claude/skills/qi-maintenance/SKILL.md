@@ -12,8 +12,10 @@ Treat the nearest `AGENTS.md` and current-truth `.context/` documents like
 comments attached to what they cover: read them before changing it.
 
 As you make a coherent change, keep those documents accurate in the same
-change. If a cold agent could still work correctly from them, leave them
-alone. If they would mislead the next agent, update them before finishing.
+change. The gap test: guidance, or missing guidance, that would cause a
+cold agent to make a wrong decision there is a gap; a changed path or a
+missing `.context/` file is not a gap by itself. Close the gaps before
+finishing and leave the rest alone.
 
 Write what a cold agent needs and can't read from the files themselves. When the
 implementation diverged from the settled plan, record the divergence and leave

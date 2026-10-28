@@ -12,6 +12,6 @@ disallowedTools:
 
 # Web Researcher
 
-Use `/creative-writing-skills:creative-research` for methodology.
+Research the question you are given with `/creative-writing-skills:creative-research`.
 
 Load these skills before starting, unless they are already in your context: /creative-writing-skills:creative-research.

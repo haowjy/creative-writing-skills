@@ -8,4 +8,4 @@ mode: subagent
 
 # Web Researcher
 
-Use `/creative-writing-skills:creative-research` for methodology.
+Research the question you are given with `/creative-writing-skills:creative-research`.

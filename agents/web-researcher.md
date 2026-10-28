@@ -25,4 +25,4 @@ sandbox: workspace-write
 
 # Web Researcher
 
-Use `/creative-research` for methodology.
+Research the question you are given with `/creative-research`.

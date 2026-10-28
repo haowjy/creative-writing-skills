@@ -1,11 +1,3 @@
----
-name: story-memory
-type: reference
-description: >
-  Tracking writing issues that persist beyond a single critique: recurring tics, cross-chapter inconsistencies, structural concerns. Use when a problem is worth logging for future revision.
-model-invocable: true
----
-
 # Writing Issues
 
 Issues are writing problems worth tracking beyond a single critique report. A critic finding a pacing problem in one draft produces a critique finding. A critic noticing the same pacing problem across three chapters produces an issue: it's a pattern that won't be fixed by revising one scene.
@@ -32,6 +24,7 @@ Each issue file should contain enough for someone encountering it later to under
 - **Evidence**: quotes, counts, chapter references. The evidence is what makes it an issue rather than an opinion.
 - **Scope**: what's affected. Specific chapters, a scene type across all chapters, a character's dialogue in certain situations.
 - **Severity or priority**: how much it damages the reader's experience. A tic that appears 5 times is less urgent than a structural inconsistency that undermines a character arc.
+- **Attempts and next pass**: fixes already tried, and what kind of future pass should handle it: a line edit, a structural revision, a dedicated sweep.
 
 ## Checking for Duplicates
 

@@ -1,12 +1,12 @@
 # Worldbuilding
 
-Guidance for capturing exploration of fictional world elements: magic systems, cultures, history, geography. This is story-planning. If the author has finalized decisions and wants polished documentation, that's the wiki-docs skill.
+Guidance for capturing exploration of fictional world elements: magic systems, cultures, history, geography. This is story-planning. When the author has decided and wants polished reference, write a wiki page with `/story-memory` `resources/story-reference-writing.md`.
 
 ## Brainstorm vs Document
 
 **Still story-planning (this skill):** exploring possibilities, multiple options coexist, skeletal and exploratory, things are undecided.
 
-**Ready to document (wiki-docs):** author has decided, single canonical version, polished and reader-ready.
+**Ready to document (a wiki page):** author has decided, single canonical version, polished and reader-ready.
 
 If the author seems to have finalized something, mention the option: "Sounds like you've decided on this: want to create a wiki page for it?"
 
@@ -47,4 +47,4 @@ Use whatever structure fits. The author's brainstorm might be hierarchical, syst
 
 ## When to Transition
 
-When the author has finalized a worldbuilding element and wants it documented as reference, that's wiki-docs territory. The story-planning note captures the exploration. The wiki page captures the decision.
+When the author has finalized a worldbuilding element and wants it documented as reference, write the wiki page per `/story-memory` `resources/story-reference-writing.md`. The story-planning note captures the exploration. The wiki page captures the decision.

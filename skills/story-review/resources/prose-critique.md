@@ -1,11 +1,3 @@
----
-name: story-review
-type: reference
-description: >
-  Adversarial reading methodology for narrative fiction: find what doesn't work, not confirm what does. Focus-area driven with dedicated resources per area. Use when reviewing drafts, evaluating prose quality, or assessing changes at any stage.
-model-invocable: true
----
-
 # Prose Critique
 
 Find what doesn't work. The writer already believes their draft works: challenge that assumption. A critique that says "well done" without digging is worse than no critique, because it creates false confidence.
@@ -28,7 +20,7 @@ Even with an assigned focus, flag issues outside it if they're clearly serious. 
 
 Good findings share these qualities:
 
-**Specific.** Reference the chapter, scene, paragraph, or line. "The pacing has issues" is not a finding.
+**Specific.** Quote the passage or name the chapter, scene, paragraph, or line. Whoever acts on the finding works from your report without re-reading the draft, so it has to be locatable. "The pacing has issues" is not a finding.
 
 **Reasoned.** Explain why it matters, not just that it exists. A POV break is only interesting if you can describe what it costs: reader trust, immersion, character distinction.
 
@@ -45,7 +37,7 @@ Good findings share these qualities:
 
 ## Communicating Impact
 
-Make it obvious which findings are serious and which are minor. The orchestrator or author triaging your findings has context you don't: they know what's intentional, what's set up for later, what's a known compromise. Give them a clear signal about severity.
+Make it obvious which findings are serious and which are minor. Whoever triages your findings has context you don't: they know what's intentional, what's set up for later, what's a known compromise. Give them a clear signal about severity.
 
 Lead with the things that damage the reading experience: broken causation, character inconsistency, lost tension, confused POV. Let the smaller observations follow. Only flag issues you can tie to a concrete reader cost.
 
@@ -59,6 +51,8 @@ Think about how the prose fails, not how it succeeds:
 - **POV discipline.** Does the narrator know things they shouldn't? Are other characters' internal states reported as fact?
 - **Voice consistency.** Does the narrator sound like the same person throughout? Do characters maintain their distinct voices?
 - **Reader experience.** Where would a reader's attention drift? Where would they feel confused, cheated, or talked down to?
+
+In long content, give the middle passages extra attention: consistency and craft errors tend to cluster there rather than in openings or endings.
 
 Don't be adversarial for its own sake. If a section is genuinely strong, you can note it briefly, but earn that conclusion by actually reading critically, not by wanting to be nice.
 
@@ -76,22 +70,23 @@ Don't spend time on prose-level polish of a scene that has structural problems. 
 
 Open with a brief overall assessment: what's the big picture for this draft? Then walk through findings grouped by severity or by theme, whichever tells a clearer story. End with your verdict: what's the most important thing to address, and what's the one change that would improve this draft the most?
 
-In multi-critic parallel lanes, keep your report focused on your assigned area. The orchestrator synthesizes across critics: you go deep, not broad.
+In multi-critic parallel lanes, keep your report focused on your assigned area. Someone else synthesizes across critics: you go deep, not broad.
 
 ## Optional: Mechanical Analysis
 
 A bundled script measures mechanical prose properties: sentence length
 distribution, opener variety, dialogue ratio, repetition, pronoun distribution.
 These are quantitative signals useful for comparing a draft against the
-project's own baseline. Read-only agents (critic, continuity-checker) should
-request this data from the orchestrator; agents with bash access can run it
-directly:
+project's own baseline. It needs only Python 3 (`uv run` works too). Run it
+from the project with the script's full path: `<skill-folder>` below is the
+story-review folder named when the skill loaded. Without shell access, use the metrics
+your brief passes, or say in your report which ones would settle a finding.
 
 ```bash
-uv run resources/analyze.py <file.md> [window_size]
+python3 <skill-folder>/resources/prose-critique/analyze.py <file.md> [window_size]
 ```
 
 ## Resources
 
-- [`resources/prose-critique/antipatterns.md`](prose-critique/antipatterns.md): AI writing antipatterns, categorized as research-backed vs community folklore
+- `/writing-principles` `resources/antipatterns.md`: AI writing antipatterns, categorized as research-backed vs community folklore; hunt for them in the prose focus
 - [`resources/prose-critique/baseline.md`](prose-critique/baseline.md): establishing a project baseline and comparing drafts against it

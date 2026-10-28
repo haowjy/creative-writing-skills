@@ -26,6 +26,10 @@ Continuity errors are factual contradictions between what the draft says and wha
 - **Spatial relationships:** Do directions stay consistent? If the river is east of the city in chapter 2, it should still be east in chapter 10.
 - **Scene blocking:** Within a scene, do character positions make sense? Can character A see what the narration says they see from where they're standing?
 
+### Terminology
+
+- **Canonical names:** Are characters, places, factions, magic, titles, and invented words named as the relevant `vocab.md` files define them? Watch for aliases the vocab retired and terms used outside the meaning their entry allows.
+
 ### Established Rules
 
 - **World rules:** Do magic systems, technology, social structures operate consistently? If magic costs energy in chapter 5, it shouldn't be free in chapter 12 without explanation.
@@ -39,7 +43,7 @@ For each finding, provide:
 1. **The contradiction**: what the draft says vs what was established
 2. **Where it was established**: specific chapter/scene reference
 3. **Where it contradicts**: specific location in the draft
-4. **Severity**: does this break the reader's trust, or is it a minor inconsistency most readers wouldn't notice?
+4. **Severity**: does this break the reader's trust, or is it a minor inconsistency most readers wouldn't notice? For a term, tell canonical-name drift from harmless variation in a character's voice.
 
 Some continuity breaks are more damaging than others. A character's eye color changing is minor. A character knowing about a conversation they weren't present for is serious: it undermines the reader's trust in the narrative.
 
@@ -60,5 +64,7 @@ When available, cross-reference against:
 - Character state files
 - Canon facts
 - Wiki pages for established world facts
+- Recorded story decisions: the draft should be consistent with what the author decided
+- Vocab files: canonical names, aliases, deprecated terms
 
 These are the project's knowledge base: use them as the source of truth for what's been established.

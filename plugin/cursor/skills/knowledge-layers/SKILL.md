@@ -15,13 +15,13 @@ Load `/creative-writing-skills:llm-writing` if not already loaded.
 
 ## The Five Layers
 
-| Layer | What it holds | When to use it |
-|---|---|---|
-| `AGENTS.md` | Intent and mental model for a directory | First thing agents read on entry; what to understand *before* working here |
-| `.context/` | Contracts, architecture, rationale (`CONTEXT.md`); deferred work (`TODO`, `FUTURE`) | Reference depth and tracked deferrals, co-located with the material they describe |
-| KB | Cross-cutting decisions, domain concepts, patterns | Spans directories; outlives sessions; no single directory owns it |
-| `docs/` | User-facing documentation | Different audience, different update cadence |
-| Work directory | Temporary design decisions and scratch | Not colocated with durable content; scoped to an active work item |
+| Layer | What it holds | When to use it | Reader |
+|---|---|---|---|
+| `AGENTS.md` | Intent and mental model for a directory | First thing agents read on entry; what to understand *before* working here | An agent about to work in that directory |
+| `.context/` | Contracts, architecture, rationale (`CONTEXT.md`); deferred work (`TODO`, `FUTURE`) | Reference depth and tracked deferrals, co-located with the material they describe | An agent about to edit that directory |
+| KB | Cross-cutting decisions, domain concepts, patterns | Spans directories; outlives sessions; no single directory owns it | A future agent or the owner, years on, without this work's context |
+| `docs/` | User-facing documentation | Different audience, different update cadence | The product's user |
+| Work directory | Temporary design decisions and scratch | Not colocated with durable content; scoped to an active work item | Agents on this work item |
 
 ## Placement Rules
 
@@ -96,7 +96,8 @@ or trying for now. The test: if an agent found a better way that broke it,
 should it stop and ask the human who owns the project first? If yes, it's an
 invariant; if no, the agent changes it and updates the doc.
 
-Default to current choice. The human's hedges ("for now", "let's try", "i
+Record the human's words as said; they outrank an agent's reading of
+them. Default to current choice. The human's hedges ("for now", "let's try", "i
 think", "whatever is less work") mark a trial, and so does the human agreeing
 to something an agent proposed. An agent's own call stays a current choice
 until the human makes it an invariant. Quote the human with their hedges
@@ -132,12 +133,21 @@ themselves can't easily tell you.
 
 **Ingest**: new information enters the KB. Read the source, extract key
 knowledge, write or update wiki pages, and update indexes/cross-links touched
-by the change.
+by the change. To capture a settled change or phase of work, follow
+`resources/capture.md`.
 
 **Maintain**: keep the wiki current per Current Truth Over History above.
+When moving or renaming a doc, search the tree for the old name and fix
+every reference.
 
 **Lint**: health-check the wiki. Look for contradictions, stale claims,
 orphan pages, missing cross-references. Use `/creative-writing-skills:md-validation` for link
 checking and diagram validation.
 
-Flag content needing human attention with `> [!FLAG] **Needs human review**`.
+Flag content needing human attention inline, with the date and both sides:
+
+```markdown
+> [!FLAG] **Needs human review**: Agent A claims X (from work item foo),
+> but Agent B claims Y (from work item bar). Both may be partially correct.
+> Flagged 2026-04-28.
+```

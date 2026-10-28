@@ -1,7 +1,6 @@
 ---
 name: structured-artifact
-description: |
-  Load when creating structured HTML artifacts to explain and present information.
+description: 'Load when the human wants something to browse rather than read: an HTML page that explains or presents information, with its delivery.'
 metadata:
   type: reference
 ---

@@ -12,7 +12,7 @@ const DATA = {
     {
       "directory": "character-sim",
       "name": "character-sim",
-      "description": "Speak as a specified character from their current knowledge, voice, and emotional state. Use for skill-only workflows that need in-character conversation, voice discovery, or relationship pressure tests.\n"
+      "description": "Load to speak as a specified character from what they know, how they talk, and what they feel now: in-character conversation, voice discovery, or a relationship pressure test. Pass the character, the story moment, and their style and character-state files.\n"
     },
     {
       "directory": "correct",
@@ -27,17 +27,12 @@ const DATA = {
     {
       "directory": "creative-writing-craft",
       "name": "creative-writing-craft",
-      "description": "Craft references for writing fiction well: prose, scenes, style, voice, and genre/page-level technique. Load when a writer, critic, or muse needs how-to-write guidance rather than a production mode.\n"
-    },
-    {
-      "directory": "creative-writing-modes",
-      "name": "creative-writing-modes",
-      "description": "Creative-writing addendum to /llm-writing. Load when putting prose on the page: draft, revise, bridge, vary, or polish.\n"
+      "description": "Load when putting fiction on the page or judging how it reads there: the production modes (fresh draft, revision, bridge, alternate take, line polish), prose technique, scene mechanics, style analysis, and genre craft.\n"
     },
     {
       "directory": "creative-writing-muse",
       "name": "creative-writing-muse",
-      "description": "Load when no subagents are available and one agent must plan, draft, critique, research, and capture memory by switching stances.\n"
+      "description": "Turn on to work with a creative partner who talks through your story, plans and drafts it in your voice, critiques and revises it, and keeps the project's memory, in one conversation.\n"
     },
     {
       "directory": "grill",
@@ -52,7 +47,7 @@ const DATA = {
     {
       "directory": "information-hierarchy",
       "name": "information-hierarchy",
-      "description": "Load for large human-facing outputs: reports, docs, multi-section\nexplanations, artifacts. Choose the right form for each beat (prose, diagram,\ntable, mockup) and put the answer first, depth behind it. If the medium allows, use progressive disclosure.\n"
+      "description": "Load when a report, doc, or explanation runs past one screen, or will be browsed rather than read: choose the form for each beat (prose, diagram, table, mockup), put the answer first and depth behind it."
     },
     {
       "directory": "intent-modeling",
@@ -67,12 +62,12 @@ const DATA = {
     {
       "directory": "llm-writing",
       "name": "llm-writing",
-      "description": "Load before writing or revising human-facing text. Choose words deliberately, ground the piece in the reader's context, and remove default LLM phrasing before the final draft."
+      "description": "Load before you write a commit message, PR body, changelog entry, issue, report to the user, doc, README, AGENTS.md or .context/ page, KB page, or prompt: choose plain words, write for the reader's context, and strip default LLM phrasing."
     },
     {
       "directory": "md-validation",
       "name": "md-validation",
-      "description": "Use when validating markdown links or Mermaid diagrams."
+      "description": "Load after writing, moving, or linking markdown pages or Mermaid diagrams, before committing them: validates links, the KB link graph, and diagram syntax."
     },
     {
       "directory": "project-setup",
@@ -92,7 +87,7 @@ const DATA = {
     {
       "directory": "reader-sim",
       "name": "reader-sim",
-      "description": "Read as a specified first-time reader persona and report the felt experience. Use for skill-only workflows when a draft needs persona-bound reader-response signal instead of analytical critique.\n"
+      "description": "Load to read a draft as a specified first-time reader and report what reading it felt like, moment by moment, instead of a craft critique. Pass the persona, the draft, and what this reader already knows.\n"
     },
     {
       "directory": "reflect",
@@ -102,7 +97,7 @@ const DATA = {
     {
       "directory": "shared-dao",
       "name": "shared-dao",
-      "description": "Use when establishing shared vocabulary: resolve terminology early, one name per concept, vocab files as record."
+      "description": "Load when a concept has two names, a name has two meanings, or you are about to coin a term: resolve it early, one name per concept, in the project's vocab files."
     },
     {
       "directory": "shared-workspace",
@@ -125,9 +120,14 @@ const DATA = {
       "description": "Review work after prose exists: editorial review, craft critique, continuity/voice review, copyediting, proofreading, and synthesis of reader-sim signal. Load when diagnosing a draft rather than rewriting it.\n"
     },
     {
+      "directory": "story-workflow",
+      "name": "story-workflow",
+      "description": "Load to carry story work with an author from what they want to a page they accept: reading their intent, setting direction, producing and critiquing the prose, owning the verdict and the critique round limit, recording what settled, and presenting the result.\n"
+    },
+    {
       "directory": "structured-artifact",
       "name": "structured-artifact",
-      "description": "Load when creating structured HTML artifacts to explain and present information.\n"
+      "description": "Load when the human wants something to browse rather than read: an HTML page that explains or presents information, with its delivery."
     },
     {
       "directory": "writing-principles",
@@ -137,7 +137,7 @@ const DATA = {
     {
       "directory": "writing-staffing",
       "name": "writing-staffing",
-      "description": "Dispatch reference for composing writing teams. Teaches which extra skills to attach, which files to pass, which resources to reference, and when to fan out versus run parallel lanes. Load when staffing a workflow.\n"
+      "description": "Load before you hand story work to another agent: which agent takes which lane, which skills to tell it to load, which files to pass, how many lanes to run, and which model to run them on.\n"
     },
     {
       "directory": "writing-sync",

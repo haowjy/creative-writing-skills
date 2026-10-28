@@ -31,6 +31,24 @@ Questions to ask about a scene:
 Scenes that only exist to convey information can usually be cut: find a scene
 that's already doing something and deliver the information there.
 
+## Writing an Outline
+
+An outline is a blueprint a writer drafts from: specific enough to build on,
+loose enough to leave the craft choices to the draft. Write structure, not
+prose. Read the existing outlines, character state, timeline and prior
+chapters first: structure that ignores what came before creates continuity
+problems that cascade through every later draft.
+
+Each beat carries:
+- What the scene accomplishes for the larger story (why it exists)
+- What happens, in order, with the emotional register and its trajectory
+- Character state going in and going out (what changed)
+- Information the reader gains
+- Setup and payoff connections to other scenes
+
+Put Mermaid diagrams inline where they clarify structure: arc flow, timeline,
+relationship maps. Save outlines in the work directory's `outline/` folder.
+
 ## Outline vs. Discovery
 
 Some writers plan extensively before drafting. Some discover the story by

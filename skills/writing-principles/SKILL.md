@@ -8,9 +8,6 @@ metadata:
 
 # Writing Principles
 
-Load `/llm-writing` if it isn't already loaded. This skill adds the
-fiction-specific layer.
-
 ## Trust the Reader
 
 The reader is an active collaborator. They reconstruct emotions from behavior,
@@ -93,15 +90,17 @@ training damages it. When a passage feels off and you can't name why, check
 the reward channels — which one broke? — then see `resources/failure-modes.md`
 for common patterns and fix heuristics.
 
-The craft skills carry the execution. `/creative-writing-craft` has the
-how-to-write guidance: prose immersion (`resources/prose-writing.md`), scene
-mechanics (`resources/scene-construction.md`), and style analysis
-(`resources/style-analysis.md`). `/creative-writing-modes` has the production
-modes for putting prose on the page.
+`/creative-writing-craft` carries the execution: the production modes
+(`resources/prose-modes.md`), prose immersion (`resources/prose-writing.md`),
+scene mechanics (`resources/scene-construction.md`), and style analysis
+(`resources/style-analysis.md`).
 
 ## Resources
 
 - [`resources/failure-modes.md`](resources/failure-modes.md): per-pattern
   deep dives with examples and fix heuristics.
+- [`resources/antipatterns.md`](resources/antipatterns.md): the patterns that
+  mark prose as AI-written, sorted by evidence quality; writers check a draft
+  against it before handing it back, critics hunt for them.
 - [`resources/citations.md`](resources/citations.md): research backing for
   the reader-reward model and documented failure modes.

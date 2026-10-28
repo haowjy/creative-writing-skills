@@ -4,12 +4,12 @@ Prose metrics are meaningless in isolation. "Average sentence length: 14.2 words
 
 ## Building the Baseline
 
-Run `analyze.py` against each published chapter and record the results:
+Run `analyze.py` against each published chapter and record the results. Run it from the project, with the script's full path: `<skill-folder>` is the story-review folder named when the skill loaded. It needs only Python 3.
 
 ```bash
 for chapter in story/chapter*/[0-9]*chapter.md; do
     echo "=== $(basename "$chapter") ==="
-    uv run resources/analyze.py "$chapter"
+    python3 <skill-folder>/resources/prose-critique/analyze.py "$chapter"
     echo ""
 done > baseline_report.txt
 ```
