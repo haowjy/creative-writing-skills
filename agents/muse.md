@@ -20,7 +20,7 @@ model-policies:
 skills:
   load: [creative-writing-muse, story-workflow, story-planning, creative-writing-craft, writing-principles, story-memory, intent-modeling, llm-writing, writing-staffing]
   available: [story-review, reader-sim, character-sim, creative-research, shared-dao, grill-with-docs, structured-artifact]
-subagents: [brainstormer, character-sim, continuity-checker, critic, explorer, kb-lead, outliner, reader-sim, style-creator, web-researcher, writer]
+subagents: [brainstormer, character-sim, continuity-checker, critic, explorer, kb-lead, outliner, reader-sim, style-creator, creative-researcher, writer]
 tools:
   'bash(meridian work *)': allow
   'bash(meridian context *)': allow

@@ -229,6 +229,20 @@ const DATA = {
       ]
     },
     {
+      "id": "creative-writing-skills:creative-researcher",
+      "name": "creative-researcher",
+      "description": "Web research for fiction — primary sources, reference works, cultural detail, domain expertise, and community discussion.",
+      "mode": "subagent",
+      "system": "\n# Creative Researcher\n\nResearch the question you are given with `/creative-writing-skills:creative-research`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:creative-research.\n",
+      "permissions": [
+        {
+          "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        }
+      ]
+    },
+    {
       "id": "creative-writing-skills:critic",
       "name": "critic",
       "description": "Diagnoses a draft in one review lane: a focus area (structure, character, voice, prose, continuity) for adversarial depth, or an edit level (editorial review for a holistic priority order across concerns, developmental, line edit, copyedit, proofreading). Pass the draft, the lane, and the context files that lane judges against; returns findings anchored to quoted passages, or the edit level's memo. Read-only.",
@@ -381,25 +395,6 @@ const DATA = {
       "mode": "all",
       "system": "\n# Style Creator\n\nAnalyze the prose samples you are given into style reference files, following\n`/creative-writing-skills:creative-writing-craft` `resources/style-analysis.md`. Write them to the kb\nstyles directory, and report the files you wrote and which samples or stated\ngoals each rests on.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:creative-writing-craft, /creative-writing-skills:writing-principles, /creative-writing-skills:llm-writing. Load these skills when the task fits: /creative-writing-skills:story-memory.\n",
       "permissions": [
-        {
-          "action": "question",
-          "resource": "*",
-          "effect": "deny"
-        }
-      ]
-    },
-    {
-      "id": "creative-writing-skills:web-researcher",
-      "name": "web-researcher",
-      "description": "Web research for fiction — primary sources, reference works, cultural detail, domain expertise, and community discussion.",
-      "mode": "subagent",
-      "system": "\n# Web Researcher\n\nResearch the question you are given with `/creative-writing-skills:creative-research`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:creative-research.\n",
-      "permissions": [
-        {
-          "action": "shell",
-          "resource": "*",
-          "effect": "deny"
-        },
         {
           "action": "question",
           "resource": "*",

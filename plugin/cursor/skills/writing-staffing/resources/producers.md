@@ -35,7 +35,7 @@ Name the scenario or relationship to explore. Run one lane per character or
 perspective for independent exploration, or one shared simulation to test how
 they interact.
 
-## `@web-researcher`
+## `@creative-researcher`
 
 Name the question, the story context, and what the story currently assumes, so
 it can flag contradictions.

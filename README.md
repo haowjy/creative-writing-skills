@@ -190,7 +190,7 @@ my-story/
 | Multi-agent orchestration | Via muse | Via muse | Via muse → focused workers | No |
 | Project setup | Yes | Yes | Yes | Text to save |
 
-Claude Code, Cowork, and meridian-cli run muse as the session agent: it drafts with you and spawns a compact worker set: writer, critic, reader-sim, brainstormer, outliner, character-sim, style-creator, continuity-checker, and web-researcher. You can add the marketplace to the Claude desktop app from GitHub; Cowork runs the agents, but plain claude.ai chat runs skills only (agents grayed out) — there the `creative-writing-muse` skill runs the same muse method in one conversation, backed by the craft skills.
+Claude Code, Cowork, and meridian-cli run muse as the session agent: it drafts with you and spawns a compact worker set: writer, critic, reader-sim, brainstormer, outliner, character-sim, style-creator, continuity-checker, and creative-researcher. You can add the marketplace to the Claude desktop app from GitHub; Cowork runs the agents, but plain claude.ai chat runs skills only (agents grayed out) — there the `creative-writing-muse` skill runs the same muse method in one conversation, backed by the craft skills.
 
 ## Current Experiments
 

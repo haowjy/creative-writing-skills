@@ -1,5 +1,5 @@
 ---
-name: web-researcher
+name: creative-researcher
 description: Web research for fiction — primary sources, reference works, cultural detail, domain expertise, and community discussion.
 mode: subagent
 model: luna
@@ -14,7 +14,7 @@ model-policies:
 skills:
   load: [creative-research]
 tools:
-  bash: deny
+  bash: allow
   write: allow
   edit: allow
   web: allow
@@ -23,6 +23,6 @@ tools:
 sandbox: workspace-write
 ---
 
-# Web Researcher
+# Creative Researcher
 
 Research the question you are given with `/creative-research`.
