@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.7.2] - 2026-11-06
+
 ### Changed
 - Renamed the fiction research agent from `web-researcher` to `creative-researcher`, so it no longer clashes with `meridian-dev-workflow`'s `web-researcher`. Call `@creative-researcher` instead.
 - `creative-researcher` can now use bash.
