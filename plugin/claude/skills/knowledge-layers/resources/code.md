@@ -2,6 +2,10 @@
 
 How the layers' truth maps onto branches, merges, and shipped code.
 
+- **Invariants are checked by machine:** a test, type, lint rule or CI job.
+  What redoing the work can't restore is usually lost data, a leak, or lost
+  provenance. A rule local to one module is a **contract**: it changes with the
+  design, and isn't a project invariant.
 - **Colocated docs follow their branch.** `AGENTS.md` and `.context/`
   describe the checkout that contains them. Update them in the same branch as
   the code change and let the merge carry both; with parallel PRs in flight,

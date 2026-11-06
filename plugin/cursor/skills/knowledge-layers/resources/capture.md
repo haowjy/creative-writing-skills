@@ -38,7 +38,7 @@ Layers table, and nothing is written that the work's own docs already say.
 
 3. **Write, routed by layer.** Reconcile the reports into one picture of
    current truth: what each layer should say, and where existing docs
-   contradict it. Record the human's words as said, per Invariants and
+   contradict it. State each behavior and its reason, per Invariants and
    Current Choices. Reconcile colocated gaps before writing cross-cutting
    KB updates. Delete or move stale and misplaced content; queue
    within-tree splits and renames for step 4. When the work's own docs

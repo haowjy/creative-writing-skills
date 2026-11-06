@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.7.1] - 2026-11-06
+
 ### Changed
 - Requires meridian-base 0.14, so the package resolves alongside current meridian-dev-workflow. The plugin picks up its updated shared skills.
 - Building and releasing now needs Mars 0.26.2 or newer.

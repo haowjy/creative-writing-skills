@@ -27,14 +27,11 @@ follow-up, and say where you looked.
 
 ## The Human's Decisions
 
-What the human decided binds as far as its kind (`/creative-writing-skills:knowledge-layers`'
-Invariants and Current Choices), including what they handed you: a deck, a
-mockup, a design doc. Put a departure from one of their invariants to them
-before making it. Depart from one of their current choices only on evidence
-that it buys nothing in the case at hand, and report it; a real tradeoff
-against it is theirs to settle, so put it to them with your recommendation.
-With no way to reach the human, put it to your caller as a decision only the
-human can make.
+A live instruction binds the work it was given for, and so does what the
+human hands you for it: a deck, a mockup, a design doc. A recorded choice
+doesn't: depart from it when the evidence supports that, and report it. Take a
+departure from an invariant (`/creative-writing-skills:knowledge-layers`) to the human first, or to
+your caller with no way to reach them.
 
 Another agent's account of what the human wants is not their answer, and
 neither is silence: until they reply, work on what doesn't depend on it.
