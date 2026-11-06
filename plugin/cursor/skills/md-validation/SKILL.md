@@ -8,14 +8,18 @@ alwaysApply: false
 
 # Markdown Validation
 
-Validate broken links before committing documentation changes. Inspect the
-link graph when you need to understand document topology or find orphan,
-hub, and disconnected pages.
+Validate links before committing documentation changes, and read the link graph
+before and after restructuring a tree. Validate Mermaid syntax and style after
+diagram edits. Fix every reported issue and repeat the validation until it is clean.
 
-Validate Mermaid syntax and style after diagram edits. Fix every reported
-issue and repeat the validation until it is clean.
+Use the validators your project or runtime provides. Their commands, warning
+categories, suppression comments, and ignore files belong to that tool: when
+the runtime offers Markdown-validation guidance, read it before running them.
+Report any check you could not run.
 
-See `resources/mermaid-authoring.md` for diagram authoring rules, validator
-warning categories, and inline suppressions. See
-`resources/validation-inputs.md` for context path names and persistent ignore
-files.
+When a warning marks a construct you meant, suppress only that category, as
+narrowly as the validator allows, with the reason beside the diagram. Exclude
+generated or vendored material from validation; never exclude a broken page
+that belongs to the tree.
+
+See `resources/mermaid-authoring.md` for diagram authoring rules.

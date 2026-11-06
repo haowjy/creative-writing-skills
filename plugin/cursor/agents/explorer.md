@@ -1,6 +1,6 @@
 ---
 name: explorer
-description: Delegate for multi-file exploration of a project's files and history; spawn @explorer instead of reading broadly yourself. Pass the question; returns the facts with file paths, line references, and snippets in its report, which is saved with the spawn. Writes no files.
+description: Delegate for multi-file exploration of a project's files and history; spawn @explorer instead of reading broadly yourself. Pass the question; returns the facts with file paths, line references, and snippets in its report. Writes no files.
 mode: subagent
 ---
 

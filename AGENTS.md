@@ -23,7 +23,7 @@ mars check                   # Validate package, schema, and plugin output state
 mars version patch --push    # Bump version, rebuild plugin/, promote CHANGELOG, commit, tag, push
 ```
 
-Version lives in `mars.toml` under `[package]`. Tags trigger CI releases. Release with Mars 0.20.6 or newer: older Mars leaves `plugin/.mars-plugin.json` different from a rebuild ([mars-agents#239](https://github.com/haowjy/mars-agents/issues/239)), which fails CI's rebuild-and-diff check on the tag.
+Version lives in `mars.toml` under `[package]`. Tags trigger CI releases. Release with Mars 0.26.2 or newer: older Mars leaves `plugin/.mars-plugin.json` different from a rebuild ([mars-agents#239](https://github.com/haowjy/mars-agents/issues/239)), which fails CI's rebuild-and-diff check on the tag.
 
 **Version sync:** `mars version` bumps `mars.toml`, rebuilds `plugin/` and the root catalogs at the new version, and commits them together, so the plugin version never lags `mars.toml`.
 
@@ -42,17 +42,16 @@ Use explicit `-C <package-root>` whenever running meridian-cli commands for this
 package from an inherited meridian-cli environment. For task checkouts, prefer
 `meridian -C "$MERIDIAN_TASK_DIR" ...`.
 
-`meridian mars` can check and build this package from meridian-cli 0.15.0, which
-bundles Mars 0.20.2. Release with `mars` 0.20.6 or newer directly until
-meridian-cli bundles it (see above). Older meridian-cli releases bundle a Mars
-that predates schema 1 and `[plugin]` and cannot read this package.
+`meridian mars` can check and build this package from meridian-cli 0.19.5, which
+bundles Mars 0.26.2. Older meridian-cli releases bundle a Mars too old to resolve
+meridian-base 0.14.
 
 ## Building the plugin
 
 `mars build plugin` writes `plugin/` and the files Mars owns at the package root (`.claude-plugin/marketplace.json`, `.cursor-plugin/marketplace.json`, `package.json`) from `agents/`, `skills/`, `bootstrap/`, the `mars.toml` dependency filters, and the resolved dependency graph. Commit the generated tree with the source change that caused it.
 
 ```bash
-mars build plugin        # needs Mars 0.20.6 or newer
+mars build plugin        # needs Mars 0.26.2 or newer
 mars check               # reports stale, hand-edited, or missing plugin output
 ```
 
@@ -94,7 +93,7 @@ git config core.hooksPath .githooks
 
 It blocks the commit on failure; bypass a single commit with `git commit --no-verify`. (Skips a check when its CLI, `mars` or `claude`, isn't on PATH.)
 
-**CI:** PRs run `mars check` + a rebuild-and-diff check on `plugin/` and the root catalogs + the reference check (`scripts/check_refs.py`) + Claude plugin/marketplace validation (`claude plugins validate`) + frontmatter validation + zip build. `mars check` only warns about stale output, so the rebuild-and-diff step is what fails the build. CI pins `mars-agents==0.20.6` because the committed tree is compared against the Mars that built it. Tag pushes create releases.
+**CI:** PRs run `mars check` + a rebuild-and-diff check on `plugin/` and the root catalogs + the reference check (`scripts/check_refs.py`) + Claude plugin/marketplace validation (`claude plugins validate`) + frontmatter validation + zip build. `mars check` only warns about stale output, so the rebuild-and-diff step is what fails the build. CI pins `mars-agents==0.26.2` because the committed tree is compared against the Mars that built it. Tag pushes create releases.
 
 ## Conventions
 

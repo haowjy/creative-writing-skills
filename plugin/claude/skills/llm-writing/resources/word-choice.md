@@ -15,9 +15,9 @@ The rules behind Choose Words, with the cases that trip a reader.
 
 A command's documentation:
 
-Before: "Resolution of the spawn checkout location is performed by consulting the work item configuration. Note that it is important to remember that the `--task-dir` flag, which overrides the resolved location for a single spawn, should only be utilized when a different checkout is required."
+Before: "Determination of the output location is performed by consulting the project configuration. Note that it is important to remember that the `--out` flag, which overrides the configured location for a single build, should only be utilized when a different directory is required."
 
-After: "`meridian spawn` reads its checkout from the work item. `--task-dir` overrides it for one spawn; use it only when that spawn needs a different checkout."
+After: "`build` writes to the directory the project config names. `--out` overrides it for one build; use it only when that build needs a different directory."
 
 A story's reference page:
 
