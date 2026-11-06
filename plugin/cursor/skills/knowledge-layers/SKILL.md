@@ -60,7 +60,7 @@ Every durable layer — AGENTS.md, `.context/`, KB, `docs/` — holds the best
 current understanding; work directories may keep intermediate reasoning
 while their work item is active. When durable content is
 superseded, delete it or (for KB pages) move it to `archive/`
-(`.kgignore`'d, excluded from the knowledge graph). Live content never
+and exclude that directory from link validation (`/creative-writing-skills:md-validation`). Live content never
 references archived content. Pages read as current truth, never narrate
 their own evolution.
 
@@ -84,17 +84,18 @@ done or not. Unsettled intent isn't KB material; it stays in the work directory.
 `docs/` describes what has shipped to its readers. In a code project, load
 `resources/code.md` for how this maps to branches, merges, and shipped code.
 
-Decision records are the exception: preserve superseded decisions in place
-when they explain why the system changed. Mark the old decision as
-superseded and link to the replacement.
+Decision records are a log, kept apart from the pages agents read as
+current: dated entries of what was chosen, what was rejected, and why. A
+changed decision adds an entry and leaves the old ones; the current pages
+carry what binds.
 
 ## Invariants and Current Choices
 
 Record each settled point as one of two kinds. An **invariant** must hold
 however the work is done. A **current choice** is what the project is doing
-or trying for now. The test: if an agent found a better way that broke it,
-should it stop and ask the human who owns the project first? If yes, it's an
-invariant; if no, the agent changes it and updates the doc.
+or trying for now. The test: if an agent showed a clearly better way that
+broke it, would the human who owns the project still want it kept? If yes,
+it's an invariant; if not, it's a current choice.
 
 Record the human's words as said; they outrank an agent's reading of
 them. Default to current choice. The human's hedges ("for now", "let's try", "i
@@ -103,7 +104,7 @@ to something an agent proposed. An agent's own call stays a current choice
 until the human makes it an invariant. Quote the human with their hedges
 kept, and never record a trial as their ruling.
 
-Write invariants as rules, in decision records or `AGENTS.md`. Write current
+Write invariants as rules, in `AGENTS.md` or the KB page they govern. Write current
 choices as how things stand now, beside the work they describe. Measurements
 and the story of what went wrong go beside what they measure or explain, not
 inside a rule. A status line says only whether the thing is done, partly

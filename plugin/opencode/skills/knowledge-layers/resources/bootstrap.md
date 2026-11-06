@@ -49,7 +49,9 @@ synthesize them first. Active task plans live in work directories.
 Knowledge that depends on one subsystem stays colocated with it.
 
 When content is superseded, delete it or move it to `archive/`. Pages
-read as current truth, never narrate their own evolution.
+read as current truth, never narrate their own evolution. Decision records
+are the history: a changed decision adds a new record, and the old one
+stays. What binds is the current pages.
 
 - `index.md`: catalog. Update when you create or modify a page.
 - `.context/CONTEXT.md`: writing conventions, structure, validation.
