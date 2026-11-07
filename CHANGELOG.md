@@ -8,6 +8,7 @@
 ### Fixed
 - `muse` no longer starts in Claude's manual permission mode, where it asked before every shell command outside its short list.
 - Syncing the package no longer warns that four agents lose shell restrictions on `.claude`.
+- Removed the Fable entries from six agents' `model-policies`. They were never fallbacks and changed no setting, so they only made it look as though those agents run on Fable. `-m fable` still works.
 
 ## [0.7.2] - 2026-11-06
 

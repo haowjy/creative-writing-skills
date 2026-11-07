@@ -5,9 +5,6 @@ model: opus
 model-policies:
   - match: {alias: opus}
     override: {}
-  - match: {alias: fable}
-    no-fallback: true
-    override: {}
   - match: {alias: sonnet}
     override: {}
   - match: {alias: sol}
