@@ -9,6 +9,7 @@
 - `muse` no longer starts in Claude's manual permission mode, where it asked before every shell command outside its short list.
 - Syncing the package no longer warns that four agents lose shell restrictions on `.claude`.
 - Removed the Fable entries from six agents' `model-policies`. They were never fallbacks and changed no setting, so they only made it look as though those agents run on Fable. `-m fable` still works.
+- `writing-staffing` puts the default first: lanes on different angles run on their agents' default models. Fan-out (the same question on two model families) is defined once, says that a family is a provider, so Opus and Fable are one family, and runs through `meridian spawn -m` because the harness's own agent tool reaches only its own provider.
 
 ## [0.7.2] - 2026-11-06
 

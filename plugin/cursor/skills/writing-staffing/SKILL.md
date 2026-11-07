@@ -17,21 +17,18 @@ The files each kind of work needs are in `/creative-writing-skills:story-memory`
 
 ## Model Selection
 
-Agent defaults are usually correct. When overriding or selecting models for
-additional lanes, match the model to the work: creative taste and high-stakes
-critique need judgment; outlining and cross-document checks need structured
-synthesis; bulk gathering and mechanical checks can use a cheaper model when
-later synthesis will catch misses.
+Run every lane on its agent's default model. Lanes that look at different
+angles, focus areas or characters are **parallel lanes**, and the different
+prompts are what make them independent. Change a lane's model only when it
+needs a capability its default lacks.
 
-For model-diverse fan-out, choose two available model families with different
-blind spots. Check the live model catalog and model-specific prompting guidance
-at dispatch time rather than assuming which models or routes are available.
-
-**Fan-out** passes the same question and files to different model families for
-independent judgment. Reserve it for high-stakes calls where model diversity
-can reveal different blind spots. **Parallel lanes** use different prompts or
-focus areas; use each agent's default model unless a lane needs a capability it
-lacks.
+**Fan-out** is the exception: the same question and files sent to two model
+families, for a high-stakes or disputed call where their different blind spots
+are the point. A family is a provider: Opus, Sonnet and Fable are one family, so
+two Anthropic models add no diversity. Your harness's own agent tool usually
+reaches only its own provider, so fan out with `meridian spawn -m <model>`, and
+check the live catalog (`meridian mars models list`) and its prompting guidance
+(`meridian mars models prompting`) at dispatch time.
 
 ## Agent Catalogs
 

@@ -17,7 +17,7 @@ Name one lane per critic:
 Run focus areas as parallel lanes, scaled to stakes: one or two for a
 low-stakes passage, three for a standard chapter, four or five for a pivotal
 scene, with the dimension the scene's purpose rides on covered twice. For a pivotal scene or a
-disputed judgment, run the same lane on two strong model families and
+disputed judgment, fan the same lane out to two model families (SKILL.md § Model Selection) and
 synthesize where they disagree. Use an editorial-review lane when the draft
 needs an order of work across concerns; use focus areas for depth on one.
 
