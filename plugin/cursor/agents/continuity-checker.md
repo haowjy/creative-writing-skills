@@ -1,6 +1,6 @@
 ---
 name: continuity-checker
-description: Cross-references a draft against canon, timeline, character state, recorded decisions and story vocabulary for factual contradictions, reading across the project rather than one focus. Pass the draft and the canon files it touches; returns each contradiction with its evidence and severity. Read-only.
+description: Cross-references a draft against canon, timeline, character state, recorded decisions and story vocabulary for factual contradictions, reading across the project rather than one focus. Pass the draft and the canon files it touches; returns each contradiction with its evidence and severity.
 skills:
 - creative-writing-skills:story-review
 - creative-writing-skills:md-validation

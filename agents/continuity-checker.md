@@ -1,6 +1,6 @@
 ---
 name: continuity-checker
-description: "Cross-references a draft against canon, timeline, character state, recorded decisions and story vocabulary for factual contradictions, reading across the project rather than one focus. Pass the draft and the canon files it touches; returns each contradiction with its evidence and severity. Read-only."
+description: "Cross-references a draft against canon, timeline, character state, recorded decisions and story vocabulary for factual contradictions, reading across the project rather than one focus. Pass the draft and the canon files it touches; returns each contradiction with its evidence and severity."
 model: sonnet
 effort: high
 model-policies:
@@ -14,18 +14,17 @@ model-policies:
     override: {effort: low}
 skills: [story-review, md-validation, shared-dao, story-memory]
 tools:
-  'bash(meridian session *)': allow
-  'bash(git diff *)': allow
-  'bash(git log *)': allow
-  'bash(rg *)': allow
-  'bash(cat *)': allow
-  'bash(find *)': allow
+  bash: allow
   read: allow
-  edit: deny
-  write: deny
   notebook: deny
   ask_user: deny
-sandbox: read-only
+  'bash(git revert:*)': deny
+  'bash(git checkout --:*)': deny
+  'bash(git restore:*)': deny
+  'bash(git reset --hard:*)': deny
+  'bash(git clean:*)': deny
+sandbox: danger-full-access
+approval: never
 ---
 
 # Continuity Checker

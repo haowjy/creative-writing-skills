@@ -22,13 +22,7 @@ skills:
   available: [story-review, reader-sim, character-sim, creative-research, shared-dao, grill-with-docs, structured-artifact]
 subagents: [brainstormer, character-sim, continuity-checker, critic, explorer, kb-lead, outliner, reader-sim, style-creator, creative-researcher, writer]
 tools:
-  'bash(meridian work *)': allow
-  'bash(meridian context *)': allow
-  'bash(meridian session *)': allow
-  'bash(meridian mars models *)': allow
-  'bash(cat *)': allow
-  'bash(find *)': allow
-  'bash(rg *)': allow
+  bash: allow
   write: allow
   edit: allow
   web: allow

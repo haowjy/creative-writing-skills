@@ -1,6 +1,6 @@
 ---
 name: critic
-description: 'Diagnoses a draft in one review lane: a focus area (structure, character, voice, prose, continuity) for adversarial depth, or an edit level (editorial review for a holistic priority order across concerns, developmental, line edit, copyedit, proofreading). Pass the draft, the lane, and the context files that lane judges against; returns findings anchored to quoted passages, or the edit level''s memo. Read-only.'
+description: 'Diagnoses a draft in one review lane: a focus area (structure, character, voice, prose, continuity) for adversarial depth, or an edit level (editorial review for a holistic priority order across concerns, developmental, line edit, copyedit, proofreading). Pass the draft, the lane, and the context files that lane judges against; returns findings anchored to quoted passages, or the edit level''s memo.'
 model: opus
 skills:
 - creative-writing-skills:story-review
@@ -8,10 +8,13 @@ skills:
 - creative-writing-skills:story-memory
 effort: high
 disallowedTools:
-- Edit
-- Write
 - NotebookEdit
 - AskUserQuestion
+- Bash(git revert *)
+- Bash(git checkout -- *)
+- Bash(git restore *)
+- Bash(git reset --hard *)
+- Bash(git clean *)
 ---
 
 # Critic

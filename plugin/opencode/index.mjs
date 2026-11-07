@@ -174,11 +174,6 @@ const DATA = {
       "system": "\n# Character Simulation\n\nUse `/creative-writing-skills:character-sim`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:character-sim, /creative-writing-skills:writing-principles, /creative-writing-skills:llm-writing. Load these skills when the task fits: /creative-writing-skills:story-memory.\n",
       "permissions": [
         {
-          "action": "edit",
-          "resource": "*",
-          "effect": "deny"
-        },
-        {
           "action": "question",
           "resource": "*",
           "effect": "deny"
@@ -212,15 +207,10 @@ const DATA = {
     {
       "id": "creative-writing-skills:continuity-checker",
       "name": "continuity-checker",
-      "description": "Cross-references a draft against canon, timeline, character state, recorded decisions and story vocabulary for factual contradictions, reading across the project rather than one focus. Pass the draft and the canon files it touches; returns each contradiction with its evidence and severity. Read-only.",
+      "description": "Cross-references a draft against canon, timeline, character state, recorded decisions and story vocabulary for factual contradictions, reading across the project rather than one focus. Pass the draft and the canon files it touches; returns each contradiction with its evidence and severity.",
       "mode": "all",
       "system": "\n# Continuity Checker\n\nCross-reference the content you are given against established canon for\nfactual contradictions, following `/creative-writing-skills:story-review`\n`resources/prose-critique.md` with the continuity focus. Check against what\nyou were given and what the knowledge base (`kb/`) records, and say where your coverage is\npartial.\n\nFind the canon a draft touches through the project's link graph\n(`/creative-writing-skills:md-validation`) instead of reading everything, and check its terms against\nthe relevant `vocab.md` files.\n\nReport each contradiction with its evidence and severity, as `/creative-writing-skills:story-review`\n`resources/prose-critique/continuity.md` describes; leave fixes to your\ncaller.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:story-review, /creative-writing-skills:md-validation, /creative-writing-skills:shared-dao, /creative-writing-skills:story-memory.\n",
       "permissions": [
-        {
-          "action": "edit",
-          "resource": "*",
-          "effect": "deny"
-        },
         {
           "action": "question",
           "resource": "*",
@@ -245,15 +235,10 @@ const DATA = {
     {
       "id": "creative-writing-skills:critic",
       "name": "critic",
-      "description": "Diagnoses a draft in one review lane: a focus area (structure, character, voice, prose, continuity) for adversarial depth, or an edit level (editorial review for a holistic priority order across concerns, developmental, line edit, copyedit, proofreading). Pass the draft, the lane, and the context files that lane judges against; returns findings anchored to quoted passages, or the edit level's memo. Read-only.",
+      "description": "Diagnoses a draft in one review lane: a focus area (structure, character, voice, prose, continuity) for adversarial depth, or an edit level (editorial review for a holistic priority order across concerns, developmental, line edit, copyedit, proofreading). Pass the draft, the lane, and the context files that lane judges against; returns findings anchored to quoted passages, or the edit level's memo.",
       "mode": "all",
       "system": "\n# Critic\n\nDiagnose the draft in the lane your brief names, with `/creative-writing-skills:story-review`: a\nfocus area through `resources/prose-critique.md`, or an edit level through\nits own resource. With no lane named, choose the one this draft most needs.\nDiagnose and recommend; leave the rewriting to the author and the writer.\n\nReturn the report your lane's resource describes, opening with the lane you\nran.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:story-review, /creative-writing-skills:writing-principles, /creative-writing-skills:story-memory. Load these skills when the task fits: /creative-writing-skills:creative-writing-craft, /creative-writing-skills:shared-dao.\n",
       "permissions": [
-        {
-          "action": "edit",
-          "resource": "*",
-          "effect": "deny"
-        },
         {
           "action": "question",
           "resource": "*",
@@ -357,11 +342,6 @@ const DATA = {
       "mode": "all",
       "system": "\n# Reader Simulation\n\nUse `/creative-writing-skills:reader-sim`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:reader-sim, /creative-writing-skills:writing-principles, /creative-writing-skills:llm-writing.\n",
       "permissions": [
-        {
-          "action": "edit",
-          "resource": "*",
-          "effect": "deny"
-        },
         {
           "action": "question",
           "resource": "*",

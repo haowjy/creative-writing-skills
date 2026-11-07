@@ -29,7 +29,8 @@ tools:
   'bash(git restore:*)': deny
   'bash(git reset --hard:*)': deny
   'bash(git clean:*)': deny
-sandbox: workspace-write
+sandbox: danger-full-access
+approval: never
 ---
 
 # Writer

@@ -8,10 +8,13 @@ skills:
 - creative-writing-skills:llm-writing
 effort: high
 disallowedTools:
-- Edit
-- Write
 - NotebookEdit
 - AskUserQuestion
+- Bash(git revert *)
+- Bash(git checkout -- *)
+- Bash(git restore *)
+- Bash(git reset --hard *)
+- Bash(git clean *)
 ---
 
 # Reader Simulation

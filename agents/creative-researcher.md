@@ -20,7 +20,8 @@ tools:
   web: allow
   notebook: deny
   ask_user: deny
-sandbox: workspace-write
+sandbox: danger-full-access
+approval: never
 ---
 
 # Creative Researcher

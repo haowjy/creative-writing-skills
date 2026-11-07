@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### Changed
+- Every agent now runs with full access and never prompts for approval, matching meridian-dev-workflow. The shell is no longer limited to a short list of commands, and `critic`, `continuity-checker`, `character-sim` and `reader-sim` are no longer read-only. Agents still can't run `git revert`, `git checkout --`, `git restore`, `git reset --hard` or `git clean`, so the author's manuscript can't be reverted. The review agents' instructions still tell them to diagnose rather than rewrite.
+
+### Fixed
+- `muse` no longer starts in Claude's manual permission mode, where it asked before every shell command outside its short list.
+- Syncing the package no longer warns that four agents lose shell restrictions on `.claude`.
+
 ## [0.7.2] - 2026-11-06
 
 ### Changed

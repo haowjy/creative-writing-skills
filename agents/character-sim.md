@@ -18,13 +18,17 @@ skills:
   load: [character-sim, writing-principles, llm-writing]
   available: [story-memory]
 tools:
-  'bash(meridian session *)': allow
-  'bash(cat *)': allow
-  edit: deny
-  write: deny
+  bash: allow
+  read: allow
   notebook: deny
   ask_user: deny
-sandbox: read-only
+  'bash(git revert:*)': deny
+  'bash(git checkout --:*)': deny
+  'bash(git restore:*)': deny
+  'bash(git reset --hard:*)': deny
+  'bash(git clean:*)': deny
+sandbox: danger-full-access
+approval: never
 ---
 
 # Character Simulation
