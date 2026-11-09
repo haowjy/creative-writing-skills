@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- `story-workflow`: muse briefs `kb-lead` with what settled and the files that show it, not the author's decisions quoted with their hedges, and marks a trial as a trial. Quoted lines got written into the kb as rulings.
+
 ## [0.7.3] - 2026-11-07
 
 ### Changed

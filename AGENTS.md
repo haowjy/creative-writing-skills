@@ -115,9 +115,9 @@ if the runs show otherwise.
   an alternate take, an author-asked polish pass, or a very long draft; every
   plan marks confirmed versus provisional parts; after two critique rounds on
   a chapter it presents the open concerns and lets the author decide.
-- **`@kb-lead` briefs carry the author's hedges.** When a chapter or ruling
-  settles, muse spawns `@kb-lead` with the decisions quoted with their hedges,
-  and a trial direction lands in the kb as a trial, not canon (#10). If
+- **`@kb-lead` briefs name what settled.** When a chapter or ruling
+  settles, muse spawns `@kb-lead` with what settled and the files that show
+  it, and a trial direction lands in the kb as a trial, not canon (#10). If
   trials still harden, story-memory needs the three kinds of story knowledge
   #10.1 proposes.
 - **`@critic` covers editorial review.** Asked for an editorial review, a

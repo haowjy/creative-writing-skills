@@ -120,7 +120,7 @@ flowchart TB
 
 **Draft & Revise:** Muse drafts and revises with you, and hands writer the passes that need their own session: alternate takes on another model, a polish pass you ask for, or a very long draft. Each critic runs one lane: a focus area for depth on one craft dimension, or an edit level, where editorial review gives the holistic book-editor priority across structure, voice, line quality, and surface. After two critique rounds on a chapter, muse brings you what is still open and you decide. Reader-sim gives experiential signal on pivotal scenes.
 
-**Knowledge:** When a chapter, revision, or ruling settles, muse dispatches `kb-lead` with the `story-memory` skill and your decisions quoted with their hedges, so a trial stays a trial; in harnesses without agents it applies `story-memory` itself. Style-creator captures voice patterns from prose samples. The kb grows as the project evolves, giving every future agent accurate context.
+**Knowledge:** When a chapter, revision, or ruling settles, muse dispatches `kb-lead` with the `story-memory` skill and what settled, so a trial stays a trial; in harnesses without agents it applies `story-memory` itself. Style-creator captures voice patterns from prose samples. The kb grows as the project evolves, giving every future agent accurate context.
 
 ## Agents
 
