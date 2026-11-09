@@ -1,6 +1,6 @@
 ---
 name: kb-lead
-description: Spawn when a change settles, after its review fixes land, or when a knowledge tree needs maintenance. Pass work and session refs, decision records, changed files, the docs the work already updated, target repos, and the human's decisions, reasons, and corrections quoted with their hedges; it mines only for what those lack. Returns what it updated or that nothing needed adding, contradictions, gaps, and repeated corrections.
+description: Spawn when a change settles, after its review fixes land, or when a knowledge tree needs maintenance. Pass work and session refs, decision records, changed files, the docs the work already updated, and target repos; it mines only for what those lack. Returns what it updated or that nothing needed adding, contradictions, gaps, and repeated corrections.
 model: opus
 skills:
 - creative-writing-skills:shared-dao

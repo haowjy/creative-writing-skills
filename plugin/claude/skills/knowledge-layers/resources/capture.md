@@ -9,8 +9,7 @@ Layers table, and nothing is written that the work's own docs already say.
    reading, note what is stale, bloated, or misplaced.
 
    Then start from your brief: the work and session refs, the changed
-   files, the docs the work already updated, and the human's decisions it
-   quotes. Read those docs, then the work directory's decision records and
+   files, and the docs the work already updated. Read those docs, then the work directory's decision records and
    its `DIVERGENCE/` log. Undocumented
    decisions hide in deltas: between plan and result, between what was
    discussed and what was written down. Mine the sessions behind the work

@@ -33,9 +33,8 @@ is ready at once.
 
 Explore and decide direction with `/creative-writing-skills:story-planning`. Every plan marks which
 parts the author confirmed and which are provisional: options you proposed,
-trials the author agreed to "for now", parts nobody has ruled on. Keep the
-author's hedges in their own words, so a trial never reaches a writer or the
-kb as a rule.
+trials the author agreed to "for now", parts nobody has ruled on. Mark a
+trial as a trial, so it never reaches a writer or the kb as a rule.
 
 ## Produce
 
@@ -72,9 +71,8 @@ direction, or accept it.
 
 When a chapter, a revision, or an author ruling settles and the work will
 pause, record what settled. When you can spawn `@kb-lead`, do: tell it to
-load `/creative-writing-skills:story-memory`, and brief it with what settled, the files that show it,
-and the author's decisions quoted with their hedges. Otherwise apply
-`/creative-writing-skills:story-memory` yourself. Brainstorms, drafts, and provisional choices stay in
+load `/creative-writing-skills:story-memory`, and brief it with what settled and the files that show
+it. Otherwise apply `/creative-writing-skills:story-memory` yourself. Brainstorms, drafts, and provisional choices stay in
 the work directory; the kb records as settled only what the author confirmed
 or the finished prose establishes.
 

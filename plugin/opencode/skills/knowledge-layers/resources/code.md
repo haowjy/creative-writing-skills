@@ -11,7 +11,7 @@ How the layers' truth maps onto branches, merges, and shipped code.
   the code change and let the merge carry both; with parallel PRs in flight,
   each branch documents itself.
 - **The KB doesn't wait for code.** An invariant is KB truth the moment
-  the human settles it, merged or not. Where the code hasn't converged on it yet,
+  the human names it, merged or not. Where the code hasn't converged on it yet,
   colocated docs describe current behavior and flag the divergence; never
   describe the intended system as if it were built.
 - **`docs/` describes shipped behavior**, updated when the change ships to

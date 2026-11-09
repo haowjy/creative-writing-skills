@@ -18,8 +18,8 @@ missing `.context/` file is not a gap by itself. Close the gaps before
 finishing and leave the rest alone.
 
 Write what a cold agent needs and can't read from the files themselves. When the
-implementation diverged from the settled plan, record the divergence and leave
-the intent as settled.
+implementation diverged from the plan, record the divergence and keep the
+plan's intent, unless a later choice replaced the plan: then rewrite the intent.
 
 Load `/creative-writing-skills:qi-layer` when creating, moving, restructuring, or substantially
 rewriting colocated knowledge.

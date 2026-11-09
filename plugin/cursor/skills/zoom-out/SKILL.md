@@ -35,4 +35,4 @@ Read the reports and produce one orientation map, not stitched-together dumps:
 - **Vocabulary**: the terms needed to speak about it precisely.
 - **Open threads**: gaps, debt, or unresolved questions the explorers surfaced.
 
-When reports contradict each other, resolve it rather than listing both, by what each source governs: the thing itself (the code, the data, the manuscript) shows its current state, and a settled decision shows intent. A doc that misdescribes current state is stale (note it); a gap between current state and settled intent is a divergence to report. Keep the map tight: the goal is a reader who can now navigate the area, not an exhaustive transcript.
+When reports contradict each other, resolve it rather than listing both, by what each source governs: the thing itself (the code, the data, the manuscript) shows its current state, and the recorded direction shows intent. A doc that misdescribes current state is stale (note it); a gap between current state and the recorded direction is a divergence to report. Keep the map tight: the goal is a reader who can now navigate the area, not an exhaustive transcript.

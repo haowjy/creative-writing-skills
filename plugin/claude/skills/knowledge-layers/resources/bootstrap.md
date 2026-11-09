@@ -27,9 +27,8 @@ cross-references.
 
 **Decision records**: what was chosen, what was rejected, and why. Wiki
 pages link to decisions for rationale; decisions link to wiki pages for
-context. Separate from wiki pages because the reasoning behind a choice
-outlives the description of the current system: when the system changes,
-the old decision record still explains why it was built that way.
+context. Separate from wiki pages because a choice's reason changes less
+often than the description of the system around it.
 
 **Sources**: raw material: articles, research, transcripts, data. Immutable.
 Agents read from sources but never modify them.
@@ -41,7 +40,7 @@ Agents read from sources but never modify them.
 
 Big-picture knowledge that spans components and outlives sessions:
 decisions, domain concepts, architectural rationale, patterns. Pages
-record the system's current settled intent — what it should be —
+record the system's current direction — what it should be —
 independent of any checkout.
 
 Raw research dumps and conversation transcripts don't belong here;
@@ -49,9 +48,8 @@ synthesize them first. Active task plans live in work directories.
 Knowledge that depends on one subsystem stays colocated with it.
 
 When content is superseded, delete it or move it to `archive/`. Pages
-read as current truth, never narrate their own evolution. Decision records
-are the history: a changed decision adds a new record, and the old one
-stays. What binds is the current pages.
+read as current truth, never narrate their own evolution. A changed
+decision rewrites its page; git keeps the old version.
 
 - `index.md`: catalog. Update when you create or modify a page.
 - `.context/CONTEXT.md`: writing conventions, structure, validation.

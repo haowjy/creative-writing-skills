@@ -48,7 +48,7 @@ needs updating.
 **The KB links to the work's own docs.** Before writing to the KB about
 some work, read the docs, `AGENTS.md`, `.context/`, and comments the work
 updated. Link to what they describe, and write only what they don't say:
-the settled intent, the reason, the rejected alternatives, how it relates
+the direction, the reason, the rejected alternatives, how it relates
 to the rest of the project. When they say all of it, the KB gets a link or
 nothing. Cut a KB section that restates them down to the link and the
 parts they don't say; the copy drifts the next time they change.
@@ -77,16 +77,13 @@ preserved is truly lost.
 
 **Truth is anchored per layer.** AGENTS.md and `.context/` describe the
 tree that contains them: update them in the same change as what they
-describe. The KB records the current settled intent — what the project
-*should be* — and an invariant is KB truth the moment the human settles it,
-done or not. Unsettled intent isn't KB material; it stays in the work directory.
-`docs/` describes what has shipped to its readers. In a code project, load
-`resources/code.md` for how this maps to branches, merges, and shipped code.
-
-Decision records are a log, kept apart from the pages agents read as
-current: dated entries of what was chosen, what was rejected, and why. A
-changed decision adds an entry and leaves the old ones; the current pages
-carry what binds.
+describe. The KB records current direction, what the project *should be*:
+what the human chose or the finished work established. An idea the human
+floated, a question they asked, or options they listed without picking one
+stays in the work directory until they choose. An invariant is KB
+truth the moment the human names it, done or not. `docs/` describes what has
+shipped to its readers. In a code project, load `resources/code.md` for how
+this maps to branches, merges, and shipped code.
 
 ## Invariants and Current Choices
 
@@ -104,7 +101,8 @@ rewriting when evidence shows something better.
 
 The human's words are direction, not rulings: reason against them when the
 evidence says to. State the behavior and its reason, with no names, quotes or
-session ids. A page says "for now" or "trying" where the human hedged.
+session ids. A page says "for now" or "trying" where the human chose with a
+hedge.
 
 Write invariants as rules, in `AGENTS.md` or the KB page they govern. Write current
 choices as how things stand now, beside the work they describe. Measurements
