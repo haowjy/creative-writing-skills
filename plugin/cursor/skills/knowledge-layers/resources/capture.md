@@ -1,65 +1,44 @@
 # Capturing a Settled Change
 
-The Ingest operation for a change or phase that has settled: what it
-taught the project goes into the durable layers, routed per the Five
-Layers table, and nothing is written that the work's own docs already say.
+What a settled change taught the project goes where `/creative-writing-skills:knowledge-layers`
+places it, and nothing is written that the work's own docs already say.
 
-1. **Orient.** Skim the existing docs to know where updates land: the
-   knowledge base, plus `.context/` and `docs/` in the project tree. While
-   reading, note what is stale, bloated, or misplaced.
+1. **Read what you were given:** the brief's work and session refs, the
+   changed files, the docs the work already updated, and the work
+   directory's decision records and `DIVERGENCE/` log. Map each changed path
+   to its nearest `AGENTS.md` and `.context/` and apply `/creative-writing-skills:qi-maintenance`'s
+   gap test; repair the gaps even when the implementation agent did not.
 
-   Then start from your brief: the work and session refs, the changed
-   files, and the docs the work already updated. Read those docs, then the work directory's decision records and
-   its `DIVERGENCE/` log. Undocumented
-   decisions hide in deltas: between plan and result, between what was
-   discussed and what was written down. Mine the sessions behind the work
-   only for what the brief and logs don't account for: a decision without
-   its reason or the alternatives it rejected, the human's corrections of
-   agents, a delta no log records.
+2. **Find what the change made stale.** Search the KB for the names and
+   terms the work touched, including the old names of anything it renamed or
+   removed. Check each page you find against the code and docs as they are
+   now: a page that describes behavior they contradict, restates them, or
+   describes something that no longer exists is part of this capture. A
+   direction the human chose that the code hasn't reached yet stays, marked
+   as not built yet (`resources/code.md`). Where a choice is missing its reason, or you
+   need the human's corrections of agents, have `@session-miner` find the passages
+   and read them yourself. Spawn an `@explorer` for an area too large to
+   read yourself.
 
-   Search the KB for the names and terms the work touched. Each page that
-   contradicts the work or restates its docs is part of this capture.
+3. **Delete, then write.** Delete each stale page or passage step 2 found,
+   or rewrite it to current truth, and fix the links to it. Then write each
+   behavior with its reason, and only what the human chose
+   or the work established (`/creative-writing-skills:knowledge-layers` The KB Records Why). When
+   the work's own docs already say everything it settled, add nothing for
+   it. Move misplaced content to its place. Record each
+   correction of an agent by the human as `resources/corrections/register.md`
+   instructs.
 
-   Map every changed path to its nearest `AGENTS.md` and current-truth
-   `.context/` documents, compare them to the resulting checkout, and apply
-   `/creative-writing-skills:qi-maintenance`'s gap test. Repair the gaps even when the
-   implementation agent did not.
+4. **Reorganize what you touched.** Merge pages that cover one topic,
+   split a page that covers several, and rename or move a page whose name
+   or place no longer fits what it holds. Fix every link to what moved.
 
-2. **Investigate, in parallel,** what the brief and the logs leave open.
-   Tight scope produces sharp reports; broad scope dilutes attention.
-   - `@explorer` per area of the project (one subsystem or concern each)
-   - `@session-miner` per prior conversation worth mining for decisions,
-     rejected alternatives, rationale, and the human's corrections of agents
-
-   Spawn a follow-up wave only for areas that could change a concrete doc
-   target, up to three waves in all. At that limit, capture what you have
-   and report the uncovered gaps.
-
-3. **Write, routed by layer.** Reconcile the reports into one picture of
-   current truth: what each layer should say, and where existing docs
-   contradict it. State each behavior and its reason, per Invariants and
-   Current Choices. Reconcile colocated gaps before writing cross-cutting
-   KB updates. Delete or move stale and misplaced content; queue
-   within-tree splits and renames for step 4. When the work's own docs
-   already say everything it settled, add nothing for it and spend the run
-   on what step 1 found. Record each correction of an agent by the human as
-   `resources/corrections/register.md` instructs.
-
-4. **Hand structure to `@kb-maintainer`.** One per tree with structural
-   work queued from step 3; it takes one tree per spawn. It owns
-   structure; you own content. When it flags a contradiction, you resolve
-   it.
-
-5. **Check what you wrote.** Run `/creative-writing-skills:llm-writing` on each page you changed,
-   for that page's reader (the Reader column of the Five Layers table).
-   Then commission a cold read per `/creative-writing-skills:llm-writing` `resources/cold-read.md`,
-   one `@cold-reader` per tree where you wrote new or rewritten prose, and
-   act on its findings as that resource says. One exception: the
-   corrections register's Occurrences column cites sessions and quotes by
-   design, so leave it as it is.
-
-   Last, verify every tree you touched with `/creative-writing-skills:md-validation` (links, KB
-   graph, diagrams).
-
-6. **Commit.** The KB is often a separate repo from the project tree.
-   Commit each version-controlled tree you touched.
+5. **Check, then commit.** Run `/creative-writing-skills:llm-writing` on each page you changed, for
+   its reader in the Three Places table. Commission a cold read per
+   `/creative-writing-skills:llm-writing` `resources/cold-read.md`, one `@cold-reader` for the pages
+   where you wrote new prose, and act on its findings. Leave the corrections
+   register's Occurrences column as it is: it cites sessions by design.
+   Verify each tree with `/creative-writing-skills:md-validation`, then commit each
+   version-controlled tree you touched. The capture is done when no page
+   you found in step 2 still describes behavior the code or the docs
+   contradict.

@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.7.5] - 2026-11-10
+
 ### Changed
 - `story-workflow`: when the author hasn't settled a term or direction, ask them until it is (`/grill`, available to `muse`).
 - `story-memory`: a settled creative choice goes on its topic page with its reason; a rejected alternative only with what ruled it out.

@@ -2,13 +2,10 @@
 name: kb-maintainer
 description: 'Spawn to refactor a documentation tree''s structure (KB, .context/, docs/, design/): pass the target root. Splits, merges, renames, and repairs cross-references; returns changed paths and flagged content issues. Never decides content truth.'
 skills:
-- creative-writing-skills:shared-dao
-- creative-writing-skills:shared-workspace
-- creative-writing-skills:llm-writing
-- creative-writing-skills:information-hierarchy
 - creative-writing-skills:knowledge-layers
 - creative-writing-skills:qi-layer
 - creative-writing-skills:md-validation
+- creative-writing-skills:shared-workspace
 mode: subagent
 ---
 
@@ -32,3 +29,5 @@ non-semantic structure only; flag contradictory claims for the caller.
 
 Verify every tree you touched with `/creative-writing-skills:md-validation` before reporting:
 links, the KB link graph, diagrams.
+
+Load these skills when the task fits: /creative-writing-skills:llm-writing, /creative-writing-skills:information-hierarchy, /creative-writing-skills:shared-dao.

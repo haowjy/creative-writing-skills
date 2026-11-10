@@ -9,10 +9,10 @@ metadata:
 
 The reader should get what matters to them first, find the rest when they
 reach for it, and never meet what changes nothing for them. Your own sense
-of what matters is not theirs. Left alone, a model ranks by what the source
-contains, what sounds complete, and what was at hand, and that ranking only
-weakly matches what readers judge important. Decide importance from the
-reader.
+of what matters is not theirs. You know the source, so it is natural to
+rank by what it contains, what sounds complete, and what was at hand; the
+reader arrives with one question, and that ranking only weakly matches it.
+Decide importance from the reader.
 
 ## Rank by the Reader's Next Move
 

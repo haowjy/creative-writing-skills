@@ -23,8 +23,5 @@ plan's intent, unless a later choice replaced the plan: then rewrite the intent.
 Load `/creative-writing-skills:qi-layer` when creating, moving, restructuring, or substantially
 rewriting colocated knowledge.
 
-Track deferred work separately: directory-local must-do work goes in the
-nearest `.context/TODO`, directory-local nice-to-have work in
-`.context/FUTURE`, and cross-cutting or externally visible work in the project
-issue tracker. Load `/creative-writing-skills:knowledge-layers` when placement is unclear.
-Cross-cutting KB synthesis belongs to `@kb-lead`, after the change settles.
+Deferred work goes where `/creative-writing-skills:knowledge-layers` places it. Cross-cutting KB
+synthesis belongs to `@kb-lead`, after the change settles.

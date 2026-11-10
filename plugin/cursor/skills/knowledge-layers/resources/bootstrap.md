@@ -19,16 +19,9 @@ multiple related pages.
 
 ## Content Types
 
-A KB holds four kinds of content.
-
-**Wiki pages**: synthesized knowledge. How things work, concepts,
-architecture, patterns. Agents create pages, update them, and maintain
-cross-references.
-
-**Decision records**: what was chosen, what was rejected, and why. Wiki
-pages link to decisions for rationale; decisions link to wiki pages for
-context. Separate from wiki pages because a choice's reason changes less
-often than the description of the system around it.
+**Wiki pages**: what the project does and why, by topic: concepts,
+architecture, patterns, the reasons behind choices, facts about the outside
+world. Agents create pages, update them, and maintain cross-references.
 
 **Sources**: raw material: articles, research, transcripts, data. Immutable.
 Agents read from sources but never modify them.
@@ -38,18 +31,19 @@ Agents read from sources but never modify them.
 ```markdown
 # KB Guide
 
-Big-picture knowledge that spans components and outlives sessions:
-decisions, domain concepts, architectural rationale, patterns. Pages
-record the system's current direction — what it should be —
-independent of any checkout.
+Why the project is the way it is, where no one directory owns the
+reason: domain concepts, architecture, patterns, facts about the outside
+world. Pages record the system's current direction, what it should be,
+independent of any checkout. Only what the human chose or finished work
+established belongs here; options still open stay in work directories.
 
 Raw research dumps and conversation transcripts don't belong here;
 synthesize them first. Active task plans live in work directories.
 Knowledge that depends on one subsystem stays colocated with it.
 
-When content is superseded, delete it or move it to `archive/`. Pages
+When content is superseded, delete it. Pages
 read as current truth, never narrate their own evolution. A changed
-decision rewrites its page; git keeps the old version.
+choice rewrites its page; git keeps the old version.
 
 - `index.md`: catalog. Update when you create or modify a page.
 - `.context/CONTEXT.md`: writing conventions, structure, validation.
@@ -68,8 +62,9 @@ decision rewrites its page; git keeps the old version.
   (`auth-redesign-notes.md`).
 - Calibrate depth to importance. Reference material is terse and scannable.
   Architecture pages walk through reasoning.
-- Decision records capture what was chosen, what was rejected, and why.
-  Wiki pages link to them for rationale.
+- Each page says what the project does and why. A rule with no reason gets
+  deleted; a rejected option stays only with the fact that sank it.
+- No decision IDs and no decision register: write by topic.
 
 ## Structure
 

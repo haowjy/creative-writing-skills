@@ -10,7 +10,8 @@ first use. The local KB guide wins on format.
 A correction is the human saying an agent's work or behavior was wrong:
 pushing back, repeating an instruction the agent ignored, undoing or
 redirecting its work, or stating a rule because an agent broke it. The human
-choosing between sound options is a decision, and goes in the decision index.
+choosing between sound options is a choice, recorded with its reason on
+the KB page for that topic.
 
 ## Classes
 

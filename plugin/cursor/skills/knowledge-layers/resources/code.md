@@ -14,8 +14,6 @@ How the layers' truth maps onto branches, merges, and shipped code.
   the human names it, merged or not. Where the code hasn't converged on it yet,
   colocated docs describe current behavior and flag the divergence; never
   describe the intended system as if it were built.
-- **`docs/` describes shipped behavior**, updated when the change ships to
-  users.
 - **Code is ground truth for what's built.** When code and a doc disagree
   about what the code does, the doc is stale: say so, and fix or flag it.
 - **Deferred work** in `.context/TODO` and `FUTURE` names the affected path
@@ -24,5 +22,5 @@ How the layers' truth maps onto branches, merges, and shipped code.
 - **Current choices live beside the code.** Error codes, names, timers,
   sizes, ordering, and how a PR builds a feature are current choices. They go
   in `.context/` or an architecture page as the current implementation, not
-  in a decision's rule or an `AGENTS.md`. PR numbers and branch names stay out
+  as a KB rule or in an `AGENTS.md`. PR numbers and branch names stay out
   of status lines.

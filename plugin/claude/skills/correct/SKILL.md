@@ -12,9 +12,9 @@ argument-hint: A correction or class to start from (optional)
 The human keeps correcting agents for the same mistakes. Change the project
 or the prompts so the next agent can't make them.
 
-Assume every contributor is an agent that sees only the files it opened,
-copies the nearest example, and takes the shortest path that works. Design so
-a change that looks right from one file is right for the whole project.
+Design for a contributor that sees only the files it opened and follows the
+nearest example, as any agent working from its context does: a change that
+looks right from one file must be right for the whole project.
 
 In a code project, load `resources/code.md`: it adds architecture, types, and
 tests to the levels below.

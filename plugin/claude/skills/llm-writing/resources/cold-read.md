@@ -8,11 +8,9 @@ bodies); deletions and link fixes don't need one.
 
 ## Commissioning
 
-Spawn `@cold-reader`, one per tree you changed. Pass only the paths and
-each page's reader, as text: no summary of the work, no reasons for the
-changes, no labels from the work even as examples of what to flag, and no
-attached file content. Anything more leaks the context the check depends
-on.
+Spawn one `@cold-reader` for all the pages, briefed as its description
+says. Anything more than paths and readers leaks the context the check
+depends on.
 
 ## Acting on Findings
 

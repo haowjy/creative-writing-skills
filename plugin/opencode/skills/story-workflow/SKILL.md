@@ -20,10 +20,9 @@ reader effect, the emotional target, the constraints, the taste signals, what
 should stay ambiguous or unsaid, and what would count as the wrong kind of
 success. Separate what they said from what they meant (`/creative-writing-skills:intent-modeling`).
 Check the project's terms and prior decisions in its files (`AGENTS.md`, the
-kb's vocab and decision pages) before asking about them, so the questions
+kb's vocab and topic pages) before asking about them, so the questions
 that reach the author are the ones only they can answer. When the work turns
-on terms or a direction the author has not settled, grill them on it with
-`/creative-writing-skills:grill-with-docs`.
+on terms or a direction the author has not settled, ask them until it is (`/creative-writing-skills:grill`).
 
 State your read in a line or two and proceed, so the author can correct it.
 Ask only when the answer would change the work, and ask every question that
