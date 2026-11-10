@@ -137,7 +137,7 @@ flowchart TB
 | **style-creator** | Analyzes prose samples to produce style reference files for the project's voice |
 | **kb-lead** | Mines settled work for decisions and updates the kb; the agent behind `story-memory` |
 
-Four `meridian-base` delegates ship with the plugin for the work around the writing: `explorer` reads widely and reports facts, `session-miner` mines past sessions for decisions already made, `cold-reader` checks text that outlives the work for what a reader who wasn't there cannot follow, and `kb-maintainer` refactors a documentation tree's structure.
+Four `meridian-base` delegates ship with the plugin for the work around the writing: `explorer` finds what's related in a large area, `session-miner` finds where past sessions discuss a question, `cold-reader` checks text that outlives the work for what a reader who wasn't there cannot follow, and `kb-maintainer` refactors a documentation tree's structure.
 
 Knowledge extraction into the kb in harnesses without agents stays in the conversation: the muse applies the `story-memory` skill directly.
 
@@ -159,7 +159,7 @@ Knowledge extraction into the kb in harnesses without agents stays in the conver
 | **shared-dao** | Shared vocabulary: canonical story terms, aliases, and ambiguity resolution |
 | **project-setup** | One-time guided setup (user-invoked): interviews you, then creates AGENTS.md, the kb layout, and style files |
 
-The plugin also ships the shared `meridian-base` skills its agents load: `grill` (with `grill-with-docs`) to stress-test a direction in rounds of questions, `correct` to fix a class of repeated mistake at the strongest level that holds, `zoom-out` for orienting in an unfamiliar area, and `knowledge-layers`, `qi-layer`, `qi-maintenance`, `information-hierarchy`, `intent-modeling`, `md-validation`, `reflect`, `shared-workspace`, and `structured-artifact` for the rest of the knowledge and craft discipline.
+The plugin also ships the shared `meridian-base` skills its agents load: `correct` to fix a class of repeated mistake at the strongest level that holds, `zoom-out` for orienting in an unfamiliar area, and `knowledge-layers`, `qi-layer`, `qi-maintenance`, `information-hierarchy`, `intent-modeling`, `md-validation`, `reflect`, `shared-workspace`, and `structured-artifact` for the rest of the knowledge and craft discipline.
 
 ## Project Layout
 

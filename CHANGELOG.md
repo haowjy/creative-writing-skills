@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Changed
+- `story-workflow`: when the author hasn't settled a term or direction, ask them until it is (`/grill`, available to `muse`).
+- `story-memory`: a settled creative choice goes on its topic page with its reason; a rejected alternative only with what ruled it out.
+- `writing-principles`: explaining and resolving helps in conversation and does the reader's work in fiction; the failure modes follow from that.
+- `story-review` prose critique: shows the writer what a reader would hit; a strong section may get a brief note.
+
 ## [0.7.4] - 2026-11-09
 
 ### Changed

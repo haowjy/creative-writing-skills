@@ -36,6 +36,7 @@ what does it constrain, and what remains unknown?
 
 ## Decision Capture
 
-Record settled creative choices when they will affect future work. Keep it
-short: decision, reason, alternatives rejected, and what it changes downstream.
-Do not promote live brainstorm options into decisions.
+Record a settled creative choice that will affect future work on its topic
+page: the choice, its reason, and what it changes downstream. Name a
+rejected alternative only with what ruled it out. Live brainstorm options
+stay out.

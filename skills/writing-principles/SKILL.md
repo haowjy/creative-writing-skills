@@ -15,12 +15,12 @@ infer motives from action, hold tension across scenes, fill gaps the text
 leaves open, and make assumptions about what's coming next. That work is where
 the reward lives: reconstruction, inference, anticipation.
 
-Your training pulls in the opposite direction. The helpfulness instinct wants
-to explain, resolve, clarify, and complete. In fiction, every one of those
-impulses can damage the reading experience by doing work the reader wanted to
-do themselves. The specific failure modes below are all forms of this: not
-trusting the reader to interpret an emotion, hold an ambiguity, follow
-subtext, or tolerate unresolved tension.
+In conversation, explaining, resolving, clarifying and completing is what
+helps; it is what you were trained to do well. In fiction the same moves do
+work the reader wanted to do themselves, and the reading experience loses
+what they would have found. The failure modes below are all forms of
+this: not trusting the reader to interpret an emotion, hold an ambiguity,
+follow subtext, or tolerate unresolved tension.
 
 Trust doesn't mean obscurity. Readers also need coherent narrative, stable
 geography, and enough access to model characters. The discipline is knowing
@@ -39,9 +39,9 @@ phrase carries weight. Sparse prose can be wasteful when it takes ten short
 sentences to do what one image could do. The measure is whether removing
 the element would cost the reader something.
 
-The LLM pull is toward completeness: covering every beat, naming every
-emotion, resolving every ambiguity. Economy is the counter-discipline:
-what can you leave out and still have the scene work? What's the reader
+Completeness serves an answer: every beat covered, every emotion named,
+every ambiguity resolved. A scene needs less. Ask what you can leave out
+and still have the scene work. What's the reader
 already doing for you?
 
 ## Reader Reward Channels

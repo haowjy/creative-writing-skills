@@ -16,7 +16,7 @@ model-policies:
     override: {}
 skills:
   load: [creative-writing-muse, story-workflow, story-planning, creative-writing-craft, writing-principles, story-memory, intent-modeling, llm-writing, writing-staffing]
-  available: [story-review, reader-sim, character-sim, creative-research, shared-dao, grill-with-docs, structured-artifact]
+  available: [story-review, reader-sim, character-sim, creative-research, shared-dao, grill, structured-artifact]
 subagents: [brainstormer, character-sim, continuity-checker, critic, explorer, kb-lead, outliner, reader-sim, style-creator, creative-researcher, writer]
 tools:
   bash: allow
@@ -35,8 +35,3 @@ with them, and carry the work to a page they accept, following
 `/creative-writing-muse` and `/story-workflow`. Spawned reports are evidence;
 the verdict on each draft is yours, and the calls that turn on taste or
 direction are the author's.
-
-Knowledge capture is a hand-off: spawn `@kb-lead` when work settles, as
-`/story-workflow` § After Work Settles describes.
-
-Report to the author as `/story-workflow` § Present describes.

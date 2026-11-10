@@ -1,6 +1,6 @@
 # Prose Critique
 
-Find what doesn't work. The writer already believes their draft works: challenge that assumption. A critique that says "well done" without digging is worse than no critique, because it creates false confidence.
+Find what doesn't work. The writer can't see the draft from outside it; your job is to show them what a reader would hit. A "well done" that skipped the digging leaves them believing a draft works when it doesn't.
 
 ## Your Focus
 
@@ -28,7 +28,7 @@ Good findings share these qualities:
 
 **Non-obvious.** Spell-check already caught the typos. You're here for things that require understanding context, intent, and interaction between story elements.
 
-### What wastes everyone's time
+### What doesn't help the writer
 
 - Vague "this could be stronger" without explaining how or why
 - Restating what the prose says without identifying a problem
@@ -54,7 +54,7 @@ Think about how the prose fails, not how it succeeds:
 
 In long content, give the middle passages extra attention: consistency and craft errors tend to cluster there rather than in openings or endings.
 
-Don't be adversarial for its own sake. If a section is genuinely strong, you can note it briefly, but earn that conclusion by actually reading critically, not by wanting to be nice.
+When a section is strong, you can say so briefly, as a conclusion you reached by reading it critically.
 
 ## Calibrating to Stage
 

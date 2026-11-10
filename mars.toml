@@ -32,7 +32,6 @@ agents = [
 skills = [
     "correct",
     "grill",
-    "grill-with-docs",
     "information-hierarchy",
     "intent-modeling",
     "knowledge-layers",
