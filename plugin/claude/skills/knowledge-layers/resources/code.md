@@ -2,16 +2,14 @@
 
 How the layers' truth maps onto branches, merges, and shipped code.
 
-- **Invariants are checked by machine:** a test, type, lint rule or CI job.
-  What redoing the work can't restore is usually lost data, a leak, or lost
-  provenance. A rule local to one module is a **contract**: it changes with the
-  design, and isn't a project invariant.
+- **A rule local to one module is a contract,** not an invariant: it changes
+  with the design and lives in that module's `AGENTS.md` or `.context/`.
 - **Colocated docs follow their branch.** `AGENTS.md` and `.context/`
   describe the checkout that contains them. Update them in the same branch as
   the code change and let the merge carry both; with parallel PRs in flight,
   each branch documents itself.
-- **The KB doesn't wait for code.** An invariant is KB truth the moment
-  the human names it, merged or not. Where the code hasn't converged on it yet,
+- **The KB doesn't wait for code.** What the human chose is KB truth the
+  moment they choose it, merged or not. Where the code hasn't converged on it yet,
   colocated docs describe current behavior and flag the divergence; never
   describe the intended system as if it were built.
 - **Code is ground truth for what's built.** When code and a doc disagree

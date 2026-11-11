@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.7.6] - 2026-11-11
+
 ### Changed
 - `writer`: defaults to Opus (high effort) instead of Gemini 4 Argon.
 

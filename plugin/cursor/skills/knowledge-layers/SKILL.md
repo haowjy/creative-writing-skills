@@ -55,12 +55,18 @@ they say all of it, the KB gets a link or nothing.
 
 ## Invariants and Current Choices
 
-An **invariant** is a property that must hold however the work is done.
-There are few, and the human names them. Each says what must be true, not
-how; has a check that doesn't rest on its author's reading, or says it has
-none yet; and changes only as its own visible step, never to get a task
-passing. Write invariants as rules, in the root `AGENTS.md` or the KB page
-they govern.
+An **invariant** is a rule that holds however the work is done, until the
+human changes it. Invariants can change: when one stops serving the users,
+propose the change to the human as its own visible step, never to get a
+task passing. Each is kept because the project's users rely on what it
+protects; a user can be a program, such as an agent calling a CLI. A rule
+whose breaking would hurt no one you can name is a contract of the area that
+holds it, not an invariant.
+
+The human names each invariant. They are rare and cut across the project,
+so they sit in the root `AGENTS.md` beside who the users are, each a short
+rule and its reason. A `.context/` page the root links says how the code
+keeps each one, what checks it, and where it falls short.
 
 Everything else is a **current choice**: how things stand now, with its
 reason, open to change when the reason stops holding or the human asks for
