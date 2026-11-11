@@ -36,7 +36,7 @@ meridian mars sync
 
 Then run `meridian` to start a meridian-cli session with muse. First-time setup runs the bootstrap automatically.
 
-`@writer` defaults to Gemini 4 Argon (`argon`). Mars routes it through OpenCode, so enable the `.opencode` target in your `mars.toml` and sign in to a provider there that serves it; otherwise writer runs on Opus.
+`@writer` defaults to Opus at high effort.
 
 ### Claude Code / Cowork
 

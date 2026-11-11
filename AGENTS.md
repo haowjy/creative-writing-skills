@@ -133,8 +133,3 @@ if the runs show otherwise.
 - **Staffing says "tell it to load", not "attach" (#11).** Meridian muse runs
   still get the named skills onto the spawn, and Claude Code subagents load
   them when the brief names them.
-- **writer on `argon` (0.5.15).** No spawn has run on Gemini 4 Argon yet, and
-  its tool calling is reported unreliable. On the first writer runs routed to
-  it: it reads the brief, style and character-state files, writes the draft
-  where the brief says, and follows the style. If the tool loop fails, make
-  the writer's work text in, text out, or move the default back to Opus.
