@@ -22,10 +22,7 @@ Colocate first. Knowledge about one subsystem goes in its `AGENTS.md` or
 `.context/`, even when it reads like a concept: a doc far from what it
 describes isn't updated when that thing changes. The KB holds what would
 survive a rewrite of any one implementation. Deferred work that spans
-directories or needs outside visibility goes to the issue tracker. The
-human's corrections of agents go in the KB's corrections register
-(`resources/corrections/register.md`); `/creative-writing-skills:correct` fixes the classes that
-repeat.
+directories or needs outside visibility goes to the issue tracker.
 
 ## The KB Records Why
 

@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.7.7] - 2026-11-11
+
 ### Changed
 - Requires meridian-base 0.15 (`/correct` fixes causes instead of logging corrections; the corrections register is gone).
 
