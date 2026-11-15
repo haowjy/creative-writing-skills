@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.7.8] - 2026-11-15
+
 ### Changed
 - Requires Mars 0.34.0 and writing-sync 0.2.0. Mars 0.34.0 no longer reads writing-sync 0.1.x, which was published before schema 1.
 
