@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "mars_version": "0.34.0",
+  "mars_version": "0.34.3",
   "plugin_name": "creative-writing-skills",
   "version": "0.7.8",
-  "inputs_hash": "sha256:9b590cfac819a16a290eae8a6d18c4850bd17f79b11527a64b94a8049ac3c4bc",
+  "inputs_hash": "sha256:183c4776d5dc67bcf6a4bdaf0fccd2246bc72ccc2a38e227698a930af5d80405",
   "dependencies": {
     "meridian-base": {
       "version": "0.15.1",
@@ -687,7 +687,7 @@
     "opencode/skills/zoom-out/SKILL.md": "sha256:129f2bab7e320be1b0dec59c79d4c324457fc9c0a8fb44689c607c86cc10818e"
   },
   "root_files": {
-    ".claude-plugin/marketplace.json": "sha256:79a83808cf840df5eca85fa9c127a1e7021b00c174df68d28dae6e15628e88b2",
+    ".claude-plugin/marketplace.json": "sha256:b5236e2c93391e7d6c29a52a876f292f7a71b250a582f16a3a452f715d951559",
     ".cursor-plugin/marketplace.json": "sha256:1761a3a305260612a4ed7d522fb53b419511ce45cd9fda88784cab17c6e1d14a",
     "package.json": "sha256:41f71b30cd7d458e4751fa937bc793f1da8313178cd31c96c17992c26d0b1414"
   },

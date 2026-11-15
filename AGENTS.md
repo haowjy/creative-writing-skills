@@ -41,12 +41,28 @@ python3 scripts/check_refs.py                      # every @agent and /skill in 
 claude plugins validate plugin/claude              # plugin manifest and components
 claude plugins validate .claude-plugin/marketplace.json
 python3 scripts/create_skill_zips.py               # Claude.ai zips/*.skill (CI does this on release)
+meridian -C "$PWD" mars version patch --push --no-tag   # release: bump, rebuild, commit, push; CI tags
 git config core.hooksPath .githooks                # once per clone: run these checks at commit
 ```
 
 Rebuild, then run `check_refs.py`, after any edit that names an agent or a skill: it
 fails when the dependency filters drop something a shipped file names. The pre-commit
 hook skips its Mars checks when bare `mars` isn't on PATH.
+
+## Releasing
+
+`mars version patch --push --no-tag` (minor when the scope warrants it) promotes
+`[Unreleased]`, rebuilds `plugin/` so the marketplace `ref` names the new version,
+commits and pushes the branch, and makes no tag. `.github/workflows/release.yml` runs
+on that push: when `mars.toml`'s version has no tag, it runs `ci.yml`, then
+`scripts/check_release.sh` (the version in every file, the `## [V]` changelog section),
+and only then tags the commit and creates the GitHub Release with the `.skill` zips and
+that changelog section. Mars users, the zips and the Claude Code marketplace all serve
+that one tagged commit.
+
+A failed run means no release and no tag: fix the cause, push, and the next push
+retries. Releasing the same version again deletes nothing, because no tag exists.
+`../AGENTS.md` still tags locally for the other packages, which have no CI.
 
 ## Watching
 

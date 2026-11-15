@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- CI tags each release after every check passes on that commit, so a failing commit no longer becomes a release. The Claude Code marketplace now installs the tagged release instead of `main`.
+
 ## [0.7.8] - 2026-11-15
 
 ### Changed

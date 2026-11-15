@@ -1,90 +1,68 @@
 name: Release
 
+# Every push to main reads the version in mars.toml. When that version has no tag yet,
+# CI runs the checks and, only if they pass, tags this commit and publishes the
+# release. The author never tags locally (`mars version --no-tag`), so a commit that
+# fails a check never becomes a release.
+
 on:
   push:
-    tags:
-      - 'v*'
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: write
 
+# Queue rather than cancel: a second push waits for the first to finish tagging, then
+# sees its tag and exits.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 jobs:
-  validate:
+  plan:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.read.outputs.version }}
+      needed: ${{ steps.read.outputs.needed }}
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v7
-
-      # The committed `plugin/` tree must match what CI rebuilds, so CI installs the
-      # Mars that built it, as recorded in the plugin manifest.
-      - name: Install Mars
+      - id: read
         run: |
-          uv tool install "mars-agents==$(jq -r .mars_version plugin/.mars-plugin.json)"
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install Claude Code CLI
-        run: npm install -g @anthropic-ai/claude-code
-
-      - name: Validate package
-        run: mars check
-
-      - name: Check committed plugin output is up to date
-        run: |
-          mars build plugin
-          changed=$(git diff --name-only -- plugin .claude-plugin .cursor-plugin package.json)
-          untracked=$(git ls-files --others --exclude-standard -- plugin .claude-plugin .cursor-plugin package.json)
-          if [ -n "$changed$untracked" ]; then
-            echo "::error::Committed plugin output is stale. Run 'mars build plugin' and commit the result."
-            printf '%s\n' "$changed" "$untracked"
-            exit 1
+          v=$(sed -n 's/^version *= *"\(.*\)"/\1/p' mars.toml | head -1)
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+          if git ls-remote --exit-code --tags origin "refs/tags/v$v" >/dev/null; then
+            echo "v$v is already tagged: nothing to release"
+            echo "needed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Validate Claude plugin (manifest + components)
-        run: claude plugins validate plugin/claude
-
-      - name: Validate Claude marketplace catalog
-        run: claude plugins validate .claude-plugin/marketplace.json
-
-      - name: Validate YAML frontmatter
-        run: |
-          error=0
-          for f in agents/*.md skills/*/SKILL.md; do
-            if [ -f "$f" ]; then
-              if ! head -1 "$f" | grep -q '^---'; then
-                echo "::error file=$f::Missing YAML frontmatter"
-                error=1
-              fi
-            fi
-          done
-          exit $error
-
-      - name: Verify tag matches mars.toml version
-        run: |
-          tag="${GITHUB_REF#refs/tags/}"
-          toml_version=$(grep '^version' mars.toml | head -1 | sed 's/.*= *"\(.*\)"/\1/')
-          if [ "$tag" != "v$toml_version" ]; then
-            echo "::error::Tag $tag does not match mars.toml version $toml_version"
-            exit 1
-          fi
+  checks:
+    needs: plan
+    if: needs.plan.outputs.needed == 'true'
+    uses: ./.github/workflows/ci.yml
 
   release:
-    needs: validate
+    needs: [plan, checks]
     runs-on: ubuntu-latest
+    env:
+      VERSION: ${{ needs.plan.outputs.version }}
+      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Check the version everywhere and the changelog section
+        run: scripts/check_release.sh "$VERSION" "$RUNNER_TEMP/notes.md"
+
+      - name: Tag this commit
+        run: |
+          git tag "v$VERSION"
+          git push origin "refs/tags/v$VERSION"
 
       - name: Build Claude.ai skill packages
         run: python3 scripts/create_skill_zips.py
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          generate_release_notes: true
-          files: zips/*.skill
+        run: gh release create "v$VERSION" zips/*.skill --verify-tag --title "v$VERSION" --notes-file "$RUNNER_TEMP/notes.md"

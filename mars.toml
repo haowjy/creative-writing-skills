@@ -6,10 +6,11 @@ description = "Composable agents and skills for creative writing projects. The m
 authors = ["Jimmy Yao <dev.jimm.py@gmail.com>"]
 homepage = "https://github.com/haowjy/creative-writing-skills"
 license = "Apache-2.0"
-requires-mars = ">=0.34.0"
+requires-mars = ">=0.34.3"
 requires-meridian = ">=0.15.0"
 
 [plugin]
+marketplace-repository = "haowjy/creative-writing-skills"
 
 [dependencies.meridian-base]
 url = "https://github.com/haowjy/meridian-base"
