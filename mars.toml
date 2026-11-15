@@ -6,7 +6,7 @@ description = "Composable agents and skills for creative writing projects. The m
 authors = ["Jimmy Yao <dev.jimm.py@gmail.com>"]
 homepage = "https://github.com/haowjy/creative-writing-skills"
 license = "Apache-2.0"
-requires-mars = ">=0.20.0"
+requires-mars = ">=0.34.0"
 requires-meridian = ">=0.15.0"
 
 [plugin]
@@ -47,7 +47,7 @@ skills = [
 
 [dependencies.writing-sync]
 url = "https://github.com/haowjy/writing-sync"
-version = ">=0.1.1"
+version = ">=0.2.0"
 
 [local-dependencies.meridian-prompter]
 url = "https://github.com/haowjy/meridian-prompter"

@@ -6,15 +6,10 @@ skills:
 - creative-writing-skills:character-sim
 - creative-writing-skills:writing-principles
 - creative-writing-skills:llm-writing
-effort: high
 disallowedTools:
 - NotebookEdit
 - AskUserQuestion
-- Bash(git revert *)
-- Bash(git checkout -- *)
-- Bash(git restore *)
-- Bash(git reset --hard *)
-- Bash(git clean *)
+effort: high
 ---
 
 # Character Simulation

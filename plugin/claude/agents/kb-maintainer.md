@@ -1,12 +1,12 @@
 ---
 name: kb-maintainer
 description: 'Spawn to refactor a documentation tree''s structure (KB, .context/, docs/, design/): pass the target root. Splits, merges, renames, and repairs cross-references; returns changed paths and flagged content issues. Never decides content truth.'
+model: sonnet
 skills:
 - creative-writing-skills:knowledge-layers
 - creative-writing-skills:qi-layer
 - creative-writing-skills:md-validation
 - creative-writing-skills:shared-workspace
-effort: medium
 disallowedTools:
 - Agent
 - SendMessage
@@ -19,16 +19,8 @@ disallowedTools:
 - TaskUpdate
 - TaskStop
 - TodoWrite
-- Bash(git revert *)
-- Bash(git checkout *)
-- Bash(git switch *)
-- Bash(git stash *)
-- Bash(git restore *)
-- Bash(git reset --hard *)
-- Bash(git clean *)
-- Bash(pkill -f *)
-- Bash(killall *)
 - AskUserQuestion
+effort: medium
 ---
 
 # KB Maintainer

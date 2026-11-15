@@ -1,17 +1,13 @@
 ---
 name: session-miner
 description: Spawn to find where earlier sessions discuss a question. Pass the question and any session or spawn refs. Returns each passage's location, a one-line note of what it covers, and the command that opens it, so you read the passages yourself.
-effort: medium
+model: sonnet
 disallowedTools:
 - Edit
 - Write
 - NotebookEdit
-- Bash(git checkout *)
-- Bash(git switch *)
-- Bash(git stash *)
-- Bash(pkill -f *)
-- Bash(killall *)
 - AskUserQuestion
+effort: medium
 ---
 
 # Session Miner

@@ -12,9 +12,9 @@ skills:
 - creative-writing-skills:intent-modeling
 - creative-writing-skills:llm-writing
 - creative-writing-skills:writing-staffing
-effort: high
 disallowedTools:
 - NotebookEdit
+effort: high
 ---
 
 # Muse

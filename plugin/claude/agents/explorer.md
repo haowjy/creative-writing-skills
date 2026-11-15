@@ -1,7 +1,7 @@
 ---
 name: explorer
 description: Spawn to find what bears on a question in an area of files and history too large to search yourself; it costs less than your context. Pass the question and give each explorer its own area, apart from what you or other explorers are reading. Returns the facts with file paths, line references and snippets, so you can read what matters yourself. Writes no files.
-effort: medium
+model: haiku
 disallowedTools:
 - Agent
 - SendMessage
@@ -16,12 +16,8 @@ disallowedTools:
 - TaskUpdate
 - TaskStop
 - TodoWrite
-- Bash(git checkout *)
-- Bash(git switch *)
-- Bash(git stash *)
-- Bash(pkill -f *)
-- Bash(killall *)
 - AskUserQuestion
+effort: medium
 ---
 
 # Explorer

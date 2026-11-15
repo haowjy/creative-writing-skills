@@ -6,19 +6,10 @@ skills:
 - creative-writing-skills:knowledge-layers
 - creative-writing-skills:qi-maintenance
 - creative-writing-skills:llm-writing
-effort: medium
 disallowedTools:
 - NotebookEdit
-- Bash(git revert *)
-- Bash(git checkout *)
-- Bash(git switch *)
-- Bash(git stash *)
-- Bash(git restore *)
-- Bash(git reset --hard *)
-- Bash(git clean *)
-- Bash(pkill -f *)
-- Bash(killall *)
 - AskUserQuestion
+effort: medium
 ---
 
 # KB Lead

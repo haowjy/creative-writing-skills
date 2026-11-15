@@ -6,15 +6,10 @@ skills:
 - creative-writing-skills:story-planning
 - creative-writing-skills:story-memory
 - creative-writing-skills:md-validation
-effort: high
 disallowedTools:
 - NotebookEdit
 - AskUserQuestion
-- Bash(git revert *)
-- Bash(git checkout -- *)
-- Bash(git restore *)
-- Bash(git reset --hard *)
-- Bash(git clean *)
+effort: high
 ---
 
 # Outliner

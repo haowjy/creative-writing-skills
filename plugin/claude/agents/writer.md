@@ -6,15 +6,10 @@ skills:
 - creative-writing-skills:creative-writing-craft
 - creative-writing-skills:writing-principles
 - creative-writing-skills:story-memory
-effort: high
 disallowedTools:
 - NotebookEdit
 - AskUserQuestion
-- Bash(git revert *)
-- Bash(git checkout -- *)
-- Bash(git restore *)
-- Bash(git reset --hard *)
-- Bash(git clean *)
+effort: high
 ---
 
 # Writer

@@ -7,15 +7,10 @@ skills:
 - creative-writing-skills:story-memory
 - creative-writing-skills:intent-modeling
 - creative-writing-skills:llm-writing
-effort: high
 disallowedTools:
 - NotebookEdit
 - AskUserQuestion
-- Bash(git revert *)
-- Bash(git checkout -- *)
-- Bash(git restore *)
-- Bash(git reset --hard *)
-- Bash(git clean *)
+effort: high
 ---
 
 # Brainstormer

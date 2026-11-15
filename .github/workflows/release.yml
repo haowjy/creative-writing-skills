@@ -17,11 +17,11 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
 
-      # Pinned: `mars check` compares the committed `plugin/` tree against the
-      # Mars that built it, so CI must run the version authors build with.
+      # The committed `plugin/` tree must match what CI rebuilds, so CI installs the
+      # Mars that built it, as recorded in the plugin manifest.
       - name: Install Mars
         run: |
-          uv tool install "mars-agents==0.26.2"
+          uv tool install "mars-agents==$(jq -r .mars_version plugin/.mars-plugin.json)"
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Setup Node.js

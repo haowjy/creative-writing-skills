@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Changed
+- Requires Mars 0.34.0 and writing-sync 0.2.0. Mars 0.34.0 no longer reads writing-sync 0.1.x, which was published before schema 1.
+
+### Fixed
+- CI and releases install the Mars version that built the committed plugin, so they no longer fail on a stale plugin check after the author upgrades Mars.
+
 ## [0.7.7] - 2026-11-11
 
 ### Changed

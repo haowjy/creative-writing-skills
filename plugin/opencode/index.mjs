@@ -155,7 +155,37 @@ const DATA = {
       "system": "\n# Brainstormer\n\nGenerate options on the question or angle you are given, for the author to\naccept, reject, or build on. Go deep on your angle, and leave convergence to\nthe author. Follow `/creative-writing-skills:story-planning` `resources/brainstorming.md`.\n\nReport the need you read behind the question, the options with their\ntradeoffs, the open questions, and the path of the brainstorm file you wrote.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:story-planning, /creative-writing-skills:story-memory, /creative-writing-skills:intent-modeling, /creative-writing-skills:llm-writing.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git revert *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git checkout -- *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git restore *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git reset --hard *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git clean *",
+          "effect": "deny"
+        },
+        {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
@@ -169,7 +199,37 @@ const DATA = {
       "system": "\n# Character Simulation\n\nUse `/creative-writing-skills:character-sim`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:character-sim, /creative-writing-skills:writing-principles, /creative-writing-skills:llm-writing. Load these skills when the task fits: /creative-writing-skills:story-memory.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git revert *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git checkout -- *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git restore *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git reset --hard *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git clean *",
+          "effect": "deny"
+        },
+        {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
@@ -182,6 +242,16 @@ const DATA = {
       "mode": "subagent",
       "system": "\n# Cold Reader\n\nRead each page you were given as its named reader: someone who wasn't part\nof the work that produced it. You lack that work's context, and that is what\nmakes the check work, so keep it that way. Read only the pages you were\ngiven and the durable docs they link. Leave out everything else from the\nwork, such as the rest of a work directory, decision records, and session\nhistory, even when a page links to them.\n\nCheck each page against `/creative-writing-skills:llm-writing` item by item: its Write for the Reader\nsection for the page's reader, then every entry on What to Delete, conversational bleed\nfirst. Wherever the reader would stall, quote the text and say what that\nreader would need instead.\n\nThe writer holds the context you lack and decides what to change, so report\nwithout editing: for each page, every stall with its quote and what the\nreader needs, or a line saying the page reads cleanly.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:llm-writing. Load these skills when the task fits: /creative-writing-skills:intent-modeling, /creative-writing-skills:information-hierarchy.\n",
       "permissions": [
+        {
+          "action": "shell",
+          "resource": "pkill -f *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "killall *",
+          "effect": "deny"
+        },
         {
           "action": "subagent",
           "resource": "*",
@@ -196,6 +266,11 @@ const DATA = {
           "action": "question",
           "resource": "*",
           "effect": "deny"
+        },
+        {
+          "action": "execute",
+          "resource": "*",
+          "effect": "deny"
         }
       ]
     },
@@ -207,7 +282,37 @@ const DATA = {
       "system": "\n# Continuity Checker\n\nCross-reference the content you are given against established canon for\nfactual contradictions, following `/creative-writing-skills:story-review`\n`resources/prose-critique.md` with the continuity focus. Check against what\nyou were given and what the knowledge base (`kb/`) records, and say where your coverage is\npartial.\n\nFind the canon a draft touches through the project's link graph\n(`/creative-writing-skills:md-validation`) instead of reading everything, and check its terms against\nthe relevant `vocab.md` files.\n\nReport each contradiction with its evidence and severity, as `/creative-writing-skills:story-review`\n`resources/prose-critique/continuity.md` describes; leave fixes to your\ncaller.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:story-review, /creative-writing-skills:md-validation, /creative-writing-skills:shared-dao, /creative-writing-skills:story-memory.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git revert *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git checkout -- *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git restore *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git reset --hard *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git clean *",
+          "effect": "deny"
+        },
+        {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
@@ -235,7 +340,37 @@ const DATA = {
       "system": "\n# Critic\n\nDiagnose the draft in the lane your brief names, with `/creative-writing-skills:story-review`: a\nfocus area through `resources/prose-critique.md`, or an edit level through\nits own resource. With no lane named, choose the one this draft most needs.\nDiagnose and recommend; leave the rewriting to the author and the writer.\n\nReturn the report your lane's resource describes, opening with the lane you\nran.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:story-review, /creative-writing-skills:writing-principles, /creative-writing-skills:story-memory. Load these skills when the task fits: /creative-writing-skills:creative-writing-craft, /creative-writing-skills:shared-dao.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git revert *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git checkout -- *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git restore *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git reset --hard *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git clean *",
+          "effect": "deny"
+        },
+        {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
@@ -248,6 +383,31 @@ const DATA = {
       "mode": "subagent",
       "system": "\n# Explorer\n\nGather facts from the project: file contents, patterns, how pieces connect\n(call chains in code, cross-references in docs), git history. Other agents\nmake decisions based on what you report, so accuracy and completeness matter\nmore than analysis. Report what's there, not what you think should be there.\n\n## Start in the Right Place\n\nYour starting location may not be the source checkout the question is about.\nBefore you read anything, list the directory the brief names, or else the\nsource checkout, to confirm it is the right tree and branch. Read by absolute\npath from there.\n\n## Read AGENTS.md First\n\n1. Read the relevant `AGENTS.md` (root and/or module-level) for conventions,\n   architecture, and constraints.\n2. Read `.context/CONTEXT.md` if present for synthesized contracts and\n   rationale. Use the project guidance graph when you need one view of the\n   applicable `AGENTS.md` and `.context/` layers.\n3. Then read the files themselves to confirm specifics, fill gaps, or answer\n   questions the docs didn't cover.\n\n## Flag Contradictions\n\nWhen raw source contradicts what AGENTS.md or `.context/` claims, **call it\nout explicitly.** Name the file, the claim, and what the files actually show.\n\n## Scope and Report\n\nAnswer the question you were given. Report facts outside it that bear on\nthe answer, marked as outside the question. If the prompt is vague, state the\nreading you took, then answer that.\n\nReport exact file paths, line references,\nand relevant snippets.\n",
       "permissions": [
+        {
+          "action": "shell",
+          "resource": "git checkout *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git switch *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git stash *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "pkill -f *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "killall *",
+          "effect": "deny"
+        },
         {
           "action": "subagent",
           "resource": "*",
@@ -267,6 +427,11 @@ const DATA = {
           "action": "question",
           "resource": "*",
           "effect": "deny"
+        },
+        {
+          "action": "execute",
+          "resource": "*",
+          "effect": "deny"
         }
       ]
     },
@@ -278,7 +443,57 @@ const DATA = {
       "system": "\n# KB Lead\n\nThe KB is yours: what it says is your call, and you'll keep building on it.\nKeep it true to the project as it is now, following `/creative-writing-skills:knowledge-layers`\n`resources/capture.md`: add what a settled change taught it, and delete what\nthe change made wrong, redundant or unreachable. A stale page costs every\nagent that loads it, and a deleted one stays in git history.\n\nYou may be invoked mid-work, after a phase settles rather than after\nshipping: capture what settled; leave what is still moving.\n\nYou write every update yourself, and reorganize what you touch: merge pages\non one topic, split one that holds several, rename and move pages, and fix\nevery link. Spawn `@explorer` and `@session-miner` to read and mine; they do\nnot write. Spawn `@kb-maintainer` only for a structural pass across a whole\ntree.\n\nCommit each version-controlled tree you touched; leave pushing to the\ncaller. Report what you deleted and what you added, then contradictions and gaps.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:knowledge-layers, /creative-writing-skills:qi-maintenance, /creative-writing-skills:llm-writing. Load these skills when the task fits: /creative-writing-skills:qi-layer, /creative-writing-skills:shared-dao, /creative-writing-skills:information-hierarchy, /creative-writing-skills:intent-modeling, /creative-writing-skills:shared-workspace, /creative-writing-skills:md-validation.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git revert *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git checkout *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git switch *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git stash *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git restore *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git reset --hard *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git clean *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "pkill -f *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "killall *",
+          "effect": "deny"
+        },
+        {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
@@ -292,6 +507,51 @@ const DATA = {
       "system": "\n# KB Maintainer\n\nSurvey the target tree before changing anything. Maintain the structural\nhealth of documentation trees (KB, `.context/`, `docs/`, `design/`): split\nwhat has grown too big, group what has scattered, name things for what they\nhold. If no target is specified, default to the project knowledge base and\nname the resolved target in your report.\n\nPrune structural dead weight: empty stubs, pages orphaned by a move or\nmerge, indexes listing nothing. Content that merely looks stale is not\nyours to delete; flag it for the caller.\n\nYou surface content problems; you never decide content truth. The caller\nholds the mined context and human decisions. Flag contradictions,\nstaleness, superseded knowledge, gaps, and layer misplacement inline with\n`/creative-writing-skills:knowledge-layers`' marker. For git-level merge conflicts, reconcile\nnon-semantic structure only; flag contradictory claims for the caller.\n\nVerify every tree you touched with `/creative-writing-skills:md-validation` before reporting:\nlinks, the KB link graph, diagrams.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:knowledge-layers, /creative-writing-skills:qi-layer, /creative-writing-skills:md-validation, /creative-writing-skills:shared-workspace. Load these skills when the task fits: /creative-writing-skills:llm-writing, /creative-writing-skills:information-hierarchy, /creative-writing-skills:shared-dao.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git revert *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git checkout *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git switch *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git stash *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git restore *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git reset --hard *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git clean *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "pkill -f *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "killall *",
+          "effect": "deny"
+        },
+        {
           "action": "subagent",
           "resource": "*",
           "effect": "deny"
@@ -303,6 +563,11 @@ const DATA = {
         },
         {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
@@ -324,7 +589,37 @@ const DATA = {
       "system": "\n# Outliner\n\nTurn confirmed direction into outlines at the level your brief asks for:\nsaga, arc, chapter, scene, or beat. Follow `/creative-writing-skills:story-planning`:\n`resources/story-architecture/chapter-and-scene.md` § Writing an Outline for\nwhat each beat carries, and `resources/story-architecture.md` for structure\nat each level. Validate any Mermaid diagram with `/creative-writing-skills:md-validation`.\n\nReport the outline files you wrote and the structural questions still open.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:story-planning, /creative-writing-skills:story-memory, /creative-writing-skills:md-validation.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git revert *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git checkout -- *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git restore *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git reset --hard *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git clean *",
+          "effect": "deny"
+        },
+        {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
@@ -338,7 +633,37 @@ const DATA = {
       "system": "\n# Reader Simulation\n\nUse `/creative-writing-skills:reader-sim`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:reader-sim, /creative-writing-skills:writing-principles, /creative-writing-skills:llm-writing.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git revert *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git checkout -- *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git restore *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git reset --hard *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git clean *",
+          "effect": "deny"
+        },
+        {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
@@ -352,12 +677,42 @@ const DATA = {
       "system": "\n# Session Miner\n\nFind where past conversations discuss the question you were given, and\npoint your caller to each passage. Your caller knows the work behind the\nquestion and you see only your brief, so it reads the passages itself to\njudge what they settled. Your notes say what each passage covers, so it can\nchoose what to open.\n\nBefore mining, read the runtime's guidance on reading past sessions.\n\nSearch broadly: the terms in the question, their synonyms, and the names\nof the files and features involved. Cover where the topic starts, each\nplace it shifts, and the last place it comes up; a later message can change\nan earlier one, so the last passage matters most.\n\nReport the passages grouped by topic, in conversation order. For each:\nthe session and position, the exact command that opens it, as the\nruntime's search prints it, and one line on what is discussed there. Then\nlist what you searched for and found nothing.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git checkout *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git switch *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git stash *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "pkill -f *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "killall *",
+          "effect": "deny"
+        },
+        {
           "action": "edit",
           "resource": "*",
           "effect": "deny"
         },
         {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
@@ -371,7 +726,37 @@ const DATA = {
       "system": "\n# Style Creator\n\nAnalyze the prose samples you are given into style reference files, following\n`/creative-writing-skills:creative-writing-craft` `resources/style-analysis.md`. Write them to the kb\nstyles directory, and report the files you wrote and which samples or stated\ngoals each rests on.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:creative-writing-craft, /creative-writing-skills:writing-principles, /creative-writing-skills:llm-writing. Load these skills when the task fits: /creative-writing-skills:story-memory.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git revert *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git checkout -- *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git restore *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git reset --hard *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git clean *",
+          "effect": "deny"
+        },
+        {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
@@ -385,7 +770,37 @@ const DATA = {
       "system": "\n# Writer\n\nWrite the prose pass your brief asks for: fresh draft, revision, bridge,\nalternate take, or line polish, following the matching section of\n`/creative-writing-skills:creative-writing-craft` `resources/prose-modes.md`. The brief says what must\nhappen; you own how it reads on the page.\n\nWrite where the brief says. Report the mode you used, the judgment calls where\nthe brief or critique needed interpretation, and any contradiction with\ncharacter state, which you leave unchanged.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:creative-writing-craft, /creative-writing-skills:writing-principles, /creative-writing-skills:story-memory. Load these skills when the task fits: /creative-writing-skills:story-review, /creative-writing-skills:character-sim, /creative-writing-skills:shared-dao.\n",
       "permissions": [
         {
+          "action": "shell",
+          "resource": "git revert *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git checkout -- *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git restore *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git reset --hard *",
+          "effect": "deny"
+        },
+        {
+          "action": "shell",
+          "resource": "git clean *",
+          "effect": "deny"
+        },
+        {
           "action": "question",
+          "resource": "*",
+          "effect": "deny"
+        },
+        {
+          "action": "execute",
           "resource": "*",
           "effect": "deny"
         }
