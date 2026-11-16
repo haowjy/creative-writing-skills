@@ -2,8 +2,6 @@
 
 How the layers' truth maps onto branches, merges, and shipped code.
 
-- **A rule local to one module is a contract,** not an invariant: it changes
-  with the design and lives in that module's `AGENTS.md` or `.context/`.
 - **Colocated docs follow their branch.** `AGENTS.md` and `.context/`
   describe the checkout that contains them. Update them in the same branch as
   the code change and let the merge carry both; with parallel PRs in flight,

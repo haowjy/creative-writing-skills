@@ -36,7 +36,7 @@ POV violations are the most common craft error in AI-generated prose. The POV ch
 
 ### Head-Hopping
 
-Reporting the internal states of non-POV characters as fact: "She felt angry" when we're in a different character's POV. The fix: show the anger through observable behavior. "Her jaw tightened" or "She turned away without answering."
+Reporting the internal states of non-POV characters as fact: "She felt angry" when we're in a different character's POV. The fix: show the anger through observable behavior. "She lined up the forks before answering" or "She turned away without answering."
 
 ### Knowledge Violations
 

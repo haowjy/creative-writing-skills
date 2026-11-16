@@ -17,7 +17,7 @@ you where the boundaries are.
 
 ## File Splitting
 
-Style files are the unit of context selection: an orchestrator chooses which
+Style files are the unit of context selection: the agent briefing a writer chooses which
 individual files to pass to each writer. Every file boundary is a context
 decision: would an agent ever need this chunk without that chunk?
 

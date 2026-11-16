@@ -6,7 +6,7 @@ Patterns that distinguish AI-generated prose from human-written prose. Organized
 
 These patterns have been identified in peer-reviewed studies with measurable effect sizes. They're worth investigating when you spot them, though none are proof in isolation.
 
-**Sources:** Kobak et al. (2024), BEA 2025 shared task, Ghostbuster (NAACL 2024), RAID (ACL 2024), Nature HSSCOMMS (2025).
+**Sources:** Kobak et al. (2024), BEA 2025 shared task, Ghostbuster (NAACL 2024), RAID (ACL 2024), Nature HSSCOMMS (2025), Shaib et al. (EMNLP 2024), "Creativity Has Left the Chat" (2024).
 
 ### Lower lexical variability
 AI text tends to reuse a narrower working vocabulary than human text of comparable length and genre. Measurable via MATTR (Moving Average Type-Token Ratio) or similar windowed metrics. Raw TTR is unreliable at varying text lengths.
@@ -32,6 +32,12 @@ Characters say what they mean directly. Subtext, the gap between what's said and
 - Disagreements are stated rather than shown through evasion, topic-changing, or body language
 - No conversations where the real subject is never mentioned
 
+### Syntactic templating
+Sentences fall into one structure even as the content changes: the same clause order, modifier placement and length distribution across paragraphs. LLM sentence structures come from pretraining and survive alignment. Name the repeating structure as its own finding, not a note under rhythm.
+
+### Attractor-state fluency
+The prose reads smoothed rather than written: every passage gets the same measured control, mundane or devastating, and emotional peaks get the tone of transitions. Alignment homogenizes tone and style beyond word repetition. Flag it as a holistic finding when the prose reads well but doesn't feel lived-in.
+
 ## Community-Identified Structural Patterns
 
 These patterns are widely recognized by writers and editors who work with AI output. They haven't been formally studied with controlled experiments, but they're consistent enough across models and prompting approaches to be useful investigation triggers.
@@ -43,7 +49,13 @@ Grammatically polished, rhythmically smooth, but lacking the irregularity that g
 Scenes follow a predictable emotional trajectory: setup → complication → moment of doubt → resolution with growth. Real scenes often end unresolved, escalate without payoff, or achieve resolution in unexpected dimensions.
 
 ### Repetitive emotional choreography
-Characters perform the same physical expressions of emotion: breath catching, jaw clenching, stomach dropping, heart hammering. The same metaphor clusters appear across different emotional contexts. Check `analyze.py` repetition output: if the same physical action words cluster across paragraphs, investigate.
+Characters perform the same physical expressions of emotion (breath catching, jaw clenching, stomach dropping, heart hammering), or cycle through emotions in a fixed sequence (shock, denial, anger, acceptance) without the mess of real feeling. Check `analyze.py` repetition output: if the same physical action words cluster across paragraphs, investigate.
+
+### Stock physical tells
+Clenched fists, shaky breaths, averted eyes, tightening jaws, quickening pulses: what show-don't-tell produces when applied mechanically, a generic somatic signal any character in any story could have. Flag each one. The fix is not a different body part but a behavior that shows how this particular person carries this particular feeling.
+
+### Emotional inflation
+Every moment treated as profound: a conversation about dinner plans carries the weight of a betrayal. Understating small moments makes the big ones land.
 
 ### Tidy-summary endings
 Scenes and chapters end with a paragraph that summarizes the emotional meaning of what just happened. "As I watched the sunset, I realized that..." or "For the first time, I understood that..." Real prose more often ends on action, image, or dialogue: letting the reader draw the conclusion.

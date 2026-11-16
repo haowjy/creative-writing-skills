@@ -1,7 +1,7 @@
 ---
 name: story-planning
 description: |
-  Planning work before prose: creative direction, story-planning, outlining, and story architecture. Load when deciding what should happen or how a story should be structured.
+  Planning work before prose: creative direction, brainstorming, outlining, and story architecture. Load when deciding what should happen or how a story should be structured.
 metadata:
   type: mode-shift
 ---

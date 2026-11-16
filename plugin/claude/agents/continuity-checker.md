@@ -4,7 +4,6 @@ description: Cross-references a draft against canon, timeline, character state, 
 model: sonnet
 skills:
 - creative-writing-skills:story-review
-- creative-writing-skills:md-validation
 - creative-writing-skills:shared-dao
 - creative-writing-skills:story-memory
 disallowedTools:
@@ -21,12 +20,12 @@ factual contradictions, following `/creative-writing-skills:story-review`
 you were given and what the knowledge base (`kb/`) records, and say where your coverage is
 partial.
 
-Find the canon a draft touches through the project's link graph
-(`/creative-writing-skills:md-validation`) instead of reading everything, and check its terms against
+Find the canon a draft touches by following links out from the kb pages for
+its characters, places and terms, instead of reading everything, and check its terms against
 the relevant `vocab.md` files.
 
 Report each contradiction with its evidence and severity, as `/creative-writing-skills:story-review`
 `resources/prose-critique/continuity.md` describes; leave fixes to your
 caller.
 
-Load these skills before starting, unless they are already in your context: /creative-writing-skills:story-review, /creative-writing-skills:md-validation, /creative-writing-skills:shared-dao, /creative-writing-skills:story-memory.
+Load these skills before starting, unless they are already in your context: /creative-writing-skills:story-review, /creative-writing-skills:shared-dao, /creative-writing-skills:story-memory.

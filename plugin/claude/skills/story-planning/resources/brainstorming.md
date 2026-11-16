@@ -2,7 +2,7 @@
 
 Capture story brainstorming as minimal working notes that preserve creative freedom. The core principle: record what was stated, mark what was suggested, and don't fill gaps the author left open.
 
-## Report Structure
+## Brainstorm Report
 
 When producing a standalone brainstorm document, tag all generated content
 as `<AI>` since none came from the author:
@@ -40,9 +40,13 @@ be a different choice. A good open question reframes the decision space.
 Save the document in the work directory's `brainstorm/` folder as
 `brainstorm-[topic].md`.
 
-## Source Tagging
+## Capturing the Author's Ideas
 
-**Default: untagged text = the author said it.** Most story-planning content comes from the author, so untagged is the common case.
+When recording a brainstorm the author leads, capture it as follows.
+
+### Source Tagging
+
+**Default: untagged text = the author said it.** Most brainstorm content comes from the author, so untagged is the common case.
 
 Three tags for special context:
 
@@ -52,7 +56,7 @@ Three tags for special context:
 
 **`<rejected>...</rejected>`**: Ideas explicitly considered and discarded. Recording why something was rejected prevents re-suggesting it and preserves the reasoning for later reconsideration.
 
-## Minimal Capture
+### Minimal Capture
 
 Record what the author stated. Don't elaborate, don't fill gaps, don't invent details they didn't mention.
 
@@ -62,13 +66,13 @@ AI suggestions are valuable: wrap them in `<AI>` tags and keep them brief.
 - "Maybe creates tension" → record as uncertain. Don't resolve the maybe.
 - "Three kingdoms" → note three kingdoms. Don't name them.
 
-## Preserve Vagueness
+### Preserve Vagueness
 
 If the author left it vague, the notes stay vague. "Might," "maybe," "thinking about," "something like": all preserved as-is. Vagueness isn't a problem to solve; it's creative space the author is keeping open.
 
 Multiple contradictory options coexist until the author chooses. Don't resolve them. Don't pick the "best" one.
 
-## Output Format
+### Output Format
 
 Use whatever structure fits the discussion: bullet lists, topic sections, timeline format, question-driven, freeform. The goal is clarity, not template compliance.
 
@@ -81,14 +85,14 @@ Essential elements:
 
 ## Brainstorming Types
 
-All story-planning types share the core principles above. See resources for specialized guidance:
+All brainstorm types share the core principles above. See resources for specialized guidance:
 
 - [`resources/brainstorming/chapter-planning.md`](brainstorming/chapter-planning.md): beat and scene exploration, pacing thoughts, chapter structure
 - [`resources/brainstorming/character-development.md`](brainstorming/character-development.md): motivations, arcs, relationships, voice
 - [`resources/brainstorming/worldbuilding.md`](brainstorming/worldbuilding.md): systems, cultures, geography, lore
 - [`resources/brainstorming/continuity-timeline.md`](brainstorming/continuity-timeline.md): chronology, contradictions, knowledge propagation
 
-Read the relevant resource when the story-planning focuses on that area.
+Read the relevant resource when the brainstorm focuses on that area.
 
 ## Calibration
 
@@ -98,4 +102,4 @@ minimal.
 
 ## File Placement
 
-`/creative-writing-skills:story-memory` `resources/writing-artifacts.md` has the work layout. Durable decisions get promoted to the kb after the brainstorm completes.
+`/creative-writing-skills:story-memory` `resources/kb-layout.md` has the work layout and what reaches the kb.

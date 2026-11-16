@@ -5,7 +5,7 @@ places it, and nothing is written that the work's own docs already say.
 
 1. **Read what you were given:** the brief's work and session refs, the
    changed files, the docs the work already updated, and the work
-   directory's decision records and `DIVERGENCE/` log. Map each changed path
+   directory's decision records. Map each changed path
    to its nearest `AGENTS.md` and `.context/` and apply `/creative-writing-skills:qi-maintenance`'s
    gap test; repair the gaps even when the implementation agent did not.
 

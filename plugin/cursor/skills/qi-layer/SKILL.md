@@ -10,8 +10,6 @@ alwaysApply: false
 
 How to write the colocated pair, `AGENTS.md` and `.context/CONTEXT.md`, in
 any tree agents work in: code, a KB, docs, a work directory.
-`/creative-writing-skills:knowledge-layers` says what belongs in which place; `/creative-writing-skills:qi-maintenance` keeps
-the pair true as the tree changes.
 
 ## Writing AGENTS.md
 

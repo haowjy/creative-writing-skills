@@ -11,6 +11,7 @@ skills:
 - creative-writing-skills:intent-modeling
 - creative-writing-skills:llm-writing
 - creative-writing-skills:writing-staffing
+mode: primary
 ---
 
 # Muse

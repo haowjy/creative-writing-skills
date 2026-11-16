@@ -16,6 +16,5 @@ Load the resource needed:
 - `resources/story-context.md` — what context to pass into handoffs for writers, critics, brainstormers, and knowledge agents.
 - `resources/fact-extraction.md` — extract durable facts from chapters: character state, timeline, reveals, terminology.
 - `resources/story-reference-writing.md` — wiki pages, vocab, decisions, summaries, issue logs.
-- `resources/writing-artifacts.md` — where work and kb artifacts live.
-- `resources/kb-layout.md` — where kb pages live and how they are organized: layers, page conventions, vocab pages, create-versus-update.
+- `resources/kb-layout.md` — where kb pages and work artifacts live, what reaches the kb, and how pages are organized: layers, page conventions, vocab pages, create-versus-update.
 - `resources/writing-issues.md` — persistent writing issue tracking across chapters.

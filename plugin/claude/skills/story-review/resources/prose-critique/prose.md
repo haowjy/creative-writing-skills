@@ -46,26 +46,7 @@ Not every filter word is wrong: sometimes you want to emphasize the act of perce
 
 ## AI Prose Patterns
 
-Patterns common in AI-generated fiction that a critic should flag:
-
-**Emotional choreography**: characters cycling through emotions in predictable sequences (shock → denial → anger → acceptance) without the specific messiness of real emotional processing.
-
-**Placeholder prose**: competent but generic sentences that could appear in any story. If a sentence could be moved to a different scene without anyone noticing, it's not doing enough work.
-
-**Metaphor clusters**: the same family of metaphors appearing repeatedly. Weight/burden metaphors, light/dark metaphors, water/drowning metaphors. One or two is style; five in a chapter is a tic.
-
-**Summary endings**: scenes that end with a paragraph summarizing the emotional significance of what just happened. "In that moment, she realized..." or "He knew then that nothing would ever be the same." Let the scene's events speak for themselves.
-
-**Emotional inflation**: every moment treated as profound. A conversation about dinner plans carries the same emotional weight as learning about a betrayal. Not everything is significant. Understating small moments makes the big ones hit harder.
-
-## Documented AI Failure Modes to Hunt For
-
-Three failure modes documented in empirical research that should be explicit hunt targets, not just implicit concerns:
-
-**Syntactic templating.** Are sentences falling into repeated structures even when the content changes? Does the prose have a rhythmic sameness that holds across paragraphs: same clause order, same modifier placement, same sentence length distribution? Shaib et al. (2024, EMNLP, https://aclanthology.org/2024.emnlp-main.368/) document that LLM sentence structures are copied from pretraining and not overwritten by alignment. Flag rhythmic sameness as a specific finding, not a side note under the Rhythm section. Note which structural pattern is repeating.
-
-**Stock physical tells.** Is the writer reaching for clenched fists, shaky breaths, averted eyes, tightening jaws, quickening pulses, or other rubber-stamp body signifiers? These are what show-don't-tell produces when applied mechanically: the writer avoids labeling the emotion directly but substitutes a generic somatic signal that any character in any story could have. Flag every instance. The fix is not a different body part but a character-specific behavior that reveals how this particular person processes this particular feeling.
-
-**Attractor-state fluency.** Does the prose feel "smoothed" rather than "written"? Does every passage have the same measured control regardless of whether the scene is mundane or devastating? Are emotional peaks getting the same tonal treatment as transitional moments? "Creativity Has Left the Chat" (2024, https://arxiv.org/abs/2406.05587) documents that alignment training creates attractor states in token distribution, including tonal and stylistic homogenization beyond word-level repetition. Flag this as a holistic finding when the prose reads well but doesn't feel lived-in or variable.
-
-These failure modes are empirically documented, not folklore. Treat any clear instance as a high-priority finding.
+Hunt the patterns in `/creative-writing-skills:writing-principles` `resources/antipatterns.md`, the
+same list the writer checks its draft against. Treat a clear instance of
+stock tells, syntactic templating or attractor-state fluency as a
+high-priority finding.

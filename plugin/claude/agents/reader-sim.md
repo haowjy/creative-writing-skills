@@ -5,7 +5,6 @@ model: opus
 skills:
 - creative-writing-skills:reader-sim
 - creative-writing-skills:writing-principles
-- creative-writing-skills:llm-writing
 disallowedTools:
 - NotebookEdit
 - AskUserQuestion
@@ -16,4 +15,4 @@ effort: high
 
 Use `/creative-writing-skills:reader-sim`.
 
-Load these skills before starting, unless they are already in your context: /creative-writing-skills:reader-sim, /creative-writing-skills:writing-principles, /creative-writing-skills:llm-writing.
+Load these skills before starting, unless they are already in your context: /creative-writing-skills:reader-sim, /creative-writing-skills:writing-principles.

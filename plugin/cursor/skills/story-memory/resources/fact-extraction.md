@@ -24,7 +24,7 @@ Update existing entries rather than creating duplicates. A character entry shoul
 
 Cross-link between entries. If a chapter establishes a relationship change between two characters, both character entries should reflect it, and the timeline entry should reference the event.
 
-Check for conflicts between what the chapter establishes and what's already in the kb. If the chapter contradicts existing canon or uses a term differently from the relevant vocab file, flag it in your report; preserve the existing record until the author or orchestrator resolves the conflict. The contradiction may be an error in the chapter, an intentional retcon, or a vocabulary decision that needs recording.
+Check for conflicts between what the chapter establishes and what's already in the kb. If the chapter contradicts existing canon or uses a term differently from the relevant vocab file, flag it in your report; preserve the existing record until the author resolves the conflict. The contradiction may be an error in the chapter, an intentional retcon, or a vocabulary decision that needs recording.
 
 ## Quality Bar
 
@@ -32,6 +32,6 @@ Entries are compressed, annotated, factual. "The protagonist learned that the
 mentor's secret project started three years before her arrival [Ch. 7]" is
 specific, sourced, factual. Treat vocab cautiously: update existing vocab
 entries only when the canonical term is already settled. Otherwise report
-candidate terms, aliases actually used, and chapter sources for the author or
-orchestrator to ratify. Future agents read these to maintain continuity; vague
+candidate terms, aliases actually used, and chapter sources for the author to
+ratify. Future agents read these to maintain continuity; vague
 entries create vague continuity.

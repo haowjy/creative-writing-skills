@@ -25,15 +25,3 @@ and use **Customize** → **Skills** → **+** → **Upload skill**.
 3. Turn on **creative-writing-muse** and describe the project. On claude.ai it
    is the whole session agent; in Cowork the muse agent coordinates and can
    dispatch the writer and critic.
-
-## A Chapter
-
-1. Ask for a plan: beats, POV, what the chapter must accomplish.
-2. Ask for the draft, with the style and character state for everyone who
-   appears.
-3. Ask for a critique on one focus area (structure, character, voice, prose,
-   continuity), then for the revision that addresses it.
-4. Ask to update the kb with what the chapter establishes.
-
-With agents (Cowork), each step can go to the specialist agent; on claude.ai,
-`creative-writing-muse` does them in one conversation using the craft skills.

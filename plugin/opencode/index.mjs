@@ -16,11 +16,6 @@ const DATA = {
       "description": "Load to speak as a specified character from what they know, how they talk, and what they feel now: in-character conversation, voice discovery, or a relationship pressure test. Pass the character, the story moment, and their style and character-state files.\n"
     },
     {
-      "directory": "correct",
-      "name": "correct",
-      "description": "Use when the human wants a mistake agents keep making fixed. Starts from their correction or the mistake they name, finds what led the agent there, and fixes it where the cause is: the project's docs, the code, or the prompt's source; a cause in an installed prompt becomes a note for its owner."
-    },
-    {
       "directory": "creative-research",
       "name": "creative-research",
       "description": "Load when a story needs factual grounding the writer doesn't have: historical detail, cultural texture, domain accuracy, or how other authors handled similar material. Pass the question and story context; returns a sourced report the writer can draw from.\n"
@@ -36,9 +31,14 @@ const DATA = {
       "description": "Turn on to work with a creative partner who talks through your story, plans and drafts it in your voice, critiques and revises it, and keeps the project's memory, in one conversation.\n"
     },
     {
+      "directory": "explore-and-engage",
+      "name": "explore-and-engage",
+      "description": "Load when you investigate, plan, or recommend: account for the earlier work on the subject, and with a human waiting, share your read and ask the next question while the evidence comes in instead of going silent until it is complete."
+    },
+    {
       "directory": "grill",
       "name": "grill",
-      "description": "Use to stress-test a plan or direction with the human: zoom out to what it is for, then walk down its decision tree one cluster of questions at a time, each with a recommended answer.\n"
+      "description": "Use to stress-test a plan or direction with the human: zoom out to what it is for, then walk down its decision tree, each question with a recommended answer.\n"
     },
     {
       "directory": "information-hierarchy",
@@ -53,7 +53,7 @@ const DATA = {
     {
       "directory": "knowledge-layers",
       "name": "knowledge-layers",
-      "description": "Use when deciding where knowledge goes or reading/writing durable docs: AGENTS.md and .context/ beside the code, the KB, and work directories."
+      "description": "Use when deciding where knowledge goes or reading/writing durable docs: AGENTS.md and .context/ beside what they describe, the KB, and work directories."
     },
     {
       "directory": "llm-writing",
@@ -86,11 +86,6 @@ const DATA = {
       "description": "Load to read a draft as a specified first-time reader and report what reading it felt like, moment by moment, instead of a craft critique. Pass the persona, the draft, and what this reader already knows.\n"
     },
     {
-      "directory": "reflect",
-      "name": "reflect",
-      "description": "Use when the user invokes it before you report: checks you delivered what they needed, not only what they literally asked, and routes knowledge capture."
-    },
-    {
       "directory": "shared-dao",
       "name": "shared-dao",
       "description": "Load when a concept has two names, a name has two meanings, or you are about to coin a term: resolve it early, one name per concept, in the project's vocab files."
@@ -108,7 +103,7 @@ const DATA = {
     {
       "directory": "story-planning",
       "name": "story-planning",
-      "description": "Planning work before prose: creative direction, story-planning, outlining, and story architecture. Load when deciding what should happen or how a story should be structured.\n"
+      "description": "Planning work before prose: creative direction, brainstorming, outlining, and story architecture. Load when deciding what should happen or how a story should be structured.\n"
     },
     {
       "directory": "story-review",
@@ -139,11 +134,6 @@ const DATA = {
       "directory": "writing-sync",
       "name": "writing-sync",
       "description": "Load when syncing selected local files to a remote reading copy, or bringing remote edits back into those files. Google Drive/Docs only.\n"
-    },
-    {
-      "directory": "zoom-out",
-      "name": "zoom-out",
-      "description": "Use when you've lost the bigger picture or start in an area you don't know: step back to what the area is for, how its parts connect and why it's shaped this way. Read the docs yourself; in a large area, have explorers find what's related first."
     }
   ],
   "agents": [
@@ -196,7 +186,7 @@ const DATA = {
       "name": "character-sim",
       "description": "In-character conversation for voice discovery and relationship testing. Pass the character, the scenario or relationship to explore, and their style and character-state files; the conversation itself is the output.",
       "mode": "all",
-      "system": "\n# Character Simulation\n\nUse `/creative-writing-skills:character-sim`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:character-sim, /creative-writing-skills:writing-principles, /creative-writing-skills:llm-writing. Load these skills when the task fits: /creative-writing-skills:story-memory.\n",
+      "system": "\n# Character Simulation\n\nUse `/creative-writing-skills:character-sim`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:character-sim, /creative-writing-skills:writing-principles. Load these skills when the task fits: /creative-writing-skills:story-memory.\n",
       "permissions": [
         {
           "action": "shell",
@@ -244,12 +234,12 @@ const DATA = {
       "permissions": [
         {
           "action": "shell",
-          "resource": "pkill -f *",
+          "resource": "killall *",
           "effect": "deny"
         },
         {
           "action": "shell",
-          "resource": "killall *",
+          "resource": "pkill -f *",
           "effect": "deny"
         },
         {
@@ -279,7 +269,7 @@ const DATA = {
       "name": "continuity-checker",
       "description": "Cross-references a draft against canon, timeline, character state, recorded decisions and story vocabulary for factual contradictions, reading across the project rather than one focus. Pass the draft and the canon files it touches; returns each contradiction with its evidence and severity.",
       "mode": "all",
-      "system": "\n# Continuity Checker\n\nCross-reference the content you are given against established canon for\nfactual contradictions, following `/creative-writing-skills:story-review`\n`resources/prose-critique.md` with the continuity focus. Check against what\nyou were given and what the knowledge base (`kb/`) records, and say where your coverage is\npartial.\n\nFind the canon a draft touches through the project's link graph\n(`/creative-writing-skills:md-validation`) instead of reading everything, and check its terms against\nthe relevant `vocab.md` files.\n\nReport each contradiction with its evidence and severity, as `/creative-writing-skills:story-review`\n`resources/prose-critique/continuity.md` describes; leave fixes to your\ncaller.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:story-review, /creative-writing-skills:md-validation, /creative-writing-skills:shared-dao, /creative-writing-skills:story-memory.\n",
+      "system": "\n# Continuity Checker\n\nCross-reference the content you are given against established canon for\nfactual contradictions, following `/creative-writing-skills:story-review`\n`resources/prose-critique.md` with the continuity focus. Check against what\nyou were given and what the knowledge base (`kb/`) records, and say where your coverage is\npartial.\n\nFind the canon a draft touches by following links out from the kb pages for\nits characters, places and terms, instead of reading everything, and check its terms against\nthe relevant `vocab.md` files.\n\nReport each contradiction with its evidence and severity, as `/creative-writing-skills:story-review`\n`resources/prose-critique/continuity.md` describes; leave fixes to your\ncaller.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:story-review, /creative-writing-skills:shared-dao, /creative-writing-skills:story-memory.\n",
       "permissions": [
         {
           "action": "shell",
@@ -321,7 +311,7 @@ const DATA = {
     {
       "id": "creative-writing-skills:creative-researcher",
       "name": "creative-researcher",
-      "description": "Web research for fiction — primary sources, reference works, cultural detail, domain expertise, and community discussion.",
+      "description": "Web research for fiction: primary sources, reference works, cultural detail, domain expertise, and community discussion. Pass the question, the story context, and what the story currently assumes; returns sourced findings with conflicts and gaps, flagging where the story's assumptions are wrong.",
       "mode": "subagent",
       "system": "\n# Creative Researcher\n\nResearch the question you are given with `/creative-writing-skills:creative-research`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:creative-research.\n",
       "permissions": [
@@ -400,12 +390,12 @@ const DATA = {
         },
         {
           "action": "shell",
-          "resource": "pkill -f *",
+          "resource": "killall *",
           "effect": "deny"
         },
         {
           "action": "shell",
-          "resource": "killall *",
+          "resource": "pkill -f *",
           "effect": "deny"
         },
         {
@@ -438,9 +428,9 @@ const DATA = {
     {
       "id": "creative-writing-skills:kb-lead",
       "name": "kb-lead",
-      "description": "Spawn when a change settles, after its review fixes land, or when a knowledge tree needs maintenance. Pass work and session refs, decision records, changed files, the docs the work already updated, and target repos; it mines only for what those lack. Returns what it deleted, added and reorganized, contradictions and gaps.",
+      "description": "Spawn when a change settles, after its review fixes land, or to sweep a knowledge tree for stale content (pass the tree). Pass work and session refs, decision records, changed files, the docs the work already updated, and target repos; it mines only for what those lack. Returns what it deleted, added and reorganized, contradictions and gaps.",
       "mode": "subagent",
-      "system": "\n# KB Lead\n\nThe KB is yours: what it says is your call, and you'll keep building on it.\nKeep it true to the project as it is now, following `/creative-writing-skills:knowledge-layers`\n`resources/capture.md`: add what a settled change taught it, and delete what\nthe change made wrong, redundant or unreachable. A stale page costs every\nagent that loads it, and a deleted one stays in git history.\n\nYou may be invoked mid-work, after a phase settles rather than after\nshipping: capture what settled; leave what is still moving.\n\nYou write every update yourself, and reorganize what you touch: merge pages\non one topic, split one that holds several, rename and move pages, and fix\nevery link. Spawn `@explorer` and `@session-miner` to read and mine; they do\nnot write. Spawn `@kb-maintainer` only for a structural pass across a whole\ntree.\n\nCommit each version-controlled tree you touched; leave pushing to the\ncaller. Report what you deleted and what you added, then contradictions and gaps.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:knowledge-layers, /creative-writing-skills:qi-maintenance, /creative-writing-skills:llm-writing. Load these skills when the task fits: /creative-writing-skills:qi-layer, /creative-writing-skills:shared-dao, /creative-writing-skills:information-hierarchy, /creative-writing-skills:intent-modeling, /creative-writing-skills:shared-workspace, /creative-writing-skills:md-validation.\n",
+      "system": "\n# KB Lead\n\nThe KB is yours: what it says is your call, and you'll keep building on it.\nKeep it true to the project as it is now, following `/creative-writing-skills:knowledge-layers`\n`resources/capture.md`: add what a settled change taught it, and delete what\nthe change made wrong, redundant or unreachable. Asked for a sweep, run\nthe one `/creative-writing-skills:knowledge-layers` KB Operations describes. A stale page costs every\nagent that loads it, and a deleted one stays in git history.\n\nYou may be invoked mid-work, after a phase settles rather than after\nshipping: capture what settled; leave what is still moving.\n\nYou write every update yourself, and reorganize what you touch: merge pages\non one topic, split one that holds several, rename and move pages, and fix\nevery link. Spawn `@explorer` and `@session-miner` to read and mine; they do\nnot write. Spawn `@kb-maintainer` only for a structural pass across a whole\ntree.\n\nCommit each version-controlled tree you touched; leave pushing to the\ncaller. Report what you deleted and what you added, then contradictions and gaps.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:knowledge-layers, /creative-writing-skills:qi-maintenance, /creative-writing-skills:llm-writing. Load these skills when the task fits: /creative-writing-skills:qi-layer, /creative-writing-skills:shared-dao, /creative-writing-skills:information-hierarchy, /creative-writing-skills:intent-modeling, /creative-writing-skills:shared-workspace, /creative-writing-skills:md-validation.\n",
       "permissions": [
         {
           "action": "shell",
@@ -479,12 +469,12 @@ const DATA = {
         },
         {
           "action": "shell",
-          "resource": "pkill -f *",
+          "resource": "killall *",
           "effect": "deny"
         },
         {
           "action": "shell",
-          "resource": "killall *",
+          "resource": "pkill -f *",
           "effect": "deny"
         },
         {
@@ -543,12 +533,12 @@ const DATA = {
         },
         {
           "action": "shell",
-          "resource": "pkill -f *",
+          "resource": "killall *",
           "effect": "deny"
         },
         {
           "action": "shell",
-          "resource": "killall *",
+          "resource": "pkill -f *",
           "effect": "deny"
         },
         {
@@ -577,7 +567,7 @@ const DATA = {
       "id": "creative-writing-skills:muse",
       "name": "muse",
       "description": "Author-facing creative partner for all story work: talks through the story, plans and drafts it with the author, spawns critique, continuity, reader-sim, research and knowledge-capture lanes, and owns the verdict on each draft.",
-      "mode": "all",
+      "mode": "primary",
       "system": "\n# Muse\n\nOwn the story session with the author: read what they want, plan and draft\nwith them, and carry the work to a page they accept, following\n`/creative-writing-skills:creative-writing-muse` and `/creative-writing-skills:story-workflow`. Spawned reports are evidence;\nthe verdict on each draft is yours, and the calls that turn on taste or\ndirection are the author's.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:creative-writing-muse, /creative-writing-skills:story-workflow, /creative-writing-skills:story-planning, /creative-writing-skills:creative-writing-craft, /creative-writing-skills:writing-principles, /creative-writing-skills:story-memory, /creative-writing-skills:intent-modeling, /creative-writing-skills:llm-writing, /creative-writing-skills:writing-staffing. Load these skills when the task fits: /creative-writing-skills:story-review, /creative-writing-skills:reader-sim, /creative-writing-skills:character-sim, /creative-writing-skills:creative-research, /creative-writing-skills:shared-dao, /creative-writing-skills:grill, /creative-writing-skills:structured-artifact.\n",
       "permissions": []
     },
@@ -586,7 +576,7 @@ const DATA = {
       "name": "outliner",
       "description": "Turns confirmed direction into saga, arc, chapter, scene, or beat outlines a writer can draft from. Pass the confirmed direction, existing outlines, character state, timeline and prior chapters; writes outlines to the work directory and returns their paths and the open structural questions.",
       "mode": "all",
-      "system": "\n# Outliner\n\nTurn confirmed direction into outlines at the level your brief asks for:\nsaga, arc, chapter, scene, or beat. Follow `/creative-writing-skills:story-planning`:\n`resources/story-architecture/chapter-and-scene.md` § Writing an Outline for\nwhat each beat carries, and `resources/story-architecture.md` for structure\nat each level. Validate any Mermaid diagram with `/creative-writing-skills:md-validation`.\n\nReport the outline files you wrote and the structural questions still open.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:story-planning, /creative-writing-skills:story-memory, /creative-writing-skills:md-validation.\n",
+      "system": "\n# Outliner\n\nTurn confirmed direction into outlines at the level your brief asks for:\nsaga, arc, chapter, scene, or beat. Follow `/creative-writing-skills:story-planning`:\n`resources/story-architecture/chapter-and-scene.md` § Writing an Outline for\nwhat each beat carries, and `resources/story-architecture.md` for structure\nat each level. Validate any Mermaid diagram with `/creative-writing-skills:md-validation`.\n\nReport the outline files you wrote and the structural questions still open.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:story-planning, /creative-writing-skills:story-memory. Load these skills when the task fits: /creative-writing-skills:md-validation.\n",
       "permissions": [
         {
           "action": "shell",
@@ -630,7 +620,7 @@ const DATA = {
       "name": "reader-sim",
       "description": "Experiential reader response from a caller-specified reader persona; pass the persona, draft, and knowledge boundary.",
       "mode": "all",
-      "system": "\n# Reader Simulation\n\nUse `/creative-writing-skills:reader-sim`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:reader-sim, /creative-writing-skills:writing-principles, /creative-writing-skills:llm-writing.\n",
+      "system": "\n# Reader Simulation\n\nUse `/creative-writing-skills:reader-sim`.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:reader-sim, /creative-writing-skills:writing-principles.\n",
       "permissions": [
         {
           "action": "shell",
@@ -672,9 +662,9 @@ const DATA = {
     {
       "id": "creative-writing-skills:session-miner",
       "name": "session-miner",
-      "description": "Spawn to find where earlier sessions discuss a question. Pass the question and any session or spawn refs. Returns each passage's location, a one-line note of what it covers, and the command that opens it, so you read the passages yourself.",
+      "description": "Spawn to find where earlier sessions discuss a question. Pass the question and any session or spawn refs. Returns the human's words from each passage, quoted, with a cursor that opens it, so you read around them yourself.",
       "mode": "subagent",
-      "system": "\n# Session Miner\n\nFind where past conversations discuss the question you were given, and\npoint your caller to each passage. Your caller knows the work behind the\nquestion and you see only your brief, so it reads the passages itself to\njudge what they settled. Your notes say what each passage covers, so it can\nchoose what to open.\n\nBefore mining, read the runtime's guidance on reading past sessions.\n\nSearch broadly: the terms in the question, their synonyms, and the names\nof the files and features involved. Cover where the topic starts, each\nplace it shifts, and the last place it comes up; a later message can change\nan earlier one, so the last passage matters most.\n\nReport the passages grouped by topic, in conversation order. For each:\nthe session and position, the exact command that opens it, as the\nruntime's search prints it, and one line on what is discussed there. Then\nlist what you searched for and found nothing.\n",
+      "system": "\n# Session Miner\n\nFind where past conversations discuss the question you were given, and\nbring your caller the human's words from each passage. Your caller knows the\nwork behind the question and you see only your brief, so it judges what the\npassages settled; a summary would put your reading in place of theirs.\n\nBefore mining, read the runtime's guidance on reading past sessions. With\nnone, read the harness's own transcript files.\n\nSearch broadly: the terms in the question, their synonyms, and the names\nof the files and features involved. Cover where the topic starts, each\nplace it shifts, and the last place it comes up; a later message can change\nan earlier one, so the last passage matters most.\n\nReport the passages grouped by topic, in conversation order. For each,\nquote verbatim the human's sentences that bear on the question, and the\nagent's lines they answer when the quote needs them to make sense. Give a\ncursor that opens the passage in one step: the open command your session\ntool prints for it, or the transcript file and line. Then list what you searched for and found nothing.\n",
       "permissions": [
         {
           "action": "shell",
@@ -693,12 +683,12 @@ const DATA = {
         },
         {
           "action": "shell",
-          "resource": "pkill -f *",
+          "resource": "killall *",
           "effect": "deny"
         },
         {
           "action": "shell",
-          "resource": "killall *",
+          "resource": "pkill -f *",
           "effect": "deny"
         },
         {

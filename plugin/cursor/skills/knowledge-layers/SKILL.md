@@ -1,6 +1,6 @@
 ---
 name: knowledge-layers
-description: 'Use when deciding where knowledge goes or reading/writing durable docs: AGENTS.md and .context/ beside the code, the KB, and work directories.'
+description: 'Use when deciding where knowledge goes or reading/writing durable docs: AGENTS.md and .context/ beside what they describe, the KB, and work directories.'
 metadata:
   type: reference
 alwaysApply: false
@@ -15,14 +15,14 @@ Knowledge lives next to what it describes. Load `/creative-writing-skills:qi-lay
 
 | Place | What goes there | Reader |
 |---|---|---|
-| Beside the code (`AGENTS.md`, `.context/`) | Knowledge about this directory, and its deferred work in `.context/TODO` (must-do) and `FUTURE` (nice-to-have); `/creative-writing-skills:qi-layer` says which file | An agent about to work in the directory |
+| Beside what it describes (`AGENTS.md`, `.context/`) | Knowledge about this directory and what's in it (code, chapters, docs), and its deferred work in `.context/TODO` (must-do) and `FUTURE` (nice-to-have) | An agent about to work in the directory |
 | KB | Why the project is the way it is, where no one directory owns the reason; domain concepts; facts about the outside world | A future agent or the owner, without this work's context |
-| Work directory | Anything not settled yet: plans, options, open questions, scratch | Agents on this work item |
+| Work directory | This work item's state: what's in progress, its decisions and their reasons, open questions, scratch | Agents on this work item |
 
-Colocate first. Knowledge about one subsystem goes in its `AGENTS.md` or
-`.context/`, even when it reads like a concept: a doc far from what it
-describes isn't updated when that thing changes. The KB holds what would
-survive a rewrite of any one implementation. Deferred work that spans
+Colocate first. Knowledge about one part of the project goes in its
+`AGENTS.md` or `.context/`, even when it reads like a concept: a doc far from
+what it describes isn't updated when that thing changes. The KB holds what
+would survive rewriting any one part. Deferred work that spans
 directories or needs outside visibility goes to the issue tracker.
 
 ## The KB Records Why
@@ -50,25 +50,26 @@ Before writing about some work, read the docs, `AGENTS.md`, `.context/` and
 comments it updated. Link to them and write only what they don't say. When
 they say all of it, the KB gets a link or nothing.
 
-## Invariants and Current Choices
+## Every Choice Is a Tradeoff
 
-An **invariant** is a rule that holds however the work is done, until the
-human changes it. Invariants can change: when one stops serving the users,
-propose the change to the human as its own visible step, never to get a
-task passing. Each is kept because the project's users rely on what it
-protects; a user can be a program, such as an agent calling a CLI. A rule
-whose breaking would hurt no one you can name is a contract of the area that
-holds it, not an invariant.
+Every choice a project records gave something up for what it gained, and
+holds while that trade still pays. Write each as how things stand now, with
+its reason and what it costs, beside the work it describes, so a later agent
+can tell when the trade stops paying. Change it when the reason stops
+holding or the human asks for something else (`/creative-writing-skills:intent-modeling`), and
+update the page in the same change. A choice only the human could make, such
+as what the product does for its users, changes when they say so: bring them
+the evidence.
 
-The human names each invariant. They are rare and cut across the project,
-so they sit in the root `AGENTS.md` beside who the users are, each a short
-rule and its reason. A `.context/` page the root links says how the code
-keeps each one, what checks it, and where it falls short.
+Write a choice as behavior and reason, not as a rule. Don't add a "must",
+"never" or "always" the human didn't say, or a line for what a careful agent
+protects unprompted, such as users' data or a passing build. Written down as
+a rule, it gets applied past its reason: an agent told that users' data
+must survive keeps code whose only job is to keep old links working.
 
-Everything else is a **current choice**: how things stand now, with its
-reason, open to change when the reason stops holding or the human asks for
-something else (`/creative-writing-skills:intent-modeling`). Write it beside the work it describes,
-as current state rather than as a rule.
+Instructions about how agents work (permissions, approvals, what needs the
+human, lessons from past mistakes) are not tradeoffs: follow them, and write
+them as instructions.
 
 ## Current Truth
 
@@ -77,9 +78,9 @@ narrates its own history. Delete superseded content, and content whose
 subject is gone, on sight, even with nothing to put in its place: agents
 reason from what they load, and stale knowledge is worse than a gap.
 Delete rather than move aside: version control is the archive, and a tree
-without it gets a copy before you delete. Commit untracked files before
-deleting them, and say in the commit message what
-went and why. The agent that owns a tree's content deletes from it; a
+without it, other than a work directory, gets a copy before you delete.
+Commit untracked files before deleting them, and say in the commit message
+what went and why. The agent that owns a tree's content deletes from it; a
 structural role flags instead.
 
 `AGENTS.md` and `.context/` describe the tree that contains them: update
@@ -94,8 +95,10 @@ starting layout for a new KB.
 
 - **Ingest:** to capture a settled change, follow `resources/capture.md`.
 - **Maintain:** when moving or renaming a page, fix every reference to it.
-- **Lint:** look for contradictions, stale claims, orphan pages, and rules
-  with no reason. `/creative-writing-skills:md-validation` checks links and diagrams.
+- **Sweep:** when asked, read each page in the tree against the project as
+  it is now (the code, the other pages, the docs) and delete or correct what
+  no longer holds: stale claims, contradictions, orphan pages, rules with no
+  reason. `/creative-writing-skills:md-validation` checks links and diagrams.
 
 Flag what needs the human inline, with the date and both sides:
 

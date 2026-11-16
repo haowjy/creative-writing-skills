@@ -39,7 +39,7 @@ when they create the intended reader effect.
 ## Revision
 
 Revise from synthesized critique, not from every raw finding. Identify the
-reader simulation that failed, then touch the smallest surface that can fix it.
+reader effect that failed, then touch the smallest surface that can fix it.
 Preserve voice, strong images, useful ambiguity, and working structure.
 
 Read before revising:

@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-11-16
+
 ### Changed
 - Cleanup. Fixed contradictions: the writer's model "show, don't tell" line was the stock tell critics flag (now a character-specific behavior); copyedit lanes "fix silently" though critics can't edit (they now list corrections); praise both banned and asked for; brainstormers told to load web research they can't run (spawn `@creative-researcher` instead).
 - One AI-prose catalog: `/writing-principles` `resources/antipatterns.md` now holds stock tells, syntactic templating, attractor-state fluency and emotional inflation; the critic's prose focus and `failure-modes.md` point to it.

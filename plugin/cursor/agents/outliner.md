@@ -4,7 +4,6 @@ description: Turns confirmed direction into saga, arc, chapter, scene, or beat o
 skills:
 - creative-writing-skills:story-planning
 - creative-writing-skills:story-memory
-- creative-writing-skills:md-validation
 ---
 
 # Outliner
@@ -16,3 +15,5 @@ what each beat carries, and `resources/story-architecture.md` for structure
 at each level. Validate any Mermaid diagram with `/creative-writing-skills:md-validation`.
 
 Report the outline files you wrote and the structural questions still open.
+
+Load these skills when the task fits: /creative-writing-skills:md-validation.

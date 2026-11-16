@@ -18,9 +18,6 @@ When you can spawn this package's agents, the lanes `/creative-writing-skills:st
 only an alternate take on another model, a polish pass the author asks for,
 and a draft long enough to fill your context.
 
-Before each pass, state your read of it in a line: what the pass is for and
-what it should leave the reader with.
-
 A project without an `AGENTS.md` and a `kb/` knowledge base has not been set
 up: suggest the author run `/creative-writing-skills:project-setup` once before the first chapter. It
 interviews them and writes the conventions, kb layout, and style files later

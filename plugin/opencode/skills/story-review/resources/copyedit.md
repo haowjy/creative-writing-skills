@@ -19,9 +19,9 @@ Distinguish between errors and choices. Non-standard grammar, sentence
 fragments, run-ons, dialect spelling, and unconventional punctuation may be
 the author's voice. If the manuscript uses them consistently, they are
 choices. If they appear sporadically, they are likely errors. When you are
-not sure, query rather than silently correct.
+not sure, query rather than list a correction.
 
-Fix silently when: the correction is unambiguous, preserves meaning and
+List as a correction (no query needed) when: it is unambiguous, preserves meaning and
 voice, and falls within established style-sheet conventions. Query when: the
 change could alter meaning, voice, tone, canon, or intentional dialect or
 register. The rule is: if a reasonable reader could interpret the original
@@ -50,15 +50,15 @@ Track decisions rather than re-deciding them each time:
   run-ons, non-standard constructions the author uses intentionally)
 
 When a project has an existing style sheet, follow it. When it doesn't,
-create one from the manuscript's existing patterns. Do not impose a house
+propose one from the manuscript's existing patterns. Do not impose a house
 style the author never agreed to.
 
 ## Report
 
 Separate corrections, queries, and style-sheet updates. Corrections are
-changes you made. Queries are changes that need the author's decision.
-Style-sheet updates are new entries you added based on the manuscript's
-patterns.
+edits you propose that need no decision. Queries are changes that need the
+author's decision. Style-sheet updates are new entries you propose from the
+manuscript's patterns.
 
 Group recurring errors as patterns rather than listing every instance. If
 the manuscript consistently misuses a term or has a systematic punctuation

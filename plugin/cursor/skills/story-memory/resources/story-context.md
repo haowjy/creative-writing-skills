@@ -50,7 +50,7 @@ Critics need the draft plus enough context to judge it against:
 - **Style**: so voice critics can compare against the target voice
 - **Character state**: so character and continuity critics can check it
 - **Prior chapters for continuity**: so continuity critics can cross-reference facts
-- **Author intent**: carry this conversation or a prior run when the orchestrator discussed direction with the author, or pass materialized decision notes
+- **Author intent**: carry this conversation or a prior run when muse discussed direction with the author, or pass materialized decision notes
 - **Known issues**: tracked issues if the critic should watch for specific recurring problems
 - **Vocab**: relevant `vocab.md` files when consistency of naming, aliases, deprecated terms, or invented language matters
 
@@ -64,25 +64,6 @@ Brainstormers need constraints, not answers:
 - **Existing vocabulary**: enough vocab context to avoid minting new names for concepts the project has already named
 
 Don't pass too much: brainstormers that receive the full project history tend to produce conservative ideas that fit neatly into existing patterns instead of exploring fresh territory.
-
-### Outliners
-
-- **The confirmed direction**: what the author approved, with provisional parts marked
-- **What came before**: existing outlines, character state, timeline, and the prior chapters the outline builds on
-
-### Simulations
-
-- **Reader simulation**: the draft, the reader persona, and the knowledge boundary: what this reader has already read
-- **Character simulation**: the character's style and character-state files, plus the scenario or relationship to explore
-
-### Style Analysis
-
-- **Samples**: sample chapters or existing style files; without samples, the author's stated voice goals
-
-### Research
-
-- **The question**: scoped to what the story needs
-- **Story context**: setting, period, and what the story currently assumes, so the researcher can flag contradictions
 
 ### Knowledge Maintenance
 

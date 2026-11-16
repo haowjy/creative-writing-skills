@@ -4,7 +4,6 @@ description: In-character conversation for voice discovery and relationship test
 skills:
 - creative-writing-skills:character-sim
 - creative-writing-skills:writing-principles
-- creative-writing-skills:llm-writing
 ---
 
 # Character Simulation

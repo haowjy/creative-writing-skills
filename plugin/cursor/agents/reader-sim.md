@@ -4,7 +4,6 @@ description: Experiential reader response from a caller-specified reader persona
 skills:
 - creative-writing-skills:reader-sim
 - creative-writing-skills:writing-principles
-- creative-writing-skills:llm-writing
 ---
 
 # Reader Simulation

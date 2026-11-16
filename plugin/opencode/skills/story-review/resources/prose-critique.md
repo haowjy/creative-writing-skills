@@ -32,7 +32,6 @@ Good findings share these qualities:
 
 - Vague "this could be stronger" without explaining how or why
 - Restating what the prose says without identifying a problem
-- Praising things that work (unless specifically asked for balanced feedback)
 - Findings about established story decisions the author already committed to: critique the execution, not the premise
 
 ## Communicating Impact
