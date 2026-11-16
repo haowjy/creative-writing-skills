@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Plugin bundles meridian-base 0.16.2's `/explore-and-engage`.
+
 ## [0.9.1] - 2026-11-16
 
 ### Changed

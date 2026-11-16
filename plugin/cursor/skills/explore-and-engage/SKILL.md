@@ -31,8 +31,9 @@ building on it.
 
 With a user in the loop, explore and engage at once: share your read and
 ask the next question while the evidence comes in. Each track redirects the
-other, and neither waits. A check you can run now starts in this turn; "next"
-is for work that waits on something, and you say what.
+other, and neither waits. Where your runtime has you wait for spawns before
+you reply, send your read first, then wait. A check you can run now starts
+in this turn; "next" is for work that waits on something, and you say what.
 
 ## Asking the Human
 
