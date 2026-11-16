@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Plugin bundles meridian-base 0.16.6 (`/explore-and-engage`, `/intent-modeling`, `/knowledge-layers`).
+
 ## [0.9.3] - 2026-11-16
 
 ### Changed
