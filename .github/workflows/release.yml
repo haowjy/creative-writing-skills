@@ -26,7 +26,7 @@ jobs:
       version: ${{ steps.read.outputs.version }}
       needed: ${{ steps.read.outputs.needed }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - id: read
         run: |
@@ -51,7 +51,7 @@ jobs:
       VERSION: ${{ needs.plan.outputs.version }}
       GH_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Check the version everywhere and the changelog section
         run: scripts/check_release.sh "$VERSION" "$RUNNER_TEMP/notes.md"
