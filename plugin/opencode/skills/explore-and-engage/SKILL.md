@@ -37,9 +37,13 @@ in this turn; "next" is for work that waits on something, and you say what.
 ## Asking the Human
 
 Bring the human only what is still open and waits on them. Check each item
-before you list it: a fix they already made, or a release that is already
-out, is no longer theirs. What your role lets you do yourself and the project
-doesn't reserve for them, you do instead of listing it. Something only they
+before you list it, including those other agents raised: a question they
+already answered, in this conversation or a record, a fix they already made,
+or a release that is already out, is no longer theirs. What your role lets
+you do yourself and the project doesn't reserve for them, you do instead of
+listing it. A choice the project's principles or the human's stated
+preferences already settle is yours: make it, record it with its reason, and
+tell them, so they can overrule it. Something only they
 can do that blocks nothing, such as filing an upstream bug that needs their
 login, goes to the project's issue tracker for later, not onto their list.
 
