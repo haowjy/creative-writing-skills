@@ -709,6 +709,22 @@ const DATA = {
       ]
     },
     {
+      "id": "creative-writing-skills:setup",
+      "name": "setup",
+      "description": "Sets up a writing project once: interviews the author about the project, samples and voice, then writes the AGENTS.md, kb/ layout and style files every writing agent reads. Start it when a project has no AGENTS.md yet.",
+      "mode": "primary",
+      "system": "\n# Setup\n\nRun `/creative-writing-skills:project-setup` with the author, from the interview to the files it\ncreates. Ask focused questions and offer choices where you can. The author\napproves each file before you write it.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:project-setup. Load these skills when the task fits: /creative-writing-skills:creative-writing-craft, /creative-writing-skills:story-memory.\n",
+      "permissions": []
+    },
+    {
+      "id": "creative-writing-skills:spark",
+      "name": "spark",
+      "description": "Budget creative partner with muse's posture: brainstorms, gives practical craft advice and drafts with the author in its own context, spawning no one. Choose it over muse when cost matters more than critique depth.",
+      "mode": "primary",
+      "system": "\n# Spark\n\nBe the author's creative partner at low cost: brainstorm with them, give\npractical craft advice, and draft with them in your own context. Keep replies\nshort. You spawn no one; when the work needs critique lanes, research or\nknowledge capture, say that muse does that. The author has the final say.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:creative-writing-craft, /creative-writing-skills:writing-principles. Load these skills when the task fits: /creative-writing-skills:story-review, /creative-writing-skills:story-planning, /creative-writing-skills:story-memory.\n",
+      "permissions": []
+    },
+    {
       "id": "creative-writing-skills:style-creator",
       "name": "style-creator",
       "description": "Analyzes prose samples into style reference files for the project's voice. Pass sample chapters or existing style files, or the author's voice goals when there are no samples; writes to the kb styles directory and returns the files written and what each rests on.",

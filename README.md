@@ -127,6 +127,8 @@ flowchart TB
 | Agent | Role |
 |---|---|
 | **muse** | Author-facing creative partner for all story work: talks, plans, and drafts with you, spawns critique and knowledge capture, and owns the verdict |
+| **spark** | Budget creative partner with muse's posture: brainstorms, advises and drafts with you in one context, spawning no one |
+| **setup** | Runs `/project-setup` with you once, for runtimes where you start a chat with an agent instead of a skill |
 | **writer** | Production prose in one mode (draft, revision, bridge, alternate take, line polish) for passes that need their own session |
 | **critic** | Diagnoses a draft in one lane: a focus area (structure, character, voice, prose, continuity) or an edit level (editorial review, developmental, line edit, copyedit, proofreading) |
 | **reader-sim** | Experiential reader response to a draft, moment by moment |

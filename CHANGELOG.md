@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+- `spark`, a primary Agent: a budget creative partner with muse's posture that drafts in its own context and spawns no one (Sonnet by default, effort medium).
+- `setup`, a primary Agent that runs `/project-setup` with the author, for runtimes where the author starts a chat with an Agent instead of a skill.
+
 ## [0.8.0] - 2026-11-16
 
 ### Changed

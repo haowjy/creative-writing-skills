@@ -91,3 +91,4 @@ retries. Releasing the same version again deletes nothing, because no tag exists
 - **Staffing says "tell it to load", not "attach" (#11).** Meridian muse runs
   still get the named skills onto the spawn, and Claude Code subagents load
   them when the brief names them.
+- **`spark` and `setup` are primaries.** On their first real runs: spark drafts and advises without trying to spawn, and points to muse for critique lanes; setup, which preloads the user-invoked `/project-setup`, runs the interview and writes nothing before the author approves it.
