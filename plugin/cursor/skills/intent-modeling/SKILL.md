@@ -30,16 +30,16 @@ when the reason stops holding (`/creative-writing-skills:knowledge-layers`). Whe
 something a record argues against, tell them once what it says and why, then
 do what they ask, and update the record or report it as stale. Depart from a
 record on your own when the evidence supports that, and report it, except a
-choice only the human could make (`/creative-writing-skills:knowledge-layers`).
+choice the human made (`/creative-writing-skills:knowledge-layers`).
 
 An idea the human floats ("maybe X?", "what if we…") is a proposal to
-weigh, not an instruction. Work out what it gains,
-what it costs, what it simplifies and what state it adds, recommend for or
-against it, and bring them that weighing, not a bare record of the idea.
-Whether you act on your recommendation before they reply follows how far
-they have said to trust your judgment; without word on that, ask. Pass it to
-another agent the same way: as their idea, until they confirm it as a
-decision.
+weigh, not an instruction. Work out what it gains, what it costs, what it
+simplifies and what state it adds, and recommend for or against it. When
+the project's principles or their earlier decisions settle it, the call is
+yours (`/creative-writing-skills:explore-and-engage`); otherwise bring them that weighing, not a
+bare record of the idea, and ask. Pass it to another agent as their idea,
+or as your call with its reason, never as their decision until they confirm
+it.
 
 Another agent's account of what the human wants is not their answer, and
 neither is silence: until they reply, work on what doesn't depend on it.

@@ -2,12 +2,12 @@
   "schema_version": 1,
   "mars_version": "0.34.3",
   "plugin_name": "creative-writing-skills",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "inputs_hash": "sha256:843408ce7fe85cbe9b37987f59ddf553129186a6831b21e94bdd5d18f62f6d9a",
   "dependencies": {
     "meridian-base": {
-      "version": "0.16.5",
-      "commit": "2b145310d396d77f0a74b8834e38b15b636afb0c"
+      "version": "0.16.6",
+      "commit": "3b4616f7bc11f7ea051b8f722d616a1df3bfb94e"
     },
     "writing-sync": {
       "version": "0.2.1",
@@ -15,7 +15,7 @@
     }
   },
   "files": {
-    "claude/.claude-plugin/plugin.json": "sha256:4869ccd518f0e15ae64202387ab9151f33b09e931ece5673994f688e45cc19b6",
+    "claude/.claude-plugin/plugin.json": "sha256:0f41b707239ac64885e0a0ea237d380dafc3a41d3c8fbf8082886a38de9c3663",
     "claude/agents/brainstormer.md": "sha256:131c75d94dd0885a1128fd96e5417ba2123a7c8ca2f5fdc3b82e6c8b64490992",
     "claude/agents/character-sim.md": "sha256:926a355adfd054199d40726c5471814fb91b3195ed97a8c987b36bad50ab688c",
     "claude/agents/cold-reader.md": "sha256:976816c19129326114a52a26ca1b4fe60616beef94e4309068eac67d40300586",
@@ -47,11 +47,11 @@
     "claude/skills/creative-writing-craft/resources/scene-construction.md": "sha256:200e29913ead70e24d9d4859ae1c9bc96d45c727b59898b9e59f8e1f0199d86c",
     "claude/skills/creative-writing-craft/resources/style-analysis.md": "sha256:ed042fbd39d025a42030fa816ef3cd093da22d7044b49f1b81db8cffaa6b2f62",
     "claude/skills/creative-writing-muse/SKILL.md": "sha256:6a88e777d597e2384d2cb85eaef4ca611dde2d2c309f7d00e6adf80235280056",
-    "claude/skills/explore-and-engage/SKILL.md": "sha256:58dc15c978a050dfdb3ea1dd15b48494e534faf555b3f921d7cfeadd382602b3",
+    "claude/skills/explore-and-engage/SKILL.md": "sha256:67a5baae8a4e7adb064f570b3fad858efe5a5e9817d06cd4aaf478ce33bdac30",
     "claude/skills/grill/SKILL.md": "sha256:bd052154e44c73a1d463c13b37b3dba4bde345bd4edd608c4cf980f5df607fe5",
     "claude/skills/information-hierarchy/SKILL.md": "sha256:301103e39eb830e0c4fb35c98d75b58c8d99949c5a04edd637a6d9b4c206b0c8",
-    "claude/skills/intent-modeling/SKILL.md": "sha256:9f937249db285b806dfd7b1701acec996d5167709992eeff0e764c8d59aa98db",
-    "claude/skills/knowledge-layers/SKILL.md": "sha256:90c33f51865379934af85d0fb62e70ff48b694c338cd8c9ca5ce09f8299e275c",
+    "claude/skills/intent-modeling/SKILL.md": "sha256:4a7eb4a2b275021394636aadc1525805ca83588f7687807d5b96b950a5ff0cb6",
+    "claude/skills/knowledge-layers/SKILL.md": "sha256:119ff56a06479cf7eb4162b214cf07d83ffc7cdbcf802fe36e787941a352a687",
     "claude/skills/knowledge-layers/resources/bootstrap.md": "sha256:9c32b682d28a75c3d79dc3c976adec07490049aa1d3d1271d7c338871be45888",
     "claude/skills/knowledge-layers/resources/capture.md": "sha256:5549cbb3d08dc4e69970a9dc4ef89186d5b238e87d71c5023b1d6af651e6acdb",
     "claude/skills/knowledge-layers/resources/code.md": "sha256:79c0d0bb2ca03cb60bce54c621284e8fb6f18804baf2c83dad9bfb37529c13fe",
@@ -241,7 +241,7 @@
     "claude/skills/writing-sync/tests/test_sync_plan.py": "sha256:fe9ec6d208d4c2cef12055d4652c5585fdbffeea1429377997fea78b5e438d10",
     "claude/skills/writing-sync/tests/test_unchanged.py": "sha256:9a995015896c35d1a2ed9e12df0b1ae5e3f345dd25d8005dcb83a009f11cfb07",
     "claude/skills/writing-sync/uv.lock": "sha256:fb68b9c104c1c15bca6dbe31e4468b3d463ba7da1c0b2cbe059159dfa8fa1eb9",
-    "cursor/.cursor-plugin/plugin.json": "sha256:4869ccd518f0e15ae64202387ab9151f33b09e931ece5673994f688e45cc19b6",
+    "cursor/.cursor-plugin/plugin.json": "sha256:0f41b707239ac64885e0a0ea237d380dafc3a41d3c8fbf8082886a38de9c3663",
     "cursor/agents/brainstormer.md": "sha256:ea76c2666d12d9862d7d4fd1f476b9739753f9d40c346407cedf68c24805d699",
     "cursor/agents/character-sim.md": "sha256:96bb07acaddfa0967d94cc11f769fdbb29fc1ef15b1de521f0bfba052d437254",
     "cursor/agents/cold-reader.md": "sha256:020e5a92e9ad85c2a112ca1f01fe9ae9d0e810a1937b9cd3e8bdfb5550524cb0",
@@ -273,11 +273,11 @@
     "cursor/skills/creative-writing-craft/resources/scene-construction.md": "sha256:200e29913ead70e24d9d4859ae1c9bc96d45c727b59898b9e59f8e1f0199d86c",
     "cursor/skills/creative-writing-craft/resources/style-analysis.md": "sha256:ed042fbd39d025a42030fa816ef3cd093da22d7044b49f1b81db8cffaa6b2f62",
     "cursor/skills/creative-writing-muse/SKILL.md": "sha256:7f82272fbfd8636e5b1dcec1874fb4bfb3d422058eacad03abe2be5ba92f7e78",
-    "cursor/skills/explore-and-engage/SKILL.md": "sha256:15a0504944c47aed3369ef981763c9eababe21f2e096847504f3f2b0172facfc",
+    "cursor/skills/explore-and-engage/SKILL.md": "sha256:815f429beed542491437bb54c82f0af6270a6c6d63ec1e061b202818650285bf",
     "cursor/skills/grill/SKILL.md": "sha256:d461488b0f97a3b93e4c00ac5941ef5cb298573762b93d2ec126612ad256546d",
     "cursor/skills/information-hierarchy/SKILL.md": "sha256:a0ff809ccb8876eb8d6bf4cad13236274dd11ff6b08a22bc14f93ef4c891b020",
-    "cursor/skills/intent-modeling/SKILL.md": "sha256:9f0f58c60eac9680a8b8d14fdd09d1e3e8f519f49098c523edb7dfa58cbe48e6",
-    "cursor/skills/knowledge-layers/SKILL.md": "sha256:675fbbd7209d8de0791551689a89665c964b5f5fea30891cae62a931d9f4ffc2",
+    "cursor/skills/intent-modeling/SKILL.md": "sha256:c01125facee9fe0d3b1aad802697fc3896a67de1257b5ac72cbd77de7424c325",
+    "cursor/skills/knowledge-layers/SKILL.md": "sha256:5e7b1be5aaf72f0340a7db810e9ffe4a1ddb6cea44df7cdfecce750e61bd87a7",
     "cursor/skills/knowledge-layers/resources/bootstrap.md": "sha256:9c32b682d28a75c3d79dc3c976adec07490049aa1d3d1271d7c338871be45888",
     "cursor/skills/knowledge-layers/resources/capture.md": "sha256:5549cbb3d08dc4e69970a9dc4ef89186d5b238e87d71c5023b1d6af651e6acdb",
     "cursor/skills/knowledge-layers/resources/code.md": "sha256:79c0d0bb2ca03cb60bce54c621284e8fb6f18804baf2c83dad9bfb37529c13fe",
@@ -468,7 +468,7 @@
     "cursor/skills/writing-sync/tests/test_unchanged.py": "sha256:9a995015896c35d1a2ed9e12df0b1ae5e3f345dd25d8005dcb83a009f11cfb07",
     "cursor/skills/writing-sync/uv.lock": "sha256:fb68b9c104c1c15bca6dbe31e4468b3d463ba7da1c0b2cbe059159dfa8fa1eb9",
     "opencode/index.mjs": "sha256:22f62d8919a8823f1864817dd03ee889dd44f139984ed0d715a64c66770f69fc",
-    "opencode/package.json": "sha256:cd0a749ab1a73fc219cafadea72a75993069283531fea6c04c39090b6fed66da",
+    "opencode/package.json": "sha256:5bea370b7619c51b0ef42c2553acaffcbefa22a60bd6f93af03a5ec9d30f1e38",
     "opencode/skills/character-sim/SKILL.md": "sha256:7d723c47d866db1ef6ca059982ded00c348d2eb93619e46a7c0f198898809bd5",
     "opencode/skills/creative-research/SKILL.md": "sha256:ffbb9c33063f3d9648a6fb8bd7d85e846a5f539a3bf40c50f130c7e62a50a27e",
     "opencode/skills/creative-writing-craft/SKILL.md": "sha256:faa03c663d0af7cf022d3f367de25dd1e60836156ae2ce648440190f4f1b9901",
@@ -483,11 +483,11 @@
     "opencode/skills/creative-writing-craft/resources/scene-construction.md": "sha256:200e29913ead70e24d9d4859ae1c9bc96d45c727b59898b9e59f8e1f0199d86c",
     "opencode/skills/creative-writing-craft/resources/style-analysis.md": "sha256:ed042fbd39d025a42030fa816ef3cd093da22d7044b49f1b81db8cffaa6b2f62",
     "opencode/skills/creative-writing-muse/SKILL.md": "sha256:1b3e3910bd6c6c7b2a5fef906f777d17ec6773af88ac3a7ddc756d5d168e4520",
-    "opencode/skills/explore-and-engage/SKILL.md": "sha256:58dc15c978a050dfdb3ea1dd15b48494e534faf555b3f921d7cfeadd382602b3",
+    "opencode/skills/explore-and-engage/SKILL.md": "sha256:67a5baae8a4e7adb064f570b3fad858efe5a5e9817d06cd4aaf478ce33bdac30",
     "opencode/skills/grill/SKILL.md": "sha256:bd052154e44c73a1d463c13b37b3dba4bde345bd4edd608c4cf980f5df607fe5",
     "opencode/skills/information-hierarchy/SKILL.md": "sha256:301103e39eb830e0c4fb35c98d75b58c8d99949c5a04edd637a6d9b4c206b0c8",
-    "opencode/skills/intent-modeling/SKILL.md": "sha256:9f937249db285b806dfd7b1701acec996d5167709992eeff0e764c8d59aa98db",
-    "opencode/skills/knowledge-layers/SKILL.md": "sha256:90c33f51865379934af85d0fb62e70ff48b694c338cd8c9ca5ce09f8299e275c",
+    "opencode/skills/intent-modeling/SKILL.md": "sha256:4a7eb4a2b275021394636aadc1525805ca83588f7687807d5b96b950a5ff0cb6",
+    "opencode/skills/knowledge-layers/SKILL.md": "sha256:119ff56a06479cf7eb4162b214cf07d83ffc7cdbcf802fe36e787941a352a687",
     "opencode/skills/knowledge-layers/resources/bootstrap.md": "sha256:9c32b682d28a75c3d79dc3c976adec07490049aa1d3d1271d7c338871be45888",
     "opencode/skills/knowledge-layers/resources/capture.md": "sha256:5549cbb3d08dc4e69970a9dc4ef89186d5b238e87d71c5023b1d6af651e6acdb",
     "opencode/skills/knowledge-layers/resources/code.md": "sha256:79c0d0bb2ca03cb60bce54c621284e8fb6f18804baf2c83dad9bfb37529c13fe",
@@ -679,9 +679,9 @@
     "opencode/skills/writing-sync/uv.lock": "sha256:fb68b9c104c1c15bca6dbe31e4468b3d463ba7da1c0b2cbe059159dfa8fa1eb9"
   },
   "root_files": {
-    ".claude-plugin/marketplace.json": "sha256:fea96f2086bdad097d7d02c8ae6936f0cb3645cc049d33d7856168e6318e6fe5",
+    ".claude-plugin/marketplace.json": "sha256:4c7d92069066d1c7f9d4d1dab89b6a9225c0ac07a1e5bc9bbbf98fd870b63dd3",
     ".cursor-plugin/marketplace.json": "sha256:1761a3a305260612a4ed7d522fb53b419511ce45cd9fda88784cab17c6e1d14a",
-    "package.json": "sha256:1df25724c6f01dc4604d093542c7d4be497ad142d62daec4833bf773fb7caff7"
+    "package.json": "sha256:c3334f23f6ff2959f7cbaaf617a639768bcc4257e726acb296db941a74c06cf2"
   },
   "root_directories": [
     ".claude-plugin",

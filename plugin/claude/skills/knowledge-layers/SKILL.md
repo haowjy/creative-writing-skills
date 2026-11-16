@@ -56,9 +56,9 @@ holds while that trade still pays. Write each as how things stand now, with
 its reason and what it costs, beside the work it describes, so a later agent
 can tell when the trade stops paying. Change it when the reason stops
 holding or the human asks for something else (`/creative-writing-skills:intent-modeling`), and
-update the page in the same change. A choice only the human could make, such
-as what the product does for its users, changes when they say so: bring them
-the evidence.
+update the page in the same change. A choice the human made, such as what
+the product does for its users, changes when they say so: bring them the
+evidence.
 
 Write a choice as behavior and reason, not as a rule. Don't add a "must",
 "never" or "always" the human didn't say, or a line for what a careful agent

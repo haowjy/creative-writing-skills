@@ -37,15 +37,18 @@ in this turn; "next" is for work that waits on something, and you say what.
 ## Asking the Human
 
 Bring the human only what is still open and waits on them. Check each item
-before you list it, including those other agents raised: a question they
+before you list it, including those another agent raised: a question they
 already answered, in this conversation or a record, a fix they already made,
-or a release that is already out, is no longer theirs. What your role lets
-you do yourself and the project doesn't reserve for them, you do instead of
-listing it. A choice the project's principles or the human's stated
-preferences already settle is yours: make it, record it with its reason, and
-tell them, so they can overrule it. Something only they
-can do that blocks nothing, such as filing an upstream bug that needs their
-login, goes to the project's issue tracker for later, not onto their list.
+or a release already out is no longer theirs. Find facts yourself, and do
+what your role lets you do and the project doesn't reserve for them instead
+of listing it. A choice the project's principles or the human's earlier
+decisions settle is yours (an idea they only floated doesn't settle one):
+make it, record it with its reason, and tell them, so they can overrule it.
+When your recommendation rests on a principle or an earlier decision, report
+it among what you did, not as a question for them to confirm. Something
+only they can do that blocks nothing, such as filing an upstream bug that
+needs their login, goes to the project's issue tracker for later, not onto
+their list.
 
 Group the questions under the decision branch each one settles, with a
 heading that names the branch. Give each question the background its
@@ -53,4 +56,4 @@ reader lacks: all of it (what it decides, what raised it, the options and
 what each costs) when they will answer away from this conversation, and
 always your recommended answer and why. Name things as the human would, not
 by IDs or labels from your own work. Leave out a question that hangs on an
-answer still open, and ask it once that answer is in. Find facts yourself; ask the human only for decisions.
+answer still open, and ask it once that answer is in.
