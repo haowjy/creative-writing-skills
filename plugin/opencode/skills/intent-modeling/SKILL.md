@@ -27,9 +27,7 @@ human hands you for it: a deck, a mockup, a design doc. A recorded choice
 doesn't bind: it is a tradeoff someone made for a reason, and it changes
 when the reason stops holding (`/creative-writing-skills:knowledge-layers`). When the human asks for
 something a record argues against, tell them once what it says and why, then
-do what they ask, and update the record or report it as stale. Depart from a
-record on your own when the evidence supports that, and report it, except a
-choice the human made (`/creative-writing-skills:knowledge-layers`).
+do what they ask, and update the record or report it as stale.
 
 An idea the human floats ("maybe X?", "what if we…") is a proposal to
 weigh, not an instruction. Work out what it gains, what it costs, what it
