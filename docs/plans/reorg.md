@@ -24,3 +24,27 @@ for being a separate agent was cost, which no longer holds: it defaults to Sonne
 a critic lane can be given Sonnet the same way. Folding it in removes one agent; the
 line telling it to read across the project would move into `continuity.md`. This
 interacts with the taxonomy above.
+
+## `/story-memory` maps `/knowledge-layers` onto a story
+
+kb-lead stays: it brings `/knowledge-layers` (colocate first, the kb records what spans
+the project, pages say how things stand now, stale pages are deleted), and muse tells it
+to load `/story-memory` for the story's specifics. `/story-memory` doesn't yet say how
+the three places fall in a story, so kb-lead has to work it out. Open `/story-memory`
+(or `kb-layout.md`) with the mapping:
+
+| Place | In a story project |
+|---|---|
+| Beside the work (`AGENTS.md`, `.context/`) | A book or arc folder's `AGENTS.md`: rules for agents writing there, such as a POV rule. Its `.context/`: chapter notes and comments as files |
+| KB (the project's `kb/`) | Canon, wiki, vocab, styles and writing issues: what spans the story |
+| Work directory | Brainstorms, drafts, critique rounds |
+
+Say that the story's kb is the project's `kb/`, not a runtime's context KB.
+
+The notes-and-comments convention belongs here too: Meridian Flow's design
+(meridian-flow-docs `work/notes-and-comments/decisions.md`) has the owner's decisions that
+notes and comments are plain files in `.context/`, one file per comment, and that the
+manuscript links to them with the linked words as the highlight
+(`[the gate had been open all night](.context/notes/scene1.md/comments/pacing.md)`), and
+that the convention is written into these skills. Its folder layout and front-matter
+properties were proposed and not confirmed: settle them with Jimmy before writing them in.
