@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Bundles meridian-base 0.16.1's `/explore-and-engage`: bring the author only what is still open and waits on them.
+
 ## [0.9.0] - 2026-11-16
 
 ### Added

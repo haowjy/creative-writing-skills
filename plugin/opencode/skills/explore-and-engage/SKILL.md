@@ -30,9 +30,17 @@ building on it.
 
 With a user in the loop, explore and engage at once: share your read and
 ask the next question while the evidence comes in. Each track redirects the
-other, and neither waits.
+other, and neither waits. A check you can run now starts in this turn; "next"
+is for work that waits on something, and you say what.
 
 ## Asking the Human
+
+Bring the human only what is still open and waits on them. Check each item
+before you list it: a fix they already made, or a release that is already
+out, is no longer theirs. What your role lets you do yourself and the project
+doesn't reserve for them, you do instead of listing it. Something only they
+can do that blocks nothing, such as filing an upstream bug that needs their
+login, goes to the project's issue tracker for later, not onto their list.
 
 Group the questions under the decision branch each one settles, with a
 heading that names the branch. Give each question the background its
