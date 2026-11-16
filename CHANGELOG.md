@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Plugin bundles meridian-base 0.16.7 (`/intent-modeling`).
+
 ## [0.9.4] - 2026-11-16
 
 ### Changed
