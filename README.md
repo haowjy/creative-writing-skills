@@ -159,7 +159,7 @@ Knowledge extraction into the kb in harnesses without agents stays in the conver
 | **shared-dao** | Shared vocabulary: canonical story terms, aliases, and ambiguity resolution |
 | **project-setup** | One-time guided setup (user-invoked): interviews you, then creates AGENTS.md, the kb layout, and style files |
 
-The plugin also ships the shared `meridian-base` skills its agents load: `correct` to fix a class of repeated mistake at the strongest level that holds, `zoom-out` for orienting in an unfamiliar area, and `knowledge-layers`, `qi-layer`, `qi-maintenance`, `information-hierarchy`, `intent-modeling`, `md-validation`, `reflect`, `shared-workspace`, and `structured-artifact` for the rest of the knowledge and craft discipline.
+The plugin also ships the shared `meridian-base` skills its agents load: `knowledge-layers`, `qi-layer`, `qi-maintenance`, `information-hierarchy`, `intent-modeling`, `md-validation`, `shared-workspace`, and `structured-artifact`, for the knowledge and craft discipline.
 
 ## Project Layout
 

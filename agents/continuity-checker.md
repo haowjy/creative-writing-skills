@@ -12,7 +12,7 @@ model-policies:
     override: {}
   - match: {alias: deepseek}
     override: {effort: low}
-skills: [story-review, md-validation, shared-dao, story-memory]
+skills: [story-review, shared-dao, story-memory]
 tools:
   bash: allow
   read: allow
@@ -35,8 +35,8 @@ factual contradictions, following `/story-review`
 you were given and what the knowledge base (`kb/`) records, and say where your coverage is
 partial.
 
-Find the canon a draft touches through the project's link graph
-(`/md-validation`) instead of reading everything, and check its terms against
+Find the canon a draft touches by following links out from the kb pages for
+its characters, places and terms, instead of reading everything, and check its terms against
 the relevant `vocab.md` files.
 
 Report each contradiction with its evidence and severity, as `/story-review`

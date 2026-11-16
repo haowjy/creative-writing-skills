@@ -46,8 +46,4 @@ Relationships should evolve through interaction, not through narration about how
 
 ## Voice Distinction
 
-Can you tell which character is speaking without dialogue tags? Each character should have their own vocabulary, sentence structure, preoccupations, and verbal habits.
-
-Common failure: all characters become equally articulate, insightful, and emotionally fluent. Real people aren't. Some characters are inarticulate. Some deflect. Some lecture. Some barely speak. The variation IS the characterization.
-
-In first person or close third, the narration itself should sound like the POV character. A teenager doesn't narrate like a professor, even in their own head.
+How each character sounds is the voice focus's (`voice.md`); flag only what it changes about who the character is.

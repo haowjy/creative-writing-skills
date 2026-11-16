@@ -96,7 +96,7 @@ both forward silently.
 ## When to Create vs Update
 
 **Create** a new page when a concept is finalized enough to be referenced
-by other agents. Don't create pages for things still in story-planning.
+by other agents. Don't create pages for things still being brainstormed.
 
 **Update** an existing page when new chapters establish facts about it,
 when the author makes decisions that change it, or when a page has become
@@ -107,10 +107,21 @@ concepts.
 
 ## What Belongs in KB vs Work
 
-- Finalized knowledge → `kb/`
-- Draft iterations, brainstorm captures, critique reports → `work/`
-- Promoted facts after a draft completes → `kb/canon/` or relevant wiki page
+The kb records as settled only what the author confirmed or the finished
+prose establishes. Brainstorms, draft iterations, critique reports and
+provisional choices stay in the work directory. Extract the facts a finished
+chapter establishes with `resources/fact-extraction.md`.
 
-Use `resources/fact-extraction.md` for routine fact extraction from completed chapters.
-Direct kb edits are for the author or muse when capturing decisions
-interactively.
+The work directory is the runtime's work directory when it has one,
+otherwise `work/` in the project root:
+
+```text
+work/
+  outline/               # current outline being worked
+  drafts/                # draft iterations (v1, v2, etc.)
+  critique-reports/      # critic output for each round
+  brainstorm/            # brainstorm captures and synthesis
+```
+
+The author's direct edits are authoritative: when yours would conflict with
+theirs, say so instead of overwriting.

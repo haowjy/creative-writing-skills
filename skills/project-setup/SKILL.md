@@ -26,9 +26,7 @@ one of these and follow its setup and walkthrough:
 - `resources/claude-desktop.md` — claude.ai, Claude Desktop, or Cowork.
 - `resources/other-harnesses.md` — Codex, Cursor, OpenCode, or Grok.
 
-Do not load the others. Meridian Flow, the writing app, has no setup path yet:
-it will import packages once its importer ships, so use the environment you are
-in.
+Do not load the others.
 
 ## Learn About the Project
 
@@ -88,8 +86,8 @@ Once approved:
 3. Create `kb/vocab.md` when the project has named concepts agents must use
    consistently; add domain vocab files when a domain already has enough
    distinct terms.
-4. Create `work/` with `outline/`, `drafts/`, `critique-reports/`, and
-   `brainstorm/`.
+4. Outside Meridian, which gives each task its own work directory, create
+   `work/` with `outline/`, `drafts/`, `critique-reports/`, and `brainstorm/`.
 5. Save the writing samples to `kb/samples/`.
 6. If samples were provided and the author wants it, produce initial style
    files in `kb/styles/`.

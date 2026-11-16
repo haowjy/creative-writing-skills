@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+### Changed
+- Cleanup. Fixed contradictions: the writer's model "show, don't tell" line was the stock tell critics flag (now a character-specific behavior); copyedit lanes "fix silently" though critics can't edit (they now list corrections); praise both banned and asked for; brainstormers told to load web research they can't run (spawn `@creative-researcher` instead).
+- One AI-prose catalog: `/writing-principles` `resources/antipatterns.md` now holds stock tells, syntactic templating, attractor-state fluency and emotional inflation; the critic's prose focus and `failure-modes.md` point to it.
+- What reaches the kb, and where the work directory is, live in `/story-memory` `resources/kb-layout.md` (`writing-artifacts.md` merged in and deleted; a brainstorm finishing no longer "promotes" decisions). The work directory is the runtime's when it has one, else project `work/`, which project-setup creates only outside Meridian.
+- Removed: the "A Chapter" retellings in the setup walkthroughs (they had drifted from `/story-workflow`), the stale Mars 0.20 and Meridian Flow lines, `citations.md` (moved to `docs/research/`), handoff lists that copied agent descriptions, duplicate voice-distinction and "state your read" lines. `/llm-writing` no longer loads into character-sim and reader-sim; continuity-checker drops `/md-validation` (it follows kb links); outliner has it available only. Fan-out names Meridian only as one runtime that reaches another provider.
+- "Orchestrator" in story-memory and craft resources now says muse, your caller or the author; creative-researcher's description says what to pass and what comes back.
+- Claude.ai zips skip skills that ship a CLI (`writing-sync`), which can't run there. `brainstorming.md` separates the brainstormer's report from capturing the author's ideas.
+- The plugin no longer ships `correct`, `reflect` or `zoom-out`: nothing in the package names them, and `/correct` targets code-repo docs.
+- muse is `mode: primary`. Without it Meridian treated muse as a subagent and hid its lead-only skills (the handoff launch, work items, notify), so a muse handoff ended at the brief's path with no command.
+- Bundles `/explore-and-engage` from meridian-base: `/grill` loads it for how to ask (questions grouped by the decision each settles, each with background and a recommended answer).
+- Requires meridian-base 0.16.
+
 ## [0.7.9] - 2026-11-15
 
 ### Changed

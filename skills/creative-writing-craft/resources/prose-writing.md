@@ -86,6 +86,6 @@ Stay in the established POV. In first person, the narrator can only report
 what they perceive, think, and feel. In third limited, access one character's
 interiority per scene.
 
-Convey non-POV characters through observable behavior. Write "Her jaw
-tightened" rather than "She felt angry." The narrator can't know what's
+Convey non-POV characters through observable behavior. Write "She lined up
+the forks before answering" rather than "She felt angry." The narrator can't know what's
 happening in someone else's head.

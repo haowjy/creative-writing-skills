@@ -28,14 +28,13 @@ needs a capability its default lacks.
 families, for a high-stakes or disputed call where their different blind spots
 are the point. A family is a provider: Opus, Sonnet and Fable are one family, so
 two Anthropic models add no diversity. Your harness's own agent tool usually
-reaches only its own provider, so fan out with `meridian spawn -m <model>`, and
-check the live catalog (`meridian mars models list`) and its prompting guidance
-(`meridian mars models prompting`) at dispatch time.
+reaches only its own provider, so fan out through a runtime that reaches
+another (in Meridian, `meridian spawn -m <model>`).
 
 ## Agent Catalogs
 
 - `resources/producers.md`: `@writer`, `@brainstormer`, `@outliner`,
-  `@style-creator`, `@character-sim`, `@creative-researcher`, and `@kb-lead`. Open
+  `@character-sim`, and `@kb-lead`. Open
   it before you spawn an agent that writes or gathers.
 - `resources/reviewers.md`: `@critic` lanes (a focus area or an edit level),
   `@continuity-checker`, `@reader-sim`, and how many lanes a chapter needs.

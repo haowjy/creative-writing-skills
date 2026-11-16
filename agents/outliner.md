@@ -11,7 +11,9 @@ model-policies:
     override: {}
   - match: {alias: deepseek}
     override: {effort: low}
-skills: [story-planning, story-memory, md-validation]
+skills:
+  load: [story-planning, story-memory]
+  available: [md-validation]
 tools:
   bash: allow
   write: allow

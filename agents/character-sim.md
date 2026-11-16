@@ -12,7 +12,7 @@ model-policies:
   - match: {alias: deepseek}
     override: {effort: low}
 skills:
-  load: [character-sim, writing-principles, llm-writing]
+  load: [character-sim, writing-principles]
   available: [story-memory]
 tools:
   bash: allow

@@ -12,7 +12,7 @@ model-policies:
   - match: {alias: deepseek}
     override: {effort: low}
 skills:
-  load: [reader-sim, writing-principles, llm-writing]
+  load: [reader-sim, writing-principles]
 tools:
   bash: allow
   read: allow

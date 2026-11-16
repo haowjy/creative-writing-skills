@@ -10,7 +10,7 @@ Release. Codex, OpenCode and Claude.ai users get the skills but no agents.
 
 - **Write muse's method into the skills.** `creative-writing-muse` and `story-workflow`
   are the only copy of how muse works; the `muse` agent body holds only its job, the
-  verdict it owns, the `@kb-lead` hand-off and its report. Behavior written into the
+  verdict it owns, and that the author has the final say. Behavior written into the
   agent body never reaches the users who get skills but no agents. The split mirrors
   meridian-dev-workflow's `/solo-dev` and `/dev-workflow`, so a lesson from one package
   has an obvious home in the other.

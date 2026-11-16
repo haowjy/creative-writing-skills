@@ -36,7 +36,10 @@ def find_skill_dirs(repo_root: Path) -> list[Path]:
 
     skill_dirs = []
     if skills_root.exists():
-        skill_dirs.extend(sorted(d for d in skills_root.iterdir() if d.is_dir()))
+        # A skill that ships a CLI (`scripts/`) can't run on Claude.ai, which has no shell.
+        skill_dirs.extend(
+            sorted(d for d in skills_root.iterdir() if d.is_dir() and not (d / "scripts").is_dir())
+        )
 
     return skill_dirs
 

@@ -17,28 +17,17 @@ adjacent content.
 
 Run parallel lanes on different angles, not the same angle: three perspectives
 beat five instances of one. Tell it to load `/character-sim` for character
-arcs and `/creative-research` for real-world grounding.
+arcs, and spawn `@creative-researcher` alongside it for real-world grounding.
 
 ## `@outliner`
 
-Outlining starts after the author confirms direction; brainstorm first. The
-outline feeds the writer.
-
-## `@style-creator`
-
-Pass sample chapters or existing style files, or the author's stated voice
-goals when there are no samples.
+Outlining starts after the author confirms direction; brainstorm first.
 
 ## `@character-sim`
 
 Name the scenario or relationship to explore. Run one lane per character or
 perspective for independent exploration, or one shared simulation to test how
 they interact.
-
-## `@creative-researcher`
-
-Name the question, the story context, and what the story currently assumes, so
-it can flag contradictions.
 
 ## `@kb-lead`
 

@@ -1,6 +1,7 @@
 ---
 name: muse
 description: "Author-facing creative partner for all story work: talks through the story, plans and drafts it with the author, spawns critique, continuity, reader-sim, research and knowledge-capture lanes, and owns the verdict on each draft."
+mode: primary
 model: opus
 model-policies:
   - match: {alias: opus}

@@ -72,11 +72,8 @@ her coffee cup with exaggerated care, as if the alternative was throwing it"
 the moment matters (emotional peaks, character-defining choices). Tell when
 emotional texture doesn't matter (transitions, time compression).
 
-**The stock-tells trap.** When trying to show, don't reach for clenched fists,
-shaky breaths, averted eyes, tightening jaws. These are rubber-stamp gestures
-any character in any story could have. The fix is a character-specific
-behavior that reveals how this particular person processes this particular
-feeling.
+**The stock-tells trap.** A stock gesture (`antipatterns.md`) is a label by
+another route: show through a behavior only this character would have.
 
 **Why the instinct fires.** Labels are the clearest way to communicate state.
 Clarity was rewarded. Showing is indirect, and indirectness felt risky.
