@@ -48,3 +48,18 @@ manuscript links to them with the linked words as the highlight
 (`[the gate had been open all night](.context/notes/scene1.md/comments/pacing.md)`), and
 that the convention is written into these skills. Its folder layout and front-matter
 properties were proposed and not confirmed: settle them with Jimmy before writing them in.
+
+## `/shared-dao` in the fiction lanes
+
+writer, critic and continuity-checker load `/shared-dao`, whose first line loads
+`/qi-layer` (how to write `AGENTS.md` and `.context/`), about 780 words per run. Once
+story projects use a folder's `AGENTS.md` and `.context/` (the mapping above), lanes that
+write notes or comments may need `/qi-layer`, and the one-name-per-concept discipline is
+already in `kb-layout.md` (Vocab Pages) and `continuity.md` (Terminology). Decide with
+that mapping whether each lane keeps it.
+
+## `project-setup` as one file
+
+After the 2026-11 cleanup each environment walkthrough in `project-setup/resources/` is a
+few lines. Merge them into `SKILL.md`, then update the package `AGENTS.md` rule that says
+one walkthrough per resource, and the meridian-cli bootstrap that names one.
