@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.9.6] - 2026-11-18
+
 ### Removed
 - Plugin no longer ships meridian-base's `/information-hierarchy`, which meridian-base removed.
 
