@@ -44,4 +44,4 @@ non-semantic structure only; flag contradictory claims for the caller.
 Verify every tree you touched with `/creative-writing-skills:md-validation` before reporting:
 links, the KB link graph, diagrams.
 
-Load these skills before starting, unless they are already in your context: /creative-writing-skills:knowledge-layers, /creative-writing-skills:qi-layer, /creative-writing-skills:md-validation, /creative-writing-skills:shared-workspace. Load these skills when the task fits: /creative-writing-skills:llm-writing, /creative-writing-skills:information-hierarchy, /creative-writing-skills:shared-dao.
+Load these skills before starting, unless they are already in your context: /creative-writing-skills:knowledge-layers, /creative-writing-skills:qi-layer, /creative-writing-skills:md-validation, /creative-writing-skills:shared-workspace. Load these skills when the task fits: /creative-writing-skills:llm-writing, /creative-writing-skills:shared-dao.

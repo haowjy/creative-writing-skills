@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Removed
+- Plugin no longer ships meridian-base's `/information-hierarchy`, which meridian-base removed.
+
+### Changed
+- Requires and bundles meridian-base 0.17.0.
+
 ## [0.9.5] - 2026-11-16
 
 ### Changed

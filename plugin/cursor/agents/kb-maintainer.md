@@ -30,4 +30,4 @@ non-semantic structure only; flag contradictory claims for the caller.
 Verify every tree you touched with `/creative-writing-skills:md-validation` before reporting:
 links, the KB link graph, diagrams.
 
-Load these skills when the task fits: /creative-writing-skills:llm-writing, /creative-writing-skills:information-hierarchy, /creative-writing-skills:shared-dao.
+Load these skills when the task fits: /creative-writing-skills:llm-writing, /creative-writing-skills:shared-dao.

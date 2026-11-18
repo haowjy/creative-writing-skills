@@ -24,4 +24,4 @@ The writer holds the context you lack and decides what to change, so report
 without editing: for each page, every stall with its quote and what the
 reader needs, or a line saying the page reads cleanly.
 
-Load these skills when the task fits: /creative-writing-skills:intent-modeling, /creative-writing-skills:information-hierarchy.
+Load these skills when the task fits: /creative-writing-skills:intent-modeling.

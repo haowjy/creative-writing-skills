@@ -29,4 +29,4 @@ tree.
 Commit each version-controlled tree you touched; leave pushing to the
 caller. Report what you deleted and what you added, then contradictions and gaps.
 
-Load these skills when the task fits: /creative-writing-skills:qi-layer, /creative-writing-skills:shared-dao, /creative-writing-skills:information-hierarchy, /creative-writing-skills:intent-modeling, /creative-writing-skills:shared-workspace, /creative-writing-skills:md-validation.
+Load these skills when the task fits: /creative-writing-skills:qi-layer, /creative-writing-skills:shared-dao, /creative-writing-skills:intent-modeling, /creative-writing-skills:shared-workspace, /creative-writing-skills:md-validation.

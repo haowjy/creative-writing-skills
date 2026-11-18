@@ -7,7 +7,7 @@ metadata:
 
 # LLM Writing
 
-Load `/creative-writing-skills:intent-modeling` if it isn't already loaded, and `/creative-writing-skills:information-hierarchy` when the piece grows beyond a short answer.
+Load `/creative-writing-skills:intent-modeling` if it isn't already loaded.
 
 ## Write for the Reader
 
