@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.9.8] - 2026-11-19
+
 ### Changed
 - Agents are named in backticks without `@` (`explorer`, not `@explorer`): in Claude Code a bare `@path` in a skill or AGENTS.md loads that file. `scripts/check_refs.py` now checks skill references only; agent names are checked by hand against the include list. Bundles meridian-base 0.18.1.
 
