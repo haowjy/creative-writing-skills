@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.9.7] - 2026-11-19
+
 ### Added
 - muse can load meridian-base's `/atlas`, for maps of a story's cast, factions and plot you click down through.
 
