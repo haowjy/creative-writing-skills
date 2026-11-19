@@ -13,7 +13,8 @@ Detail, method and evidence sit behind expandable sections or further down.
 The context the reader needs to decide, and any caveat that changes the
 decision, stays beside the claim it qualifies.
 
-Read [delivery](resources/delivery.md) when building the artifact. Read
-[diagrams](resources/diagrams.md) when showing relationships or flows, and
+Read [delivery](resources/delivery.md) when building the artifact, and
 [images](resources/images.md) when embedding, annotating, or comparing
-images and screenshots.
+images and screenshots. For a diagram, open `/creative-writing-skills:atlas`'s
+`resources/diagrams.md`; for a map the reader clicks down through, load
+`/creative-writing-skills:atlas`.

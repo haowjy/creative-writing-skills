@@ -11,6 +11,8 @@ Usage:
     python3 scripts/check_refs.py
 
 It reads the committed `plugin/claude` tree, so run `mars build plugin` first.
+A skill's `assets/` are files it carries for copying elsewhere (an engine, a
+template), not text an agent follows, so the scan skips them.
 
 Reference forms recognized:
 
@@ -59,6 +61,9 @@ def main() -> int:
     dangling: list[str] = []
     for path in sorted(TREE.rglob("*.md")):
         where = str(path.relative_to(TREE))
+        parts = path.relative_to(TREE).parts
+        if parts[0] == "skills" and parts[2:3] == ("assets",):
+            continue
         for lineno, line in enumerate(path.read_text().splitlines(), 1):
             at = f"{where}:{lineno}"
 

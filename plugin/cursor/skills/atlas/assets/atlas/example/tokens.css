@@ -1,0 +1,30 @@
+/* The toy project's design tokens. Light is the default; dark sits under data-theme="dark". */
+
+:root {
+  --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-background: oklch(0.966 0.015 90);
+  --color-foreground: oklch(0.25 0.012 85);
+  --color-card: oklch(0.978 0.012 92);
+  --color-muted-foreground: oklch(0.467 0.008 100);
+  --color-border: oklch(0.868 0.016 85);
+  --color-border-subtle: oklch(0.9 0.014 86);
+  --color-primary: oklch(0.536 0.082 175);
+  --color-jade-text: oklch(0.465 0.07 176);
+  --color-destructive: oklch(0.505 0.158 17);
+  --color-destructive-tint: oklch(0.94 0.028 22);
+  --color-syntax-string: oklch(0.46 0.11 55);
+}
+
+[data-theme="dark"] {
+  --color-background: oklch(0.285 0.012 84);
+  --color-foreground: oklch(0.9 0.012 90);
+  --color-card: oklch(0.325 0.012 84);
+  --color-muted-foreground: oklch(0.7 0.014 88);
+  --color-border: oklch(0.38 0.014 84);
+  --color-border-subtle: oklch(0.335 0.012 84);
+  --color-primary: oklch(0.68 0.09 175);
+  --color-jade-text: oklch(0.75 0.08 176);
+  --color-destructive: oklch(0.66 0.16 17);
+  --color-destructive-tint: oklch(0.3 0.06 22);
+  --color-syntax-string: oklch(0.76 0.1 55);
+}

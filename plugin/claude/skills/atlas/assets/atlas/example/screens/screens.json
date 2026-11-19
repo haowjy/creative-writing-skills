@@ -1,0 +1,29 @@
+{
+  "publish": {
+    "image": "publish.png",
+    "width": 320,
+    "height": 200,
+    "title": "Publish a post",
+    "regions": [
+      {
+        "id": "post-form",
+        "label": "The post form",
+        "x": 100,
+        "y": 60,
+        "w": 200,
+        "h": 60,
+        "map": "api/routes",
+        "code": "services/api/src/routes/publish.js"
+      },
+      {
+        "id": "sidebar",
+        "label": "The sidebar",
+        "x": 0,
+        "y": 30,
+        "w": 80,
+        "h": 170,
+        "map": "system/api"
+      }
+    ]
+  }
+}

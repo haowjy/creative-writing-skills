@@ -1,0 +1,29 @@
+/* The viewer's colours when a project's config names no token files of its own. */
+:root {
+  --background: #ffffff;
+  --foreground: #1f1f1f;
+  --card: #fafafa;
+  --quiet: #5c5c5c;
+  --border: #8c8c8c;
+  --border-subtle: #dcdcdc;
+  --focus: #2457c5;
+  --link: #2457c5;
+  --danger: #b42318;
+  --danger-tint: #fdecea;
+  --warning: #9a6700;
+  --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+[data-theme="dark"] {
+  --background: #161616;
+  --foreground: #ececec;
+  --card: #1f1f1f;
+  --quiet: #a3a3a3;
+  --border: #6b6b6b;
+  --border-subtle: #333333;
+  --focus: #8ab4f8;
+  --link: #8ab4f8;
+  --danger: #f28b82;
+  --danger-tint: #3b1d1b;
+  --warning: #e3b341;
+}

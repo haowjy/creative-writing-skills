@@ -1,0 +1,29 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Atlas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--
+  A viewer over a project's Markdown pages (README.md here says how to adopt it). It holds no content
+  and no colours: the dev server serves the project's atlas.config.mjs beside this page, the pages at
+  repo/<path>, and the colour variables at tokens.css, built from the project's token files.
+  Open it through the dev server; from disk it can't read the pages. The server sends a Content-Security-Policy with it (server.mjs): scripts only from this server and the CDN, so a script inside rendered Markdown never runs. Every script is pinned here with its integrity hash, except Mermaid (js/markdown.js), which loads with the first diagram. React stays on 18: 19 ships no UMD build, and @xyflow/react's UMD build needs React and ReactDOM as globals; js/jsx-runtime.js gives it the jsx runtime it expects.
+-->
+<link rel="stylesheet" href="vendor/xyflow-react-12.12.0-base.css" />
+<link rel="stylesheet" href="tokens.css" />
+<link rel="stylesheet" href="styles/page.css" />
+
+<!-- Module scripts don't run from file://, so this note is what a page opened from disk shows. -->
+<div id="root" class="app">
+  <div class="doc-note pad">
+    <p>A browser won't read the map's pages from disk (file://).</p>
+    <p>Open the map through the dev server that serves it.</p>
+  </div>
+</div>
+<script src="js/boot.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
+<script src="js/jsx-runtime.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@xyflow/react@12.12.0/dist/umd/index.js" integrity="sha384-26P2k8U43HJo0n2JZUyY6nnsfiNgR7HL6mVxldjscqie4vFcjkO2UtJBYZNSTx2a" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@18.2.0/lib/marked.umd.js" integrity="sha384-DDYDxilZ1LlqPSbaRHlrwh12h+3fUewuQj7HjscrZIWt5bGyQ+n0DHtIoZE3i3zU" crossorigin="anonymous"></script>
+<script type="module" src="js/app.js"></script>
