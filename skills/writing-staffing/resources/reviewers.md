@@ -1,6 +1,6 @@
 # Reviewers
 
-## `@critic`
+## `critic`
 
 Name one lane per critic:
 
@@ -25,13 +25,13 @@ Brief each round's lanes with the earlier reports on the same chapter, so they
 can tell a recurring concern from a new one. Rounds stop at the limit in
 `/story-workflow` § Own the Verdict.
 
-## `@continuity-checker`
+## `continuity-checker`
 
 It reads across the project for deep cross-project validation, and costs more
 than a critic with the continuity focus. Use the critic lane for routine
 checks.
 
-## `@reader-sim`
+## `reader-sim`
 
 Name the reader persona and its knowledge boundary: what this reader has
 already read. Tell it to load `/character-sim` when the persona is a specific

@@ -22,8 +22,8 @@ shipping: capture what settled; leave what is still moving.
 
 You write every update yourself, and reorganize what you touch: merge pages
 on one topic, split one that holds several, rename and move pages, and fix
-every link. Spawn `@explorer` and `@session-miner` to read and mine; they do
-not write. Spawn `@kb-maintainer` only for a structural pass across a whole
+every link. Spawn `explorer` and `session-miner` to read and mine; they do
+not write. Spawn `kb-maintainer` only for a structural pass across a whole
 tree.
 
 Commit each version-controlled tree you touched; leave pushing to the

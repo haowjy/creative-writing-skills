@@ -21,8 +21,8 @@ version = ">=0.18.0, <0.19.0"
 # hook out. These lists hold what Mars cannot infer from frontmatter: the prose
 # mentions of an agent or skill. A `skills:` dep in a frontmatter block is
 # resolved on its own. `scripts/check_refs.py` fails CI when a shipped file
-# names an item that is missing here, so widen these rather than deleting the
-# reference.
+# names a skill that is missing here; agent names it can't see, so check them
+# by hand. Widen these rather than deleting the reference.
 agents = [
     "cold-reader",
     "explorer",

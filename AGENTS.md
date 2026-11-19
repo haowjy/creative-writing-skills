@@ -37,7 +37,7 @@ Release. Codex, OpenCode and Claude.ai users get the skills but no agents.
 ```bash
 meridian mars build plugin                         # rebuild plugin/ and the catalogs
 meridian mars check                                # package, frontmatter, stale plugin output
-python3 scripts/check_refs.py                      # every @agent and /skill in plugin/claude resolves
+python3 scripts/check_refs.py                      # every skill reference in plugin/claude resolves
 claude plugins validate plugin/claude              # plugin manifest and components
 claude plugins validate .claude-plugin/marketplace.json
 python3 scripts/create_skill_zips.py               # Claude.ai zips/*.skill (CI does this on release)
@@ -45,8 +45,10 @@ meridian -C "$PWD" mars version patch --push --no-tag   # release: bump, rebuild
 git config core.hooksPath .githooks                # once per clone: run these checks at commit
 ```
 
-Rebuild, then run `check_refs.py`, after any edit that names an agent or a skill: it
-fails when the dependency filters drop something a shipped file names. The pre-commit
+Rebuild, then run `check_refs.py`, after any edit that names a skill: it fails when
+the dependency filters drop a skill a shipped file names. It can't see agent names, which
+are plain backticked words, so when a shipped file names a new agent, add it to the
+`agents` include list in `mars.toml` yourself. The pre-commit
 hook skips its Mars checks when bare `mars` isn't on PATH.
 
 ## Releasing
@@ -69,16 +71,16 @@ retries. Releasing the same version again deletes nothing, because no tag exists
 - **Muse runs the lifecycle from `/story-workflow`.** On the next muse
   sessions, and the next claude.ai or Codex sessions with
   `creative-writing-muse` on: it states its read in a line instead of a
-  question list; it drafts in its own context and spawns `@writer` only for
+  question list; it drafts in its own context and spawns `writer` only for
   an alternate take, an author-asked polish pass, or a very long draft; every
   plan marks confirmed versus provisional parts; after two critique rounds on
   a chapter it presents the open concerns and lets the author decide.
-- **`@kb-lead` briefs name what settled.** When a chapter or ruling
-  settles, muse spawns `@kb-lead` with what settled and the files that show
+- **`kb-lead` briefs name what settled.** When a chapter or ruling
+  settles, muse spawns `kb-lead` with what settled and the files that show
   it, and a trial direction lands in the kb as a trial, not canon (#10). If
   trials still harden, story-memory needs the three kinds of story knowledge
   #10.1 proposes.
-- **`@critic` covers editorial review.** Asked for an editorial review, a
+- **`critic` covers editorial review.** Asked for an editorial review, a
   critic reads the whole draft before writing,
   leads with the overall diagnosis, orders notes by reader cost, and writes
   no replacement prose. Callers name a focus area or an edit level; a critic

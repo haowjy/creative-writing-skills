@@ -40,7 +40,7 @@ else
 fi
 
 if [ "$fail" -eq 0 ]; then
-  echo "pre-commit: agent and skill references (scripts/check_refs.py)..."
+  echo "pre-commit: skill references (scripts/check_refs.py)..."
   if ! python3 scripts/check_refs.py; then
     fail=1
   fi

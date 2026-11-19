@@ -15,8 +15,8 @@ places it, and nothing is written that the work's own docs already say.
    now: a page that describes behavior they contradict, restates them, or
    describes something that no longer exists is part of this capture. A
    direction the human chose that the code hasn't reached yet stays, marked
-   as not built yet (`resources/code.md`). Where a choice is missing its reason, have `@session-miner` find the passages
-   and read them yourself. Spawn an `@explorer` for an area too large to
+   as not built yet (`resources/code.md`). Where a choice is missing its reason, have `session-miner` find the passages
+   and read them yourself. Spawn an `explorer` for an area too large to
    read yourself.
 
 3. **Delete, then write.** Delete each stale page or passage step 2 found,
@@ -32,7 +32,7 @@ places it, and nothing is written that the work's own docs already say.
 
 5. **Check, then commit.** Run `/creative-writing-skills:llm-writing` on each page you changed, for
    its reader in the Three Places table. Commission a cold read per
-   `/creative-writing-skills:llm-writing` `resources/cold-read.md`, one `@cold-reader` for the pages
+   `/creative-writing-skills:llm-writing` `resources/cold-read.md`, one `cold-reader` for the pages
    where you wrote new prose, and act on its findings. Verify each tree with `/creative-writing-skills:md-validation`, then commit each
    version-controlled tree you touched. The capture is done when no page
    you found in step 2 still describes behavior the code or the docs

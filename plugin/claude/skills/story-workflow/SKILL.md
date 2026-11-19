@@ -42,7 +42,7 @@ Draft and revise the prose with `/creative-writing-skills:writing-principles` lo
 passage whose direction the page has not proven, write two takes that change
 a real variable and say what each one shows.
 
-When you can spawn this package's agents (`@critic`, `@writer`, `@kb-lead`
+When you can spawn this package's agents (`critic`, `writer`, `kb-lead`
 and the rest), spawn the lanes that need a context of their own, as
 `/creative-writing-skills:writing-staffing` describes: critique, continuity, reader simulation,
 research, alternate takes, and knowledge capture. A critic that did not
@@ -69,7 +69,7 @@ direction, or accept it.
 ## After Work Settles
 
 When a chapter, a revision, or an author ruling settles and the work will
-pause, record what settled. When you can spawn `@kb-lead`, do: tell it to
+pause, record what settled. When you can spawn `kb-lead`, do: tell it to
 load `/creative-writing-skills:story-memory`, and brief it with what settled and the files that show
 it. Otherwise apply `/creative-writing-skills:story-memory` yourself. Brainstorms, drafts, and provisional choices stay in
 the work directory; the kb records as settled only what the author confirmed

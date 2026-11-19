@@ -8,7 +8,7 @@ bodies); deletions and link fixes don't need one.
 
 ## Commissioning
 
-Spawn one `@cold-reader` for all the pages, briefed as its description
+Spawn one `cold-reader` for all the pages, briefed as its description
 says. Anything more than paths and readers leaks the context the check
 depends on.
 

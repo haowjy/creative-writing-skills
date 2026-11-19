@@ -18,7 +18,7 @@ investigate before forming a view.
 Before you plan or recommend, find the earlier work that bears on the
 decision: the KB, docs, `.context/`, open and finished work items, and what
 the human handed over (decks, mockups, transcripts). Read it yourself; in an
-area too large to search, have an `@explorer` find what's related first. Name in
+area too large to search, have an `explorer` find what's related first. Name in
 your plan what you take from it. What you find stale, update or remove as
 `/creative-writing-skills:knowledge-layers` says where your role lets you edit it, and list the
 rest for their owner. The human's own artifacts are theirs to retire

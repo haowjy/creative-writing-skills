@@ -17,7 +17,7 @@ in them; fold each focus file's checks into its level; keep continuity as its ow
 since it reads across the project rather than the draft. Read the files before
 deciding: some focus checks may not fit any level.
 
-## Fold `@continuity-checker` into `@critic`
+## Fold `continuity-checker` into `critic`
 
 The continuity checker runs the critic's own `prose-critique/continuity.md`. Its reason
 for being a separate agent was cost, which no longer holds: it defaults to Sonnet, and

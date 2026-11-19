@@ -13,7 +13,7 @@ conversation, plan, or passage you can hold in your head costs less to do
 than to brief.
 
 When you can spawn this package's agents, the lanes `/creative-writing-skills:story-workflow`
-§ Produce names run in contexts of their own. Of the prose, `@writer` takes
+§ Produce names run in contexts of their own. Of the prose, `writer` takes
 only an alternate take on another model, a polish pass the author asks for,
 and a draft long enough to fill your context.
 

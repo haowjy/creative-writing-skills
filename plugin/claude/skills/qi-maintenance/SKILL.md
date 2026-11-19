@@ -25,4 +25,4 @@ Load `/creative-writing-skills:qi-layer` when creating, moving, restructuring, o
 rewriting colocated knowledge.
 
 Deferred work goes where `/creative-writing-skills:knowledge-layers` places it. Cross-cutting KB
-synthesis belongs to `@kb-lead`, after the change settles.
+synthesis belongs to `kb-lead`, after the change settles.

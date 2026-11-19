@@ -36,7 +36,7 @@ meridian mars sync
 
 Then run `meridian` to start a meridian-cli session with muse. First-time setup runs the bootstrap automatically.
 
-`@writer` defaults to Opus at high effort.
+`writer` defaults to Opus at high effort.
 
 ### Claude Code / Cowork
 
