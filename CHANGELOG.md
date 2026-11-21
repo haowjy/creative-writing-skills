@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.9.9] - 2026-11-21
+
 ### Changed
 - `/creative-writing-craft`, `/story-planning`, `/story-review`: link nested `resources/` files directly from `SKILL.md` (1-level-deep progressive disclosure).
 - `/story-memory`: trim description under 300 chars for Codex's description budget.
