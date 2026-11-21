@@ -35,7 +35,55 @@ const unavailable = (error) =>
 const imageUrl = (shot) => repoUrl(resolveHref(SCREENS, shot.image).path);
 const nameOf = (shot, region) => (region ? `${shot.title}: ${region.label}` : shot.title);
 
-/** The screenshot cropped to `region` (the whole screen when it is null), as wide as its holder up to `maxWidth` px. Null when `ref` names nothing; a note when the manifest didn't load. */
+let full = null;
+
+/**
+ * Closes the full-size screen if it is open; true when it was. Any navigation calls this first, so a
+ * dialog never stays over a page it was not opened on.
+ */
+export function closeFull() {
+  if (!full?.open) return false;
+  full.close();
+  return true;
+}
+
+// Back with the screen open closes it and stays on the page: opening pushed an entry for Back to pop.
+addEventListener("popstate", closeFull);
+
+/** Opens the whole screen over the page, as large as the window allows. Esc, Close or a click outside it closes it; each also pops the history entry opening pushed. */
+function openFull(shot) {
+  if (!full) {
+    full = el("dialog", { class: "shot-full" });
+    full.addEventListener("click", (event) => {
+      if (event.target === full) full.close();
+    });
+    // Esc, Close and a click outside leave the entry on the stack: pop it. After Back or a navigation it is gone.
+    full.addEventListener("close", () => {
+      if (history.state?.shot) history.back();
+    });
+    document.body.append(full);
+  }
+  full.replaceChildren(
+    el(
+      "form",
+      { class: "shot-full-head", method: "dialog" },
+      el("strong", null, shot.title),
+      el("button", { type: "submit" }, "Close"),
+    ),
+    el("img", {
+      src: imageUrl(shot),
+      alt: `${shot.title}, ${shot.width} by ${shot.height} pixels`,
+      width: shot.width,
+      height: shot.height,
+      // As wide as the window, or as its height allows under the title row.
+      style: `width: min(94vw, calc((94dvh - 64px) * ${shot.width / shot.height}))`,
+    }),
+  );
+  history.pushState({ ...history.state, shot: true }, "");
+  full.showModal();
+}
+
+/** The screenshot cropped to `region` (the whole screen when it is null), as wide as its holder up to `maxWidth` px; a click opens the whole screen full size. Null when `ref` names nothing; a note when the manifest didn't load. */
 export function shotCrop(screens, ref, maxWidth = 560) {
   if (screens instanceof Error) return unavailable(screens);
   const found = resolveShot(screens, ref);
@@ -44,10 +92,21 @@ export function shotCrop(screens, ref, maxWidth = 560) {
   const crop = region ?? { x: 0, y: 0, w: shot.width, h: shot.height };
   // Percentages place the image against the crop's box, so the crop scales with its holder.
   const at = (offset, whole, part) => (whole === part ? 0 : (offset / (whole - part)) * 100);
-  return el("div", {
+  return el("button", {
     class: "crop",
-    role: "img",
-    "aria-label": nameOf(shot, region),
+    type: "button",
+    title: "Open full size",
+    "aria-label": `${nameOf(shot, region)}: open full size`,
+    // A crop can sit inside something clickable (a journey step): the click and key are its own.
+    onclick: (event) => {
+      event.stopPropagation();
+      openFull(shot);
+    },
+    onkeydown: (event) => {
+      // Escape belongs to the viewer: after the native dialog closes, it must still reach the
+      // app-level handler even though focus returns to this crop button.
+      if (event.key !== "Escape") event.stopPropagation();
+    },
     style: [
       `max-width: ${Math.min(crop.w, maxWidth)}px`,
       `aspect-ratio: ${crop.w} / ${crop.h}`,
@@ -150,7 +209,12 @@ export function shotView(screens, ref) {
   return el(
     "section",
     { class: "screen" },
-    el("h3", null, `Screen: ${shot.title}`),
+    el(
+      "h3",
+      null,
+      `Screen: ${shot.title}`,
+      el("button", { class: "shot-open", type: "button", onclick: () => openFull(shot) }, "Full size"),
+    ),
     frame,
     el("ol", { class: "shot-regions" }, lines),
   );

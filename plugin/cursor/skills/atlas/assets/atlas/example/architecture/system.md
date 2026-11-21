@@ -11,6 +11,10 @@ flowchart LR
   writer -->|"1. sends the post"| api
   api -->|"2. saves it"| db
   note1 -.- db
+  %% at writer 0 0
+  %% at api 330 0
+  %% at db 660 0
+  %% at note1 660 150
 ```
 
 ## writer

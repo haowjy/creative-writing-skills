@@ -40,6 +40,20 @@ const JOURNEYS_ON = Boolean(config.nav?.journeys);
 const problems = [];
 const fail = (where, message) => problems.push(`${where}: ${message}`);
 const read = (path) => readFileSync(join(repo, path), "utf8");
+const shown = (path) =>
+  config.serveSource !== false ||
+  path.startsWith(`${MAP_DIR}/`) ||
+  (config.docs ?? []).some((glob) => globRegExp(glob).test(path));
+
+for (const [index, doc] of (config.documents ?? []).entries()) {
+  const where = `config documents[${index}]`;
+  if (!doc || typeof doc !== "object" || typeof doc.title !== "string" || !doc.title.trim())
+    fail(where, "needs a non-empty title.");
+  if (!doc || typeof doc.path !== "string" || !doc.path || doc.path.includes("\\") || doc.path.split("/").some((part) => !part || part === "." || part === ".."))
+    fail(where, "needs a repository-relative path.");
+  else if (!existsSync(join(repo, doc.path))) fail(where, `path ${doc.path} doesn't exist.`);
+  else if (!shown(doc.path)) fail(where, `path ${doc.path} isn't shown by the viewer.`);
+}
 
 // ---- The pages ----
 
@@ -135,7 +149,7 @@ for (const { file, path, page } of levels) {
     if (page.mermaid.type) fail(`${file}:${page.mermaid.line}`, "a level page draws a flowchart.");
     continue;
   }
-  const { nodes, edges } = page.mermaid;
+  const { nodes, frames = [], edges } = page.mermaid;
   const nodeIds = new Set();
   for (const n of nodes) {
     if (nodeIds.has(n.id)) fail(`${file}:${n.line}`, `box ${n.id} is declared twice.`);
@@ -143,6 +157,26 @@ for (const { file, path, page } of levels) {
     if (!NODE_KINDS.includes(n.kind))
       fail(`${file}:${n.line}`, `box ${n.id} has unknown kind ${n.kind}.`);
   }
+  for (const p of page.mermaid.positions)
+    if (!nodeIds.has(p.id)) fail(`${file}:${p.line}`, `a position for ${p.id}, which is not a box on this page.`);
+  const frameIds = new Set();
+  for (const frame of frames) {
+    if (frameIds.has(frame.id) || nodeIds.has(frame.id))
+      fail(`${file}:${frame.line}`, `frame ${frame.id} conflicts with another box or frame.`);
+    frameIds.add(frame.id);
+    if (!frame.label.trim()) fail(`${file}:${frame.line}`, `frame ${frame.id} has no label.`);
+    if (!frame.nodes.length) fail(`${file}:${frame.line}`, `frame ${frame.id} has no boxes.`);
+    for (const id of frame.nodes) {
+      const node = nodes.find((n) => n.id === id);
+      if (!node)
+        fail(`${file}:${frame.line}`, `frame ${frame.id} names ${id}, but no box with that id is declared.`);
+      else if (node.frame !== frame.id)
+        fail(`${file}:${node.line}`, `box ${id} is listed in frame ${frame.id}, but its declaration is outside it.`);
+    }
+  }
+  for (const node of nodes)
+    if (node.frame && !frameIds.has(node.frame))
+      fail(`${file}:${node.line}`, `box ${node.id} is inside unknown frame ${node.frame}.`);
   const sectionIds = new Set();
   for (const s of page.sections) {
     if (sectionIds.has(s.id)) fail(`${file}:${s.line}`, `section ## ${s.id} appears twice.`);
@@ -326,8 +360,6 @@ if (config.screens) {
     fail(at, `doesn't read as JSON: ${error.message}`);
   }
   // With `serveSource: false` the viewer opens only the pages directory and `docs`: the manifest and its images must be there.
-  const shown = (path) =>
-    path.startsWith(`${MAP_DIR}/`) || (config.docs ?? []).some((g) => globRegExp(g).test(path));
   if (config.serveSource === false && !shown(at))
     fail(at, "isn't under the pages directory or matched by `docs`, so the viewer can't open it.");
   for (const [name, shot] of Object.entries(screens ?? {})) {

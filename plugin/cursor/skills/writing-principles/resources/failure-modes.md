@@ -8,6 +8,11 @@ pattern is serving the reader and when it's the helpfulness instinct
 expressing itself. Over-explaining breaks inference; under-explaining breaks
 transportation. Both are calibration failures.
 
+The patterns: over-elaborating scope, flattening voice, info-dumping,
+labeling emotions, resolving tension prematurely, homogenizing character
+simulations, adding emotional commentary, collapsing ambiguity,
+over-intensifying language, mismatching project style.
+
 ---
 
 ## Over-elaborating scope

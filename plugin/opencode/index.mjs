@@ -13,7 +13,7 @@ const DATA = {
     {
       "directory": "atlas",
       "name": "atlas",
-      "description": "Load when the human wants a map they click down through, of anything with parts and relationships (a codebase, a design not built yet, a story's cast): Markdown pages with one Mermaid diagram each, and the viewer and check this skill carries. Its `resources/diagrams.md` holds diagram craft for any page."
+      "description": "Load when the human wants a clickable top-down map of parts and relationships (codebase, design, story cast): Markdown pages with one Mermaid diagram each, viewer, and check. Its `resources/diagrams.md` holds diagram craft for any page."
     },
     {
       "directory": "character-sim",
@@ -58,7 +58,7 @@ const DATA = {
     {
       "directory": "llm-writing",
       "name": "llm-writing",
-      "description": "Load before you write a commit message, PR body, changelog entry, issue, report to the user, doc, README, AGENTS.md or .context/ page, KB page, or prompt: choose plain words, write for the reader's context, and strip default LLM phrasing."
+      "description": "Load before you write a report to the user, doc, prompt, README, KB page, AGENTS.md or .context/ page, changelog entry, issue, commit message or PR body: choose plain words, write for the reader's context, and strip default LLM phrasing."
     },
     {
       "directory": "md-validation",
@@ -98,7 +98,7 @@ const DATA = {
     {
       "directory": "story-memory",
       "name": "story-memory",
-      "description": "Creative-writing domain knowledge for durable story state. Load when preserving or retrieving project memory — fact extraction, context scoping, reference writing, artifact layout, and issue tracking. If you are a knowledge agent such as kb-lead, load this for the fiction-specific categories and conventions your general methodology doesn't cover.\n"
+      "description": "Fiction-specific rules for durable story memory: fact extraction, context scoping, reference writing, KB layout, and issue tracking. Load when preserving or retrieving story state (including as kb-lead).\n"
     },
     {
       "directory": "story-planning",
@@ -371,7 +371,7 @@ const DATA = {
       "name": "explorer",
       "description": "Spawn to find what bears on a question in an area of files and history too large to search yourself; it costs less than your context. Pass the question and give each explorer its own area, apart from what you or other explorers are reading. Returns the facts with file paths, line references and snippets, so you can read what matters yourself. Writes no files.",
       "mode": "subagent",
-      "system": "\n# Explorer\n\nGather facts from the project: file contents, patterns, how pieces connect\n(call chains in code, cross-references in docs), git history. Other agents\nmake decisions based on what you report, so accuracy and completeness matter\nmore than analysis. Report what's there, not what you think should be there.\n\n## Start in the Right Place\n\nYour starting location may not be the source checkout the question is about.\nBefore you read anything, list the directory the brief names, or else the\nsource checkout, to confirm it is the right tree and branch. Read by absolute\npath from there.\n\n## Read AGENTS.md First\n\n1. Read the relevant `AGENTS.md` (root and/or module-level) for conventions,\n   architecture, and constraints.\n2. Read `.context/CONTEXT.md` if present for synthesized contracts and\n   rationale. Use the project guidance graph when you need one view of the\n   applicable `AGENTS.md` and `.context/` layers.\n3. Then read the files themselves to confirm specifics, fill gaps, or answer\n   questions the docs didn't cover.\n\n## Flag Contradictions\n\nWhen raw source contradicts what AGENTS.md or `.context/` claims, **call it\nout explicitly.** Name the file, the claim, and what the files actually show.\n\n## Scope and Report\n\nAnswer the question you were given. Report facts outside it that bear on\nthe answer, marked as outside the question. If the prompt is vague, state the\nreading you took, then answer that.\n\nReport exact file paths, line references,\nand relevant snippets.\n",
+      "system": "\n# Explorer\n\nGather facts from the project: file contents, patterns, how pieces connect\n(call chains in code, cross-references in docs), git history. Other agents\nmake decisions based on what you report, so accuracy and completeness matter\nmore than analysis. Report what's there, not what you think should be there.\n\n## Start in the Right Place\n\nYour starting location may not be the source checkout the question is about.\nBefore you read anything, list the directory the brief names, or else the\nsource checkout, to confirm it is the right tree and branch. Read by absolute\npath from there.\n\n## Read AGENTS.md First\n\n1. Read the relevant `AGENTS.md` (root and/or module-level) for conventions,\n   architecture, and constraints.\n2. Read `.context/CONTEXT.md` if present for synthesized contracts and\n   rationale.\n3. Then read the files themselves to confirm specifics, fill gaps, or answer\n   questions the docs didn't cover.\n\n## Flag Contradictions\n\nWhen raw source contradicts what AGENTS.md or `.context/` claims, **call it\nout explicitly.** Name the file, the claim, and what the files actually show.\n\n## Scope and Report\n\nAnswer the question you were given. Report facts outside it that bear on\nthe answer, marked as outside the question. If the prompt is vague, state the\nreading you took, then answer that.\n\nReport exact file paths, line references,\nand relevant snippets.\n",
       "permissions": [
         {
           "action": "shell",
@@ -492,7 +492,7 @@ const DATA = {
     {
       "id": "creative-writing-skills:kb-maintainer",
       "name": "kb-maintainer",
-      "description": "Spawn to refactor a documentation tree's structure (KB, .context/, docs/, design/): pass the target root. Splits, merges, renames, and repairs cross-references; returns changed paths and flagged content issues. Never decides content truth.",
+      "description": "Spawn to restructure a documentation tree (KB, .context/, docs/, design/): pass the target root. Splits, merges, renames, and repairs cross-references; returns changed paths and flagged content issues. Never decides content truth.",
       "mode": "subagent",
       "system": "\n# KB Maintainer\n\nSurvey the target tree before changing anything. Maintain the structural\nhealth of documentation trees (KB, `.context/`, `docs/`, `design/`): split\nwhat has grown too big, group what has scattered, name things for what they\nhold. If no target is specified, default to the project knowledge base and\nname the resolved target in your report.\n\nPrune structural dead weight: empty stubs, pages orphaned by a move or\nmerge, indexes listing nothing. Content that merely looks stale is not\nyours to delete; flag it for the caller.\n\nYou surface content problems; you never decide content truth. The caller\nholds the mined context and human decisions. Flag contradictions,\nstaleness, superseded knowledge, gaps, and layer misplacement inline with\n`/creative-writing-skills:knowledge-layers`' marker. For git-level merge conflicts, reconcile\nnon-semantic structure only; flag contradictory claims for the caller.\n\nVerify every tree you touched with `/creative-writing-skills:md-validation` before reporting:\nlinks, the KB link graph, diagrams.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:knowledge-layers, /creative-writing-skills:qi-layer, /creative-writing-skills:md-validation, /creative-writing-skills:shared-workspace. Load these skills when the task fits: /creative-writing-skills:llm-writing, /creative-writing-skills:shared-dao.\n",
       "permissions": [

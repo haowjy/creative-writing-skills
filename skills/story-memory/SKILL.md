@@ -1,12 +1,9 @@
 ---
 name: story-memory
 description: >
-  Creative-writing domain knowledge for durable story state. Load when
-  preserving or retrieving project memory — fact extraction, context scoping,
-  reference writing, artifact layout, and issue tracking. If you are a
-  knowledge agent such as kb-lead, load this for the
-  fiction-specific categories and conventions your general methodology
-  doesn't cover.
+  Fiction-specific rules for durable story memory: fact extraction, context
+  scoping, reference writing, KB layout, and issue tracking. Load when
+  preserving or retrieving story state (including as kb-lead).
 model-invocable: true
 metadata:
   type: reference

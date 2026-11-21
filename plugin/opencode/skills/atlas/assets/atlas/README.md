@@ -42,6 +42,8 @@ that box, with a breadcrumb. Besides level pages the directory may hold:
   `| file | imports |`, one row per importing file and module (the rule is named in the section heading;
   with several file rules a third column `rule` says which).
 
+A level page may begin with `- View: <kind>` before its Mermaid block. The viewer shows the value beside the page title; it is descriptive only and may be any non-empty value.
+
 A level page is a `flowchart`; each box is
 `id["name<br/><small>role</small>"]:::kind` with a `## id` section giving a one-line sub, `Kind`, `Paths`
 (backticked repo paths), `Docs`, `Machines`, `Opens`, `Breaks`, `Drift`, `See`, `Keys` (the credentials the box
@@ -54,6 +56,42 @@ screenshot from the config's `screens` manifest, cropped to the region when one 
 behind it: a value import, not a type-only one. A dependency with no value import behind it is drawn dotted:
 a port or callback handed in, or a relation through types alone (`a -.->|"takes the Row type of"| b`); the
 label says which. The check lists the rest.
+
+A level may frame boxes that belong together with a labelled Mermaid subgraph. In the viewer it is a **frame**, not a box. Use the exact form
+`subgraph id["Label"]`, put existing box declarations inside it, and close it with `end`:
+
+```mermaid
+subgraph records["Recorded things"]
+  input["Input<br/><small>immutable bytes</small>"]:::store
+  output["Output<br/><small>made by a job</small>"]:::store
+end
+```
+
+Frames are structural boundaries, not boxes: they need no `##` section and cannot be the endpoint of an arrow.
+The parser and check reject an unreadable or unclosed subgraph, an empty frame, duplicate ids, and a frame
+member that is not a box. The layout keeps a frame's members together in a sensible grid, widening gaps
+for arrows and labels, orders frames by the numbered path, leaves unrelated boxes outside, and places
+outside boxes beside what they connect to.
+The frame follows its members when they are dragged or restored from saved positions. Keep frames for a
+real boundary or collection of parts; do not add them just to decorate a diagram.
+
+**Box positions.** The automatic layout places a page's boxes; where it reads badly, the page may carry its
+own. Inside the Mermaid block, after the diagram, one `%% at <box id> <x> <y>` line per box (Mermaid reads
+`%%` as a comment, so Read view and GitHub ignore them):
+
+```mermaid
+  %% at writer 0 0
+  %% at api 330 0
+  %% at db 660 0
+```
+
+`x` and `y` are whole numbers, the box's top-left corner in layout units (pixels at zoom 1, independent of
+window size). A typical box is about 190 wide and 60 to 80 high, so 330 across and 130 down leaves room for
+a label. Frames still follow their members. A box without a line is placed by the automatic layout around
+the placed ones; a line for an id that is not a box on the page, a repeated id or a malformed line fails
+the check with its line. To get the lines without writing them, drag the boxes in the viewer, open the
+Legend and press "Copy box positions", then paste the lines over the old ones. A reader's own drags
+(kept in their browser) win over the page's positions; Reset layout returns to them.
 
 A journey step's `Shot` item fills the step card with the screenshot.
 
@@ -76,6 +114,7 @@ functions, no imports. Paths are repo-relative; a glob's `*` is one path segment
 | `imports` | `{ workspaces, aliases }`: `workspaces` are globs of package directories, resolved by their `package.json` name; `aliases` are `{ prefix, within, to }` |
 | `dependencies` | `{ page, rules }`, read when `nav.dependencies` is set. A rule is `{ rule, cycle: glob }` (units that import each other in a loop) or `{ rule, from: glob, to: glob }` (a unit of `from` importing under another unit of `to`; only value imports count). A unit is a directory matching the glob, named by its last segment; the `rule` text is the row's third cell. A **file rule** is `{ rule, files: dir, to: [module, …] }`: any source file under the directory `files` importing a listed module, one row per file and module, so a new file breaks the rule even when a sibling already does. Rows name the file relative to `files` and a repo path by its last segment. A module is a workspace package (`@scope/name`, with its subpaths, and a relative path into its directory), a package subpath (`@scope/name/sub`, with what lies under it) or a tracked repo path (a directory or file; matched on where the import resolves to); a module that is none of these fails the check. The `files` directory is read apart from the boxes' Paths, so it may lie outside them without feeding the unit rules. Type-only imports count. Test files don't (`*.test.*`/`*.spec.*`, `.d.ts`, and directories or files named `__tests__`, `test`, `tests`, `e2e`, `fixtures`, `*test-support*`) |
 | `stateMachines` | optional: `{ index, pages }`: the index page the viewer opens, and a git pathspec for every state machine page the index must list |
+| `documents` | optional: `[{ title, path }]`: files listed in the top-bar Docs menu; each opens in the full-window reading view. With `serveSource: false`, every path must match `docs` and be a file the server shows |
 | `nav` | `{ journeys, machines, dependencies }`: the label of each optional section; leave one out and it is off |
 | `serveSource` | default `true`: the dev server shows any tracked file. `false`: only the pages directory and `docs`. Use `false` only when the viewer's server is the sole thing that would show source: a dev server that serves the workspace itself (Vite's `/@fs/`) shows it anyway |
 | `docs` | globs of files shown even when `serveSource` is `false` |

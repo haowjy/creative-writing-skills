@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### Changed
+- `/creative-writing-craft`, `/story-planning`, `/story-review`: link nested `resources/` files directly from `SKILL.md` (1-level-deep progressive disclosure).
+- `/story-memory`: trim description under 300 chars for Codex's description budget.
+- `/writing-principles` `resources/failure-modes.md`: opens with the list of patterns it covers, so a partial read still sees them (#8).
+- `/creative-writing-muse`: the rule for which prose passes go to `writer` moved to `/story-workflow` § Produce, beside the other lanes, so the skill claude.ai users turn on no longer describes spawning.
+- README: Claude.ai, Claude Code and Cowork come first, then Codex, Cursor, OpenCode and Grok; Meridian moved to an Advanced section. The skill and agent lists match what the plugin ships, and release steps point to `AGENTS.md`.
+- Bundles the meridian-base wording that no longer assumes a codebase (`/qi-layer`, `/knowledge-layers`, `/llm-writing`, `/atlas`, `explorer`, `kb-maintainer`).
+
 ## [0.9.8] - 2026-11-19
 
 ### Changed

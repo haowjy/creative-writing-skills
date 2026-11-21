@@ -16,8 +16,8 @@ How the viewer and server work, for changing them. The rules an edit must keep a
   a GitHub URL when the dev server wouldn't show the file); `files.js` paints what the doc view shows for a
   path (Markdown, a directory listing, an image, or text as numbered lines); `app.js` is the router (nav,
   history, the Read | Map toggle, the full-window doc view); `map.js` is the Map view of a level page
-  (React Flow; `layout.js` places the boxes and `routes.js` draws the arrows and places their labels,
-  both without DOM); `journeys.js` is the journeys; `shell.js` is the DOM helper, theme and fetching.
+  (React Flow; `layout.js` places the boxes, `frames.js` is the frames' geometry, and `routes.js` with
+  `route-grid.js` draws the arrows and places their labels, all without DOM); `journeys.js` is the journeys; `shell.js` is the DOM helper, theme and fetching.
 - **Routes** are the URL hash: `#<level>[/<box>]`, `#flows/<flow>` (a flow, under Journeys), `#machines`,
   `#dependencies`, `#journeys[/<journey>[/<step>]]`, `#doc/<encoded path>[/<fragment>]`. A route is a history
   entry, except choosing a box or a journey step. `#doc/` opens any repo path full window over the page:
@@ -26,21 +26,21 @@ How the viewer and server work, for changing them. The rules an edit must keep a
   docs and ends on the page and box the reader came from, with the map's zoom and the Read scroll as they were.
   `history.state.docs` counts the docs opened since; Escape and × close them all.
 - **Read | Map** is a per-reader choice kept in `localStorage`. Read is the page as Markdown; a click
-  on a diagram box scrolls to its `##` section. Map is `map.js`: the intro and a "How to read this" the
-  viewer supplies sit above the diagram; a group opens its child page. It does not draw the page's
-  Mermaid: it draws the parsed nodes, arrows and note links with React Flow, boxes sized by their
-  text. `layout.js` puts the numbered path on one row in step order, left to right (a box the path
-  leaves and doesn't go on from, or comes straight back from, is a spur beside it), wraps the row
-  only when it can't be drawn at `READABLE_ZOOM`, and puts every other box and note in bands above
-  and below, near what it connects to. Arrows along the row run straight, skip forward over it and
-  back under it. A label never covers a box or another label: a side arrow's label is left out
-  where there's no room (the panel lists every arrow), and choosing a box shows its own. Fit never
-  zooms below `READABLE_ZOOM` (box text 13px and 11px on screen); a level that doesn't fit, as on a
-  phone, opens at its start to pan. Boxes drag and the arrows follow; positions go to
-  `localStorage` per page, only when a drag ends, and a page whose boxes aren't all saved is laid out
-  afresh. Read view draws the Mermaid block itself.
+  on a diagram box scrolls to its `##` section. Map is `map.js`: it draws the parsed nodes, arrows,
+  notes and labelled structural frames with React Flow, boxes sized by their text. The page title and
+  description live in the details panel; the reading hint and stacked-box page-opening marker are
+  named in the legend. The breadcrumb takes no row: on the map it floats over the top-left corner, in Read it is the
+  first line of the article. Expandable content overlays what is already there. `layout.js` uses a deterministic numbered path: frames are ordered
+  by where the path first enters them, their members form sensible grids with arrow-aware gaps,
+  branch frames sit beside the spine, and outside boxes sit beside the unit they connect to. The spine wraps before it becomes too
+  wide for readable zoom. A frame is computed from its members every render, so it follows a drag or
+  saved positions. `routes.js` routes every arrow again after a drag (see Arrow routing). The opening view and the Fit button are the same view (`fitLevel`): the whole level, labels included, sits clear of every overlay (top bar buttons, breadcrumb, zoom buttons, legend; `freeArea` in `map.js` reads their rectangles, so any window size and an opened legend count). A small window therefore opens at a low zoom and the reader zooms in; a readable opening zoom was dropped because it put boxes under the overlays.
+  **Authored positions:** a page's `%% at <id> <x> <y>` lines (`parsePage` → `mermaid.positions`) reach `layoutLevel` as `level.authored`; `withAuthored` keeps them and puts each unplaced box at the automatic layout's place if that is clear (AUTHORED_GAP round placed boxes, no frame outline enclosing a non-member), else at the nearest clear spot to its linked or frame-mate boxes. The reader's saved drags (`localStorage`) still win when every box has one; Reset layout clears them and lays out again, so it returns to the page's positions. The Legend's "Copy box positions" writes the boxes' current positions with `positionLines` (shifted to start at 0, 0, rounded). It is in the Legend, which already overlays, because it is rare and a toolbar button would not be. If a dragged frame would enclose a non-member, its outline breaks into member outlines instead. The top bar's Docs menu overlays the page and opens configured documents in the reading view. Opening a page and going up animate a zoom when motion is allowed;
+  Escape goes up to the parent. Boxes drag and the arrows follow; positions go to `localStorage` per
+  page, only when a drag ends, and a page whose boxes aren't all saved is laid out afresh. Read view
+  draws the Mermaid block itself. A level may put `- View: <kind>` before its Mermaid block; the value is shown beside the title and changes no map behavior.
 - A flow's participants are clickable (`resolveParticipant` in `pages.js`, shared with the check): they open the box on the map (they set the view to Map).
-- The nav is the README's `## The pages` list plus the entries the config's `nav` names. Every other
+- The nav is the README's `## The pages` list plus the entries the config's `nav` names. When `documents` is configured, Docs is an overlay menu beside that nav. Every other
   level page is reached by a box's `Opens`; `loadLevelPages` in `pages.js` builds the set and each page's
   breadcrumb trail, and the viewer and `check.mjs` both call it.
 - `styles/page.css` holds no colour: it paints with `--map-*` roles. The config's `tokens.roles` maps each
@@ -70,6 +70,42 @@ How the viewer and server work, for changing them. The rules an edit must keep a
   `marked` in `index.html`, Mermaid in `js/markdown.js`. To bump one, fetch the new file and
   recompute its `sha384`. React stays on 18 (19 has no UMD build); `@xyflow/react`'s UMD build wants a
   `jsxRuntime` global, which `js/jsx-runtime.js` maps onto React; `vendor/` holds its stylesheet.
+
+## Arrow routing
+
+`routes.js` (arrows, labels) and `route-grid.js` (grid and search) turn boxes, frames and arrows into
+polylines, as plain data with no DOM; `routeLevel` adapts a page. Orthogonal connector routing in the
+manner of libavoid (Wybrow, Marriott and Stuckey, "Orthogonal connector routing"), written here
+because the engine loads no bundled code and libavoid is LGPL C++/WebAssembly; JointJS's manhattan
+router, a grid A*, has the same search but no separation, which is why it overlaps shared lanes.
+
+- Nodes sit every 8 px (wider on a huge drawing) at absolute multiples of the pitch. A node is free
+  unless it lies inside a box inflated by `CLEAR` (12 px), a frame title inflated by `FRAME_CLEAR`
+  (8), or an earlier label. Horizontal moves are refused within `FRAME_CLEAR` of a frame's
+  horizontal border, vertical ones near a vertical border, so a border is crossed squarely and
+  never run along. An arrow's own two boxes are open only in the strip straight out of each side
+  (the stub): the way out and in is perpendicular, ports are the lanes of that strip, clear of the
+  corners.
+- A* over (node, direction): cost is length, 40 per bend, a surcharge for crossing an arrow (more for
+  a numbered one) or a frame border, nearness to boxes (so lanes centre in a gap) and an adjacent
+  occupied lane. A route can only step on free nodes, so it keeps the clearances with no repair pass.
+- Arrows go one at a time, the numbered path first, then shortest first. A routed arrow holds its
+  nodes: a later arrow may cross it but never shares a lane or bends on it, so parallel arrows are at
+  least one pitch apart, and ports on a side spread without a rule for it.
+- An arrow is committed with a label: a straight run of its route where the label rect keeps `CLEAR` from
+  boxes and touches no title, border, other label or other arrow. With none, the route is rebuilt to
+  pass through a run of its own: candidate runs, nearest the direct way first, each routed to and from. A candidate whose route would double back over its own nodes (a port off the run's line) is skipped.
+  The label then holds its rectangle against later arrows. Routes do not change when a box is selected;
+  the viewer only hides the labels of unselected boxes' arrows.
+- An arrow that finds no route, or no label place (a crowded box walled in by earlier arrows and
+  labels), is routed again first, up to five passes; the best pass stands. Boxes drawn over each other
+  have no route: the arrow is a straight line and `exact` is false.
+- Spacing is layout's job: frames stand 26 px (40 above) off their members and boxes in a frame are
+  34 px apart (`frames.js`, `layout.js`), enough for one lane between.
+- `test/routes.test.mjs` is the definition of correct (properties in its header), run on every page of the
+  example atlas and a project atlas (`ATLAS_CONFIG`) laid out and with each box dragged, and on seeded random cases.
+  Not guaranteed: a box with more arrows than its sides have lanes, many labels in a small area, boxes
+  overlapping. The test generates no case with more than two arrows per box on average.
 
 ## The server
 

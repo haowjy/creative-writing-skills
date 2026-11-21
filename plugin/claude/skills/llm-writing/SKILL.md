@@ -1,6 +1,6 @@
 ---
 name: llm-writing
-description: 'Load before you write a commit message, PR body, changelog entry, issue, report to the user, doc, README, AGENTS.md or .context/ page, KB page, or prompt: choose plain words, write for the reader''s context, and strip default LLM phrasing.'
+description: 'Load before you write a report to the user, doc, prompt, README, KB page, AGENTS.md or .context/ page, changelog entry, issue, commit message or PR body: choose plain words, write for the reader''s context, and strip default LLM phrasing.'
 metadata:
   type: guardrail
 ---

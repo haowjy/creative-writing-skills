@@ -65,7 +65,8 @@ Write a choice as behavior and reason, not as a rule. Don't add a "must",
 "never" or "always" the human didn't say, or a line for what a careful agent
 protects unprompted, such as users' data or a passing build. Written down as
 a rule, it gets applied past its reason: an agent told that users' data
-must survive keeps code whose only job is to keep old links working.
+must survive keeps pages and code whose only job is to keep old links
+working.
 
 Instructions about how agents work (permissions, approvals, what needs the
 human, lessons from past mistakes) are not tradeoffs: follow them, and write

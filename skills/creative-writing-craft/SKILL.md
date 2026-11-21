@@ -21,4 +21,7 @@ Load only the resource the pass needs:
 - `resources/prose-writing.md` — psychic distance, free indirect discourse, rhythm, sensory grounding, interiority, POV.
 - `resources/scene-construction.md` — scene entry, dialogue, pacing, transitions.
 - `resources/style-analysis.md` — analyzing prose samples and producing style reference files.
-- `resources/genre/` — genre-specific craft guidance when genre promise shapes the page.
+- Genre-specific craft (open only the genre that shapes the page):
+  `resources/genre/fantasy.md`, `resources/genre/horror.md`,
+  `resources/genre/litfic.md`, `resources/genre/mystery.md`,
+  `resources/genre/romance.md`, `resources/genre/thriller.md`.

@@ -9,7 +9,7 @@ import { MAP_DIR, NAV } from "./config.js";
 import { paintInline, route } from "./markdown.js";
 import { item, JOURNEY_KEYS, linksOf } from "./pages.js";
 import { shotCrop } from "./screens.js";
-import { el, fetchPage, fetchRepoFile } from "./shell.js";
+import { adjustablePanel, el, fetchPage, fetchRepoFile, showPanel } from "./shell.js";
 
 const JOURNEYS = `${MAP_DIR}/journeys`;
 const FLOWS_INDEX = `${MAP_DIR}/flows/index.md`;
@@ -19,6 +19,7 @@ export async function createJourneys(host, { nav, screens }) {
   const content = el("div", { class: "journeys" });
   const panel = el("aside", { class: "panel", "aria-label": "Selected step" });
   host.replaceChildren(content, panel);
+  const disposePanel = adjustablePanel(host, panel);
   // A project may have no flows; the check holds the flows page to what exists.
   const flowLines = (await fetchRepoFile(FLOWS_INDEX).catch(() => ""))
     .split("\n")
@@ -44,7 +45,7 @@ export async function createJourneys(host, { nav, screens }) {
         paragraph(j.page.intro, j.path),
         el(
           "div",
-          { class: "steps", tabindex: "0" },
+          { class: "steps" },
           j.page.sections.map((s, i) => card(j, s, i)),
         ),
       ),
@@ -88,6 +89,7 @@ export async function createJourneys(host, { nav, screens }) {
   function card(journey, section, i) {
     const open = () => {
       nav.replace(`#journeys/${journey.id}/${i + 1}`);
+      showPanel();
       select(journey.id, i + 1);
     };
     return el(
@@ -95,17 +97,9 @@ export async function createJourneys(host, { nav, screens }) {
       {
         class: "step",
         "data-step": `${journey.id}/${i + 1}`,
-        tabindex: "0",
-        role: "button",
-        onclick: open,
-        onkeydown: (e) => {
-          if (e.key !== "Enter" && e.key !== " ") return;
-          e.preventDefault();
-          open();
-        },
       },
       el("div", { class: "step-no" }, `${i + 1}`),
-      el("h3", null, section.id),
+      el("h3", null, el("button", { type: "button", class: "step-title", onclick: open }, section.id)),
       item(section, "Shot") && shotCrop(screens, item(section, "Shot").value, 400),
       el("h4", null, "Does"),
       paragraph(field(section, "Does"), journey.path),
@@ -204,5 +198,5 @@ export async function createJourneys(host, { nav, screens }) {
     content.addEventListener("pointercancel", end);
   }
 
-  return { select, dispose() {} };
+  return { select, dispose: disposePanel };
 }

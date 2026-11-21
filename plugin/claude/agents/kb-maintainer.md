@@ -1,6 +1,6 @@
 ---
 name: kb-maintainer
-description: 'Spawn to refactor a documentation tree''s structure (KB, .context/, docs/, design/): pass the target root. Splits, merges, renames, and repairs cross-references; returns changed paths and flagged content issues. Never decides content truth.'
+description: 'Spawn to restructure a documentation tree (KB, .context/, docs/, design/): pass the target root. Splits, merges, renames, and repairs cross-references; returns changed paths and flagged content issues. Never decides content truth.'
 model: sonnet
 skills:
 - creative-writing-skills:knowledge-layers

@@ -45,9 +45,11 @@ a real variable and say what each one shows.
 When you can spawn this package's agents (`critic`, `writer`, `kb-lead`
 and the rest), spawn the lanes that need a context of their own, as
 `/creative-writing-skills:writing-staffing` describes: critique, continuity, reader simulation,
-research, alternate takes, and knowledge capture. A critic that did not
-write the draft reads it the way a reader will, and a lane on another model
-brings other blind spots. Without them, run each lane yourself as its own
+research, and knowledge capture. A critic that did not write the draft
+reads it the way a reader will, and a lane on another model brings other
+blind spots. Of the prose, `writer` takes only an alternate take on another
+model, a polish pass the author asks for, and a draft long enough to fill
+your context. Without them, run each lane yourself as its own
 pass, with the skill its agent would load (`/creative-writing-skills:story-review`, `/creative-writing-skills:reader-sim`,
 `/creative-writing-skills:creative-research`, `/creative-writing-skills:character-sim`, `/creative-writing-skills:shared-dao`, `/creative-writing-skills:story-memory`), and
 finish one stance before taking up the next: draft before judging, critique

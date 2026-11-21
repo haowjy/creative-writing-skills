@@ -1,6 +1,6 @@
 ---
 name: atlas
-description: 'Load when the human wants a map they click down through, of anything with parts and relationships (a codebase, a design not built yet, a story''s cast): Markdown pages with one Mermaid diagram each, and the viewer and check this skill carries. Its `resources/diagrams.md` holds diagram craft for any page.'
+description: 'Load when the human wants a clickable top-down map of parts and relationships (codebase, design, story cast): Markdown pages with one Mermaid diagram each, viewer, and check. Its `resources/diagrams.md` holds diagram craft for any page.'
 metadata:
   type: reference
 ---
@@ -24,14 +24,27 @@ rest of this skill is for building an atlas.
   or a child page.
 - **A name and a one-line role on every box**, in the reader's words, so the
   diagram reads without the panel.
+- **A labelled Mermaid `subgraph` is a frame around a real boundary or collection of boxes**:
+  write `subgraph id["Label"]`, put the existing boxes inside, and close with `end`.
+  The viewer lays its members out as a block, keeps unrelated boxes outside, and follows the members
+  when they move. A frame is not a clickable box and needs no section. Use frames to clarify structure,
+  never as decoration.
+- **The automatic layout suits most pages; when one reads badly, place its boxes yourself.** Drag
+  them in the viewer, open Legend and press "Copy box positions", and paste the lines into the page's
+  Mermaid block (`%% at <box id> <x> <y>`). Put what flows in on one side, what flows out on the other,
+  and the box everything meets in the middle, so the arrows are short.
 - **Arrows say what flows or binds**, in a few words ("claims the run", "owes
   a debt to"). Where a page has a main path (a request, a scan, a plot
   line), number its arrows in order; the rest are side paths.
 - **A part with parts of its own opens its own page.** The index lists the
   top-level pages side by side; anything else is reached by clicking the box
   that holds it, so no part gets a section of the index to itself.
+- **A level page may begin with `- View: <kind>`** before its Mermaid block; the viewer shows that
+  descriptive value beside the page title.
 - **A box's section** starts with one sentence, which the panel shows; the
-  rest of the section and of the page is the depth, for whoever opens it.
+  rest of the section and of the page is the depth, for whoever opens it. A box
+  that opens a child page is drawn as a stacked card; do not add a glyph to its
+  Mermaid label.
 - **Images**: crop a screenshot or illustration to what the box covers, and
   let the engine spotlight the region. The explanation goes in the page, not
   on the image.
@@ -40,13 +53,10 @@ rest of this skill is for building an atlas.
 
 Copy `assets/atlas/` into the project as `tools/atlas/`, unchanged, and
 follow its `README.md`, which holds the page format, the config and what the
-check catches; `example/` is a working toy. A change to the engine goes to
-this skill's source in meridian-base, not to `.mars/` or the project's copy:
-sync rewrites `.mars/`, and the check fails when the copy differs from it.
-To move a project's own older copy (such as `tools/architecture-map/`),
-replace it with this one, update every reference to it (scripts, the dev
-server's plugin, the viewer's URL, docs), and rewrite the project's rule for
-where engine changes go.
+check catches; `example/` is a working toy. To move a project's own older
+copy (such as `tools/architecture-map/`), replace it with this one, update
+every reference to it (scripts, the dev server's plugin, the viewer's URL,
+docs), and rewrite the project's rule for where engine changes go.
 
 Serve it (`node tools/atlas/serve.mjs <config>`) and look at every page in a
 browser, at desktop and phone width: a label that collides, a page whose
@@ -62,4 +72,5 @@ the code; it is a tripwire, not a proof. Whether each word and arrow is
 still true is yours to read.
 
 For craft the page format leaves to you (framing a large diagram, labels,
-keyboard access), open `resources/diagrams.md`.
+keyboard access), open `resources/diagrams.md`. For connected custom React
+components or an explorable node graph, open `resources/react-flow.md`.

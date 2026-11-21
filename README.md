@@ -3,44 +3,52 @@
 [![CI](https://github.com/haowjy/creative-writing-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/haowjy/creative-writing-skills/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
-Write novels, short stories, and serial fiction with AI that maintains your voice, tracks your continuity, and gets better the more you use it. From first brainstorm to polished draft: specialized agents handle each mode of work (writing, critiquing, revising, exploring) while shared skills carry the craft methodology.
+Write novels, short stories, and serial fiction with AI that keeps your voice, tracks your continuity, and gets better the more you use it. From first brainstorm to polished draft, muse, your creative partner, talks through the story with you, drafts and revises in your voice, and draws on shared skills for the craft. Where your app runs agents, specialists take the critique, reader-reaction and continuity passes in sessions of their own.
 
 **What you get:**
-- **Brainstorm without committing**: explore plot options, character arcs, and world mechanics with multiple AI perspectives before deciding anything
+- **Brainstorm without committing**: explore plot options, character arcs, and world mechanics before deciding anything
 - **Write in your voice**: create style files from your existing prose, then draft new scenes that match
 - **Catch your own mistakes**: structured critique, continuity checks, and simulated reader reactions
-- **Keep everything in sync**: knowledge base updates as your story evolves
+- **Keep everything in sync**: a knowledge base of characters, canon and timeline that updates as your story evolves
 
 ## Quick Start
 
-1. **Install** for your environment: [meridian-cli](#mars-meridian-cli), [Claude Code / Cowork](#claude-code--cowork) or [Claude.ai](#claudeai).
-2. **Run project setup once, before you write anything.** Agents never start it for you; you do:
+1. **Install** for your app: [Claude.ai](#claudeai), [Claude Code or Cowork](#claude-code-and-cowork), or [Codex, Cursor, OpenCode or Grok](#codex-cursor-opencode-and-grok).
+2. **Run project setup once, before you write anything.** Muse never starts it for you:
 
-   | Environment | Run |
+   | App | Run |
    |---|---|
-   | meridian-cli | `meridian bootstrap` (runs automatically in your first session) |
-   | Claude Code / Cowork | `/creative-writing-skills:project-setup` |
    | Claude.ai | turn on `project-setup` and ask it to set up your project |
+   | Claude Code / Cowork | `/creative-writing-skills:project-setup` |
+   | Codex, Cursor, OpenCode, Grok | the `project-setup` skill |
 
-   It interviews you about the project, collects writing samples, and creates your `AGENTS.md`, the `kb/` layout and your first style files. Every agent reads those, so skipping this step makes them guess your conventions.
-3. **Start writing with muse**, your creative partner: `meridian` (meridian-cli), `claude --agent creative-writing-skills:muse` (Claude Code), or turn on `creative-writing-muse` (Claude.ai).
+   It interviews you about the project, collects writing samples, and creates your `AGENTS.md` (the project's conventions), the `kb/` knowledge base layout and your first style files. Everything muse does reads those, so skipping this step makes it guess your conventions.
+3. **Start writing with muse**: turn on `creative-writing-muse` (Claude.ai, Cowork, Codex, OpenCode), or start the `muse` agent (`claude --agent creative-writing-skills:muse` in Claude Code; choose `muse` as the agent in Cursor and Grok).
 
 ## Installation
 
-### Mars (meridian-cli)
+### Claude.ai
 
-```bash
-meridian mars add haowjy/creative-writing-skills
-meridian mars sync
-```
+`creative-writing-muse` turns an ordinary Claude chat into a creative writing partner. Turn it on, tell it what you're working on, and it carries you from first idea to finished draft in one conversation: talking through ideas, drafting scenes in your voice, flagging what isn't working, and revising. The other skills (prose, scene craft, critique, structure) are the craft knowledge it draws on; you don't have to invoke them yourself.
 
-Then run `meridian` to start a meridian-cli session with muse. First-time setup runs the bootstrap automatically.
+First, add the skills to claude.ai. Pick one:
 
-`writer` defaults to Opus at high effort.
+- **Add the marketplace (easiest):** in the sidebar, **Customize** → **Personal plugins** → **+** → **Create plugins** → **Add marketplace** → **Add from repository**, enter `haowjy/creative-writing-skills`, and click **Sync**.
 
-### Claude Code / Cowork
+  ![Adding the marketplace in claude.ai: the plugins icon and + in the sidebar, with the repository entered in the Add marketplace dialog](docs/images/claudeai-add-marketplace.png)
+- **Upload the files:** download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest), then **Customize** → **Skills** → **"+"** → **Upload skill** for each one.
 
-Claude Code and Cowork use the same plugin format.
+Then start a chat, turn on **`creative-writing-muse`**, and describe what you want to write; it leads from there. Adding skills one at a time instead? Start with **creative-writing-muse** and **story-workflow**, which holds muse's method, then **writing-principles**, **creative-writing-craft**, **story-planning**, **story-review**, and **story-memory**.
+
+Run **`project-setup`** once before writing. On claude.ai it gives you the `AGENTS.md`, kb layout, and style guidance as text to save in your project.
+
+The plugin's agents show up grayed out in a claude.ai chat: chat runs skills only, so muse runs every pass itself, in one conversation.
+
+> Want to build the files yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate them in `zips/`. It packages the committed `plugin/claude/skills` tree.
+
+### Claude Code and Cowork
+
+Claude Code and Cowork use the same plugin, and both run the agents.
 
 **Claude Code**: add the marketplace and install:
 
@@ -49,39 +57,45 @@ Claude Code and Cowork use the same plugin format.
 /plugin install creative-writing-skills@creative-writing-skills
 ```
 
-**Cowork**: in the sidebar, **Customize** → **Personal plugins** → **+** → **Create plugins** → **Add marketplace** → **Add from repository**, enter `haowjy/creative-writing-skills`, then install the **creative-writing-skills** plugin. (Same flow as [Claude.ai](#claudeai) below — Cowork just also runs the agents.)
+**Cowork**: in the sidebar, **Customize** → **Personal plugins** → **+** → **Create plugins** → **Add marketplace** → **Add from repository**, enter `haowjy/creative-writing-skills`, then install the **creative-writing-skills** plugin.
 
-Once installed, start a session with muse as your agent:
-
-```bash
-claude --agent creative-writing-skills:muse
-```
-
-Run the one-time project setup to create your `AGENTS.md`, `kb/` layout, and
-style files:
+Run the one-time project setup to create your `AGENTS.md`, `kb/` layout, and style files:
 
 ```
 /creative-writing-skills:project-setup
 ```
 
-### Claude.ai
+Then start writing with muse. **Claude Code**: start a session with muse as your agent:
 
-`creative-writing-muse` turns an ordinary Claude chat into a creative writing partner. Turn it on, tell it what you're working on, and it carries you from first idea to finished draft in one conversation — talking through ideas, drafting scenes in your voice, flagging what isn't working, and revising. The other skills (prose, scene craft, critique, structure) are the craft knowledge it draws on; you don't have to invoke them yourself.
+```bash
+claude --agent creative-writing-skills:muse
+```
 
-First, add the skills to claude.ai — pick one:
+**Cowork**: turn on **creative-writing-muse** and describe the project; muse hands work to the other agents from there.
 
-- **Add the marketplace (easiest):** in the sidebar, **Customize** → **Personal plugins** → **+** → **Create plugins** → **Add marketplace** → **Add from repository**, enter `haowjy/creative-writing-skills`, and click **Sync**.
+### Codex, Cursor, OpenCode and Grok
 
-  ![Adding the marketplace in claude.ai: the plugins icon and + in the sidebar, with the repository entered in the Add marketplace dialog](docs/images/claudeai-add-marketplace.png)
-- **Upload the files:** download the `.skill` files from the [latest release](https://github.com/haowjy/creative-writing-skills/releases/latest), then **Customize** → **Skills** → **"+"** → **Upload skill** for each one.
+The plugin builds for these too. Codex and OpenCode load the skills but not the agents, so turn on `creative-writing-muse` and work in one session; Cursor and Grok load both.
 
-Then start a chat, turn on **`creative-writing-muse`**, and describe what you want to write — it leads from there. Adding skills one at a time instead? Start with **creative-writing-muse**, **writing-principles**, **creative-writing-craft**, and **story-review**.
+```bash
+# Codex
+codex plugin marketplace add haowjy/creative-writing-skills
+codex plugin add creative-writing-skills@creative-writing-skills
 
-Run **`project-setup`** once before writing. On claude.ai it returns the `AGENTS.md`, kb layout, and style guidance as text to save; in Cowork it writes them into the project.
+# Cursor: then install the plugin from Cursor's Customize UI
+agent plugin marketplace add https://github.com/haowjy/creative-writing-skills
 
-> Want to build the files yourself? Clone the repo and run `python scripts/create_skill_zips.py` to regenerate them in `zips/`. It packages the committed `plugin/claude/skills` tree; run `mars build plugin` first if you changed a source skill.
+# OpenCode
+opencode plugin add git+https://github.com/haowjy/creative-writing-skills.git
+
+# Grok
+grok plugin marketplace add https://github.com/haowjy/creative-writing-skills
+grok plugin install creative-writing-skills --trust
+```
 
 ## How It Works
+
+Muse talks, plans and drafts with you, and decides what to do with every draft and critique. Where agents run, it hands the passes that read better from outside to specialists in their own sessions; where they don't, it runs each pass itself, one at a time, with the same skills.
 
 ```mermaid
 flowchart TB
@@ -116,52 +130,54 @@ flowchart TB
     Maintain -.->|context for next session| Explore
 ```
 
-**Explore:** Fan out brainstormers for creative variety. Spawn character-sims to discover voices. Use outliners to shape structure once a direction is chosen.
+**Explore:** brainstorm options from several angles, talk to your characters to find their voices, and outline once a direction is chosen.
 
-**Draft & Revise:** Muse drafts and revises with you, and hands writer the passes that need their own session: alternate takes on another model, a polish pass you ask for, or a very long draft. Each critic runs one lane: a focus area for depth on one craft dimension, or an edit level, where editorial review gives the holistic book-editor priority across structure, voice, line quality, and surface. After two critique rounds on a chapter, muse brings you what is still open and you decide. Reader-sim gives experiential signal on pivotal scenes.
+**Draft & Revise:** muse drafts and revises with you. Where agents run, it hands `writer` the passes that need their own session: an alternate take on another model, a polish pass you ask for, or a very long draft. Each critique runs one lane: a focus area for depth on one craft dimension, or an edit level, where editorial review gives a book editor's priorities across structure, voice, line quality, and surface. After two critique rounds on a chapter, muse brings you what is still open and you decide. A simulated reader gives moment-by-moment reactions to pivotal scenes.
 
-**Knowledge:** When a chapter, revision, or ruling settles, muse dispatches `kb-lead` with the `story-memory` skill and what settled, so a trial stays a trial; in harnesses without agents it applies `story-memory` itself. Style-creator captures voice patterns from prose samples. The kb grows as the project evolves, giving every future agent accurate context.
+**Knowledge:** when a chapter, revision, or ruling settles, muse records what settled in the kb (through `kb-lead` where agents run), so a trial direction stays a trial. Style files capture your voice from prose samples. The kb grows with the project, so every later session starts with accurate context.
 
 ## Agents
 
+Claude Code, Cowork, Cursor and Grok run these. Elsewhere muse does each job itself with the matching skill.
+
 | Agent | Role |
 |---|---|
-| **muse** | Author-facing creative partner for all story work: talks, plans, and drafts with you, spawns critique and knowledge capture, and owns the verdict |
-| **spark** | Budget creative partner with muse's posture: brainstorms, advises and drafts with you in one context, spawning no one |
-| **setup** | Runs `/project-setup` with you once, for runtimes where you start a chat with an agent instead of a skill |
+| **muse** | Author-facing creative partner for all story work: talks, plans, and drafts with you, hands off critique and knowledge capture, and owns the verdict |
+| **spark** | Budget creative partner with muse's posture: brainstorms, advises and drafts with you in one session, handing off to no one |
+| **setup** | Runs `/project-setup` with you once, for apps where you start a chat with an agent instead of a skill |
 | **writer** | Production prose in one mode (draft, revision, bridge, alternate take, line polish) for passes that need their own session |
 | **critic** | Diagnoses a draft in one lane: a focus area (structure, character, voice, prose, continuity) or an edit level (editorial review, developmental, line edit, copyedit, proofreading) |
 | **reader-sim** | Experiential reader response to a draft, moment by moment |
 | **character-sim** | In-character conversation for voice discovery and relationship testing |
 | **continuity-checker** | Cross-references content against established canon for contradictions |
+| **creative-researcher** | Web research for real-world grounding: historical and cultural detail, domain accuracy, primary sources, flagging where the story's assumptions are wrong |
 | **brainstormer** | Creative option generation for a scoped question or angle |
 | **outliner** | Sequences confirmed direction into arc, chapter, and beat-level outlines |
 | **style-creator** | Analyzes prose samples to produce style reference files for the project's voice |
-| **kb-lead** | Mines settled work for decisions and updates the kb; the agent behind `story-memory` |
+| **kb-lead** | Records settled work in the kb; the agent behind `story-memory` |
 
-Four `meridian-base` delegates ship with the plugin for the work around the writing: `explorer` finds what's related in a large area, `session-miner` finds where past sessions discuss a question, `cold-reader` checks text that outlives the work for what a reader who wasn't there cannot follow, and `kb-maintainer` refactors a documentation tree's structure.
-
-Knowledge extraction into the kb in harnesses without agents stays in the conversation: the muse applies the `story-memory` skill directly.
+Four general-purpose helpers ship with them for the work around the writing: `explorer` finds what's related in a large project, `session-miner` finds where past sessions discuss a question, `cold-reader` checks notes and docs for what a reader who wasn't there cannot follow, and `kb-maintainer` restructures a knowledge base.
 
 ## Skills
 
 | Skill | Purpose |
 |---|---|
+| **creative-writing-muse** | The muse's method: one creative partner that talks, plans, drafts, and revises with you; turn it on in any app |
 | **creative-writing-craft** | Prose modes (fresh draft, revision, bridge, alternate take, line polish) and craft references for prose, scenes, style, voice, and genre |
 | **writing-principles** | Reader reward channels, AI failure modes, and fiction-specific taste discipline |
 | **story-planning** | Direction, brainstorming, outlining, and story architecture before pages exist |
 | **story-review** | Editorial review, developmental edit, line edit, copyedit, proofreading, craft critique, and reader-signal synthesis |
-| **story-memory** | Context, fact extraction, reference writing, artifact layout, and persistent issue tracking |
+| **story-memory** | Context, fact extraction, reference writing, kb layout, and persistent issue tracking |
+| **story-workflow** | The lifecycle of story work: intent, direction, drafting, critique rounds, the verdict, knowledge capture, presenting |
 | **reader-sim** | First-time reader simulation from a specified persona |
 | **character-sim** | In-character conversation for voice and relationship testing |
-| **creative-writing-muse** | The muse's method: one creative partner that talks, plans, drafts, and spawns what needs its own context; turn it on in any environment |
-| **story-workflow** | The lifecycle of story work: intent, direction, drafting, critique rounds, the verdict, knowledge capture, presenting |
-| **writing-staffing** | Which agent takes which lane, what to tell it to load, and how many lanes to run |
-| **llm-writing** | Intentional language discipline: catches unchosen LLM defaults while preserving deliberate ambiguity, omission, repetition, and rhythm |
+| **creative-research** | Research for factual grounding: historical detail, cultural texture, domain accuracy, how other authors handled similar material |
+| **writing-staffing** | Which agent takes which lane, what to tell it to load, and how many lanes to run (only where agents run) |
+| **project-setup** | One-time guided setup (you start it): interviews you, then creates `AGENTS.md`, the kb layout, and style files |
+| **llm-writing** | Plain words and reader-first discipline for notes, briefs and reports; strips default LLM phrasing |
 | **shared-dao** | Shared vocabulary: canonical story terms, aliases, and ambiguity resolution |
-| **project-setup** | One-time guided setup (user-invoked): interviews you, then creates AGENTS.md, the kb layout, and style files |
 
-The plugin also ships the shared `meridian-base` skills its agents load: `knowledge-layers`, `qi-layer`, `qi-maintenance`, `intent-modeling`, `md-validation`, `shared-workspace`, and `structured-artifact`, for the knowledge and craft discipline.
+The plugin also ships general skills these load, for keeping the project's notes and knowledge base in order: `intent-modeling`, `explore-and-engage`, `grill`, `knowledge-layers`, `qi-layer` and `qi-maintenance` (writing and maintaining `AGENTS.md`), `shared-workspace`, `md-validation`, `structured-artifact`, and `atlas` (a clickable map, such as your cast and their relationships). `writing-sync` syncs chosen files to Google Docs for reading and brings edits back; it needs a shell, so it isn't in the claude.ai uploads.
 
 ## Project Layout
 
@@ -185,48 +201,27 @@ my-story/
 
 ## Compatibility
 
-| Feature | Claude Code | Cowork | Mars (meridian-cli) | Claude.ai |
-|---|:---:|:---:|:---:|:---:|
-| All agents | Yes (flat) | Yes (flat) | Yes | No (grayed out in chat) |
-| All skills | Yes | Yes | Yes | Marketplace add or zip |
-| Multi-agent orchestration | Via muse | Via muse | Via muse → focused workers | No |
-| Project setup | Yes | Yes | Yes | Text to save |
+| Feature | Claude.ai | Claude Code / Cowork | Cursor / Grok | Codex / OpenCode | Meridian |
+|---|:---:|:---:|:---:|:---:|:---:|
+| Skills | Marketplace or upload | Yes | Yes | Yes | Yes |
+| Agents | No (grayed out in chat) | Yes | Yes | No | Yes |
+| Lanes on another provider's model | No | No | No | No | Yes |
+| Project setup | Text to save | Writes files | Writes files | Writes files | Writes files |
 
-Claude Code, Cowork, and meridian-cli run muse as the session agent: it drafts with you and spawns a compact worker set: writer, critic, reader-sim, brainstormer, outliner, character-sim, style-creator, continuity-checker, and creative-researcher. You can add the marketplace to the Claude desktop app from GitHub; Cowork runs the agents, but plain claude.ai chat runs skills only (agents grayed out) — there the `creative-writing-muse` skill runs the same muse method in one conversation, backed by the craft skills.
+## Advanced: Meridian
 
-## Current Experiments
+[Meridian](https://github.com/haowjy/meridian-cli) is a command-line tool that lets agents in Claude Code, Codex, OpenCode, Cursor and Pi start each other. With it, muse can hand a lane to a model from another provider: an alternate take, or the same high-stakes critique sent to two model families whose blind spots differ. A harness's own agent tool reaches only its own provider.
 
-**Rhetorical questions in skill prompts.** The economy section in `writing-principles` uses rhetorical questions ("what can you leave out and still have the scene work?") rather than declarative statements. LLMs can distinguish rhetorical from information-seeking questions internally ([arxiv 2604.14128](https://arxiv.org/abs/2604.14128)), and Self-Ask prompting shows questions improve reasoning, but no research directly tests whether rhetorical questions in system prompts improve task performance vs. equivalent declaratives. Keeping the rhetorical form to see if it activates a self-check loop that declaratives don't.
+```bash
+meridian mars add haowjy/creative-writing-skills
+meridian mars sync
+```
+
+Then run `meridian` in the project directory: the session runs as muse, and a new project runs setup on first launch (`meridian bootstrap` runs it again). `writer` defaults to Opus at high effort.
 
 ## Development
 
-### Rebuild the plugin
-
-The Claude/Codex/Grok, Cursor, and OpenCode plugin trees in `plugin/`, the
-marketplace catalogs, and the root OpenCode `package.json` are generated by
-Mars from `agents/`, `skills/`, `bootstrap/`, and the dependency graph. After
-editing a source agent or skill, rebuild and commit the output:
-
-```bash
-mars build plugin        # Mars 0.26.2 or newer
-```
-
-`mars check` reports stale or hand-edited output; CI rebuilds and fails on any difference.
-
-### Validate package
-
-```bash
-mars check
-```
-
-### Release
-
-```bash
-mars version patch               # bump, rebuild plugin/, promote CHANGELOG, commit, tag
-mars version patch --push        # also push the commit and tag
-```
-
-Use `mars` 0.26.2 or newer (`uv tool install mars-agents`); it rebuilds `plugin/` and the marketplace catalogs at the new version inside the release commit.
+`plugin/`, the marketplace catalogs and the root `package.json` are generated by Mars from `agents/`, `skills/`, `bootstrap/` and the dependency graph, and CI fails when they are stale. The commands, release steps and rules for changing this package are in [AGENTS.md](AGENTS.md).
 
 ## License
 

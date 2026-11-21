@@ -35,8 +35,10 @@ Each level has a dedicated resource with method and checklist:
 For adversarial craft critique (as opposed to editorial review), load:
 
 - `resources/prose-critique.md` — methodology and focus-area routing.
-- `resources/prose-critique/` — deep resources per focus area (structure,
-  character, voice, prose, continuity).
+- Focus-area guides: `resources/prose-critique/baseline.md` (general pass),
+  `resources/prose-critique/structure.md`, `resources/prose-critique/character.md`,
+  `resources/prose-critique/voice.md`, `resources/prose-critique/prose.md`,
+  `resources/prose-critique/continuity.md`.
 
 When review incorporates reader-sim data:
 

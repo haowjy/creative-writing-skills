@@ -31,6 +31,10 @@ Release. Codex, OpenCode and Claude.ai users get the skills but no agents.
   walkthrough per environment and `SKILL.md` loads exactly one.
   `bootstrap/project-setup`, meridian-cli's first-run document, only names the skill
   and the walkthrough to follow.
+- **`/writing-principles` Economy ends on a question on purpose** ("What's the reader
+  already doing for you?"). It's an experiment: whether a question sets off a self-check
+  that the same point as a statement doesn't. Nothing has tested it yet, so keep the
+  question until a comparison on the same brief shows the statement does as well.
 
 ## Commands
 

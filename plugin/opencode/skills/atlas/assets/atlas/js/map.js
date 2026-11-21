@@ -1,17 +1,18 @@
 /*
- * The map view of a level page: its flowchart drawn with React Flow under the page's intro, and a
- * side panel with the selected box's section. A box's own arrows stay lit and the rest fade; a
- * group opens its child page. Boxes drag and the arrows follow; where they were put is remembered
- * for this page on this computer.
+ * The map view of a level page: its flowchart drawn with React Flow beside a details panel. A
+ * box's own arrows stay lit and the rest fade; a box that opens a page is shown as a stacked card.
+ * Mermaid subgraphs become structural frames. Boxes drag and the arrows follow; where they were put
+ * is remembered for this page on this computer.
  */
 
 import { storageKey } from "./config.js";
-import { fitZoom, layoutLevel, READABLE_ZOOM } from "./layout.js";
+import { frameShapes } from "./frames.js";
+import { fitZoom, layoutLevel } from "./layout.js";
 import { paintInline, pathLink, route } from "./markdown.js";
-import { item, linksOf, NODE_KINDS, pathsOf } from "./pages.js";
+import { item, linksOf, NODE_KINDS, pathsOf, positionLines } from "./pages.js";
 import { routeLevel } from "./routes.js";
 import { shotCrop, shotView } from "./screens.js";
-import { el } from "./shell.js";
+import { adjustablePanel, el, showPanel } from "./shell.js";
 
 const React = globalThis.React;
 const h = React.createElement;
@@ -20,6 +21,8 @@ const { createContext, Fragment, useContext, useEffect, useMemo, useRef, useStat
 
 /** A small level is drawn no larger than this at Fit. */
 const MAX_FIT_ZOOM = 1.1;
+/** Room kept round the fitted drawing and the overlays. */
+const FIT_PAD = 10;
 /** Text width at which an arrow's label wraps. */
 const LABEL_WRAP = 124;
 const LAYOUT_KEY = `${storageKey("layout-v2")}:`;
@@ -99,6 +102,23 @@ function labelMeasurer() {
   };
 }
 
+/** The drawn width of a frame's label, which `.group-frame-label` sets in capitals and spaced letters. */
+function titleMeasurer() {
+  const context = document.createElement("canvas").getContext("2d");
+  const probe = el("div", { class: "group-frame-label", style: "visibility:hidden" }, "x");
+  const frame = el("div", { class: "group-frame", style: "position:absolute;visibility:hidden" }, probe);
+  document.body.append(frame);
+  const s = getComputedStyle(probe);
+  const font = `${s.fontWeight} ${s.fontSize} ${s.fontFamily}`;
+  const spacing = Number.parseFloat(s.letterSpacing) || 0;
+  frame.remove();
+  return (label) => {
+    context.font = font;
+    const text = label.toUpperCase();
+    return context.measureText(text).width + spacing * text.length;
+  };
+}
+
 /** What a box needs to draw itself that isn't in its node: the selection. */
 const Selection = createContext({ selectedId: null, linked: new Set() });
 
@@ -124,11 +144,11 @@ function Box({ data, id }) {
   return h(
     "div",
     {
-      className: `card kind-${node.kind} ${state}`,
+      className: `card kind-${node.kind} ${data.opens ? "opens-page" : ""} ${state}`,
       title: data.opens ? "Opens its own page" : undefined,
     },
     ...handles(),
-    h("div", { className: "card-label" }, name, data.opens ? " ▸" : ""),
+    h("div", { className: "card-label" }, name),
     role ? h("div", { className: "card-sub" }, role) : null,
   );
 }
@@ -143,7 +163,31 @@ function Note({ data, id }) {
   );
 }
 
-const nodeTypes = { box: Box, note: Note };
+function Frame({ data }) {
+  const { selectedId, linked } = useContext(Selection);
+  const dim = selectedId !== null && !data.nodes.some((id) => linked.has(id) || id === selectedId);
+  const fractured = data.fractured === true;
+  return h(
+    "div",
+    { className: `group-frame ${fractured ? "is-fractured" : ""} ${dim ? "is-dim" : ""}`, "aria-hidden": true },
+    h("div", { className: "group-frame-label", style: data.title && { left: data.title.x, top: data.title.y } }, data.label),
+    fractured &&
+      data.members?.map((member) =>
+        h("div", {
+          key: member.id,
+          className: "frame-member-outline",
+          style: {
+            left: member.x - 4,
+            top: member.y - 4,
+            width: member.w + 8,
+            height: member.h + 8,
+          },
+        }),
+      ),
+  );
+}
+
+const nodeTypes = { box: Box, note: Note, frame: Frame };
 
 function Arrow({ data, markerEnd, markerStart }) {
   if (!data.route) return null;
@@ -199,23 +243,71 @@ function Markers() {
   );
 }
 
-/** Fit the whole level when its text stays readable; otherwise show its start at a readable size, to pan. */
-function fitLevel(flow, bounds, area) {
-  if (!bounds || !area.width) return;
-  const fit = Math.min(fitZoom(bounds, area), MAX_FIT_ZOOM);
-  const zoom = Math.max(fit, READABLE_ZOOM);
-  const [w, hgt] = [(bounds.x1 - bounds.x0) * zoom, (bounds.y1 - bounds.y0) * zoom];
-  const x = w <= area.width ? (area.width - w) / 2 : 16;
-  const y = hgt <= area.height ? (area.height - hgt) / 2 : 16;
-  flow.setViewport({ x: x - bounds.x0 * zoom, y: y - bounds.y0 * zoom, zoom });
+/**
+ * The room the map's overlays leave: how far each edge of the drawing is covered by the buttons,
+ * the breadcrumb and the legend (read from the page as it is now, so a window of any size and an
+ * opened legend both count). Overlays sit in corners, so each covers the full edge it hangs from.
+ */
+function freeArea(diagram) {
+  const outer = diagram.getBoundingClientRect();
+  const cover = { top: 0, bottom: 0 };
+  for (const overlay of diagram.querySelectorAll(".diagram-tools, .react-flow__controls, .legend, .crumbs")) {
+    if (!overlay.checkVisibility()) continue;
+    const r = overlay.getBoundingClientRect();
+    if (r.top + r.height / 2 < outer.top + outer.height / 2) cover.top = Math.max(cover.top, r.bottom - outer.top);
+    else cover.bottom = Math.max(cover.bottom, outer.bottom - r.top);
+  }
+  const top = cover.top + FIT_PAD;
+  return { x: 0, y: top, width: outer.width, height: Math.max(1, outer.height - top - cover.bottom - FIT_PAD) };
 }
 
-function Flow({ page, path, selectedId, onChoose, labelSize }) {
-  const { nodes: sourceNodes, edges: sourceEdges, noteLinks } = page.mermaid;
+/** Fit the whole level in the free area: the opening view and the Fit button, so no box sits under an overlay. */
+function fitLevel(flow, bounds, diagram, options = {}) {
+  const free = diagram && freeArea(diagram);
+  if (!bounds || !free?.width) return;
+  const fit = fitZoom(bounds, free);
+  const zoom = Math.min(fit, MAX_FIT_ZOOM);
+  const [w, hgt] = [(bounds.x1 - bounds.x0) * zoom, (bounds.y1 - bounds.y0) * zoom];
+  const x = free.x + (free.width - w) / 2;
+  const y = free.y + (free.height - hgt) / 2;
+  flow.setViewport({ x: x - bounds.x0 * zoom, y: y - bounds.y0 * zoom, zoom }, options);
+}
+
+function zoomToRect(flow, rect, area, zoom = 1.35, options = {}) {
+  if (!rect || !area.width) return;
+  flow.setViewport(
+    {
+      x: area.width / 2 - (rect.x + rect.w / 2) * zoom,
+      y: area.height / 2 - (rect.y + rect.h / 2) * zoom,
+      zoom,
+    },
+    options,
+  );
+}
+
+function Flow({ page, path, selectedId, onChoose, labelSize, titleWidth, diagram, transition, arrangement }) {
+  const { nodes: sourceNodes, frames = [], edges: sourceEdges, noteLinks } = page.mermaid;
   const flow = RF.useReactFlow();
+  const authored = useMemo(
+    () => new Map(page.mermaid.positions.map(({ id, x, y }) => [id, { x, y }])),
+    [page],
+  );
+  // The legend's "Copy box positions" reads the boxes where they are now.
+  arrangement.current = () =>
+    new Map(flow.getNodes().filter((n) => n.type !== "frame").map((n) => [n.id, n.position]));
   const initial = useMemo(
-    () =>
-      sourceNodes.map((node) => ({
+    () => [
+      ...frames.map((frame) => ({
+        id: `frame:${frame.id}`,
+        type: "frame",
+        position: { x: 0, y: 0 },
+        data: { id: frame.id, label: frame.label, nodes: frame.nodes },
+        draggable: false,
+        selectable: false,
+        focusable: false,
+        style: { visibility: "hidden" },
+      })),
+      ...sourceNodes.map((node) => ({
         id: node.id,
         type: node.kind === "note" ? "note" : "box",
         position: { x: 0, y: 0 },
@@ -227,7 +319,8 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
         },
         style: { visibility: "hidden" },
       })),
-    [sourceNodes],
+    ],
+    [sourceNodes, frames],
   );
   const [nodes, setNodes, onNodesChange] = RF.useNodesState(initial);
   const area = RF.useStore(
@@ -236,7 +329,7 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
   );
   const measured = RF.useNodesInitialized();
   // Laid out once per drawing area and per Reset; a drag only changes positions, never this key.
-  const [placement, setPlacement] = useState({ key: null, reset: 0, hints: new Map() });
+  const [placement, setPlacement] = useState({ key: null, reset: 0 });
   const areaKey = `${area.width}x${area.height}:${placement.reset}`;
   const areaNow = useRef(area);
   areaNow.current = area;
@@ -244,8 +337,8 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
   useEffect(() => {
     if (!measured || placement.key === areaKey || !area.width) return;
     const sizes = new Map(flow.getNodes().map((n) => [n.id, n.measured]));
-    const { positions, hints } = layoutLevel(
-      { nodes: sourceNodes, edges: sourceEdges, noteLinks, sizes, labelSize },
+    const { positions, frames: layoutFrames } = layoutLevel(
+      { nodes: sourceNodes, frames, edges: sourceEdges, noteLinks, sizes, labelSize, authored },
       area,
     );
     const saved = savedLayout(path);
@@ -253,13 +346,23 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
       (n) => Number.isFinite(saved[n.id]?.x) && Number.isFinite(saved[n.id]?.y),
     );
     setNodes((current) =>
-      current.map((n) => ({
-        ...n,
-        position: useSaved ? saved[n.id] : positions.get(n.id),
-        style: {},
-      })),
+      current.map((n) => {
+        if (n.type === "frame") {
+          const frame = layoutFrames.get(n.data.id);
+          return {
+            ...n,
+            position: frame ? { x: frame.x, y: frame.y } : n.position,
+            style: frame ? { width: frame.w, height: frame.h } : {},
+          };
+        }
+        return {
+          ...n,
+          position: useSaved ? saved[n.id] : positions.get(n.id),
+          style: {},
+        };
+      }),
     );
-    setPlacement((p) => ({ ...p, key: areaKey, hints }));
+    setPlacement((p) => ({ ...p, key: areaKey }));
   }, [
     measured,
     placement.key,
@@ -267,8 +370,10 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
     area,
     flow,
     sourceNodes,
+    frames,
     sourceEdges,
     noteLinks,
+    authored,
     path,
     setNodes,
     labelSize,
@@ -288,40 +393,92 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
     () =>
       placement.key &&
       new Map(
-        nodes.map((n) => [
-          n.id,
-          { x: n.position.x, y: n.position.y, w: n.measured.width, h: n.measured.height },
-        ]),
+        nodes
+          .filter((n) => n.type !== "frame")
+          .map((n) => [
+            n.id,
+            { x: n.position.x, y: n.position.y, w: n.measured.width, h: n.measured.height },
+          ]),
       ),
     [placement.key, nodes],
   );
-  const route = (labelled) =>
-    routeLevel({
-      rects,
-      edges: sourceEdges,
-      noteLinks,
-      hints: placement.hints,
-      labelSize,
-      labelled,
-    });
-  // Fit frames the level with every label, whichever box is chosen.
-  const whole = useMemo(
-    () => rects && route(() => true),
-    [rects, placement.hints, sourceEdges, noteLinks, labelSize],
-  );
-  // With a box chosen, its own arrows' labels are the ones shown.
+  const frameRects = useMemo(() => {
+    if (!placement.key || !rects) return new Map();
+    const notes = new Set(sourceNodes.filter((node) => node.kind === "note").map((node) => node.id));
+    return frameShapes(frames, rects, titleWidth, notes);
+  }, [placement.key, frames, rects, sourceNodes, titleWidth]);
+  // One routing serves every selection: choosing a box changes which labels show, never where arrows run.
   const routes = useMemo(
-    () => (selectedId === null ? whole : rects && route((i) => touches(sourceEdges[i]))),
-    [whole, rects, selectedId],
+    () =>
+      rects &&
+      routeLevel({ rects, frames: frameRects, edges: sourceEdges, noteLinks, labelSize }),
+    [rects, frameRects, sourceEdges, noteLinks, labelSize],
   );
   const bounds = useRef(null);
-  bounds.current = whole?.bounds;
+  bounds.current = routes?.bounds;
+  const rectsNow = useRef(rects);
+  rectsNow.current = rects;
 
   useEffect(() => {
     if (!placement.key) return;
-    const frame = requestAnimationFrame(() => fitLevel(flow, bounds.current, areaNow.current));
+    let timer;
+    const frame = requestAnimationFrame(() => {
+      const area = areaNow.current;
+      const transitionRect = transition?.box && rectsNow.current?.get(transition.box);
+      if (transitionRect && transition.direction === "up" && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        zoomToRect(flow, transitionRect, area, 1.45);
+        timer = setTimeout(() => fitLevel(flow, bounds.current, diagram, { duration: 420 }), 80);
+        return;
+      }
+      if (transition?.direction === "down" && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        zoomToRect(
+          flow,
+          transitionRect ?? {
+            x: bounds.current.x0,
+            y: bounds.current.y0,
+            w: bounds.current.x1 - bounds.current.x0,
+            h: bounds.current.y1 - bounds.current.y0,
+          },
+          area,
+          transitionRect ? 1.45 : 1.5,
+        );
+        timer = setTimeout(() => fitLevel(flow, bounds.current, diagram, { duration: 420 }), 80);
+        return;
+      }
+      fitLevel(flow, bounds.current, diagram);
+    });
+    return () => {
+      cancelAnimationFrame(frame);
+      if (timer) clearTimeout(timer);
+    };
+  }, [placement.key, flow, diagram]);
+
+  const renderedNodes = useMemo(
+    () =>
+      nodes.map((node) => {
+        if (node.type !== "frame") return node;
+        const frame = frameRects.get(node.data.id);
+        return frame
+          ? {
+              ...node,
+              position: { x: frame.x, y: frame.y },
+              data: { ...node.data, fractured: frame.fractured, members: frame.members, title: { x: frame.title.x - frame.x, y: frame.title.y - frame.y } },
+              style: { width: frame.w, height: frame.h },
+            }
+          : node;
+      }),
+    [nodes, frameRects],
+  );
+
+  useEffect(() => {
+    const cleanFrames = () =>
+      document.querySelectorAll(".react-flow__node-frame").forEach((node) => {
+        node.tabIndex = -1;
+        node.setAttribute("aria-hidden", "true");
+      });
+    const frame = requestAnimationFrame(cleanFrames);
     return () => cancelAnimationFrame(frame);
-  }, [placement.key, flow]);
+  }, [renderedNodes]);
 
   const edges = useMemo(
     () => [
@@ -334,7 +491,10 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
           source: edge.from,
           target: edge.to,
           data: {
-            route: routes?.arrows[i],
+            route: routes && {
+              ...routes.arrows[i],
+              label: selectedId === null || touches(edge) ? routes.arrows[i].label : null,
+            },
             text: edge.label,
             labelClass: `arrow-label ${step ? "is-step" : ""}`,
           },
@@ -376,14 +536,17 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
     h(
       RF.ReactFlow,
       {
-        nodes,
+        nodes: renderedNodes,
         edges,
         nodeTypes,
         edgeTypes,
         onNodesChange,
         onNodeClick: (_, node) => node.type === "box" && onChoose(node.id),
         onNodeDragStop: () =>
-          saveLayout(path, Object.fromEntries(flow.getNodes().map((n) => [n.id, n.position]))),
+          saveLayout(
+            path,
+            Object.fromEntries(flow.getNodes().filter((n) => n.type !== "frame").map((n) => [n.id, n.position])),
+          ),
         onPaneClick: () => onChoose(null),
         nodesDraggable: true,
         nodesConnectable: false,
@@ -397,13 +560,13 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
       h(RF.Controls, { showInteractive: false, showFitView: false, position: "bottom-right" }),
       h(
         RF.Panel,
-        { position: "top-left", className: "diagram-tools" },
+        { position: "top-right", className: "diagram-tools" },
         h(
           "button",
           {
             type: "button",
             className: "text-button",
-            onClick: () => fitLevel(flow, bounds.current, areaNow.current),
+            onClick: () => fitLevel(flow, bounds.current, diagram),
           },
           "Fit",
         ),
@@ -413,7 +576,7 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
             type: "button",
             className: "text-button",
             onClick: reset,
-            title: "Put the boxes back where the layout places them",
+            title: "Put the boxes back where the page or the layout places them",
           },
           "Reset layout",
         ),
@@ -426,56 +589,31 @@ function Flow({ page, path, selectedId, onChoose, labelSize }) {
  * Mounts the map of `page` (parsed, at repo `path`) into `host`. `nav.go(hash)` opens another
  * route; `nav.replace(hash)` changes the address without a history entry. Returns { select(id), dispose() }.
  */
-export function createMap(host, { page, path, nav, screens }) {
+export function createMap(host, { page, path, nav, screens, transition, crumbs }) {
   let selected = null;
   const canvas = el("div", { class: "canvas" });
   const diagram = el("div", { class: "diagram", id: "map-diagram" });
   const panel = el("aside", { class: "panel", "aria-label": "Selected box" });
-  canvas.append(intro(), diagram);
+  canvas.append(diagram);
   host.replaceChildren(canvas, panel);
+  const disposePanel = adjustablePanel(host, panel);
 
   const flowHost = el("div", { class: "flow" });
-  diagram.append(flowHost, legend());
+  diagram.append(...[flowHost, crumbs, legend()].filter(Boolean));
   const root = globalThis.ReactDOM.createRoot(flowHost);
+  const arrangement = { current: null };
   const labelSize = labelMeasurer();
+  const titleWidth = titleMeasurer();
   const drawn = () => {
     root.render(
       h(
         RF.ReactFlowProvider,
         null,
         h(Markers),
-        h(Flow, { page, path, selectedId: selected, onChoose: choose, labelSize }),
+        h(Flow, { page, path, selectedId: selected, onChoose: choose, labelSize, titleWidth, diagram, transition, arrangement }),
       ),
     );
   };
-
-  function intro() {
-    const text = el("p", { class: "intro-text is-clamped" });
-    paintInline(text, page.intro, path);
-    const more = el(
-      "button",
-      {
-        type: "button",
-        class: "link-button more",
-        onclick: () =>
-          (more.textContent = text.classList.toggle("is-clamped") ? "Read more" : "Show less"),
-      },
-      "Read more",
-    );
-    return el(
-      "details",
-      { class: "intro", open: !matchMedia("(max-width: 719px)").matches },
-      el("summary", null, el("strong", null, page.title)),
-      text,
-      more,
-      el(
-        "p",
-        { class: "how-to" },
-        el("strong", null, "How to read this: "),
-        "follow the numbered arrows in order; thin arrows are side paths. Click a box for its detail. A box marked ▸ opens its own page. Drag a box to move it.",
-      ),
-    );
-  }
 
   function legend() {
     const kinds = NODE_KINDS.filter((kind) => page.mermaid?.nodes.some((n) => n.kind === kind));
@@ -484,20 +622,58 @@ export function createMap(host, { page, path, nav, screens }) {
       { class: "legend" },
       el("summary", null, "Legend"),
       el(
+        "p",
+        { class: "legend-how" },
+        el("strong", null, "How to read this: "),
+        "follow numbered arrows in order; thin arrows are side paths. Select a box for detail. Drag boxes to move them.",
+      ),
+      el(
         "ul",
         null,
         kinds.map((kind) => el("li", null, el("span", { class: `swatch kind-${kind}` }), kind)),
+        el("li", null, el("span", { class: "open-swatch" }), "opens a page"),
+      ),
+      el(
+        "button",
+        {
+          type: "button",
+          class: "text-button legend-copy",
+          title: "Copy the boxes' positions as lines to paste into this page's Mermaid block",
+          onclick: copyPositions,
+        },
+        "Copy box positions",
       ),
     );
+  }
+
+  async function copyPositions(event) {
+    const button = event.currentTarget;
+    const text = positionLines(arrangement.current());
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      // Without a secure page the clipboard API is absent; the old route still copies.
+      const area = el("textarea", { style: "position:fixed;opacity:0" });
+      area.value = text;
+      document.body.append(area);
+      area.select();
+      document.execCommand("copy");
+      area.remove();
+    }
+    button.textContent = "Copied";
+    setTimeout(() => {
+      button.textContent = "Copy box positions";
+    }, 1500);
   }
 
   /** A click on a box: a box with Opens goes to that page, any other box is selected (and put in the address). */
   function choose(id) {
     const opens = id && opensOf(id);
-    if (opens) return nav.go(opens);
+    if (opens) return nav.go(opens, { transition: { direction: "down", box: id } });
     nav.replace(
       id ? `${location.hash.split("/")[0]}/${encodeURIComponent(id)}` : location.hash.split("/")[0],
     );
+    if (id) showPanel();
     select(id);
   }
 
@@ -527,6 +703,17 @@ export function createMap(host, { page, path, nav, screens }) {
     return el(
       "div",
       { class: "panel-body" },
+      el(
+        "div",
+        { class: "panel-intro" },
+        el(
+          "h1",
+          null,
+          page.title,
+          page.view && el("span", { class: "view-kind" }, page.view),
+        ),
+        paragraph(page.intro, "panel-description"),
+      ),
       el("h2", null, "Boxes on this page"),
       el(
         "ul",
@@ -542,7 +729,6 @@ export function createMap(host, { page, path, nav, screens }) {
                 "button",
                 { type: "button", class: "link-button", onclick: () => choose(n.id) },
                 plain(n.label),
-                opensOf(n.id) ? " ▸" : "",
               ),
               section?.paragraphs[0] && paragraph(section.paragraphs[0], "sub-line"),
             );
@@ -694,6 +880,7 @@ export function createMap(host, { page, path, nav, screens }) {
       if (id !== selected) select(id);
     },
     dispose() {
+      disposePanel();
       root.unmount();
     },
   };

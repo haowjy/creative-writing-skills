@@ -23,11 +23,11 @@ information: what must an agent understand before working here? Write it
 like a prompt, as short as the directory allows, rarely past 200 lines.
 Write a nested file as the local additions an agent needs on entry.
 
-Put in only what an agent can't work out by reading the code: what the area
+Put in only what an agent can't work out by reading the files: what the area
 is for and, at the root, who its users are and what they rely on; the
-commands that check work here; places where the code misleads (a live
-directory that looks dead, a pattern new code must not copy); choices that
-aren't visible in the code; mistakes agents have made here more than once;
+commands that check work here; places where the files mislead (a live
+directory that looks dead, a pattern new work must not copy); choices that
+aren't visible in the files; mistakes agents have made here more than once;
 and links to `.context/` and related areas. An agent that reads only
 `AGENTS.md` should work correctly here; one that also reads `.context/`
 should change things safely.

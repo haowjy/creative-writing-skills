@@ -8,6 +8,8 @@ import { DEFAULT_DARK, globRegExp } from "./pages.js";
 export const TITLE = config.title;
 export const MAP_DIR = config.pagesDir;
 export const NAV = config.nav ?? {};
+/** Documents listed in the top-bar Docs menu. */
+export const DOCUMENTS = config.documents ?? [];
 /** The screens manifest's repo path, or null when the project has none. */
 export const SCREENS = config.screens ?? null;
 export const STATE_MACHINES_INDEX = config.stateMachines?.index ?? null;

@@ -17,6 +17,119 @@ export function el(tag, attrs, ...children) {
   return node;
 }
 
+// ---- The side panel: the reader sets its width and hides it; both are kept in this browser ----
+
+const PANEL_KEY = storageKey("panel");
+const PANEL_WIDTH = 360;
+const panelState = { width: PANEL_WIDTH, hidden: false };
+try {
+  const saved = JSON.parse(localStorage.getItem(PANEL_KEY)) ?? {};
+  if (Number.isFinite(saved.width)) panelState.width = saved.width;
+  panelState.hidden = saved.hidden === true;
+} catch {
+  // No storage: the default width, shown.
+}
+/** Lays out the workspace on screen now, or null when the view has no panel. */
+let layPanel = null;
+
+function setPanel(change) {
+  Object.assign(panelState, change);
+  try {
+    localStorage.setItem(PANEL_KEY, JSON.stringify(panelState));
+  } catch {
+    // Not remembered; it still holds for this visit.
+  }
+  syncPanelButton();
+  layPanel?.();
+}
+
+/** The top bar's button that hides and shows the panel. The app hides it on a view without one. */
+export const panelButton = el("button", {
+  type: "button",
+  class: "icon-button panel-button",
+  "aria-label": "Hide details",
+  title: "Hide details",
+  onclick: () => setPanel({ hidden: !panelState.hidden }),
+});
+function syncPanelButton() {
+  const hidden = panelState.hidden;
+  panelButton.textContent = "◧";
+  panelButton.setAttribute("aria-label", hidden ? "Show details" : "Hide details");
+  panelButton.title = hidden ? "Show details" : "Hide details";
+  panelButton.setAttribute("aria-expanded", String(!hidden));
+}
+syncPanelButton();
+
+/** Shows the panel if the reader hid it: they picked something whose detail is in it. */
+export function showPanel() {
+  if (panelState.hidden) setPanel({ hidden: false });
+}
+
+/**
+ * Gives the workspace `host` the width the reader chose for its `panel`, and an edge to drag: the
+ * edge resizes the panel, a double-click resets it, and the arrow keys move it. On a narrow screen
+ * the panel sits under the diagram and none of this applies.
+ */
+export function adjustablePanel(host, panel) {
+  const wide = matchMedia("(min-width: 720px)");
+  const grip = el("div", {
+    class: "panel-grip",
+    role: "separator",
+    tabindex: "0",
+    "aria-orientation": "vertical",
+    "aria-label": "Resize the details panel",
+    title: "Drag to resize; double-click to reset",
+  });
+  host.append(grip);
+
+  // The panel keeps a readable width, and the diagram keeps room beside it.
+  const fit = (w) => Math.round(Math.max(240, Math.min(w, 900, host.clientWidth - 320)));
+  function lay() {
+    const on = wide.matches;
+    const shown = panelState.hidden ? 0 : fit(panelState.width);
+    host.style.gridTemplateColumns = on ? `minmax(0, 1fr) ${shown}px` : "";
+    panel.hidden = on && panelState.hidden;
+    grip.hidden = !on || panelState.hidden;
+    grip.style.right = `${shown - 4}px`;
+    grip.setAttribute("aria-valuenow", String(shown));
+  }
+
+  grip.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    grip.setPointerCapture(event.pointerId);
+    host.classList.add("resizing");
+  });
+  grip.addEventListener("pointermove", (event) => {
+    if (!grip.hasPointerCapture(event.pointerId)) return;
+    // Laid out, not saved, on each move: the drop saves.
+    panelState.width = fit(host.getBoundingClientRect().right - event.clientX);
+    lay();
+  });
+  const drop = () => {
+    host.classList.remove("resizing");
+    setPanel({});
+  };
+  grip.addEventListener("pointerup", drop);
+  grip.addEventListener("pointercancel", drop);
+  grip.addEventListener("dblclick", () => setPanel({ width: PANEL_WIDTH }));
+  grip.addEventListener("keydown", (event) => {
+    const step = { ArrowLeft: 16, ArrowRight: -16 }[event.key];
+    if (!step) return;
+    event.preventDefault();
+    setPanel({ width: fit(fit(panelState.width) + step) });
+  });
+  const follow = () => lay();
+  wide.addEventListener("change", follow);
+  addEventListener("resize", follow);
+  layPanel = follow;
+  lay();
+  return () => {
+    wide.removeEventListener("change", follow);
+    removeEventListener("resize", follow);
+    if (layPanel === follow) layPanel = null;
+  };
+}
+
 /**
  * A repo path as the dev server answers it: { kind: "dir", entries: [{ name, dir }] },
  * { kind: "image", url }, or { kind: "text", text }.

@@ -39,6 +39,8 @@ const ID = "[A-Za-z][A-Za-z0-9_-]*";
 const SEQ_ID = "[A-Za-z][A-Za-z0-9_]*(?:-[A-Za-z0-9_]+)*";
 const LINE = {
   header: /^flowchart (?:LR|RL|TB|TD|BT)$/,
+  subgraph: new RegExp(`^subgraph (${ID})\\["([^"]+)"\\]$`),
+  end: /^end$/,
   node: new RegExp(`^(${ID})\\["([^"]*)"\\]:::(\\w+)$`),
   edge: new RegExp(`^(${ID}) (-->|<-->|-\\.->)\\|"([^"]+)"\\| (${ID})$`),
   noteLink: new RegExp(`^(${ID}) -\\.- (${ID})$`),
@@ -55,11 +57,13 @@ const LABEL_TAGS = /<br\/>|<\/?small>/g;
 /**
  * @typedef {{ line: number, message: string }} Problem
  * @returns {{
- *   title: string, intro: string,
+ *   title: string, view: string | null, intro: string,
  *   mermaid: null | {
  *     type: "flowchart" | "sequence" | null, source: string, line: number,
- *     nodes: {id, label, kind, line}[], edges: {from, to, both, handedIn, label, step, line}[],
+ *     nodes: {id, label, kind, line, frame: string | null}[], frames: {id, label, line, nodes: string[]}[],
+ *     edges: {from, to, both, handedIn, label, step, line}[],
  *     noteLinks: {from, to, line}[],
+ *     positions: {id, x, y, line}[],
  *     participants: {id, line}[],
  *   },
  *   sections: { id: string, line: number, paragraphs: string[], items: { key: string | null, value: string, line: number }[] }[],
@@ -68,7 +72,7 @@ const LABEL_TAGS = /<br\/>|<\/?small>/g;
  */
 export function parsePage(text) {
   const lines = text.split("\n");
-  const page = { title: "", intro: "", mermaid: null, sections: [], problems: [] };
+  const page = { title: "", view: null, intro: "", mermaid: null, sections: [], problems: [] };
   const fail = (line, message) => page.problems.push({ line, message });
   let fence = null; // { length, kind: "mermaid" | "other" } inside a fenced block
   let section = null;
@@ -106,12 +110,21 @@ export function parsePage(text) {
             source: "",
             line: n,
             nodes: [],
+            frames: [],
             edges: [],
             noteLinks: [],
+            positions: [],
             participants: [],
           };
       }
       fence = { length: marker[1].length, kind };
+      continue;
+    }
+    const view = !section && /^- View:\s*(.*)$/.exec(line);
+    if (view) {
+      if (page.view !== null) fail(n, "A page has only one View line.");
+      else if (!view[1]) fail(n, "A View line needs a value.");
+      else page.view = view[1];
       continue;
     }
     const heading = /^(#{1,6}) (.+)$/.exec(line);
@@ -141,12 +154,42 @@ export function parsePage(text) {
     paragraph.push(line);
   }
   endParagraph();
+  for (const frame of page.mermaid?.frames ?? [])
+    if (frame.open) {
+      fail(frame.line, `frame ${frame.id} has no matching end.`);
+      for (const id of frame.nodes) {
+        const node = page.mermaid.nodes.find((candidate) => candidate.id === id);
+        if (node) node.frame = frame.id;
+      }
+      delete frame.open;
+    }
   page.intro = introParts.join("\n\n");
   return page;
 }
 
+/**
+ * The lines of a page's authored box positions, `%% at <id> <x> <y>`, one per box, for the boxes of
+ * `positions` (id → { x, y } of the box's top-left corner in layout units). Shifted so the top-left
+ * of the arrangement is 0, 0 and rounded, so the same arrangement always writes the same lines.
+ */
+export function positionLines(positions) {
+  const at = [...positions];
+  const x0 = Math.min(...at.map(([, p]) => p.x));
+  const y0 = Math.min(...at.map(([, p]) => p.y));
+  return at.map(([id, p]) => `%% at ${id} ${Math.round(p.x - x0)} ${Math.round(p.y - y0)}`).join("\n");
+}
+
 function parseMermaidLine(mermaid, line, n, fail) {
-  if (!line || line.startsWith("%%")) return;
+  if (!line) return;
+  if (line.startsWith("%%")) {
+    if (mermaid.type === "flowchart" && /^%% at(\s|$)/.test(line)) {
+      const m = new RegExp(`^%% at (${ID}) (-?\\d+) (-?\\d+)$`).exec(line);
+      if (!m) fail(n, "A position line is `%% at <box id> <x> <y>` with whole numbers.");
+      else if (mermaid.positions.some((p) => p.id === m[1])) fail(n, `Box ${m[1]} has two positions.`);
+      else mermaid.positions.push({ id: m[1], x: Number(m[2]), y: Number(m[3]), line: n });
+    }
+    return;
+  }
   if (!mermaid.type) {
     if (LINE.header.test(line)) mermaid.type = "flowchart";
     else if (LINE.sequenceHeader.test(line)) mermaid.type = "sequence";
@@ -158,6 +201,39 @@ function parseMermaidLine(mermaid, line, n, fail) {
     return;
   }
   if (mermaid.type === "sequence") return parseSequenceLine(mermaid, line, n, fail);
+  const frame = LINE.subgraph.exec(line);
+  if (frame) {
+    if (mermaid.frames.some((candidate) => candidate.id === frame[1]) || mermaid.nodes.some((node) => node.id === frame[1])) {
+      fail(n, `frame ${frame[1]} is declared more than once or conflicts with a box.`);
+      return;
+    }
+    if (mermaid.frames.some((candidate) => candidate.open)) {
+      fail(n, `nested frame ${frame[1]} is not supported; close the current frame first.`);
+      return;
+    }
+    mermaid.frames.push({ id: frame[1], label: frame[2], line: n, nodes: [], open: true });
+    return;
+  }
+  if (LINE.end.test(line)) {
+    const open = mermaid.frames.find((candidate) => candidate.open);
+    if (!open) fail(n, "end closes no frame.");
+    else {
+      delete open.open;
+      for (const id of open.nodes) {
+        const node = mermaid.nodes.find((candidate) => candidate.id === id);
+        if (node) node.frame = open.id;
+      }
+    }
+    return;
+  }
+  const open = mermaid.frames.find((candidate) => candidate.open);
+  if (open) {
+    const member = new RegExp(`^(${ID})$`).exec(line);
+    if (member) {
+      open.nodes.push(member[1]);
+      return;
+    }
+  }
   let m = LINE.node.exec(line);
   if (m) {
     const bad = m[2].replace(LABEL_TAGS, "").match(/[<>]/);
@@ -166,7 +242,8 @@ function parseMermaidLine(mermaid, line, n, fail) {
         n,
         `Box ${m[1]}'s label holds "${bad[0]}": only <br/> and <small>...</small> are allowed.`,
       );
-    mermaid.nodes.push({ id: m[1], label: m[2], kind: m[3], line: n });
+    if (open) open.nodes.push(m[1]);
+    mermaid.nodes.push({ id: m[1], label: m[2], kind: m[3], line: n, frame: open?.id ?? null });
     return;
   }
   m = LINE.noteLink.exec(line);
@@ -189,7 +266,9 @@ function parseMermaidLine(mermaid, line, n, fail) {
     });
     return;
   }
-  fail(n, `A mermaid line the format doesn't allow: ${line}`);
+  const tailOpen = mermaid.frames.find((candidate) => candidate.open);
+  if (tailOpen) fail(n, `A mermaid line the format doesn't allow inside frame ${tailOpen.id}: ${line}`);
+  else fail(n, `A mermaid line the format doesn't allow: ${line}`);
 }
 
 function parseSequenceLine(mermaid, line, n, fail) {
@@ -372,7 +451,7 @@ export async function loadLevelPages(read, mapDir) {
         queue.push({
           id: target.slice(mapDir.length + 1, -3),
           path: target,
-          trail: [...trail, { title, page: page.title, hash: `#${id}` }],
+          trail: [...trail, { title, page: page.title, hash: `#${id}`, box: s.id }],
         });
       }
     }

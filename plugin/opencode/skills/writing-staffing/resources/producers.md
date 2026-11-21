@@ -5,7 +5,7 @@ simulated conversation, and kb updates.
 
 ## `writer`
 
-Spawn it for the prose passes `/creative-writing-skills:creative-writing-muse` hands off. Name the mode from `/creative-writing-skills:creative-writing-craft`
+Spawn it for the prose passes `/creative-writing-skills:story-workflow` § Produce hands off. Name the mode from `/creative-writing-skills:creative-writing-craft`
 `resources/prose-modes.md` (fresh draft, revision, bridge, alternate take, line
 polish) and the path to write to. Tell it to load `/creative-writing-skills:character-sim` for voice
 fidelity and `/creative-writing-skills:shared-dao` when the scene uses project vocabulary.

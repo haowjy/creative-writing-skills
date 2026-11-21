@@ -39,8 +39,7 @@ path from there.
 1. Read the relevant `AGENTS.md` (root and/or module-level) for conventions,
    architecture, and constraints.
 2. Read `.context/CONTEXT.md` if present for synthesized contracts and
-   rationale. Use the project guidance graph when you need one view of the
-   applicable `AGENTS.md` and `.context/` layers.
+   rationale.
 3. Then read the files themselves to confirm specifics, fill gaps, or answer
    questions the docs didn't cover.
 

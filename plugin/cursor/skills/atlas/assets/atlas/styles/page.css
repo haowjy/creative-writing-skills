@@ -57,8 +57,8 @@ button {
 /* ---- Page frame ---- */
 
 .app {
-  display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
   height: 100dvh;
 }
 
@@ -89,6 +89,8 @@ button {
 }
 
 .topbar {
+  position: relative;
+  z-index: 8;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -128,6 +130,47 @@ button {
   font-weight: 600;
 }
 
+.docs-menu {
+  position: relative;
+  flex: none;
+}
+
+.docs-menu summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.docs-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.docs-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 12;
+  display: grid;
+  min-width: 190px;
+  padding: 6px;
+  border: 1px solid var(--map-border-subtle);
+  border-radius: 8px;
+  background: var(--map-card);
+  box-shadow: 0 8px 24px var(--map-muted);
+}
+
+.docs-list a {
+  padding: 7px 9px;
+  border-radius: 5px;
+  color: var(--map-foreground);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.docs-list a:hover,
+.docs-list a:focus-visible {
+  background: var(--map-muted);
+}
+
 .icon-button {
   display: inline-grid;
   place-items: center;
@@ -163,9 +206,12 @@ button {
   color: var(--map-foreground);
 }
 
+.panel-button[hidden] {
+  display: none;
+}
+
 .view {
-  /* The row stays the tall one when the hidden breadcrumb leaves no element in the second. */
-  grid-row: 3;
+  flex: 1;
   min-height: 0;
   min-width: 0;
 }
@@ -189,53 +235,41 @@ button {
 /* ---- The map ---- */
 
 .canvas {
+  position: relative;
   display: flex;
-  flex-direction: column;
   min-width: 0;
   min-height: 0;
 }
 
-.intro {
-  flex: none;
-  max-height: 45%;
-  overflow-y: auto;
-  padding: 10px 18px;
-  background: var(--map-card);
-  border-bottom: 1px solid var(--map-border-subtle);
-}
-
-.intro summary {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-/* display: flex drops the summary's own marker; the collapsed intro on a phone needs one. */
-.intro summary::before {
-  color: var(--map-quiet);
-  font-size: 11px;
-  content: "▶";
-}
-
-.intro[open] summary::before {
-  content: "▼";
-}
-
+/*
+ * The breadcrumb takes no row of its own. On the map it floats over the drawing's top-left corner;
+ * in Read it is the first line of the article, above the title.
+ */
 .crumbs {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   gap: 4px 8px;
-  padding: 6px 16px;
-  border-bottom: 1px solid var(--map-border-subtle);
-  font-size: 13px;
+  max-width: 100%;
+  overflow: hidden;
   color: var(--map-quiet);
+  font-size: 13px;
+  white-space: nowrap;
 }
 
-.crumbs[hidden] {
-  display: none;
+.diagram > .crumbs {
+  position: absolute;
+  z-index: 5;
+  top: 10px;
+  left: 12px;
+  max-width: calc(100% - 190px);
+  padding: 4px 10px;
+  border: 1px solid var(--map-border-subtle);
+  border-radius: 8px;
+  background: var(--map-card);
+}
+
+.md > .crumbs {
+  margin-bottom: 10px;
 }
 
 .crumbs a {
@@ -247,30 +281,10 @@ button {
 }
 
 .crumbs [aria-current] {
+  overflow: hidden;
   color: var(--map-foreground);
   font-weight: 600;
-}
-
-.intro p {
-  max-width: 900px;
-  margin: 6px 0 0;
-}
-
-.intro .is-clamped {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.intro .more {
-  margin-top: 2px;
-  font-size: 12px;
-}
-
-.intro .how-to {
-  color: var(--map-quiet);
-  font-size: 12.5px;
+  text-overflow: ellipsis;
 }
 
 .diagram {
@@ -323,6 +337,11 @@ button {
   color: var(--map-quiet);
 }
 
+.legend-how {
+  max-width: 300px;
+  font-size: 12px;
+}
+
 .legend ul {
   display: flex;
   flex-wrap: wrap;
@@ -330,6 +349,11 @@ button {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.legend-copy {
+  margin-top: 8px;
+  min-width: 11em;
 }
 
 .legend li {
@@ -457,6 +481,10 @@ button {
 }
 
 .card-label {
+  display: inline;
+  align-items: baseline;
+  justify-content: center;
+  gap: 5px;
   font-size: 15px;
   font-weight: 600;
   line-height: 1.25;
@@ -469,13 +497,66 @@ button {
   line-height: 1.3;
 }
 
-/* A group opens a page of its own: a stacked card. */
-.card.kind-group {
+.card.opens-page {
   box-shadow:
-    5px 5px 0 -1px var(--map-card),
-    5px 5px 0 0 var(--stroke),
-    9px 9px 0 -1px var(--map-card),
-    9px 9px 0 0 var(--stroke);
+    4px 4px 0 -1px var(--map-card),
+    4px 4px 0 0 var(--stroke, var(--map-ink-subtle)),
+    7px 7px 0 -1px var(--map-card),
+    7px 7px 0 0 var(--stroke, var(--map-ink-subtle));
+}
+
+.open-swatch {
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  border: 1.5px solid var(--map-ink-subtle);
+  border-radius: 3px;
+  background: var(--map-card);
+  box-shadow:
+    3px 3px 0 -1px var(--map-card),
+    3px 3px 0 0 var(--map-ink-subtle);
+}
+
+.group-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  border: 1px solid var(--map-border);
+  border-radius: 10px;
+  background: transparent;
+  pointer-events: none;
+}
+
+.group-frame.is-fractured {
+  border: 0;
+}
+
+.frame-member-outline {
+  position: absolute;
+  border: 1px dashed var(--map-border);
+  border-radius: 8px;
+}
+
+.group-frame-label {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 14px;
+  max-width: calc(100% - 28px);
+  padding: 0 5px;
+  background: var(--map-background);
+  color: var(--map-quiet);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.react-flow__node-frame {
+  z-index: 0 !important;
+  pointer-events: none;
 }
 
 .card.is-selected {
@@ -484,7 +565,8 @@ button {
 }
 
 .card.is-dim,
-.note-card.is-dim {
+.note-card.is-dim,
+.group-frame.is-dim {
   opacity: 0.35;
 }
 
@@ -535,6 +617,10 @@ button {
 }
 
 /* An arrow's label: js/map.js measures it from these rules before drawing, so keep them here. */
+.react-flow__edgelabel-renderer {
+  z-index: 4;
+}
+
 .arrow-label {
   position: absolute;
   padding: 2px 6px;
@@ -582,12 +668,63 @@ button {
   border-left: 1px solid var(--map-border-subtle);
 }
 
+/* The panel's edge drags to resize it. The viewer places the edge, and sets the workspace's
+   columns, from the width the reader chose; the top bar's button hides and shows the panel. */
+.panel-grip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+  width: 8px;
+  cursor: col-resize;
+  touch-action: none;
+}
+
+.panel-grip:hover,
+.panel-grip:focus-visible,
+.workspace.resizing .panel-grip {
+  outline: none;
+  background: color-mix(in oklab, var(--map-focus) 35%, transparent);
+}
+
+.workspace.resizing {
+  cursor: col-resize;
+  user-select: none;
+}
+
 .panel-body {
   padding: 16px 18px 28px;
 }
 
-.panel h2 {
+.panel-intro {
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--map-border-subtle);
+}
+
+.panel-intro h1 {
+  margin: 0 0 6px;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.view-kind {
+  display: inline-block;
+  margin-left: 8px;
+  color: var(--map-quiet);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.panel-description {
   margin: 0;
+  color: var(--map-quiet);
+}
+
+.panel h2 {
+  margin: 18px 0 6px;
   font-size: 18px;
 }
 
@@ -726,7 +863,6 @@ button {
   border: 1px solid var(--map-border);
   border-radius: 10px;
   background: var(--map-card);
-  cursor: pointer;
   user-select: none;
 }
 
@@ -746,6 +882,17 @@ button {
 .step h3 {
   margin: 0 28px 8px 0;
   font-size: 14px;
+}
+
+.step-title {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
 }
 
 .step h4 {
@@ -771,6 +918,69 @@ button {
   border-radius: 6px;
   background-repeat: no-repeat;
   background-color: var(--map-muted);
+}
+
+/* A crop is a button: it opens the whole screen over the page. */
+button.crop {
+  display: block;
+  width: 100%;
+  padding: 0;
+  cursor: zoom-in;
+}
+
+button.crop:focus-visible {
+  outline: 2px solid var(--map-focus);
+  outline-offset: 2px;
+}
+
+.shot-open {
+  margin-left: 8px;
+  padding: 1px 8px;
+  border: 1px solid var(--map-border);
+  border-radius: 6px;
+  background: var(--map-card);
+  color: var(--map-quiet);
+  font: inherit;
+  text-transform: none;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+.shot-full {
+  max-width: none;
+  max-height: none;
+  padding: 10px;
+  border: 1px solid var(--map-border);
+  border-radius: 8px;
+  background: var(--map-card);
+  color: var(--map-foreground);
+}
+
+.shot-full::backdrop {
+  background: color-mix(in oklab, var(--map-foreground) 60%, transparent);
+}
+
+.shot-full-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 8px;
+}
+
+.shot-full-head button {
+  padding: 2px 10px;
+  border: 1px solid var(--map-border);
+  border-radius: 6px;
+  background: var(--map-card);
+  color: var(--map-foreground);
+  font: inherit;
+  cursor: pointer;
+}
+
+.shot-full img {
+  display: block;
+  height: auto;
+  border: 1px solid var(--map-border-subtle);
 }
 
 .shot-frame {
@@ -1024,10 +1234,6 @@ button {
     padding: 8px 12px;
   }
 
-  .crumbs {
-    padding: 6px 12px;
-  }
-
   .levels {
     flex: 1 1 100%;
   }
@@ -1046,20 +1252,6 @@ button {
   .doc-scroll,
   .read {
     padding: 4px 14px 32px;
-  }
-
-  .intro {
-    max-height: none;
-    padding: 8px 12px;
-  }
-
-  /* No room for both: the how-to comes with "Read more", and only the opened intro scrolls. */
-  .intro:has(.is-clamped) .how-to {
-    display: none;
-  }
-
-  .intro:not(:has(.is-clamped)) {
-    max-height: 50%;
   }
 
   .journeys {

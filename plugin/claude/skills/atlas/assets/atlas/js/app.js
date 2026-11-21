@@ -1,6 +1,6 @@
 /*
- * The viewer: one page, one nav (System, Code, Journeys, State machines, Dependencies) and a
- * breadcrumb under it on every page below the top. The route is the URL hash:
+ * The viewer: one page, one nav (System, Code, Journeys, State machines, Dependencies). A page below
+ * the top has a breadcrumb: floating over the map's corner, or the first line of the article. The route is the URL hash:
  *   #<level>[/<box>]        a level page, as a Map or as Read (Markdown); the header toggles
  *   #flows/<flow>           #machines   #dependencies   #journeys[/<journey>[/<step>]]
  *   #doc/<path>[/<fragment>] any repo path (Markdown, a file, a directory), full window over whatever was open
@@ -9,6 +9,7 @@
  */
 import {
   DEPENDENCIES_PAGE,
+  DOCUMENTS,
   MAP_DIR,
   NAV,
   STATE_MACHINES_INDEX,
@@ -19,16 +20,16 @@ import {
 import { paintEntry } from "./files.js";
 import { createJourneys } from "./journeys.js";
 import { createMap } from "./map.js";
-import { isDocPath, loadFailure, paintMarkdown } from "./markdown.js";
+import { docHash, isDocPath, loadFailure, paintMarkdown } from "./markdown.js";
 import { item, loadLevelPages, resolveParticipant } from "./pages.js";
-import { loadScreens, shotCrop } from "./screens.js";
+import { closeFull, loadScreens, shotCrop } from "./screens.js";
 import {
   currentTheme,
   el,
-  fetchPage,
   fetchRepoEntry,
   fetchRepoFile,
   onThemeChange,
+  panelButton,
   pinTheme,
 } from "./shell.js";
 
@@ -75,10 +76,14 @@ function parseHash() {
 }
 
 /** The history state: how many doc entries sit on top of the page the reader came from; `direct` when the first doc was opened with no page under it. */
-const stateNow = () => history.state ?? { docs: 0, direct: location.hash.startsWith("#doc/") };
+const stateNow = () => ({ docs: 0, direct: location.hash.startsWith("#doc/"), ...history.state });
 
-function go(hash, { replace = false } = {}) {
+let transition = null;
+function go(hash, { replace = false, transition: nextTransition = null } = {}) {
+  const shotOpen = closeFull();
   if (hash === location.hash) return;
+  replace ||= shotOpen; // the open screen's history entry is replaced, not left behind
+  transition = nextTransition;
   const prev = stateNow();
   const state = hash.startsWith("#doc/")
     ? { docs: prev.docs + 1, direct: prev.direct }
@@ -86,7 +91,10 @@ function go(hash, { replace = false } = {}) {
   history[replace ? "replaceState" : "pushState"](state, "", hash);
   render();
 }
-const nav = { go: (hash) => go(hash), replace: (hash) => go(hash, { replace: true }) };
+const nav = {
+  go: (hash, options) => go(hash, options),
+  replace: (hash) => go(hash, { replace: true }),
+};
 
 const home = () => `#${navLevels[0].id}`;
 /** Back: the previous doc, or the page the reader came from. */
@@ -105,12 +113,23 @@ document.addEventListener("click", (event) => {
   event.preventDefault();
   go(link.getAttribute("href"));
 });
-addEventListener("keydown", (event) => event.key === "Escape" && docView && close());
+addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || event.defaultPrevented || event.target.closest?.("dialog")) return;
+  if (docView) return close();
+  const route = parseHash();
+  const level = route.kind === "level" ? levels.get(route.id) : null;
+  const parent = level?.trail.at(-1);
+  if (parent) go(parent.hash, { transition: { direction: "up", box: parent.box } });
+});
 addEventListener("popstate", () => render());
 addEventListener("hashchange", () => render());
 onThemeChange(() => {
   baseKey = docKey = null;
   render();
+});
+const narrowScreen = matchMedia("(max-width: 719px)");
+narrowScreen.addEventListener("change", () => {
+  if (chrome.links) syncChrome(parseHash());
 });
 
 // ---- The page under the nav ----
@@ -125,6 +144,8 @@ let docKey = null;
 async function render() {
   const mine = ++seq;
   const r = parseHash();
+  const routeTransition = transition;
+  transition = null;
   if (r.kind === "doc") {
     showDoc(r);
     return;
@@ -144,7 +165,7 @@ async function render() {
   baseKey = null;
   host.className = "view";
   try {
-    const mounted = await mount(r);
+    const mounted = await mount(r, routeTransition);
     if (mine !== seq) return mounted.dispose();
     base = mounted;
     baseKey = key;
@@ -157,7 +178,7 @@ async function render() {
   }
 }
 
-async function mount(r) {
+async function mount(r, routeTransition) {
   if (r.kind === "journeys") {
     host.className = "view workspace";
     const journeys = await createJourneys(host, { nav, screens });
@@ -170,18 +191,52 @@ async function mount(r) {
     if (!level) throw new Error(`No map page called "${r.id}".`);
     if (mode === "map") {
       host.className = "view workspace";
-      const map = await createMap(host, { page: level.page, path: level.path, nav, screens });
+      const map = await createMap(host, {
+        page: level.page,
+        path: level.path,
+        nav,
+        screens,
+        transition: routeTransition,
+        crumbs: crumbs(level.trail, level.title),
+      });
       const update = (route) => map.select(route.box);
       update(r);
       return { update, dispose: map.dispose };
     }
-    return mountRead(level.path, r.box);
+    return mountRead(level.path, r.box, level.trail, level.title);
   }
-  return mountRead(r.path, r.fragment);
+  return mountRead(r.path, r.fragment, r.flow ? [{ title: NAV.journeys, hash: "#journeys" }] : []);
 }
 
-/** A page as Markdown, full width, diagrams inline; `target` is a heading id to scroll to. */
-async function mountRead(path, target) {
+/** `System › Server › conversation`: the trail to a page and its own name, or null at the top. */
+function crumbs(trail, current) {
+  if (!trail.length) return null;
+  return el(
+    "nav",
+    { class: "crumbs", "aria-label": "Breadcrumb" },
+    ...trail.flatMap((t) => [
+      el(
+        "a",
+        {
+          href: t.hash,
+          onclick: (event) => {
+            event.preventDefault();
+            go(t.hash, { transition: { direction: "up", box: t.box } });
+          },
+        },
+        t.title,
+      ),
+      "›",
+    ]),
+    el("span", { "aria-current": "page" }, current),
+  );
+}
+
+/**
+ * A page as Markdown, full width, diagrams inline; `target` is a heading id to scroll to. A page
+ * with a `trail` starts with its breadcrumb, above the title; `current` names it (else its title).
+ */
+async function mountRead(path, target, trail = [], current = null) {
   const article = el("article", { class: "md" });
   host.className = "view";
   const scroller = el("div", { class: "read" }, article);
@@ -194,7 +249,11 @@ async function mountRead(path, target) {
     await paintMarkdown(article, await fetchRepoFile(path), path, (holder, source) =>
       wireDiagram(holder, source, scrollTo),
     );
-    showShots(article, [...levels.values()].find((l) => l.path === path)?.page);
+    const level = [...levels.values()].find((l) => l.path === path)?.page;
+    const line = crumbs(trail, current ?? article.querySelector("h1")?.textContent ?? path);
+    if (line) article.prepend(line);
+    showView(article, level);
+    showShots(article, level);
   } catch (error) {
     article.replaceChildren(loadFailure(path, error));
   }
@@ -203,6 +262,12 @@ async function mountRead(path, target) {
 }
 
 /** Under the end of each box section of a level page `page`, the crop its `Shot` names. */
+function showView(article, page) {
+  if (!page?.view) return;
+  const heading = article.querySelector("h1");
+  if (heading) heading.append(el("span", { class: "view-kind" }, page.view));
+}
+
 function showShots(article, page) {
   for (const section of page?.sections ?? []) {
     const shot = item(section, "Shot");
@@ -347,6 +412,22 @@ function buildChrome() {
       .map((s) => ({ section: s, href: `#${s}`, label: NAV[s] })),
   ];
   chrome.links = new Map(links.map((l) => [l.section, el("a", { href: l.href }, l.label)]));
+  chrome.docs = DOCUMENTS.length
+    ? el(
+        "details",
+        { class: "docs-menu" },
+        el("summary", { class: "bar-link" }, "Docs"),
+        el(
+          "div",
+          { class: "docs-list" },
+          DOCUMENTS.map((doc) => {
+            const link = el("a", { href: docHash(doc.path) }, doc.title);
+            link.addEventListener("click", () => chrome.docs.removeAttribute("open"));
+            return link;
+          }),
+        ),
+      )
+    : null;
   chrome.modes = ["read", "map"].map((m) =>
     el(
       "button",
@@ -359,22 +440,32 @@ function buildChrome() {
     { class: "segmented", role: "group", "aria-label": "View" },
     chrome.modes,
   );
-  const theme = el("button", { type: "button", class: "text-button" });
-  const sync = () => (theme.textContent = currentTheme() === "dark" ? "Light theme" : "Dark theme");
+  const theme = el("button", {
+    type: "button",
+    class: "icon-button",
+    "aria-label": "Switch theme",
+    title: "Switch theme",
+  });
+  const sync = () => {
+    const dark = currentTheme() === "dark";
+    theme.textContent = dark ? "☀" : "☾";
+    theme.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+    theme.title = dark ? "Switch to light theme" : "Switch to dark theme";
+    theme.setAttribute("aria-pressed", String(dark));
+  };
   theme.addEventListener("click", () => pinTheme(currentTheme() === "dark" ? "light" : "dark"));
   onThemeChange(sync);
   sync();
-  chrome.crumbs = el("nav", { class: "crumbs", "aria-label": "Breadcrumb", hidden: true });
-  return [
-    el(
-      "header",
-      { class: "topbar" },
-      el("nav", { class: "levels", "aria-label": "Sections" }, [...chrome.links.values()]),
-      chrome.toggle,
-      theme,
-    ),
-    chrome.crumbs,
-  ];
+  const header = el(
+    "header",
+    { class: "topbar" },
+    el("nav", { class: "levels", "aria-label": "Sections" }, [...chrome.links.values()]),
+    chrome.docs,
+    chrome.toggle,
+    panelButton,
+    theme,
+  );
+  return [header];
 }
 
 function setMode(next) {
@@ -400,29 +491,10 @@ function syncChrome(r) {
     else a.removeAttribute("aria-current");
   }
   chrome.toggle.hidden = r.kind !== "level";
+  // The map and the journeys have a details panel; a page read as text has none.
+  panelButton.hidden = matchMedia("(max-width: 719px)").matches || !(r.kind === "journeys" || (level && mode === "map"));
   for (const b of chrome.modes) b.setAttribute("aria-pressed", String(b.dataset.mode === mode));
-  document.title = `${level?.page.title ?? "Atlas"} · ${TITLE}`;
-  syncCrumbs(r, level);
-}
-
-/** `System › Server › conversation` for a level below the top; `Journeys › <flow>` for a flow. */
-function syncCrumbs(r, level) {
-  const mine = seq;
-  const show = (trail, current) => {
-    chrome.crumbs.hidden = !trail.length;
-    chrome.crumbs.replaceChildren(
-      ...trail.flatMap((t) => [el("a", { href: t.hash }, t.title), "›"]),
-      el("span", { "aria-current": "page" }, current),
-    );
-  };
-  chrome.crumbs.hidden = true;
-  if (level?.trail.length) show(level.trail, level.title);
-  else if (r.flow)
-    fetchPage(r.path)
-      .then(
-        (page) => mine === seq && show([{ title: NAV.journeys, hash: "#journeys" }], page.title),
-      )
-      .catch(() => {});
+  document.title = `${level?.page.title ?? "Atlas"}${level?.page.view ? ` · ${level.page.view}` : ""} · ${TITLE}`;
 }
 
 // ---- Start ----
