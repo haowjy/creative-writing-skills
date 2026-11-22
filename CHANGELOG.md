@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [0.9.11] - 2026-11-22
+
+- Name agents without @; check_refs checks skills only; bundle meridian-base 0.18.1
+- Fit people who don't use Meridian; bundle meridian-base 0.18.3
+- Rebuild plugin with Mars 0.39.2; bundle meridian-base 0.18.4
+
 ## [0.9.10] - 2026-11-22
 
 - Name agents without @; check_refs checks skills only; bundle meridian-base 0.18.1
