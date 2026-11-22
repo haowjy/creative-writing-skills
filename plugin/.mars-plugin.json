@@ -2,7 +2,7 @@
   "schema_version": 1,
   "mars_version": "0.39.2",
   "plugin_name": "creative-writing-skills",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "inputs_hash": "sha256:6b71b3109bf4b3e589111a65b60969b79e7f1e572e01be753378a7c6ca81566c",
   "dependencies": {
     "meridian-base": {
@@ -15,7 +15,7 @@
     }
   },
   "files": {
-    "claude/.claude-plugin/plugin.json": "sha256:a8fec7e9144c3475f2da4a070e5ec99dd7c404d8e8f9a58b8b3946bd97a12b42",
+    "claude/.claude-plugin/plugin.json": "sha256:2bf2f633f13bd025736656995e44364ff07100ab7514b986f18da0ff3249aad0",
     "claude/agents/brainstormer.md": "sha256:131c75d94dd0885a1128fd96e5417ba2123a7c8ca2f5fdc3b82e6c8b64490992",
     "claude/agents/character-sim.md": "sha256:926a355adfd054199d40726c5471814fb91b3195ed97a8c987b36bad50ab688c",
     "claude/agents/cold-reader.md": "sha256:e690866e404b9d47ea3ea92b4e29f8d6d13c1ee4c4854d1d39757089d04295e3",
@@ -286,7 +286,7 @@
     "claude/skills/writing-sync/tests/test_unchanged.py": "sha256:9a995015896c35d1a2ed9e12df0b1ae5e3f345dd25d8005dcb83a009f11cfb07",
     "claude/skills/writing-sync/uv.lock": "sha256:fb68b9c104c1c15bca6dbe31e4468b3d463ba7da1c0b2cbe059159dfa8fa1eb9",
     "opencode/index.mjs": "sha256:d6716224a4afa7dc2498bb767a0922ec2d133218e763e299921eb617cad7b15e",
-    "opencode/package.json": "sha256:d800273ccf59302262f59adfc2c8d35931a535f5e667850a42c343d8af8581e4",
+    "opencode/package.json": "sha256:7b4916a8e9a23a03c7205f032e78e7a4c3aa661456f4afe1fbf00e2982698aa5",
     "opencode/skills/atlas/SKILL.md": "sha256:b25f6cc9efe7cfe70988661a43ac94aa3e34678acaafc5b7547cd6fb914b407d",
     "opencode/skills/atlas/assets/atlas/.context/CONTEXT.md": "sha256:fb1e53f71971306f71dc9e34cd56b318fda0726ab35eef6e7e87c17d8d333cdc",
     "opencode/skills/atlas/assets/atlas/AGENTS.md": "sha256:92017977882801bde44a1bb524fabfcefee58190add4a69e6e3a39d7080c43a8",
@@ -541,8 +541,8 @@
     "opencode/skills/writing-sync/uv.lock": "sha256:fb68b9c104c1c15bca6dbe31e4468b3d463ba7da1c0b2cbe059159dfa8fa1eb9"
   },
   "root_files": {
-    ".claude-plugin/marketplace.json": "sha256:56a7d5f1e420f495046d8e5797e1e42bac966d274cc33b14dc5d3293f1f245a1",
-    "package.json": "sha256:3ede76d6f6f13842f89fabc1b7221ba902254c6b7394b9ed114f67b10012406c"
+    ".claude-plugin/marketplace.json": "sha256:493da684ad5a9ba231ff3faabb88a11d243d5e52251de13e4f8a6d03a72256d5",
+    "package.json": "sha256:ee5b2be8342eaab1ecddb82dee4dccb6af247e799523a2d0ac6755f3439ac57d"
   },
   "root_directories": [
     ".claude-plugin"
