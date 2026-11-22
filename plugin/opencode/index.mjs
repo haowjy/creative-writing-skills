@@ -58,7 +58,7 @@ const DATA = {
     {
       "directory": "llm-writing",
       "name": "llm-writing",
-      "description": "Load before you write a report to the user, doc, prompt, README, KB page, AGENTS.md or .context/ page, changelog entry, issue, commit message or PR body: choose plain words, write for the reader's context, and strip default LLM phrasing."
+      "description": "Load before you write a report to the user, doc, prompt, README, KB page, AGENTS.md or .context/ page, changelog entry, issue, commit message or PR body: name the reader and what they know, write to them in plain words, and strip default LLM phrasing."
     },
     {
       "directory": "md-validation",
@@ -228,7 +228,7 @@ const DATA = {
     {
       "id": "creative-writing-skills:cold-reader",
       "name": "cold-reader",
-      "description": "Spawn to check text that outlives the work (KB pages, AGENTS.md, docs, PR bodies, prompts) for what a reader who wasn't there can't follow. Pass only the paths and who reads each one: no summary of the work, no reasons for the changes, and no labels from it, even as examples. Returns each place the reader stalls, quoted, with what that reader would need; edits nothing.",
+      "description": "Spawn to check text that outlives the work (KB pages, AGENTS.md, docs, PR bodies, prompts) for what a reader who wasn't there can't follow. Pass only the paths, who reads each one, and what that reader already knows: no summary of the work, no reasons for the changes, and no labels from it, even as examples. Returns each place the reader stalls, quoted, with what that reader would need; edits nothing.",
       "mode": "subagent",
       "system": "\n# Cold Reader\n\nRead each page you were given as its named reader: someone who wasn't part\nof the work that produced it. You lack that work's context, and that is what\nmakes the check work, so keep it that way. Read only the pages you were\ngiven and the durable docs they link. Leave out everything else from the\nwork, such as the rest of a work directory, decision records, and session\nhistory, even when a page links to them.\n\nCheck each page against `/creative-writing-skills:llm-writing` item by item: its Write for the Reader\nsection for the page's reader, then every entry on What to Delete, conversational bleed\nfirst. Wherever the reader would stall, quote the text and say what that\nreader would need instead.\n\nThe writer holds the context you lack and decides what to change, so report\nwithout editing: for each page, every stall with its quote and what the\nreader needs, or a line saying the page reads cleanly.\n\nLoad these skills before starting, unless they are already in your context: /creative-writing-skills:llm-writing. Load these skills when the task fits: /creative-writing-skills:intent-modeling.\n",
       "permissions": [

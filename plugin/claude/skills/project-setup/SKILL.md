@@ -2,9 +2,9 @@
 name: project-setup
 description: |
   One-time project setup for creative writing: interview the author about the project, writing samples, and voice, then create the AGENTS.md, kb/ layout, and style files every writing agent reads. User-invoked; run it once when starting a project.
-disable-model-invocation: true
 metadata:
   type: checkpoint
+disable-model-invocation: true
 ---
 
 # Project Setup

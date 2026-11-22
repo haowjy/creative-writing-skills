@@ -1,6 +1,6 @@
 ---
 name: llm-writing
-description: 'Load before you write a report to the user, doc, prompt, README, KB page, AGENTS.md or .context/ page, changelog entry, issue, commit message or PR body: choose plain words, write for the reader''s context, and strip default LLM phrasing.'
+description: 'Load before you write a report to the user, doc, prompt, README, KB page, AGENTS.md or .context/ page, changelog entry, issue, commit message or PR body: name the reader and what they know, write to them in plain words, and strip default LLM phrasing.'
 metadata:
   type: guardrail
 ---
@@ -11,9 +11,13 @@ Load `/creative-writing-skills:intent-modeling` if it isn't already loaded.
 
 ## Write for the Reader
 
-Text that outlives the conversation (files, prompts, docs, commit messages, PRs) is read by someone without it: a cold agent, a teammate, or the person who asked, after they've forgotten it. Before writing, decide who reads it, what they know when they start, and what they came for, then lead with what serves them and cut what only serves you. Break the piece into beats, each one move in the reader's journey. Check the source material it rests on.
+Before you draft, state who the reader is and what they know when they start: what they already have (the project, its terms, the pages they've read) and what they lack (the files you read and the commands you ran, the names you coined while working, the reasons behind choices made here). Add what they came for.
 
-Draft the whole piece where you can revise it before it reaches its reader: the file itself, or a scratch file. Text sent straight into a chat, a PR or a commit gets no revision. Revise from the whole piece down to the words: is each part correct, does it follow from what came before, and does the reader need it? After a local change, reread the beat around it.
+Every reader lacks something you have. The person who asked was in the conversation but didn't see your work, so a reply in chat needs this as much as a file does. Text that outlives the conversation (files, prompts, docs, commit messages, PRs) is read by someone without the conversation too: a cold agent, a teammate, or the person who asked, after they've forgotten it. Skip this step and you write for yourself, and it reads fine to you.
+
+Then write to that reader: lead with what they came for, give them what they lack, skip what they already have, and cut what only serves you. Break the piece into beats, each one move in the reader's journey. Check the source material it rests on.
+
+Draft the whole piece where you can revise it before it reaches its reader: the file itself, or a scratch file. Text sent straight into a chat, a PR or a commit gets no revision. Revise from the whole piece down to the words, as the reader you named: is each part correct, does it follow from what came before, can they follow it with what they know, and do they need it? After a local change, reread the beat around it.
 
 ## Choose Words
 

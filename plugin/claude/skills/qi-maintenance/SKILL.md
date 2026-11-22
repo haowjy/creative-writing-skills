@@ -1,9 +1,9 @@
 ---
 name: qi-maintenance
 description: Load on agents that make durable changes to a project's files, so the colocated AGENTS.md and .context/ docs stay true for the next cold agent.
-disable-model-invocation: true
 metadata:
   type: guardrail
+disable-model-invocation: true
 ---
 
 # Qi Maintenance

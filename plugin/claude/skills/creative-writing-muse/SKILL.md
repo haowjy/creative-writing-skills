@@ -2,9 +2,9 @@
 name: creative-writing-muse
 description: |
   Turn on to work with a creative partner who talks through your story, plans and drafts it in your voice, critiques and revises it, and keeps the project's memory, in one conversation.
-disable-model-invocation: true
 metadata:
   type: mode-shift
+disable-model-invocation: true
 ---
 
 # Creative Writing Muse

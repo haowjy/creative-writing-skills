@@ -1,6 +1,6 @@
 ---
 name: cold-reader
-description: 'Spawn to check text that outlives the work (KB pages, AGENTS.md, docs, PR bodies, prompts) for what a reader who wasn''t there can''t follow. Pass only the paths and who reads each one: no summary of the work, no reasons for the changes, and no labels from it, even as examples. Returns each place the reader stalls, quoted, with what that reader would need; edits nothing.'
+description: 'Spawn to check text that outlives the work (KB pages, AGENTS.md, docs, PR bodies, prompts) for what a reader who wasn''t there can''t follow. Pass only the paths, who reads each one, and what that reader already knows: no summary of the work, no reasons for the changes, and no labels from it, even as examples. Returns each place the reader stalls, quoted, with what that reader would need; edits nothing.'
 model: haiku
 skills:
 - creative-writing-skills:llm-writing
